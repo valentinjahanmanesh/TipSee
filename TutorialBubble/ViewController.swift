@@ -1,4 +1,126 @@
 //
+//  ViewController.swift
+//  TutorialBubble
+//
+//  Created by Farshad Jahanmanesh on 7/2/19.
+//  Copyright © 2019 Farshad Jahanmanesh. All rights reserved.
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+    @IBOutlet weak var bigBottomButton : UIButton!
+    @IBOutlet weak var noConstraintsButton : UIButton!
+    @IBOutlet weak var transformedButton : UIButton!
+    @IBOutlet weak var pugImage : UIView!
+    @IBOutlet weak var pugName : UIView!
+    @IBOutlet weak var pugDescrription : UIView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        bigBottomButton.titleLabel?.lineBreakMode = .byWordWrapping
+        bigBottomButton.titleLabel?.numberOfLines = 0
+        transformedButton.transform = CGAffineTransform.identity
+            .rotated(by: 45)
+    }
+    
+    func showHints(){
+        // configure our hint view
+        let hint = HintPointer(on: self.view.window!)
+        hint.options(HintPointer.Options
+            .default()
+            .with {
+                $0.bubbleLiveDuration = .untilNext
+        })
+        
+        let pugLoveConfig = HintPointer.Options.Bubble
+            .default()
+            .with{
+                $0.backgroundColor = .clear
+                $0.foregroundColor = .black
+                $0.textAlignments = .left
+                $0.padding = UIEdgeInsets.init(top: 0, left: 16, bottom: 0, right: 16)
+                $0.position = .top
+        }
+        
+        let image = UIImageView(image: #imageLiteral(resourceName: "heart-like.png"))
+        image.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+        image.contentMode = .scaleAspectFit
+        image.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        image.heightAnchor.constraint(equalTo: image.widthAnchor, multiplier: 1).isActive = true
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            hint.show(item: HintPointer.HintItem.init(ID: "100", pointTo: self.pugImage, showView: image),with: pugLoveConfig)
+        }
+        
+        let pugDescriptionConfig = HintPointer.Options.Bubble
+            .default()
+            .with{
+                $0.backgroundColor = UIColor.purple
+                $0.foregroundColor = UIColor.white
+                $0.position = .left
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            hint.show(item: (self.pugImage,"best dog ever <3 <3 ^_^ ^_^"),with: pugDescriptionConfig.with{$0.position = .right})
+        }
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+            hint.show(item: (self.pugName,"my name is leo ^_^"),with: pugDescriptionConfig.with{
+                $0.position = .top
+                $0.backgroundColor = UIColor(displayP3Red: 0.451, green: 0.807, blue: 0.317, alpha: 1)
+            })
+        }
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+            hint.show(item: (self.pugDescrription,"i am single and looking for my soulmate"),with: pugDescriptionConfig.with{
+                $0.position = .bottom
+                $0.backgroundColor = UIColor(displayP3Red: 0.451, green: 0.807, blue: 0.317, alpha: 1)
+            })
+        }
+        
+        
+        let tranformedViewsBubbleConfig = HintPointer.Options.Bubble
+            .default()
+            .with{
+                $0.backgroundColor = .black
+                $0    .foregroundColor = .white
+                $0    .textAlignments = .left
+                $0    .position =  .right
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
+            hint.show(item: (self.transformedButton,"without animation."),with: tranformedViewsBubbleConfig.with{$0.position = .left})
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            hint.show(item: (self.noConstraintsButton,"hi!"),with:tranformedViewsBubbleConfig.with{$0.backgroundColor = .red})
+            
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+12) {
+            hint.show(item: (self.bigBottomButton,"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی "),with: tranformedViewsBubbleConfig)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 16) {
+            hint.finish()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let timer =  Timer.scheduledTimer(withTimeInterval: 17, repeats: true) { (t) in
+            self.showHints()
+        }
+        timer.fire()
+    }
+    
+    
+}
+//
 //  BubbleView.swift
 //  Core
 //
@@ -15,12 +137,11 @@ public protocol HintItems: Equatable {
     var bubbleOptions: HintPointer.Options.Bubble? {get set}
 }
 
-public class HintPointer: UIView {
+public class HintPointer: UIView, HintPointerManagerProtocol {
     /// properties
     public var options: Options = Options.default()
     private var shadowLayerPath: CGPath?
-    private unowned var viewController: UIViewController
-    public typealias StringsForViews = (pointTo: UIView, showText: String)
+    private unowned var _window: UIWindow
     private var views = [HintItem]()
     private var bubbles = [BubbleView]()
     public var bubbleTap: ((HintItem?) -> Void)?
@@ -31,11 +152,11 @@ public class HintPointer: UIView {
     ///   - item: the view that we want to point at and a text for bubble
     ///   - bubbleOption: custom options for bubble
     /// - Returns: generated item that can use to access to views or dismiss action
-    @discardableResult public func show(item: StringsForViews, with bubbleOption: Options.Bubble? = nil) -> HintItem {
+    @discardableResult public func show(item: StringForView, with bubbleOption: Options.Bubble? = nil) -> HintItem {
         let viewToShow = createItem(item: item, with: bubbleOption)
         return self.show(item: viewToShow, with: bubbleOption)
     }
-    @discardableResult public func createItem(item: StringsForViews, with bubbleOption: Options.Bubble? = nil) -> HintItem {
+    @discardableResult public func createItem(item: StringForView, with bubbleOption: Options.Bubble? = nil) -> HintItem {
         return  HintItem.init(ID: UUID().uuidString, pointTo: item.pointTo, showView: createLabel(for: item.showText, with: bubbleOption) as UIView, bubbleOptions: bubbleOption)
     }
     
@@ -68,10 +189,8 @@ public class HintPointer: UIView {
     
     private func setupBackgroundDim() {
         if views.isEmpty {
-            
-            UIApplication.shared.keyWindow!.addSubview(self)
-            UIApplication.shared.keyWindow!.bringSubviewToFront(self)
-            //self.viewController.view.addSubview(self)
+            _window.addSubview(self)
+            _window.bringSubviewToFront(self)
             self.setHintConstraints()
         }
     }
@@ -150,12 +269,11 @@ public class HintPointer: UIView {
         self.cutHole(for: pathBigRect.cgPath, startPoint: startPoint)
     }
     //    private var mainWindow: UIWindow!
-    public init(on vc: UIViewController) {
-        self.viewController = vc
+    public init(on window: UIWindow) {
+        self._window = window
         super.init(frame: .zero)
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapDim(_:)))
         self.addGestureRecognizer(tap)
-        assert(vc.view.window != nil)
     }
     @objc
     private func tapDim(_ sender: UITapGestureRecognizer) {
@@ -263,19 +381,19 @@ public class HintPointer: UIView {
         
         var left = options.safeAreaInsets.left + options.bubbles.padding.right + 16
         
-        var right = viewController.view.bounds.width - (options.safeAreaInsets.right + options.bubbles.padding.left + 16)
+        var right = _window.bounds.width - (options.safeAreaInsets.right + options.bubbles.padding.left + 16)
         
         var top = options.safeAreaInsets.top + options.bubbles.padding.bottom + 16
         
-        var bottom = viewController.view.bounds.height - ( options.safeAreaInsets.bottom + options.bubbles.padding.top + 16)
+        var bottom = _window.bounds.height - ( options.safeAreaInsets.bottom + options.bubbles.padding.top + 16)
         if #available(iOS 11.0, *) {
-            bottom = viewController.view.bounds.height - (viewController.view.safeAreaInsets.bottom + options.safeAreaInsets.bottom + options.bubbles.padding.top + 16)
+            bottom = _window.bounds.height - (_window.safeAreaInsets.bottom + options.safeAreaInsets.bottom + options.bubbles.padding.top + 16)
             
-            top = options.safeAreaInsets.top + options.bubbles.padding.bottom + 16 + viewController.view.safeAreaInsets.top
+            top = options.safeAreaInsets.top + options.bubbles.padding.bottom + 16 + _window.safeAreaInsets.top
             
-            right = viewController.view.bounds.width - (viewController.view.safeAreaInsets.right + options.safeAreaInsets.right + options.bubbles.padding.left + 16)
+            right = _window.bounds.width - (_window.safeAreaInsets.right + options.safeAreaInsets.right + options.bubbles.padding.left + 16)
             
-            left = options.safeAreaInsets.left + options.bubbles.padding.right + 16 + viewController.view.safeAreaInsets.left
+            left = options.safeAreaInsets.left + options.bubbles.padding.right + 16 + _window.safeAreaInsets.left
         }
         
         edges.append((.left, reletivePosition.minX > left))
@@ -308,7 +426,7 @@ public class HintPointer: UIView {
         
         //if view.transform != .identity {
         let targetFrame  = CGRect(origin: view.superview!.convert(view.frame.origin, to: nil), size: view.frame.size)
-        let controllerSize = self.viewController.view.frame.size
+        let controllerSize = self._window.bounds.size
         switch position {
         case .left:
             arrowPoint = .right
@@ -337,57 +455,14 @@ public class HintPointer: UIView {
         return arrowPoint
         //}
         
-        bubble.translatesAutoresizingMaskIntoConstraints = false
-        switch position {
-        case .top, .bottom:
-            var TopOrBottomConstraints = bubble.topAnchor.constraint(equalTo: view.bottomAnchor, constant: padding.top)
-            arrowPoint = .top
-            if position == .top {
-                arrowPoint = .bottom
-                TopOrBottomConstraints = bubble.bottomAnchor.constraint(equalTo: view.topAnchor, constant: -padding.bottom)
-            }
-            let trailing = bubble.rightAnchor.constraint(lessThanOrEqualTo: viewController.view.rightAnchor, constant: -padding.right)
-            let leading = bubble.leftAnchor.constraint(greaterThanOrEqualTo: viewController.view.leftAnchor, constant: padding.left)
-            let midX = bubble.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-            midX.priority = .defaultLow
-            
-            NSLayoutConstraint.activate([leading, trailing, TopOrBottomConstraints, midX])
-            
-        case .left, .right:
-            var leading = bubble.leftAnchor.constraint(equalTo: view.rightAnchor, constant: padding.left)
-            var trailing =  bubble.rightAnchor.constraint(lessThanOrEqualTo: viewController.view.rightAnchor, constant: -padding.right)
-            arrowPoint = .left
-            if position == .left {
-                arrowPoint = .right
-                leading = bubble.rightAnchor.constraint(equalTo: view.leftAnchor, constant: -padding.right)
-                trailing =  bubble.leftAnchor.constraint(greaterThanOrEqualTo: viewController.view.leftAnchor, constant: padding.left)
-            }
-            
-            let midY =   bubble.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-            let top = bubble.topAnchor.constraint(greaterThanOrEqualTo: viewController.view.topAnchor, constant: -padding.top)
-            
-            let bottom = bubble.bottomAnchor.constraint(lessThanOrEqualTo: viewController.view.bottomAnchor, constant: -padding.bottom)
-            
-            NSLayoutConstraint.activate([leading, top, bottom, midY, trailing])
-        default:
-            break
-        }
-        self.viewController.view.setNeedsUpdateConstraints()
-        self.viewController.view.layoutIfNeeded()
         return arrowPoint
     }
     
     /// sets the constrraints for main view (container view)
     private func setHintConstraints() {
         // My Constraints
-        if let window = viewController.view.window {
-            window.addSubview(self)
-        }
-        //        self.translatesAutoresizingMaskIntoConstraints = false
-        //        self.topAnchor.constraint(equalTo: self.viewController.view.topAnchor).isActive = true
-        //        self.rightAnchor.constraint(equalTo: self.viewController.view.rightAnchor).isActive = true
-        //        self.bottomAnchor.constraint(equalTo: self.viewController.view.bottomAnchor).isActive = true
-        //        self.leftAnchor.constraint(equalTo: self.viewController.view.leftAnchor).isActive = true
+        _window.addSubview(self)
+        
     }
     private var holeLayer: CAShapeLayer?
     private func cutHole(for path: CGPath, startPoint: CGPoint? = nil) {
@@ -401,11 +476,11 @@ public class HintPointer: UIView {
         
         guard let shadowPath = self.layer.sublayers?[0] as? CAShapeLayer else {
             self.layer.insertSublayer(fillLayer, at: 0)
-            let height =  2 * max(viewController.view.frame.width, viewController.view.frame.height)
+            let height =  2 * max(_window.bounds.width, _window.bounds.height)
             var circleRect = CGRect(origin: startPoint  ?? .zero, size: .init(width: height, height: height))
             circleRect.origin.x -= height / 2
             circleRect.origin.y -= height / 2
-            let base = UIBezierPath(rect: viewController.view.frame)
+            let base = UIBezierPath(rect: _window.bounds)
             
             base.append( UIBezierPath(roundedRect: circleRect, cornerRadius: height / 2))
             base.usesEvenOddFillRule = true
@@ -704,7 +779,7 @@ extension HintPointer {
         }
         
         let currentHoles = UIBezierPath(cgPath: shadowLayerPath)
-        currentHoles.append(UIBezierPath(rect: viewController.view.bounds).reversing())
+        currentHoles.append(UIBezierPath(rect: _window.bounds).reversing())
         let isInTheActionable = currentHoles.cgPath.contains(point)
         if isInTheActionable {
             self.finish()
@@ -741,7 +816,7 @@ extension HintPointer {
         }
         var ID: ID
         public unowned var pointTo: UIView
-        public unowned  var showView: UIView
+        public var showView: UIView
         public var bubbleOptions: HintPointer.Options.Bubble?
         public init(ID: String, pointTo: UIView, showView: UIView) {
             self.ID  = ID
@@ -815,3 +890,62 @@ extension UITapGestureRecognizer {
         }
     }
 }
+
+public typealias StringForView = (pointTo: UIView, showText: String)
+public protocol HintPointerManagerProtocol {
+    /// removes the given item
+    ///
+    /// - Parameter item: item to remove
+    func dismiss(item: HintPointer.HintItem)
+    
+    @discardableResult
+    func show(item: StringForView, with bubbleOption: HintPointer.Options.Bubble?)->HintPointer.HintItem
+    
+    @discardableResult
+    func createItem(item: StringForView, with bubbleOption: HintPointer.Options.Bubble?) -> HintPointer.HintItem
+    
+    /// shows a bubble which points to the given view
+    ///
+    /// - Parameters:
+    ///   - item: the view that you want to point at and a view that will show inside the bubble
+    ///   - bubbleOption: custom options for bubble
+    /// - Returns: generated item that can use to access to views or dismiss action
+    @discardableResult
+    func show(item: HintPointer.HintItem, with bubbleOption: HintPointer.Options.Bubble?) -> HintPointer.HintItem
+    func finish()
+}
+
+
+//
+//class HintPointerManager: HintPointerManagerProtocol {
+//    /// removes the given item
+//    ///
+//    /// - Parameter item: item to remove
+//    public func dismiss(item: HintPointer.HintItem) {
+//        self.hintView.dismiss(item: item)
+//    }
+//    func finish() {
+//        self.hintView.finish()
+//    }
+//
+//    func show(item: StringForView, with bubbleOption: HintPointer.Options.Bubble?) -> HintPointer.HintItem {
+//        return  hintView.show(item: item, with: bubbleOption)
+//    }
+//
+//    func createItem(item: StringForView, with bubbleOption: HintPointer.Options.Bubble?) -> HintPointer.HintItem {
+//        return hintView.createItem(item: item, with: bubbleOption)
+//    }
+//
+//    func show(item: HintPointer.HintItem, with bubbleOption: HintPointer.Options.Bubble?) -> HintPointer.HintItem {
+//        return hintView.show(item: item, with: bubbleOption)
+//    }
+//
+//    private var hintView: HintPointer
+//    private init(on window: UIWindow) {
+//        self.hintView = HintPointer(on: window)
+//    }
+//}
+//
+//extension UIViewController {
+//
+//}
