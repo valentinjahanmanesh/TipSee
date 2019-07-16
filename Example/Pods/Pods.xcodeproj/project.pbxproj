@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26C85E4ABF2D40A57635D6523BE202C8 /* TipC-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A15750BF674A255B9006ACDFAB153D80 /* TipC-dummy.m */; };
 		350E3676D7F9C975B5075F290E9917A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		3EBA145DAA52B56435E88206DBC0245C /* Pods-TipC_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B90035A037075EC5C9AC4A5B1DE4B62 /* Pods-TipC_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5509C5B5A2139FE9EB624AAD98A580C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		5C70ADAA9E9C2FCB154D4DEA38423C04 /* Pods-TipC_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F54C1A19742533662A7EF86E9DA8F98 /* Pods-TipC_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		74AB45B7FB25567A9FD38453B6A929E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
 		75939A5A65E34DC2F8F22E4CFB2BE57F /* Pods-TipC_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CAFACC3977FDBEB83C038143B578CC /* Pods-TipC_Tests-dummy.m */; };
-		87A3C02B22DDCD2C0014C8E0 /* HintPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A3C02A22DDCD2C0014C8E0 /* HintPointer.swift */; };
 		B5CF56AF0C34886232C93160A4FC56D1 /* Pods-TipC_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F7E1ED1D4768E13A18803CC9069B3 /* Pods-TipC_Example-dummy.m */; };
 		E55B648023299C2CE57958AF569907EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		EEFCFA9BF94EF2A95DDF445D4D3C3359 /* TipC-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF136D5EDDF0E722D21310D424CC2AE /* TipC-dummy.m */; };
-		F477FBE187E362AB6ED1460D2A84CA36 /* TipC-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CA4B1B3125391C229236ADE539028DA4 /* TipC-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F1644F69BB42FB527D52835E74D2987A /* HintPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1946ED5F14130360B60D45A726951A /* HintPointer.swift */; };
+		F477FBE187E362AB6ED1460D2A84CA36 /* TipC-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E3FE1D5E7BC02E8C51DAB6E7C28157A /* TipC-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,39 +38,39 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0155EC2D25D361A722BDB575483C4DEE /* Pods_TipC_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TipC_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0155EC2D25D361A722BDB575483C4DEE /* Pods_TipC_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TipC_Tests.framework; path = "Pods-TipC_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07C050831ED5A603196DE024E2DDD457 /* Pods-TipC_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TipC_Tests-Info.plist"; sourceTree = "<group>"; };
-		0C2946ECA04243767AD704F1DFB5EAB8 /* TipC.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TipC.modulemap; sourceTree = "<group>"; };
-		1F5C6D5CCD04CE96B0D8DB62112D663E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		27A8E5DC09FAAFA38B55B20DB3D48E3C /* Pods_TipC_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TipC_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E1946ED5F14130360B60D45A726951A /* HintPointer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HintPointer.swift; path = TipC/Classes/HintPointer.swift; sourceTree = "<group>"; };
+		27A8E5DC09FAAFA38B55B20DB3D48E3C /* Pods_TipC_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TipC_Example.framework; path = "Pods-TipC_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DD82C547AC2856BBD285A92A89758C /* Pods-TipC_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TipC_Example.modulemap"; sourceTree = "<group>"; };
 		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		3A50300211A9E3126F6F2093F633A0A6 /* Pods-TipC_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TipC_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		3E3FE1D5E7BC02E8C51DAB6E7C28157A /* TipC-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TipC-umbrella.h"; sourceTree = "<group>"; };
 		4153A885FA59AE1C096D58094271F49F /* Pods-TipC_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TipC_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		415FE2F08CE85178B793025DEF79625A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		488DCF7CFDA2144FF5DF97A7E1B25CCC /* TipC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TipC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4661DBD6D4E56013B2B08ABE4A15A4F7 /* TipC-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TipC-Info.plist"; sourceTree = "<group>"; };
+		488DCF7CFDA2144FF5DF97A7E1B25CCC /* TipC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TipC.framework; path = TipC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		579F9C99CDE20A037F99BCFF632D0BFC /* Pods-TipC_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TipC_Example.release.xcconfig"; sourceTree = "<group>"; };
-		5A808581FC10AF6C431E5E015322C239 /* TipC-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TipC-prefix.pch"; sourceTree = "<group>"; };
 		5DB4BA17AD6D4AAD924B3142DD47FCA2 /* Pods-TipC_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TipC_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		6F54C1A19742533662A7EF86E9DA8F98 /* Pods-TipC_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TipC_Example-umbrella.h"; sourceTree = "<group>"; };
 		706F7E1ED1D4768E13A18803CC9069B3 /* Pods-TipC_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TipC_Example-dummy.m"; sourceTree = "<group>"; };
-		85B35732486E404B04CF5B2103F0FAE7 /* TipC-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TipC-Info.plist"; sourceTree = "<group>"; };
-		87A3C02A22DDCD2C0014C8E0 /* HintPointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HintPointer.swift; path = ../TipC/Classes/HintPointer.swift; sourceTree = "<group>"; };
+		7F5B21BAD8998302F6DDBC830A3C7BB3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		8C51EA2B42C4DEA2BE5193BD0EEB3D8F /* Pods-TipC_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TipC_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		8DA37491F48EECE8D8C6658201701BB1 /* TipC-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TipC-prefix.pch"; sourceTree = "<group>"; };
 		9321A30CD7B5638ADA16B0B1532806A9 /* Pods-TipC_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TipC_Tests.modulemap"; sourceTree = "<group>"; };
-		9345AFDD2E8C2ABBECEED84AF34AC9B2 /* TipC.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TipC.xcconfig; sourceTree = "<group>"; };
 		96CAFACC3977FDBEB83C038143B578CC /* Pods-TipC_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TipC_Tests-dummy.m"; sourceTree = "<group>"; };
 		99A82FA1D8E3FD6A24D9D98B1B51E80B /* Pods-TipC_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TipC_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		9B90035A037075EC5C9AC4A5B1DE4B62 /* Pods-TipC_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TipC_Tests-umbrella.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A15750BF674A255B9006ACDFAB153D80 /* TipC-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TipC-dummy.m"; sourceTree = "<group>"; };
+		ADE9B80C949B7A39D5A796C1808A4EC6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		B782587A67D7D212651D45986C5A8DCB /* Pods-TipC_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TipC_Example-Info.plist"; sourceTree = "<group>"; };
-		BFF136D5EDDF0E722D21310D424CC2AE /* TipC-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TipC-dummy.m"; sourceTree = "<group>"; };
-		CA4B1B3125391C229236ADE539028DA4 /* TipC-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TipC-umbrella.h"; sourceTree = "<group>"; };
 		CB298B3058E20FDF22DF1B5ED880E912 /* Pods-TipC_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TipC_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		CB51226C015DD75AAB244D2F3EE448D8 /* Pods-TipC_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TipC_Example-frameworks.sh"; sourceTree = "<group>"; };
-		F56BB623CD431CC6A1657081C44B1286 /* TipC.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = TipC.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D6682679E4111FD176106D8402777D1E /* TipC.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TipC.xcconfig; sourceTree = "<group>"; };
+		F2F32EF4914A76276A4FD3A238CA6166 /* TipC.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = TipC.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F8EF666F0B4F544756F23E5E5B855843 /* Pods-TipC_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TipC_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		FD8158892CF15DC83086880FCB6936E2 /* TipC.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TipC.modulemap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,31 +102,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0E158F873F1CAEBEEC2A5819937281E1 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				0C2946ECA04243767AD704F1DFB5EAB8 /* TipC.modulemap */,
-				9345AFDD2E8C2ABBECEED84AF34AC9B2 /* TipC.xcconfig */,
-				BFF136D5EDDF0E722D21310D424CC2AE /* TipC-dummy.m */,
-				85B35732486E404B04CF5B2103F0FAE7 /* TipC-Info.plist */,
-				5A808581FC10AF6C431E5E015322C239 /* TipC-prefix.pch */,
-				CA4B1B3125391C229236ADE539028DA4 /* TipC-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/TipC";
-			sourceTree = "<group>";
-		};
-		12F9C1BDFAFEBEB406F8E12A15E458CF /* TipC */ = {
-			isa = PBXGroup;
-			children = (
-				87A3C02C22DDCD750014C8E0 /* Classes */,
-				E054D3F5701CE7B632660DC825BDD1BF /* Pod */,
-				0E158F873F1CAEBEEC2A5819937281E1 /* Support Files */,
-			);
-			name = TipC;
-			path = ../..;
-			sourceTree = "<group>";
-		};
 		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +120,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		3653CB92F31706AF044946EF53267AFD /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				7F5B21BAD8998302F6DDBC830A3C7BB3 /* LICENSE */,
+				ADE9B80C949B7A39D5A796C1808A4EC6 /* README.md */,
+				F2F32EF4914A76276A4FD3A238CA6166 /* TipC.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
 		3F896659104A04F5E5E0C9E1260C1249 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +137,17 @@
 				A69F593F1E89480B28C8B1BE8EA2311C /* Pods-TipC_Tests */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		60F39A4FC2BC07872E4A8B3EEB456FE9 /* TipC */ = {
+			isa = PBXGroup;
+			children = (
+				1E1946ED5F14130360B60D45A726951A /* HintPointer.swift */,
+				3653CB92F31706AF044946EF53267AFD /* Pod */,
+				DAA0746C0158CFBA001AF3BF1A4562C9 /* Support Files */,
+			);
+			name = TipC;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		731D282540663EEFC76797E486D8E6FA /* Pods-TipC_Example */ = {
@@ -171,18 +167,10 @@
 			path = "Target Support Files/Pods-TipC_Example";
 			sourceTree = "<group>";
 		};
-		87A3C02C22DDCD750014C8E0 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				87A3C02A22DDCD2C0014C8E0 /* HintPointer.swift */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		8A3916CED71D1ED67249A969E93B577A /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				12F9C1BDFAFEBEB406F8E12A15E458CF /* TipC */,
+				60F39A4FC2BC07872E4A8B3EEB456FE9 /* TipC */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -214,14 +202,18 @@
 			);
 			sourceTree = "<group>";
 		};
-		E054D3F5701CE7B632660DC825BDD1BF /* Pod */ = {
+		DAA0746C0158CFBA001AF3BF1A4562C9 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				415FE2F08CE85178B793025DEF79625A /* LICENSE */,
-				1F5C6D5CCD04CE96B0D8DB62112D663E /* README.md */,
-				F56BB623CD431CC6A1657081C44B1286 /* TipC.podspec */,
+				FD8158892CF15DC83086880FCB6936E2 /* TipC.modulemap */,
+				D6682679E4111FD176106D8402777D1E /* TipC.xcconfig */,
+				A15750BF674A255B9006ACDFAB153D80 /* TipC-dummy.m */,
+				4661DBD6D4E56013B2B08ABE4A15A4F7 /* TipC-Info.plist */,
+				8DA37491F48EECE8D8C6658201701BB1 /* TipC-prefix.pch */,
+				3E3FE1D5E7BC02E8C51DAB6E7C28157A /* TipC-umbrella.h */,
 			);
-			name = Pod;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/TipC";
 			sourceTree = "<group>";
 		};
 		E2983683FD097A93297E2F5D4E382B36 /* iOS */ = {
@@ -287,7 +279,7 @@
 			buildConfigurationList = 135F41CD2718C7BBE82EAD395E4D5757 /* Build configuration list for PBXNativeTarget "TipC" */;
 			buildPhases = (
 				9C5FC6A352625DC8C173236355BC57C3 /* Headers */,
-				237866A87B707DE85A7143BB354B0673 /* Sources */,
+				063A410A882A7DAB9BBA392D036A894D /* Sources */,
 				5A795D04CBCA65F19980333B627437F1 /* Frameworks */,
 				A389FFC29D53F8ECF2A16B682E63A555 /* Resources */,
 			);
@@ -380,12 +372,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		237866A87B707DE85A7143BB354B0673 /* Sources */ = {
+		063A410A882A7DAB9BBA392D036A894D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87A3C02B22DDCD2C0014C8E0 /* HintPointer.swift in Sources */,
-				EEFCFA9BF94EF2A95DDF445D4D3C3359 /* TipC-dummy.m in Sources */,
+				F1644F69BB42FB527D52835E74D2987A /* HintPointer.swift in Sources */,
+				26C85E4ABF2D40A57635D6523BE202C8 /* TipC-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,9 +407,9 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0AD59E6D69FEA3A1C119E02C2379CD1E /* Debug */ = {
+		3CD58EDB617EC672FE978E68E2876C29 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9345AFDD2E8C2ABBECEED84AF34AC9B2 /* TipC.xcconfig */;
+			baseConfigurationReference = D6682679E4111FD176106D8402777D1E /* TipC.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -439,16 +431,16 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		3ECD9980D8ED1F00CF771FF5A51C59FA /* Release */ = {
+		4449E34DC947815A32CABD0BB918B9AE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9345AFDD2E8C2ABBECEED84AF34AC9B2 /* TipC.xcconfig */;
+			baseConfigurationReference = D6682679E4111FD176106D8402777D1E /* TipC.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -470,7 +462,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -665,7 +657,8 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -750,8 +743,8 @@
 		135F41CD2718C7BBE82EAD395E4D5757 /* Build configuration list for PBXNativeTarget "TipC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0AD59E6D69FEA3A1C119E02C2379CD1E /* Debug */,
-				3ECD9980D8ED1F00CF771FF5A51C59FA /* Release */,
+				3CD58EDB617EC672FE978E68E2876C29 /* Debug */,
+				4449E34DC947815A32CABD0BB918B9AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
