@@ -1,5 +1,5 @@
 PODS:
-  - TipC (1.0.0)
+  - TipC (1.0.1)
 
 DEPENDENCIES:
   - TipC (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  TipC: b7ebae05a4940abf076aaffcd023bc7101afdc98
+  TipC: 519fe8c92d03c943eebbddd3ccb0fca543c6d7bc
 
 PODFILE CHECKSUM: d1b28e0275ea2988266951631e005ee3df9479ac
 
