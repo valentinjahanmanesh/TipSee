@@ -67,7 +67,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
     private func setupBackgroundDim() {
         if views.isEmpty {
             _window.addSubview(self)
-            _window.bringSubview(toFront: self)
+            _window.bringSubviewToFront(self)
             self.setHintConstraints()
         }
     }
@@ -346,7 +346,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
         
         let fillLayer = CAShapeLayer()
         
-        fillLayer.fillRule = kCAFillRuleEvenOdd
+        fillLayer.fillRule = CAShapeLayerFillRule.evenOdd
         fillLayer.fillColor = options.dimColor.cgColor
         
         //fillLayer.opacity = 0.7
@@ -396,7 +396,7 @@ private func basicAnimation(key: String, duration: TimeInterval) -> CABasicAnima
     let animation = CABasicAnimation(keyPath: key)
     animation.duration = duration
     animation.isRemovedOnCompletion = false
-    animation.fillMode = kCAFillModeForwards
+    animation.fillMode = CAMediaTimingFillMode.forwards
     return animation
 }
 
