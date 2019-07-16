@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'TipC_Example' do
+  pod 'TipC', :path => '../'
+
+  target 'TipC_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

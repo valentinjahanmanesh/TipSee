@@ -1,0 +1,6 @@
+framework module Pods_TipC_Tests {
+  umbrella header "Pods-TipC_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
