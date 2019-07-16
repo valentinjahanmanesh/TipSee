@@ -56,7 +56,7 @@
 		6F54C1A19742533662A7EF86E9DA8F98 /* Pods-TipC_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TipC_Example-umbrella.h"; sourceTree = "<group>"; };
 		706F7E1ED1D4768E13A18803CC9069B3 /* Pods-TipC_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TipC_Example-dummy.m"; sourceTree = "<group>"; };
 		85B35732486E404B04CF5B2103F0FAE7 /* TipC-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TipC-Info.plist"; sourceTree = "<group>"; };
-		87A3C02A22DDCD2C0014C8E0 /* HintPointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintPointer.swift; sourceTree = "<group>"; };
+		87A3C02A22DDCD2C0014C8E0 /* HintPointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HintPointer.swift; path = ../TipC/Classes/HintPointer.swift; sourceTree = "<group>"; };
 		8C51EA2B42C4DEA2BE5193BD0EEB3D8F /* Pods-TipC_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TipC_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		9321A30CD7B5638ADA16B0B1532806A9 /* Pods-TipC_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TipC_Tests.modulemap"; sourceTree = "<group>"; };
 		9345AFDD2E8C2ABBECEED84AF34AC9B2 /* TipC.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TipC.xcconfig; sourceTree = "<group>"; };
