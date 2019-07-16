@@ -1,0 +1,6 @@
+framework module Pods_TipC_Example {
+  umbrella header "Pods-TipC_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
