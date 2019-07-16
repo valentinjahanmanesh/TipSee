@@ -1,0 +1,6 @@
+framework module TipC {
+  umbrella header "TipC-umbrella.h"
+
+  export *
+  module * { export * }
+}

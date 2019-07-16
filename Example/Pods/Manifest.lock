@@ -1,0 +1,16 @@
+PODS:
+  - TipC (1.0.0)
+
+DEPENDENCIES:
+  - TipC (from `../`)
+
+EXTERNAL SOURCES:
+  TipC:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  TipC: b7ebae05a4940abf076aaffcd023bc7101afdc98
+
+PODFILE CHECKSUM: d1b28e0275ea2988266951631e005ee3df9479ac
+
+COCOAPODS: 1.7.2
