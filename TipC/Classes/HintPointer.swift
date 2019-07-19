@@ -17,12 +17,13 @@ public protocol HintItems: Equatable {
 public class HintPointer: UIView, HintPointerManagerProtocol {
     /// properties
     public var options: Options = Options.default()
-    private var shadowLayerPath: CGPath?
-    private unowned var _window: UIWindow
-    private var views = [HintItem]()
-    private var bubbles = [BubbleView]()
+    fileprivate var shadowLayerPath: CGPath?
+    fileprivate unowned var _window: UIWindow
+    fileprivate var views = [HintItem]()
+    fileprivate var bubbles = [BubbleView]()
+    fileprivate var latestHint : HintItem?
     public var bubbleTap: ((HintItem?) -> Void)?
-    public var dimTap : (() -> Void)?
+    public var dimTap : ((HintItem?) -> Void)?
     /// shows a bubble which points to the given view
     ///
     /// - Parameters:
@@ -45,18 +46,22 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
     /// - Returns: generated item that can use to access to views or dismiss action
     @discardableResult public func show(item: HintItem, with bubbleOption: Options.Bubble? = nil) -> HintItem {
         setupBackgroundDim()
+        let viewToShow = HintItem.init(ID: item.ID.isEmpty ? UUID().uuidString : item.ID, pointTo: item.pointTo, showView: item.showView as UIView, bubbleOptions:  bubbleOption ?? item.bubbleOptions)
+        
+        latestHint = viewToShow
         switch options.bubbleLiveDuration {
         case .untilNext:
-            views.forEach { (item) in
-                self.dismiss(item: item)
+            if !views.isEmpty
+            {
+                views.forEach { (item) in
+                    self.dismiss(item: item)
+                }
             }
         case .forever:
             break
             //        case .until(second: let _):
             //            break
         }
-        
-        let viewToShow = HintItem.init(ID: item.ID.isEmpty ? UUID().uuidString : item.ID, pointTo: item.pointTo, showView: item.showView as UIView, bubbleOptions: bubbleOption)
         
         self.views.append(viewToShow)
         bubbles.append(self.point(to: viewToShow))
@@ -152,9 +157,10 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapDim(_:)))
         self.addGestureRecognizer(tap)
     }
+    
     @objc
     private func tapDim(_ sender: UITapGestureRecognizer) {
-        dimTap?()
+        dimTap?(latestHint)
     }
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -173,7 +179,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
             calculatedFrame.height = text.height(font: label.font, widthConstraint: availableSpace.width) + 16
             calculatedFrame.width = text.width(font: label.font, widthConstraint: availableSpace.width, heightConstraint: self.frame.size.height) + 16
         }else {
-            calculatedFrame = view.frame.insetBy(dx: 8, dy: 8).size
+            calculatedFrame = view.frame.insetBy(dx: -8, dy: -8).size
         }
         return calculatedFrame
     }
@@ -331,8 +337,6 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
         }
         return arrowPoint
         //}
-        
-        return arrowPoint
     }
     
     /// sets the constrraints for main view (container view)
@@ -379,13 +383,6 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
             pathAnimation.fromValue = shadowLayerPath!
             pathAnimation.toValue = path
             shadowPath.add(pathAnimation, forKey: nil)
-            
-            let fillColorAnimation = basicAnimation(key: "fillColor", duration: 0.2)
-            fillColorAnimation.fromValue = options.dimColor.cgColor
-            fillColorAnimation.toValue = options.dimColor.withAlphaComponent(0.65).cgColor
-            fillColorAnimation.isRemovedOnCompletion = true
-            fillColorAnimation.autoreverses = true
-            shadowPath.add(fillColorAnimation, forKey: nil)
         }
         shadowLayerPath = path
     }
@@ -462,7 +459,7 @@ public class BubbleView: UIView {
         insideView = view
         if self.translatesAutoresizingMaskIntoConstraints {
             view.frame.origin = CGPoint(x: padding, y: padding)
-            view.frame.size    = self.frame.insetBy(dx: padding, dy: padding).size
+            view.frame.size = self.frame.insetBy(dx: padding, dy: padding).size
             view.removeConstraints(view.constraints)
         }else {
             view.translatesAutoresizingMaskIntoConstraints = false
@@ -658,7 +655,7 @@ extension HintPointer {
         let currentHoles = UIBezierPath(cgPath: shadowLayerPath)
         currentHoles.append(UIBezierPath(rect: _window.bounds).reversing())
         let isInTheActionable = currentHoles.cgPath.contains(point)
-        if isInTheActionable {
+        if isInTheActionable,let option = latestHint?.bubbleOptions, option.dismissOnTargetViewTap {
             self.finish()
         }
         
@@ -687,11 +684,11 @@ extension HintConfiguration {
 
 extension HintPointer {
     public  struct HintItem: HintItems {
-        typealias ID = String
+        public typealias ID = String
         public static func == (lhs: HintPointer.HintItem, rhs: HintPointer.HintItem) -> Bool {
             return lhs.ID == rhs.ID
         }
-        var ID: ID
+        public var ID: ID
         public unowned var pointTo: UIView
         public var showView: UIView
         public var bubbleOptions: HintPointer.Options.Bubble?
@@ -702,7 +699,9 @@ extension HintPointer {
         }
         
         public init(ID: String, pointTo: UIView, showView: UIView, bubbleOptions: HintPointer.Options.Bubble?) {
-            self.init(ID: ID, pointTo: pointTo, showView: showView)
+            self.ID  = ID
+            self.pointTo = pointTo
+            self.showView = showView
             self.bubbleOptions = bubbleOptions
         }
     }
@@ -710,7 +709,7 @@ extension HintPointer {
     public  enum BubbleLiveDuration {
         case forever
         case untilNext
-        //        case until(second:TimeInterval)
+//        case until(second:TimeInterval)
     }
     public enum HoleRadius {
         /// uses target view layer corner radius
@@ -738,8 +737,9 @@ extension HintPointer {
             public  var animation: Bool
             /// spaces between bubble view and target view
             public  var padding: UIEdgeInsets = .zero
+            public  var dismissOnTargetViewTap: Bool
             public static func `default`()->HintPointer.Options.Bubble {
-                return Options.Bubble(backgroundColor: .red, position: nil, font: UIFont.boldSystemFont(ofSize: 15), foregroundColor: UIColor.white, textAlignments: .center, animation: true, padding: .init(top: 16, left: 16, bottom: 16, right: 16))
+                return Options.Bubble(backgroundColor: .red, position: nil, font: UIFont.boldSystemFont(ofSize: 15), foregroundColor: UIColor.white, textAlignments: .center, animation: true, padding: .init(top: 16, left: 16, bottom: 16, right: 16),dismissOnTargetViewTap: false)
             }
             
         }
@@ -792,37 +792,3 @@ public protocol HintPointerManagerProtocol {
     func finish()
 }
 
-
-//
-//class HintPointerManager: HintPointerManagerProtocol {
-//    /// removes the given item
-//    ///
-//    /// - Parameter item: item to remove
-//    public func dismiss(item: HintPointer.HintItem) {
-//        self.hintView.dismiss(item: item)
-//    }
-//    func finish() {
-//        self.hintView.finish()
-//    }
-//
-//    func show(item: StringForView, with bubbleOption: HintPointer.Options.Bubble?) -> HintPointer.HintItem {
-//        return  hintView.show(item: item, with: bubbleOption)
-//    }
-//
-//    func createItem(item: StringForView, with bubbleOption: HintPointer.Options.Bubble?) -> HintPointer.HintItem {
-//        return hintView.createItem(item: item, with: bubbleOption)
-//    }
-//
-//    func show(item: HintPointer.HintItem, with bubbleOption: HintPointer.Options.Bubble?) -> HintPointer.HintItem {
-//        return hintView.show(item: item, with: bubbleOption)
-//    }
-//
-//    private var hintView: HintPointer
-//    private init(on window: UIWindow) {
-//        self.hintView = HintPointer(on: window)
-//    }
-//}
-//
-//extension UIViewController {
-//
-//}
