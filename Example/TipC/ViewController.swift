@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var pugImage : UIView!
     @IBOutlet weak var pugName : UIView!
     @IBOutlet weak var pugDescrription : UIView!
-    
+    private var hints : HintPointerManager?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,13 +27,6 @@ class ViewController: UIViewController {
     
     func showHints(){
         // configure our hint view
-        let hint = HintPointer(on: self.view.window!)
-        hint.options(HintPointer.Options
-            .default()
-            .with {
-                $0.bubbleLiveDuration = .untilNext
-        })
-        
         let pugLoveConfig = HintPointer.Options.Bubble
             .default()
             .with{
@@ -44,15 +37,6 @@ class ViewController: UIViewController {
                 $0.position = .top
         }
         
-        let image = UIImageView(image: #imageLiteral(resourceName: "heart-like.png"))
-        image.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
-        image.contentMode = .scaleAspectFit
-        image.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        image.heightAnchor.constraint(equalTo: image.widthAnchor, multiplier: 1).isActive = true
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
-            hint.show(item: HintPointer.HintItem.init(ID: "100", pointTo: self.pugImage, showView: image),with: pugLoveConfig)
-        }
-        
         let pugDescriptionConfig = HintPointer.Options.Bubble
             .default()
             .with{
@@ -61,36 +45,10 @@ class ViewController: UIViewController {
                 $0.position = .left
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            hint.show(item: (self.pugImage,"best dog ever <3 <3 ^_^ ^_^"),with: pugDescriptionConfig.with{$0.position = .right})
-        }
-        
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            hint.show(item: (self.pugName,"my name is leo ^_^"),with: pugDescriptionConfig.with{
-                $0.position = .top
-                if #available(iOS 10.0, *) {
-                    $0.backgroundColor = UIColor(displayP3Red: 0.451, green: 0.807, blue: 0.317, alpha: 1)
-                } else {
-                    // Fallback on earlier versions
-                }
-            })
-        }
-        
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
-            hint.show(item: (self.pugDescrription,"i am single and looking for my soulmate"),with: pugDescriptionConfig.with{
-                $0.position = .bottom
-                if #available(iOS 10.0, *) {
-                    $0.backgroundColor = UIColor(displayP3Red: 0.451, green: 0.807, blue: 0.317, alpha: 1)
-                } else {
-                    // Fallback on earlier versions
-                }
-            })
-        }
-        
-        
-        let tranformedViewsBubbleConfig = HintPointer.Options.Bubble
+        let image = UIImageView(image: #imageLiteral(resourceName: "heart-like.png"))
+        image.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        image.contentMode = .scaleAspectFit
+        let transformed = HintPointer.Options.Bubble
             .default()
             .with{
                 $0.backgroundColor = .black
@@ -99,34 +57,69 @@ class ViewController: UIViewController {
                 $0    .position =  .right
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
-            hint.show(item: (self.transformedButton,"without animation."),with: tranformedViewsBubbleConfig.with{$0.position = .left})
-        }
+        self.hints = HintPointerManager(on: self.view.window!,with: HintPointer.Options
+            .default()
+            .with {
+                $0.bubbleLiveDuration = .untilNext
+        })
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-            hint.show(item: (self.noConstraintsButton,"hi!"),with:tranformedViewsBubbleConfig.with{$0.backgroundColor = .red})
+        hints!.add(new: HintPointer.HintItem.init(ID: "100", pointTo: self.pugImage, showView: image,bubbleOptions: pugLoveConfig))
+        
+        hints!.add(new: (self.pugImage,"best dog ever <3 <3 ^_^ ^_^"),with: pugDescriptionConfig.with{$0.position = .right})
+        
+        hints!.add(new: (self.pugName,"my name is leo ^_^"),with: pugDescriptionConfig.with{
+            $0.position = .top
+            if #available(iOS 10.0, *) {
+                $0.backgroundColor = UIColor(displayP3Red: 0.451, green: 0.807, blue: 0.317, alpha: 1)
+            } else {
+                // Fallback on earlier versions
+            }
+        })
+        
+        hints!.add( new: (self.pugDescrription,"i am single and looking for my soulmate"),with: pugDescriptionConfig.with{
+            $0.position = .bottom
+            if #available(iOS 10.0, *) {
+                $0.backgroundColor = UIColor(displayP3Red: 0.451, green: 0.807, blue: 0.317, alpha: 1)
+            } else {
+                // Fallback on earlier versions
+            }
+        })
+        
+        hints!.add(new: (self.transformedButton,"without animation."),with: transformed.with{$0.position = .left})
+        
+        hints!.add(new: (self.noConstraintsButton,"hi!"),with:transformed.with{$0.backgroundColor = .red})
+        
+        hints!.add(new: (self.bigBottomButton,"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی "),with: transformed)
+        
+        
+        hints!.bubbleTap = {_ in
+            self.hints!.next()
+        }
+        hints!.dimTap = {_ in
+            if let index = self.hints!.currentIndex,self.hints!.hints.count == (index + 1) {
+                self.hints!.finish()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                    self.hints = nil
+                })
+            }
             
+            self.hints!.next()
         }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()+12) {
-            hint.show(item: (self.bigBottomButton,"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی "),with: tranformedViewsBubbleConfig)
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 16) {
-            hint.finish()
-        }
+        self.hints!.next()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        if #available(iOS 10.0, *) {
-            let timer =  Timer.scheduledTimer(withTimeInterval: 17, repeats: true) { (t) in
-                self.showHints()
-            }
-            timer.fire()
-
-        }
+        self.showHints()
+//        if #available(iOS 10.0, *) {
+//            let timer =  Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (t) in
+//                self.hints!.next()
+//                if let x = self.hints!.currentIndex,x == self.hints!.views.count {
+//                    self.hints!.finish()
+//                }
+//            }
+//            timer.fire()
+//        }
     }
     
 }
