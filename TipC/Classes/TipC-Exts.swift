@@ -40,8 +40,8 @@ public class HintPointerManager {
         self.pointer.options(options)
         self.hints = [HintPointer.HintItem]()
     }
-    public func add(new item: StringForView, with bubbleOption: HintPointer.Options.Bubble?){
-        self.hints.append(pointer.createItem(item: item, with: bubbleOption))
+    public func add(new view : UIView,text string: String, with bubbleOption: HintPointer.Options.Bubble?){
+        self.hints.append(pointer.createItem(for: view,text: string, with: bubbleOption))
     }
     public func add(new item: HintPointer.HintItem){
         self.hints.append(item)

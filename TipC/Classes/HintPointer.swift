@@ -30,12 +30,13 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
     ///   - item: the view that we want to point at and a text for bubble
     ///   - bubbleOption: custom options for bubble
     /// - Returns: generated item that can use to access to views or dismiss action
-    @discardableResult public func show(item: StringForView, with bubbleOption: Options.Bubble? = nil) -> HintItem {
-        let viewToShow = createItem(item: item, with: bubbleOption)
+    @discardableResult public func show(for view : UIView,text string : String, with bubbleOption: Options.Bubble? = nil) -> HintItem {
+        let viewToShow = createItem(for: view,text: string, with: bubbleOption)
         return self.show(item: viewToShow, with: bubbleOption)
     }
-    @discardableResult public func createItem(item: StringForView, with bubbleOption: Options.Bubble? = nil) -> HintItem {
-        return  HintItem.init(ID: UUID().uuidString, pointTo: item.pointTo, showView: createLabel(for: item.showText, with: bubbleOption) as UIView, bubbleOptions: bubbleOption)
+    
+    @discardableResult public func createItem(for view : UIView,text : String, with bubbleOption: Options.Bubble? = nil) -> HintItem {
+        return  HintItem.init(ID: UUID().uuidString, pointTo: view, showView: createLabel(for: text, with: bubbleOption) as UIView, bubbleOptions: bubbleOption)
     }
     
     /// shows a bubble which points to the given view
@@ -768,7 +769,6 @@ extension UITapGestureRecognizer {
     }
 }
 
-public typealias StringForView = (pointTo: UIView, showText: String)
 public protocol HintPointerManagerProtocol {
     /// removes the given item
     ///
@@ -776,10 +776,10 @@ public protocol HintPointerManagerProtocol {
     func dismiss(item: HintPointer.HintItem)
     
     @discardableResult
-    func show(item: StringForView, with bubbleOption: HintPointer.Options.Bubble?)->HintPointer.HintItem
+    func show(for view : UIView,text string : String, with bubbleOption: HintPointer.Options.Bubble?) -> HintPointer.HintItem
     
     @discardableResult
-    func createItem(item: StringForView, with bubbleOption: HintPointer.Options.Bubble?) -> HintPointer.HintItem
+    func createItem(for view : UIView,text string : String, with bubbleOption: HintPointer.Options.Bubble?) -> HintPointer.HintItem
     
     /// shows a bubble which points to the given view
     ///
