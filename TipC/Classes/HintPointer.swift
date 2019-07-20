@@ -36,8 +36,12 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
     }
     
     @discardableResult public func createItem(for view : UIView,text : String, with bubbleOption: Options.Bubble? = nil) -> HintItem {
-        return  HintItem.init(ID: UUID().uuidString, pointTo: view, showView: createLabel(for: text, with: bubbleOption) as UIView, bubbleOptions: bubbleOption)
+        return  HintItem.init(ID: UUID().uuidString, pointTo: view, showView: HintPointer.createLabel(for: text, with: bubbleOption,defaultOptions: self.options) as UIView, bubbleOptions: bubbleOption)
     }
+    @discardableResult public static func createItem(for view : UIView,text : String, with bubbleOption: Options.Bubble? = nil) -> HintItem {
+        return  HintItem.init(ID: UUID().uuidString, pointTo: view, showView: HintPointer.createLabel(for: text, with: bubbleOption,defaultOptions: .default()) as UIView, bubbleOptions: bubbleOption)
+    }
+    
     
     /// shows a bubble which points to the given view
     ///
@@ -105,7 +109,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
     ///
     /// - Parameter text: label text
     /// - Returns: generated label view
-    private func createLabel(for text: String, with itemOptions: Options.Bubble?) -> UILabel {
+    private static func createLabel(for text: String, with itemOptions: Options.Bubble?, defaultOptions options : HintPointer.Options) -> UILabel {
         let label = UILabel()
         label.text = text
         label.textAlignment = .center

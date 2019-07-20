@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TipC'
-  s.version          = '1.0.3'
+  s.version          = '1.0.5'
   s.summary          = 'shows tool tip near the views.'
   s.swift_version = '5.0'
 
