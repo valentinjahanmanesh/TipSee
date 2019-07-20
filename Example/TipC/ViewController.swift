@@ -65,9 +65,9 @@ class ViewController: UIViewController {
         
         hints!.add(new: HintPointer.HintItem.init(ID: "100", pointTo: self.pugImage, showView: image,bubbleOptions: pugLoveConfig))
         
-        hints!.add(new: (self.pugImage,"best dog ever <3 <3 ^_^ ^_^"),with: pugDescriptionConfig.with{$0.position = .right})
+        hints!.add(new: self.pugImage,text:"best dog ever <3 <3 ^_^ ^_^",with: pugDescriptionConfig.with{$0.position = .right})
         
-        hints!.add(new: (self.pugName,"my name is leo ^_^"),with: pugDescriptionConfig.with{
+        hints!.add(new: self.pugName,text:"my name is leo ^_^",with: pugDescriptionConfig.with{
             $0.position = .top
             if #available(iOS 10.0, *) {
                 $0.backgroundColor = UIColor(displayP3Red: 0.451, green: 0.807, blue: 0.317, alpha: 1)
@@ -76,7 +76,7 @@ class ViewController: UIViewController {
             }
         })
         
-        hints!.add( new: (self.pugDescrription,"i am single and looking for my soulmate"),with: pugDescriptionConfig.with{
+        hints!.add( new: self.pugDescrription,text:"i am single and looking for my soulmate",with: pugDescriptionConfig.with{
             $0.position = .bottom
             if #available(iOS 10.0, *) {
                 $0.backgroundColor = UIColor(displayP3Red: 0.451, green: 0.807, blue: 0.317, alpha: 1)
@@ -85,11 +85,11 @@ class ViewController: UIViewController {
             }
         })
         
-        hints!.add(new: (self.transformedButton,"without animation."),with: transformed.with{$0.position = .left})
+        hints!.add(new: self.transformedButton,text:"without animation.",with: transformed.with{$0.position = .left})
         
-        hints!.add(new: (self.noConstraintsButton,"hi!"),with:transformed.with{$0.backgroundColor = .red})
+        hints!.add(new: self.noConstraintsButton,text:"hi!",with:transformed.with{$0.backgroundColor = .red})
         
-        hints!.add(new: (self.bigBottomButton,"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی "),with: transformed)
+        hints!.add(new: self.bigBottomButton,text:"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی ",with: transformed)
         
         
         hints!.bubbleTap = {_ in
