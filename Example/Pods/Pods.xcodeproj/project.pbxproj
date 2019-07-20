@@ -70,7 +70,7 @@
 		CB298B3058E20FDF22DF1B5ED880E912 /* Pods-TipC_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TipC_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		CB51226C015DD75AAB244D2F3EE448D8 /* Pods-TipC_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TipC_Example-frameworks.sh"; sourceTree = "<group>"; };
 		D6682679E4111FD176106D8402777D1E /* TipC.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TipC.xcconfig; sourceTree = "<group>"; };
-		F2F32EF4914A76276A4FD3A238CA6166 /* TipC.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = TipC.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F2F32EF4914A76276A4FD3A238CA6166 /* TipC.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = TipC.podspec; sourceTree = "<group>"; tabWidth = 2; };
 		F8EF666F0B4F544756F23E5E5B855843 /* Pods-TipC_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TipC_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		FD8158892CF15DC83086880FCB6936E2 /* TipC.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TipC.modulemap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
