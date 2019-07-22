@@ -49,7 +49,7 @@
 		879BF27B22E23AD000AF8118 /* HintPointerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintPointerTests.swift; sourceTree = "<group>"; };
 		8D5D55DC860BD7F648D4073C /* Pods_TipC_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TipC_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		915D13EE12D3ED1A9CDEBE64 /* Pods-TipC_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TipC_Example.debug.xcconfig"; path = "Target Support Files/Pods-TipC_Example/Pods-TipC_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		B09474340D6B081B18AD231C /* TipC.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TipC.podspec; path = ../TipC.podspec; sourceTree = "<group>"; };
+		B09474340D6B081B18AD231C /* Tap30ToolTip.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Tap30ToolTip.podspec; path = ../Tap30ToolTip.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F67CFF7784A18D29A21BB29A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,7 +138,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				B09474340D6B081B18AD231C /* TipC.podspec */,
+				B09474340D6B081B18AD231C /* Tap30ToolTip.podspec */,
 				1C55248EBF4524A0A3EB11A1 /* README.md */,
 				F67CFF7784A18D29A21BB29A /* LICENSE */,
 			);
