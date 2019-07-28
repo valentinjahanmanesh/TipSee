@@ -75,15 +75,17 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 	}
 	
 	private func setupBackgroundDim() {
-		if views.isEmpty {
-			_window.addSubview(self)
-			_window.bringSubviewToFront(self)
-			self.setHintConstraints()
-		}
+		guard views.isEmpty else {return}
+		//			if let old = _window.subviews.first(where: {($0 as? HintPointer) != nil}) {
+		//				(old as! HintPointer).finish()
+		//			}
+		self.frame	 = _window.frame
+		_window.addSubview(self)
+		_window.bringSubviewToFront(self)
 	}
 	
 	public func finish() {
-		UIView.animate(withDuration: 0.3, animations: {
+		UIView.animateKeyframes(withDuration: 0.3, delay: 0, options: [], animations: {
 			self.alpha = 0
 		}) { (done) in
 			if done {
@@ -345,21 +347,18 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		//}
 	}
 	
-	/// sets the constrraints for main view (container view)
-	private func setHintConstraints() {
-		// My Constraints
-		_window.addSubview(self)
-		
-	}
 	private var holeLayer: CAShapeLayer?
+	private enum animationSet {
+		case path
+		case fill
+		case all
+	}
 	private func cutHole(for path: CGPath, startPoint: CGPoint? = nil) {
 		
 		let fillLayer = CAShapeLayer()
 		
 		fillLayer.fillRule = CAShapeLayerFillRule.evenOdd
 		fillLayer.fillColor = options.dimColor.cgColor
-		
-		//fillLayer.opacity = 0.7
 		
 		guard let shadowPath = self.layer.sublayers?[0] as? CAShapeLayer else {
 			self.layer.insertSublayer(fillLayer, at: 0)
@@ -371,37 +370,42 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 			
 			base.append( UIBezierPath(roundedRect: circleRect, cornerRadius: height / 2))
 			base.usesEvenOddFillRule = true
-			
-			let pathAnimation = basicAnimation(key: "path", duration: 0.3)
-			pathAnimation.fromValue = base.cgPath
-			pathAnimation.toValue = path
-			fillLayer.add(pathAnimation, forKey: nil)
+			addAniamtionsForShowTime(on: fillLayer, old: base.cgPath, new: path,force: true)
 			fillLayer.path = path
 			shadowLayerPath = path
 			return
 		}
-		fillLayer.path = path
 		shadowPath.path = path
-		
-		if options.bubbleLiveDuration == .untilNext {
+		addAniamtionsForShowTime(on: shadowPath, old: shadowLayerPath!, new: path)
+		shadowLayerPath = path
+	}
+	
+	private func addAniamtionsForShowTime(on layer : CAShapeLayer,old : CGPath,new : CGPath,force : Bool = false){
+		if force || options.bubbleLiveDuration == .untilNext {
 			/// i didn'nt use group animation because each animations has some different options and group animation will not support this
 			let pathAnimation = basicAnimation(key: "path", duration: 0.2)
-			pathAnimation.fromValue = shadowLayerPath!
-			pathAnimation.toValue = path
-			shadowPath.add(pathAnimation, forKey: nil)
+			pathAnimation.fromValue = old
+			pathAnimation.toValue = new
+			layer.add(pathAnimation, forKey: nil)
 		}
-		shadowLayerPath = path
+		
+		if  options.dimFading {
+			let pathAnimation = basicAnimation(key: "fillColor", duration: 1)
+			pathAnimation.toValue = UIColor.clear.cgColor
+			pathAnimation.beginTime = CACurrentMediaTime()+2;
+			layer.add(pathAnimation, forKey: nil)
+		}
+	}
+	private func basicAnimation(key: String, duration: TimeInterval) -> CABasicAnimation {
+		
+		let animation = CABasicAnimation(keyPath: key)
+		animation.duration = duration
+		animation.isRemovedOnCompletion = false
+		animation.fillMode = CAMediaTimingFillMode.forwards
+		return animation
 	}
 }
 
-private func basicAnimation(key: String, duration: TimeInterval) -> CABasicAnimation {
-	
-	let animation = CABasicAnimation(keyPath: key)
-	animation.duration = duration
-	animation.isRemovedOnCompletion = false
-	animation.fillMode = CAMediaTimingFillMode.forwards
-	return animation
-}
 
 public class BubbleView: UIView {
 	public var insideView: UIView?
@@ -653,23 +657,28 @@ extension UIEdgeInsets {
 }
 
 extension HintPointer {
-	public  override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-		guard let shadowLayerPath = shadowLayerPath  else {
-			return true
+	public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+		let hitted  = super.hitTest(point, with: event)
+		if hitted == self, !options.absorbDimTouch {
+			return nil
 		}
-		if !options.absorbDimTouch {
+		else if hitted == self, options.absorbDimTouch{
+			return hitted
+		}
+		return hitted
+	}
+	public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+		guard let shadowLayerPath = shadowLayerPath, let targetView = latestHint?.pointTo  else {
 			return false
 		}
-		let currentHoles = UIBezierPath(cgPath: shadowLayerPath)
-		currentHoles.append(UIBezierPath(rect: _window.bounds).reversing())
-		let isInTheActionable = currentHoles.cgPath.contains(point)
+		let cutted = CGRect(origin: targetView.superview!.convert(targetView.frame.origin, to: nil), size: targetView.frame.size).insetBy(dx: -4, dy: -4)
+		let isInTheActionable = cutted.contains(point)
 		if isInTheActionable,let option = latestHint?.bubbleOptions {
 			option.targetViewTap?(latestHint)
-			if option.dismissOnTargetViewTap {
-				self.finish()
-			}
+			//				if option.dismissOnTargetViewTap {
+			//					self.finish()
+			//				}
 		}
-		
 		return !isInTheActionable
 	}
 }
@@ -748,10 +757,10 @@ extension HintPointer {
 			public  var animation: Bool
 			/// spaces between bubble view and target view
 			public  var padding: UIEdgeInsets = .zero
-			public  var dismissOnTargetViewTap: Bool
+			//			public  var dismissOnTargetViewTap: Bool
 			public var targetViewTap : TapGesture?
 			public static func `default`()->HintPointer.Options.Bubble {
-				return Options.Bubble(backgroundColor: .red, position: nil, font: UIFont.boldSystemFont(ofSize: 15), foregroundColor: UIColor.white, textAlignments: .center, animation: true, padding: .init(top: 16, left: 16, bottom: 16, right: 16),dismissOnTargetViewTap: false,targetViewTap: nil)
+				return Options.Bubble(backgroundColor: .red, position: nil, font: UIFont.boldSystemFont(ofSize: 15), foregroundColor: UIColor.white, textAlignments: .center, animation: true, padding: .init(top: 16, left: 16, bottom: 16, right: 16),targetViewTap: nil)
 			}
 			
 		}
@@ -764,8 +773,9 @@ extension HintPointer {
 		public var safeAreaInsets: UIEdgeInsets
 		// if false, the dimTap Callback will not call
 		public var absorbDimTouch : Bool
+		public var dimFading : Bool
 		public static func `default`()->HintPointer.Options {
-			return Options(bubbles: Options.Bubble.default(), dimColor: UIColor.black.withAlphaComponent(0.7), bubbleLiveDuration: .forever, defaultBubblePosition: .left, holeRadius: .defaultOrGreater(default: 8), safeAreaInsets: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16),absorbDimTouch: true)
+			return Options(bubbles: Options.Bubble.default(), dimColor: UIColor.black.withAlphaComponent(0.7), bubbleLiveDuration: .forever, defaultBubblePosition: .left, holeRadius: .defaultOrGreater(default: 8), safeAreaInsets: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16),absorbDimTouch: true,dimFading: true)
 		}
 	}
 }
