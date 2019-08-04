@@ -84,6 +84,8 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		_window.bringSubviewToFront(self)
 	}
 	
+	
+	/// removes hintPointer
 	public func finish() {
 		UIView.animateKeyframes(withDuration: 0.3, delay: 0, options: [], animations: {
 			self.alpha = 0
@@ -668,7 +670,7 @@ extension HintPointer {
 		return hitted
 	}
 	public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-		guard let shadowLayerPath = shadowLayerPath, let targetView = latestHint?.pointTo  else {
+		guard let _ = shadowLayerPath, let targetView = latestHint?.pointTo  else {
 			return false
 		}
 		let cutted = CGRect(origin: targetView.superview!.convert(targetView.frame.origin, to: nil), size: targetView.frame.size).insetBy(dx: -4, dy: -4)
