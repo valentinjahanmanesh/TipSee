@@ -8,23 +8,55 @@
 import Foundation
 import UIKit
 
+
+
+/// TipC needs would interact with this type only
 public protocol HintTarget  {
-	var frame : CGRect {get}
-	var bounds : CGRect {get}
-	func convertBySuperView(point : CGPoint)->CGPoint
+	var hintFrame : CGRect {get}
+	var cornersRadius : CGFloat {get}
 }
-
-
-extension UIView : HintTarget {
-	public func convertBySuperView(point : CGPoint)->CGPoint{
-		guard let superView = self.superview else {
-			return self.convert(point, to: nil)
-		}
-		return superView.convert(point, to: nil)
+extension HintTarget where Self : Hashable {
+	public  static func ==(_ lhs : Self, rhs : Self)->Bool {
+		return lhs.hintFrame == rhs.hintFrame
 	}
 }
+
+extension UIView : HintTarget {
+	public var cornersRadius: CGFloat {
+		get {
+			return self.layer.cornerRadius
+		}
+	}
+	
+	public var hintFrame: CGRect {
+		guard let superView = self.superview else {
+			return self.frame
+		}
+		let point = superView.convert(self.frame.origin, to: nil)
+		return CGRect(origin: point, size: self.frame.size)
+	}
+}
+
+
+/// HintTarget Type Erasure
+public struct AnyHintTraget : HintTarget,Hashable {
+	public 	var hintFrame : CGRect {return _hintTarget.hintFrame}
+	public  var cornersRadius : CGFloat {return _hintTarget.cornersRadius}
+	private let _hintTarget : HintTarget
+	
+	init(hintTarget : HintTarget){
+		self._hintTarget = hintTarget
+	}
+	
+	public func hash(into hasher: inout Hasher) {
+		
+	}
+}
+
+
+/// Hint Items
 public protocol HintItems: Equatable {
-	var pointTo: HintTarget {get set}
+	var pointTo: AnyHintTraget {get set}
 	var showView: UIView {get set}
 	var bubbleOptions: HintPointer.Options.Bubble? {get set}
 }
@@ -46,15 +78,15 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 	///   - item: the view that we want to point at and a text for bubble
 	///   - bubbleOption: custom options for bubble
 	/// - Returns: generated item that can use to access to views or dismiss action
-	@discardableResult public func show(for view : UIView,text string : String, with bubbleOption: Options.Bubble? = nil) -> HintItem {
+	@discardableResult public func show(for view : HintTarget,text string : String, with bubbleOption: Options.Bubble? = nil) -> HintItem {
 		let viewToShow = createItem(for: view,text: string, with: bubbleOption)
 		return self.show(item: viewToShow, with: bubbleOption)
 	}
 	
-	@discardableResult public func createItem(for view : UIView,text : String, with bubbleOption: Options.Bubble? = nil) -> HintItem {
+	@discardableResult public func createItem(for view : HintTarget,text : String, with bubbleOption: Options.Bubble? = nil) -> HintItem {
 		return  HintItem.init(ID: UUID().uuidString, pointTo: view, showView: HintPointer.createLabel(for: text, with: bubbleOption,defaultOptions: self.options) as UIView, bubbleOptions: bubbleOption)
 	}
-	@discardableResult public static func createItem(for view : UIView,text : String, with bubbleOption: Options.Bubble? = nil) -> HintItem {
+	@discardableResult public static func createItem(for view : HintTarget,text : String, with bubbleOption: Options.Bubble? = nil) -> HintItem {
 		return  HintItem.init(ID: UUID().uuidString, pointTo: view, showView: HintPointer.createLabel(for: text, with: bubbleOption,defaultOptions: .default()) as UIView, bubbleOptions: bubbleOption)
 	}
 	
@@ -151,7 +183,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		let viewsSet = Set(self.views.map({$0.pointTo}))
 		viewsSet.forEach { (targetView) in
 			// cuts a hole inside the layer
-			let cutPosition = CGRect(origin: targetView.superview!.convert(targetView.frame.origin, to: nil), size: targetView.frame.size).insetBy(dx: -4, dy: -4)
+			let cutPosition = targetView.hintFrame.insetBy(dx: -4, dy: -4)
 			if startPoint == nil {
 				startPoint = CGPoint(x: cutPosition.midX, y: cutPosition.midY)
 			}
@@ -160,14 +192,13 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 			case .constantRadius(radius: let radius):
 				cornerRadius = radius
 			case .defaultOrGreater(default: let radius):
-				cornerRadius = max(radius, targetView.layer.cornerRadius)
+				cornerRadius = max(radius, targetView.cornersRadius)
 			case .keepTargetViewCornerRadius :
-				cornerRadius = targetView.layer.cornerRadius
+				cornerRadius = targetView.cornersRadius
 			default:
 				cornerRadius = 0
 			}
 			pathBigRect.append(UIBezierPath(roundedRect: cutPosition.insetBy(dx: -4, dy: -4), cornerRadius: cornerRadius))
-			
 		}
 		pathBigRect.usesEvenOddFillRule = true
 		self.cutHole(for: pathBigRect.cgPath, startPoint: startPoint)
@@ -260,7 +291,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		self.layoutIfNeeded()
 		
 		// align the arrow
-		let center  = view.convertBySuperView(point: CGPoint(x: view.frame.midX, y: view.frame.midY))
+		let center  =  CGPoint(x: view.hintFrame.midX, y: view.hintFrame.midY)
 		
 		if [.top, .bottom].contains(pointTo) {
 			bubble.arrow = .init(position: .init(distance: .constant(center.x - bubble.frame.origin.x), edge: pointTo.toCGRectEdge()), size: .init(width: 10, height: 5))
@@ -281,7 +312,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 	///   - view: target view
 	/// - Returns: the better edge
 	private func findBetterSpace(view: HintTarget, preferredPosition: UIRectEdge?) -> UIRectEdge {
-		let reletivePosition = CGRect(origin: view.convertBySuperView(point:view.frame.origin), size: view.bounds.size)
+		let reletivePosition = view.hintFrame
 		
 		var edges = [(UIRectEdge, Bool)]()
 		
@@ -331,7 +362,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		var arrowPoint: UIRectEdge = .right
 		
 		//if view.transform != .identity {
-		let targetFrame  = CGRect(origin:  view.convertBySuperView(point:view.frame.origin), size: view.frame.size)
+		let targetFrame  = view.hintFrame
 		let controllerSize = self._window.bounds.size
 		switch position {
 		case .left:
@@ -346,7 +377,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		case .bottom:
 			arrowPoint = .top
 			bubble.frame.origin.y = targetFrame.maxY + padding.top
-			bubble.center.x =  view.frame.midX
+			bubble.center.x =  view.hintFrame.midX
 			
 		case .top:
 			arrowPoint = .bottom
@@ -686,7 +717,7 @@ extension HintPointer {
 		guard let shadowLayerPath = shadowLayerPath, let targetView = latestHint?.pointTo  else {
 			return false
 		}
-		let cutted = CGRect(origin: targetView.convertBySuperView(point: targetView.frame.origin), size: targetView.frame.size).insetBy(dx: -4, dy: -4)
+		let cutted = targetView.hintFrame.insetBy(dx: -4, dy: -4)
 		let isInTheActionable = cutted.contains(point)
 		if isInTheActionable,let option = latestHint?.bubbleOptions {
 			option.targetViewTap?(latestHint)
@@ -724,18 +755,18 @@ extension HintPointer {
 			return lhs.ID == rhs.ID
 		}
 		public var ID: ID
-		public var pointTo: HintTarget
+		public var pointTo: AnyHintTraget
 		public var showView: UIView
 		public var bubbleOptions: HintPointer.Options.Bubble?
-		public init(ID: String, pointTo: UIView, showView: UIView) {
+		public init(ID: String, pointTo: HintTarget, showView: UIView) {
 			self.ID  = ID
-			self.pointTo = pointTo
+			self.pointTo = AnyHintTraget.init(hintTarget: pointTo)
 			self.showView = showView
 		}
 		
-		public init(ID: String, pointTo: UIView, showView: UIView, bubbleOptions: HintPointer.Options.Bubble?) {
+		public init(ID: String, pointTo: HintTarget, showView: UIView, bubbleOptions: HintPointer.Options.Bubble?) {
 			self.ID  = ID
-			self.pointTo = pointTo
+			self.pointTo = AnyHintTraget.init(hintTarget: pointTo)
 			self.showView = showView
 			self.bubbleOptions = bubbleOptions
 		}
@@ -814,10 +845,10 @@ public protocol HintPointerManagerProtocol {
 	func dismiss(item: HintPointer.HintItem)
 	
 	@discardableResult
-	func show(for view : UIView,text string : String, with bubbleOption: HintPointer.Options.Bubble?) -> HintPointer.HintItem
+	func show(for view : HintTarget,text string : String, with bubbleOption: HintPointer.Options.Bubble?) -> HintPointer.HintItem
 	
 	@discardableResult
-	func createItem(for view : UIView,text string : String, with bubbleOption: HintPointer.Options.Bubble?) -> HintPointer.HintItem
+	func createItem(for view : HintTarget,text string : String, with bubbleOption: HintPointer.Options.Bubble?) -> HintPointer.HintItem
 	
 	/// shows a bubble which points to the given view
 	///
