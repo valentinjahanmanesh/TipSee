@@ -8,8 +8,23 @@
 import Foundation
 import UIKit
 
+public protocol HintTarget  {
+	var frame : CGRect {get}
+	var bounds : CGRect {get}
+	func convertBySuperView(point : CGPoint)->CGPoint
+}
+
+
+extension UIView : HintTarget {
+	public func convertBySuperView(point : CGPoint)->CGPoint{
+		guard let superView = self.superview else {
+			return self.convert(point, to: nil)
+		}
+		return superView.convert(point, to: nil)
+	}
+}
 public protocol HintItems: Equatable {
-	var pointTo: UIView {get set}
+	var pointTo: HintTarget {get set}
 	var showView: UIView {get set}
 	var bubbleOptions: HintPointer.Options.Bubble? {get set}
 }
@@ -84,8 +99,6 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		_window.bringSubviewToFront(self)
 	}
 	
-	
-	/// removes hintPointer
 	public func finish() {
 		UIView.animateKeyframes(withDuration: 0.3, delay: 0, options: [], animations: {
 			self.alpha = 0
@@ -247,7 +260,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		self.layoutIfNeeded()
 		
 		// align the arrow
-		let center  = view.superview!.convert(CGPoint(x: view.frame.midX, y: view.frame.midY), to: nil)
+		let center  = view.convertBySuperView(point: CGPoint(x: view.frame.midX, y: view.frame.midY))
 		
 		if [.top, .bottom].contains(pointTo) {
 			bubble.arrow = .init(position: .init(distance: .constant(center.x - bubble.frame.origin.x), edge: pointTo.toCGRectEdge()), size: .init(width: 10, height: 5))
@@ -267,8 +280,8 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 	/// - Parameters:
 	///   - view: target view
 	/// - Returns: the better edge
-	private func findBetterSpace(view: UIView, preferredPosition: UIRectEdge?) -> UIRectEdge {
-		let reletivePosition = CGRect(origin: view.superview!.convert(view.frame.origin, to: nil), size: view.bounds.size)
+	private func findBetterSpace(view: HintTarget, preferredPosition: UIRectEdge?) -> UIRectEdge {
+		let reletivePosition = CGRect(origin: view.convertBySuperView(point:view.frame.origin), size: view.bounds.size)
 		
 		var edges = [(UIRectEdge, Bool)]()
 		
@@ -318,7 +331,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		var arrowPoint: UIRectEdge = .right
 		
 		//if view.transform != .identity {
-		let targetFrame  = CGRect(origin: view.superview!.convert(view.frame.origin, to: nil), size: view.frame.size)
+		let targetFrame  = CGRect(origin:  view.convertBySuperView(point:view.frame.origin), size: view.frame.size)
 		let controllerSize = self._window.bounds.size
 		switch position {
 		case .left:
@@ -670,10 +683,10 @@ extension HintPointer {
 		return hitted
 	}
 	public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-		guard let _ = shadowLayerPath, let targetView = latestHint?.pointTo  else {
+		guard let shadowLayerPath = shadowLayerPath, let targetView = latestHint?.pointTo  else {
 			return false
 		}
-		let cutted = CGRect(origin: targetView.superview!.convert(targetView.frame.origin, to: nil), size: targetView.frame.size).insetBy(dx: -4, dy: -4)
+		let cutted = CGRect(origin: targetView.convertBySuperView(point: targetView.frame.origin), size: targetView.frame.size).insetBy(dx: -4, dy: -4)
 		let isInTheActionable = cutted.contains(point)
 		if isInTheActionable,let option = latestHint?.bubbleOptions {
 			option.targetViewTap?(latestHint)
@@ -705,13 +718,13 @@ extension HintConfiguration {
 }
 
 extension HintPointer {
-	public  struct HintItem: HintItems {
+	public struct HintItem: HintItems {
 		public typealias ID = String
 		public static func == (lhs: HintPointer.HintItem, rhs: HintPointer.HintItem) -> Bool {
 			return lhs.ID == rhs.ID
 		}
 		public var ID: ID
-		public unowned var pointTo: UIView
+		public var pointTo: HintTarget
 		public var showView: UIView
 		public var bubbleOptions: HintPointer.Options.Bubble?
 		public init(ID: String, pointTo: UIView, showView: UIView) {
