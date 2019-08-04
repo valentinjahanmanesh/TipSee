@@ -4,7 +4,7 @@
 //
 //  Created by Farshad Jahanmanesh on 7/18/19.
 //
-
+import UIKit
 public class HintPointerManager {
     public var pointer : HintPointer
     public private(set) var hints : [HintPointer.HintItem]
