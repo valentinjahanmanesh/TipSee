@@ -70,7 +70,7 @@ public protocol HintItems: Equatable {
 }
 
 public class HintPointer: UIView, HintPointerManagerProtocol {
-	public typealias TapGesture = ((HintItem?) -> Void)
+	public typealias TapGesture = ((HintItem) -> Void)
 	/// properties
 	public var options: Options = Options.default(){
 		didSet{
@@ -83,7 +83,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 	fileprivate unowned var _window: UIWindow
 	fileprivate var views = [HintItem]()
 	fileprivate var bubbles = [BubbleView]()
-	fileprivate var latestHint : HintItem?
+	fileprivate var latestHint : HintItem!
 	public var bubbleTap: TapGesture?
 	public var dimTap : TapGesture?
 	/// shows a bubble which points to the given view
@@ -215,7 +215,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 			pathBigRect.append(UIBezierPath(roundedRect: cutPosition.insetBy(dx: -4, dy: -4), cornerRadius: cornerRadius))
 		}
 		pathBigRect.usesEvenOddFillRule = true
-		options.dimColor = latestHint?.bubbleOptions?.changeDimColor ?? options.dimColor
+		options.dimColor = latestHint.bubbleOptions?.changeDimColor ?? options.dimColor
 		self.cutHole(for: pathBigRect.cgPath, startPoint: startPoint)
 	}
 	//    private var mainWindow: UIWindow!
@@ -270,7 +270,11 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 	
 	@objc
 	private func tapBubble(_ sender: UITapGestureRecognizer) {
-		bubbleTap?(self.views.first {$0.ID == sender.identifier})
+		guard let item = self.views.first(where:{item in item.ID == sender.identifier} )else {
+			assertionFailure("Here we have to have that bubble(hint) but we can not find it")
+			return
+		}
+		bubbleTap?(item)
 	}
 	/// points to the given(target) view by constrainting/Positioning the bubbleView and furthermore adds animation to newborn bubble
 	///
@@ -754,12 +758,13 @@ extension HintPointer {
 		return hitted
 	}
 	public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-		guard shadowLayerPath != nil, let targetView = latestHint?.pointTo  else {
+		guard shadowLayerPath != nil  else {
 			return false
 		}
+		let targetView = latestHint.pointTo
 		let cutted = targetView.hintFrame.insetBy(dx: -4, dy: -4)
 		let isInTheActionable = cutted.contains(point)
-		if isInTheActionable,let option = latestHint?.bubbleOptions {
+		if isInTheActionable,let option = latestHint.bubbleOptions {
 			option.targetViewTap?(latestHint)
 			//				if option.dismissOnTargetViewTap {
 			//					self.finish()
