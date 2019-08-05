@@ -61,6 +61,8 @@ class ViewController: UIViewController {
             .default()
             .with {
                 $0.bubbleLiveDuration = .untilNext
+				$0.dimFading = false
+				$0.dimColor = .black
         })
         
         hints!.add(new: HintPointer.HintItem.init(ID: "100", pointTo: self.pugImage, showView: image,bubbleOptions: pugLoveConfig))
@@ -74,6 +76,7 @@ class ViewController: UIViewController {
             } else {
                 // Fallback on earlier versions
             }
+			
         })
         
         hints!.add( new: self.pugDescrription,text:"i am single and looking for my soulmate",with: pugDescriptionConfig.with{
@@ -88,13 +91,18 @@ class ViewController: UIViewController {
         hints!.add(new: self.transformedButton,text:"without animation.",with: transformed.with{$0.position = .left})
         
         hints!.add(new: self.noConstraintsButton,text:"hi!",with:transformed.with{$0.backgroundColor = .red})
-        
+		
+		hints!.add(new: SimpleHintTarget(on:  CGRect(x: UIScreen.main.bounds.midX - 50, y: UIScreen.main.bounds.midY - 50, width: 100, height: 100), cornerRadius: 50),text:"no view just show a hint on this bounds",with:transformed.with{$0.backgroundColor = .red})
+
+		
+		
         hints!.add(new: self.bigBottomButton,text:"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی ",with: transformed)
         
         
         hints!.bubbleTap = {_ in
             self.hints!.next()
         }
+		
         hints!.dimTap = {_ in
             if let index = self.hints!.currentIndex,self.hints!.hints.count == (index + 1) {
                 self.hints!.finish()
@@ -110,16 +118,14 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.showHints()
-//        if #available(iOS 10.0, *) {
-//            let timer =  Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (t) in
-//                self.hints!.next()
-//                if let x = self.hints!.currentIndex,x == self.hints!.views.count {
-//                    self.hints!.finish()
-//                }
-//            }
-//            timer.fire()
-//        }
+		self.showHints()
+		
+		
+		DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+			self.hints?.pointer.options.dimColor = .blue
+		}
     }
     
 }
+
+

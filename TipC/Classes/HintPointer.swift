@@ -53,6 +53,14 @@ public struct AnyHintTraget : HintTarget,Hashable {
 	}
 }
 
+public struct SimpleHintTarget : HintTarget {
+	public var hintFrame: CGRect
+	public var cornersRadius: CGFloat
+	public init(on target : CGRect,cornerRadius : CGFloat){
+		self.hintFrame = target
+		self.cornersRadius = cornerRadius
+	}
+}
 
 /// Hint Items
 public protocol HintItems: Equatable {
@@ -64,7 +72,13 @@ public protocol HintItems: Equatable {
 public class HintPointer: UIView, HintPointerManagerProtocol {
 	public typealias TapGesture = ((HintItem?) -> Void)
 	/// properties
-	public var options: Options = Options.default()
+	public var options: Options = Options.default(){
+		didSet{
+			if options.dimColor != oldValue.dimColor {
+				observeForDimColorChange()
+			}
+		}
+	}
 	fileprivate var shadowLayerPath: CGPath?
 	fileprivate unowned var _window: UIWindow
 	fileprivate var views = [HintItem]()
@@ -201,6 +215,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 			pathBigRect.append(UIBezierPath(roundedRect: cutPosition.insetBy(dx: -4, dy: -4), cornerRadius: cornerRadius))
 		}
 		pathBigRect.usesEvenOddFillRule = true
+		options.dimColor = latestHint?.bubbleOptions?.changeDimColor ?? options.dimColor
 		self.cutHole(for: pathBigRect.cgPath, startPoint: startPoint)
 	}
 	//    private var mainWindow: UIWindow!
@@ -225,7 +240,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 	///   - availableSpace: avialable space for bubble to fit in
 	///   - view: view that live in bubble view
 	/// - Returns: proper size
-	private func findBubbleProperSize(on availableSpace: CGSize? = nil, for view: UIView) -> CGSize {
+	private func findBubbleProperSize(for view: UIView,on availableSpace: CGSize? = nil) -> CGSize {
 		var calculatedFrame = CGSize.zero
 		let availableSpace = availableSpace ?? CGSize(width: UIScreen.main.bounds.width - (64), height: UIScreen.main.bounds.height)
 		if let label = view as? UILabel, let text = label.text {
@@ -298,6 +313,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		}else {
 			bubble.arrow = .init(position: .init(distance: .mid(offset:0), edge: pointTo.toCGRectEdge()), size: .init(width: 10, height: 5))
 		}
+		
 		return bubble
 	}
 	
@@ -367,12 +383,12 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		switch position {
 		case .left:
 			arrowPoint = .right
-			bubble.frame.size = findBubbleProperSize(on: CGSize(width: abs(targetFrame.minX - (options.safeAreaInsets.totalX + padding.left)), height: controllerSize.height - options.safeAreaInsets.totalY), for: item.showView)
+			bubble.frame.size = findBubbleProperSize(for: item.showView, on: CGSize(width: abs(targetFrame.minX - (options.safeAreaInsets.totalX + padding.left)), height: controllerSize.height - options.safeAreaInsets.totalY))
 			
 			bubble.frame.origin = CGPoint(x: targetFrame.minX - (padding.right + bubble.frame.size.width), y: targetFrame.midY - bubble.frame.midY)
 		case .right:
 			arrowPoint = .left
-			bubble.frame.size = findBubbleProperSize(on: CGSize(width: (controllerSize.width - (options.safeAreaInsets.totalX + padding.left + targetFrame.maxX)), height: controllerSize.height), for: item.showView)
+			bubble.frame.size = findBubbleProperSize(for: item.showView, on: CGSize(width: (controllerSize.width - (options.safeAreaInsets.totalX + padding.left + targetFrame.maxX)), height: controllerSize.height))
 			bubble.frame.origin = CGPoint(x: targetFrame.minX + targetFrame.size.width  + padding.left, y: targetFrame.midY - bubble.frame.midY)
 		case .bottom:
 			arrowPoint = .top
@@ -389,6 +405,9 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		if bubble.frame.minX < options.safeAreaInsets.left {
 			bubble.frame.origin.x = options.safeAreaInsets.left
 		}
+		if bubble.frame.maxX > controllerSize.width - options.safeAreaInsets.right {
+			bubble.frame.origin.x -= ((bubble.frame.maxX - controllerSize.width) + options.safeAreaInsets.right)
+		}
 		return arrowPoint
 		//}
 	}
@@ -399,6 +418,18 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		case fill
 		case all
 	}
+	
+	private func observeForDimColorChange(){
+		guard let shadowPath = self.layer.sublayers?[0] as? CAShapeLayer,shadowPath.fillColor != options.dimColor.cgColor else {
+			return
+		}
+			let pathAnimation = basicAnimation(key: "fillColor", duration: 0.2)
+			pathAnimation.fromValue = shadowPath.fillColor
+			pathAnimation.toValue = options.dimColor.cgColor
+			shadowPath.add(pathAnimation, forKey: nil)
+			shadowPath.fillColor = options.dimColor.cgColor
+	}
+	
 	private func cutHole(for path: CGPath, startPoint: CGPoint? = nil) {
 		
 		let fillLayer = CAShapeLayer()
@@ -421,6 +452,15 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 			shadowLayerPath = path
 			return
 		}
+//
+//		if shadowPath.fillColor != fillLayer.fillColor {
+//			let pathAnimation = basicAnimation(key: "fillColor", duration: 0.2)
+//			pathAnimation.fromValue = shadowPath.fillColor
+//			pathAnimation.toValue = fillLayer.fillColor
+//			shadowPath.add(pathAnimation, forKey: nil)
+//			shadowPath.fillColor = fillLayer.fillColor
+//		}
+//
 		shadowPath.path = path
 		addAniamtionsForShowTime(on: shadowPath, old: shadowLayerPath!, new: path)
 		shadowLayerPath = path
@@ -714,7 +754,7 @@ extension HintPointer {
 		return hitted
 	}
 	public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-		guard let shadowLayerPath = shadowLayerPath, let targetView = latestHint?.pointTo  else {
+		guard shadowLayerPath != nil, let targetView = latestHint?.pointTo  else {
 			return false
 		}
 		let cutted = targetView.hintFrame.insetBy(dx: -4, dy: -4)
@@ -805,8 +845,9 @@ extension HintPointer {
 			public  var padding: UIEdgeInsets = .zero
 			//			public  var dismissOnTargetViewTap: Bool
 			public var targetViewTap : TapGesture?
+			public var changeDimColor : UIColor?
 			public static func `default`()->HintPointer.Options.Bubble {
-				return Options.Bubble(backgroundColor: .red, position: nil, font: UIFont.boldSystemFont(ofSize: 15), foregroundColor: UIColor.white, textAlignments: .center, animation: true, padding: .init(top: 16, left: 16, bottom: 16, right: 16),targetViewTap: nil)
+				return Options.Bubble(backgroundColor: .red, position: nil, font: UIFont.boldSystemFont(ofSize: 15), foregroundColor: UIColor.white, textAlignments: .center, animation: true, padding: .init(top: 16, left: 16, bottom: 16, right: 16),targetViewTap: nil,changeDimColor : nil)
 			}
 			
 		}
