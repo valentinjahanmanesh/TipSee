@@ -42,10 +42,14 @@ extension UIView : HintTarget {
 public struct AnyHintTraget : HintTarget,Hashable {
 	public 	var hintFrame : CGRect {return _hintTarget.hintFrame}
 	public  var cornersRadius : CGFloat {return _hintTarget.cornersRadius}
-	private let _hintTarget : HintTarget
+	private var _hintTarget : HintTarget
 	
 	init(hintTarget : HintTarget){
-		self._hintTarget = hintTarget
+		if Mirror(reflecting: hintTarget).displayStyle == .class {
+			self._hintTarget = SimpleHintTarget(on: hintTarget.hintFrame, cornerRadius: hintTarget.cornersRadius)
+		}else{
+			self._hintTarget = hintTarget
+		}
 	}
 	
 	public func hash(into hasher: inout Hasher) {
