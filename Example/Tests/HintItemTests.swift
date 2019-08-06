@@ -67,4 +67,32 @@ class HintItemTests: XCTestCase {
         // then
         XCTAssertEqual(new.bubbleOptions!.backgroundColor, sut.bubbleOptions!.backgroundColor)
     }
+	
+	func testCustomFont(){
+		// given
+		let new = HintPointer.createItem(for: SimpleHintTarget(on: .zero,cornerRadius: 0), text: "XYS",with: HintPointer.Options.Bubble.default().with{$0.font = .italicSystemFont(ofSize: 100)})
+		
+		// then
+		 XCTAssertEqual((new.showView as! UILabel).font, UIFont.italicSystemFont(ofSize: 100))
+	}
+	
+	func testMEMORYLEAK(){
+		
+		// given
+		var xView : UIView? = UIView()
+		let count = CFGetRetainCount(xView!)
+		print(count)
+		let _ = HintPointer.HintItem(ID: "2", pointTo: xView!, showView: UIView(),bubbleOptions: HintPointer.Options.Bubble.default().with{$0.backgroundColor = .blue})
+		
+		let _ = HintPointer.HintItem(ID: "2", pointTo: xView!, showView: UIView(),bubbleOptions: HintPointer.Options.Bubble.default().with{$0.backgroundColor = .blue})
+		
+		let _ = HintPointer.HintItem(ID: "2", pointTo: xView!, showView: UIView(),bubbleOptions: HintPointer.Options.Bubble.default().with{$0.backgroundColor = .blue})
+		
+		let count2 = CFGetRetainCount(xView!)
+		xView = nil
+		print(count2)
+		// then
+		XCTAssertEqual(count2, count)
+		XCTAssertNil(xView)
+	}
 }
