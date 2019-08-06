@@ -278,7 +278,12 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 			assertionFailure("Here we have to have that bubble(hint) but we can not find it")
 			return
 		}
-		bubbleTap?(item)
+		if let customGesture = item.bubbleOptions?.customBubbleTap {
+			customGesture(item)
+		}else{
+			bubbleTap?(item)
+			
+		}
 	}
 	/// points to the given(target) view by constrainting/Positioning the bubbleView and furthermore adds animation to newborn bubble
 	///
@@ -413,14 +418,8 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		if bubble.frame.minX < options.safeAreaInsets.left {
 			bubble.frame.origin.x = options.safeAreaInsets.left
 		}
-		if bubble.frame.minY < options.safeAreaInsets.top {
-			bubble.frame.origin.y = options.safeAreaInsets.top
-		}
 		if bubble.frame.maxX > controllerSize.width - options.safeAreaInsets.right {
 			bubble.frame.origin.x -= ((bubble.frame.maxX - controllerSize.width) + options.safeAreaInsets.right)
-		}
-		if bubble.frame.maxY > controllerSize.height - options.safeAreaInsets.bottom {
-			bubble.frame.origin.y -= ((bubble.frame.maxY - controllerSize.height) + options.safeAreaInsets.bottom)
 		}
 		return arrowPoint
 		//}
@@ -861,8 +860,9 @@ extension HintPointer {
 			//			public  var dismissOnTargetViewTap: Bool
 			public var targetViewTap : TapGesture?
 			public var changeDimColor : UIColor?
+			public var customBubbleTap : TapGesture?
 			public static func `default`()->HintPointer.Options.Bubble {
-				return Options.Bubble(backgroundColor: .red, position: nil, font: UIFont.boldSystemFont(ofSize: 15), foregroundColor: UIColor.white, textAlignments: .center, animation: true, padding: .init(top: 16, left: 16, bottom: 16, right: 16),targetViewTap: nil,changeDimColor : nil)
+				return Options.Bubble(backgroundColor: .red, position: nil, font: UIFont.boldSystemFont(ofSize: 15), foregroundColor: UIColor.white, textAlignments: .center, animation: true, padding: .init(top: 16, left: 16, bottom: 16, right: 16),targetViewTap: nil,changeDimColor : nil,customBubbleTap: nil)
 			}
 			
 		}
@@ -876,6 +876,7 @@ extension HintPointer {
 		// if false, the dimTap Callback will not call
 		public var absorbDimTouch : Bool
 		public var dimFading : Bool
+		
 		public static func `default`()->HintPointer.Options {
 			return Options(bubbles: Options.Bubble.default(), dimColor: UIColor.black.withAlphaComponent(0.7), bubbleLiveDuration: .forever, defaultBubblePosition: .left, holeRadius: .defaultOrGreater(default: 8), safeAreaInsets: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16),absorbDimTouch: true,dimFading: true)
 		}
