@@ -99,5 +99,23 @@ class HintPointerTests: XCTestCase {
         
         XCTAssert(sut.subviews.count == 1)
     }
+	
+	func testItemMemoryLeak(){
+		let container = UIView()
+		let targetView = UIView()
+		container.addSubview(targetView)
+		// given
+		let item = sut.createItem(for: targetView,text:"hi",with: HintPointer.Options.Bubble.default().with{$0.backgroundColor = .green})
+		var item2 : HintPointer.HintItem? = sut.createItem(for: targetView,text:"hi",with: HintPointer.Options.Bubble.default().with{$0.backgroundColor = .green})
+		
+		// when
+		sut.show(item: item)
+		sut.show(item: item2!)
+		// then
+		
+		item2 = nil
+		XCTAssertNil(item2)
+	}
+	
     
 }
