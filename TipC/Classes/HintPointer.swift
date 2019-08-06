@@ -39,7 +39,7 @@ extension UIView : HintTarget {
 
 
 /// HintTarget Type Erasure
-public struct AnyHintTraget : HintTarget {
+public struct AnyHintTraget : HintTarget,Hashable {
 	public 	var hintFrame : CGRect {return _hintTarget.hintFrame}
 	public  var cornersRadius : CGFloat {return _hintTarget.cornersRadius}
 	private var _hintTarget : HintTarget
