@@ -46,7 +46,7 @@ public struct AnyHintTraget : HintTarget,Hashable {
 	
 	init(hintTarget : HintTarget){
 		//if Mirror(reflecting: hintTarget).displayStyle == .class {
-			self._hintTarget = SimpleHintTarget(on: hintTarget.hintFrame, cornerRadius: hintTarget.cornersRadius)
+		self._hintTarget = SimpleHintTarget(on: hintTarget.hintFrame, cornerRadius: hintTarget.cornersRadius)
 		//}else{
 		//	self._hintTarget = hintTarget
 		//}
@@ -413,8 +413,14 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		if bubble.frame.minX < options.safeAreaInsets.left {
 			bubble.frame.origin.x = options.safeAreaInsets.left
 		}
+		if bubble.frame.minY < options.safeAreaInsets.top {
+			bubble.frame.origin.y = options.safeAreaInsets.top
+		}
 		if bubble.frame.maxX > controllerSize.width - options.safeAreaInsets.right {
 			bubble.frame.origin.x -= ((bubble.frame.maxX - controllerSize.width) + options.safeAreaInsets.right)
+		}
+		if bubble.frame.maxY > controllerSize.height - options.safeAreaInsets.bottom {
+			bubble.frame.origin.y -= ((bubble.frame.maxY - controllerSize.height) + options.safeAreaInsets.bottom)
 		}
 		return arrowPoint
 		//}
@@ -431,11 +437,11 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		guard let shadowPath = self.layer.sublayers?[0] as? CAShapeLayer,shadowPath.fillColor != options.dimColor.cgColor else {
 			return
 		}
-			let pathAnimation = basicAnimation(key: "fillColor", duration: 0.2)
-			pathAnimation.fromValue = shadowPath.fillColor
-			pathAnimation.toValue = options.dimColor.cgColor
-			shadowPath.add(pathAnimation, forKey: nil)
-			shadowPath.fillColor = options.dimColor.cgColor
+		let pathAnimation = basicAnimation(key: "fillColor", duration: 0.2)
+		pathAnimation.fromValue = shadowPath.fillColor
+		pathAnimation.toValue = options.dimColor.cgColor
+		shadowPath.add(pathAnimation, forKey: nil)
+		shadowPath.fillColor = options.dimColor.cgColor
 	}
 	
 	private func cutHole(for path: CGPath, startPoint: CGPoint? = nil) {
@@ -460,15 +466,15 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 			shadowLayerPath = path
 			return
 		}
-//
-//		if shadowPath.fillColor != fillLayer.fillColor {
-//			let pathAnimation = basicAnimation(key: "fillColor", duration: 0.2)
-//			pathAnimation.fromValue = shadowPath.fillColor
-//			pathAnimation.toValue = fillLayer.fillColor
-//			shadowPath.add(pathAnimation, forKey: nil)
-//			shadowPath.fillColor = fillLayer.fillColor
-//		}
-//
+		//
+		//		if shadowPath.fillColor != fillLayer.fillColor {
+		//			let pathAnimation = basicAnimation(key: "fillColor", duration: 0.2)
+		//			pathAnimation.fromValue = shadowPath.fillColor
+		//			pathAnimation.toValue = fillLayer.fillColor
+		//			shadowPath.add(pathAnimation, forKey: nil)
+		//			shadowPath.fillColor = fillLayer.fillColor
+		//		}
+		//
 		shadowPath.path = path
 		addAniamtionsForShowTime(on: shadowPath, old: shadowLayerPath!, new: path)
 		shadowLayerPath = path
