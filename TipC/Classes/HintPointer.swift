@@ -39,17 +39,17 @@ extension UIView : HintTarget {
 
 
 /// HintTarget Type Erasure
-public struct AnyHintTraget : HintTarget,Hashable {
+public struct AnyHintTraget : HintTarget {
 	public 	var hintFrame : CGRect {return _hintTarget.hintFrame}
 	public  var cornersRadius : CGFloat {return _hintTarget.cornersRadius}
 	private var _hintTarget : HintTarget
 	
 	init(hintTarget : HintTarget){
-		if Mirror(reflecting: hintTarget).displayStyle == .class {
+		//if Mirror(reflecting: hintTarget).displayStyle == .class {
 			self._hintTarget = SimpleHintTarget(on: hintTarget.hintFrame, cornerRadius: hintTarget.cornersRadius)
-		}else{
-			self._hintTarget = hintTarget
-		}
+		//}else{
+		//	self._hintTarget = hintTarget
+		//}
 	}
 	
 	public func hash(into hasher: inout Hasher) {
@@ -159,7 +159,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		}
 	}
 	
-	/// removes the given item
+	/// removes the given item. it will finish hintPointer after dismissing if this is the last item in hints array, if you plan to show another item on dimissal(one by one) create an array of items and add them to the hintPointer and set the bubbleLiveDuration == .untilNext.
 	///
 	/// - Parameter item: item to remove
 	public func dismiss(item: HintItem) {
