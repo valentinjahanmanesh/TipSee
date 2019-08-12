@@ -39,21 +39,21 @@ extension UIView : HintTarget {
 
 
 /// HintTarget Type Erasure
-public struct AnyHintTraget : HintTarget,Hashable {
+public struct AnyHintTraget : HintTarget , Hashable {
 	public 	var hintFrame : CGRect {return _hintTarget.hintFrame}
 	public  var cornersRadius : CGFloat {return _hintTarget.cornersRadius}
 	private var _hintTarget : HintTarget
 	
 	init(hintTarget : HintTarget){
-		//if Mirror(reflecting: hintTarget).displayStyle == .class {
 		self._hintTarget = SimpleHintTarget(on: hintTarget.hintFrame, cornerRadius: hintTarget.cornersRadius)
-		//}else{
-		//	self._hintTarget = hintTarget
-		//}
 	}
 	
 	public func hash(into hasher: inout Hasher) {
-		
+		hasher.combine(self.hintFrame.origin.x)
+		hasher.combine(self.hintFrame.origin.y)
+		hasher.combine(self.hintFrame.width)
+		hasher.combine(self.hintFrame.height)
+		hasher.combine(self.cornersRadius)
 	}
 }
 
@@ -68,9 +68,16 @@ public struct SimpleHintTarget : HintTarget {
 
 /// Hint Items
 public protocol HintItems: Equatable {
+	typealias ID = String
+	var ID: ID{get set}
 	var pointTo: AnyHintTraget {get set}
 	var showView: UIView {get set}
 	var bubbleOptions: HintPointer.Options.Bubble? {get set}
+}
+extension HintItems {
+	public static func == (lhs: Self, rhs: Self) -> Bool {
+		return lhs.ID == rhs.ID
+	}
 }
 
 public class HintPointer: UIView, HintPointerManagerProtocol {
@@ -88,6 +95,9 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 	fileprivate var views = [HintItem]()
 	fileprivate var bubbles = [BubbleView]()
 	fileprivate var latestHint : HintItem!
+	
+	/// in a very odd situation, hit test called twice and we want to prevent multiple calls to our functions
+	fileprivate var touched : (view:UIView?,timeStamp: Date?)
 	public var bubbleTap: TapGesture?
 	public var dimTap : TapGesture?
 	/// shows a bubble which points to the given view
@@ -145,6 +155,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		//				(old as! HintPointer).finish()
 		//			}
 		self.frame	 = _window.frame
+		self.tag = 989124897998
 		_window.addSubview(self)
 		_window.bringSubviewToFront(self)
 	}
@@ -301,7 +312,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		bubble.addGestureRecognizer(tap)
 		
 		// animates the bubble appearing
-		if let animation = item.bubbleOptions?.animation, animation {
+		if let animation = item.bubbleOptions?.hasAppearAnimation, animation {
 			bubble.transform = .init(scaleX: 0.5, y: 0.5)
 			self.animateBubble {
 				bubble.transform = .identity
@@ -465,34 +476,24 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 			shadowLayerPath = path
 			return
 		}
-		//
-		//		if shadowPath.fillColor != fillLayer.fillColor {
-		//			let pathAnimation = basicAnimation(key: "fillColor", duration: 0.2)
-		//			pathAnimation.fromValue = shadowPath.fillColor
-		//			pathAnimation.toValue = fillLayer.fillColor
-		//			shadowPath.add(pathAnimation, forKey: nil)
-		//			shadowPath.fillColor = fillLayer.fillColor
-		//		}
-		//
+		
 		shadowPath.path = path
 		addAniamtionsForShowTime(on: shadowPath, old: shadowLayerPath!, new: path)
 		shadowLayerPath = path
 	}
 	
 	private func addAniamtionsForShowTime(on layer : CAShapeLayer,old : CGPath,new : CGPath,force : Bool = false){
-		if force || options.bubbleLiveDuration == .untilNext {
-			/// i didn'nt use group animation because each animations has some different options and group animation will not support this
 			let pathAnimation = basicAnimation(key: "path", duration: 0.2)
-			pathAnimation.fromValue = old
+			pathAnimation.fromValue = options.bubbleLiveDuration == .untilNext ? old : new
 			pathAnimation.toValue = new
 			layer.add(pathAnimation, forKey: nil)
-		}
+		
 		
 		if  options.dimFading {
-			let pathAnimation = basicAnimation(key: "fillColor", duration: 1)
-			pathAnimation.toValue = UIColor.clear.cgColor
-			pathAnimation.beginTime = CACurrentMediaTime()+2;
-			layer.add(pathAnimation, forKey: nil)
+			let fillColorAnimation = basicAnimation(key: "fillColor", duration: 1)
+			fillColorAnimation.toValue = UIColor.clear.cgColor
+			fillColorAnimation.beginTime = CACurrentMediaTime()+2;
+			layer.add(fillColorAnimation, forKey: nil)
 		}
 	}
 	private func basicAnimation(key: String, duration: TimeInterval) -> CABasicAnimation {
@@ -757,7 +758,13 @@ extension UIEdgeInsets {
 
 extension HintPointer {
 	public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+		guard self.touched.timeStamp == nil else {
+			let touchedView = self.touched.view
+			self.touched = (nil,nil)
+			return touchedView
+		}
 		let hitted  = super.hitTest(point, with: event)
+		self.touched = (hitted,Date())
 		if hitted == self, !options.absorbDimTouch {
 			return nil
 		}
@@ -774,11 +781,12 @@ extension HintPointer {
 		let cutted = targetView.hintFrame.insetBy(dx: -4, dy: -4)
 		let isInTheActionable = cutted.contains(point)
 		if isInTheActionable,let option = latestHint.bubbleOptions {
-			option.targetViewTap?(latestHint)
-			//				if option.dismissOnTargetViewTap {
-			//					self.finish()
-			//				}
+				option.targetViewTap?(latestHint)
+				if option.dismissOnTargetViewTap {
+					self.finish()
+				}
 		}
+		
 		return !isInTheActionable
 	}
 }
@@ -805,9 +813,6 @@ extension HintConfiguration {
 extension HintPointer {
 	public struct HintItem: HintItems {
 		public typealias ID = String
-		public static func == (lhs: HintPointer.HintItem, rhs: HintPointer.HintItem) -> Bool {
-			return lhs.ID == rhs.ID
-		}
 		public var ID: ID
 		public var pointTo: AnyHintTraget
 		public var showView: UIView
@@ -845,24 +850,25 @@ extension HintPointer {
 		case none
 	}
 	public struct Options: HintConfiguration {
+		public typealias BubblePosition = UIRectEdge
 		public struct Bubble: HintConfiguration {
 			public  var backgroundColor: UIColor
 			
 			/// preferred position for bubble based on target view
-			public  var position: UIRectEdge?
+			public  var position: BubblePosition?
 			public  var font: UIFont
 			public  var foregroundColor: UIColor
 			public  var textAlignments: NSTextAlignment
 			/// animation for the appearance
-			public  var animation: Bool
+			public  var hasAppearAnimation: Bool
 			/// spaces between bubble view and target view
 			public  var padding: UIEdgeInsets = .zero
-			//			public  var dismissOnTargetViewTap: Bool
+			public  var dismissOnTargetViewTap: Bool
 			public var targetViewTap : TapGesture?
 			public var changeDimColor : UIColor?
 			public var customBubbleTap : TapGesture?
 			public static func `default`()->HintPointer.Options.Bubble {
-				return Options.Bubble(backgroundColor: .red, position: nil, font: UIFont.boldSystemFont(ofSize: 15), foregroundColor: UIColor.white, textAlignments: .center, animation: true, padding: .init(top: 16, left: 16, bottom: 16, right: 16),targetViewTap: nil,changeDimColor : nil,customBubbleTap: nil)
+				return Options.Bubble(backgroundColor: .red, position: nil, font: UIFont.boldSystemFont(ofSize: 15), foregroundColor: UIColor.white, textAlignments: .center, hasAppearAnimation: true, padding: .init(top: 16, left: 16, bottom: 16, right: 16), dismissOnTargetViewTap: false,targetViewTap: nil,changeDimColor : nil,customBubbleTap: nil)
 			}
 			
 		}
@@ -870,7 +876,7 @@ extension HintPointer {
 		public var dimColor: UIColor
 		/// bubbles life cycle
 		public var bubbleLiveDuration: BubbleLiveDuration
-		public var defaultBubblePosition: UIRectEdge
+		public var defaultBubblePosition: BubblePosition
 		public var holeRadius: HoleRadius
 		public var safeAreaInsets: UIEdgeInsets
 		// if false, the dimTap Callback will not call
@@ -918,3 +924,39 @@ public protocol HintPointerManagerProtocol {
 	func finish()
 }
 
+extension HintPointer {
+	
+}
+
+extension UIViewController  {
+	var hintManager : HintPointer? {
+		return self.view.window?.viewWithTag(989124897998) as? HintPointer
+	}
+	
+	fileprivate static func swizzleMethods(original: Selector, swizzled: Selector) {
+		guard
+			let originalMethod = class_getInstanceMethod(self, original),
+			let swizzledMethod = class_getInstanceMethod(self, swizzled) else { return }
+		method_exchangeImplementations(originalMethod, swizzledMethod)
+	}
+	
+//	@objc private func swizzled_tipC_viewDidAppear(_ animated: Bool) {
+//		swizzled_tipC_viewDidAppear(animated)
+//		guard let hints = self.hints?.filter({$0.isShown}) else {
+//			return
+//		}
+//		self.hintManager?.show(item: hints)
+//	}
+	
+	@objc private func swizzled_keyboardListener_viewDidDisappear(_ animated: Bool) {
+		swizzled_keyboardListener_viewDidDisappear(animated)
+		self.hintManager?.finish()
+	}
+	
+	fileprivate static let TipCViewDidAppearSwizzler: Void = {
+//		swizzleMethods(original: #selector(viewDidAppear(_:)),
+//					   swizzled: #selector(swizzled_tipC_viewDidAppear))
+		swizzleMethods(original: #selector(viewDidDisappear(_:)),
+					   swizzled: #selector(swizzled_keyboardListener_viewDidDisappear))
+	}()
+}
