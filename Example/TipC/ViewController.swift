@@ -16,13 +16,22 @@ class ViewController: UIViewController {
     @IBOutlet weak var pugName : UIView!
     @IBOutlet weak var pugDescrription : UIView!
     private var hints : HintPointerManager?
+	private var rotationDegree : CGFloat = 45
     override func viewDidLoad() {
         super.viewDidLoad()
         
         bigBottomButton.titleLabel?.lineBreakMode = .byWordWrapping
         bigBottomButton.titleLabel?.numberOfLines = 0
-        transformedButton.transform = CGAffineTransform.identity
-            .rotated(by: 45)
+	
+		if #available(iOS 10.0, *) {
+			let t = Timer.scheduledTimer(withTimeInterval: 0.55, repeats: true) { [unowned self](_) in
+				UIView.animate(withDuration: 0.5) {
+					self.transformedButton.transform = self.transformedButton.transform
+						.rotated(by: self.rotationDegree)
+				}
+			}
+			t.fire()
+		}
     }
     
     func showHints(){
@@ -51,7 +60,7 @@ class ViewController: UIViewController {
         let transformed = HintPointer.Options.Bubble
             .default()
             .with{
-                $0.backgroundColor = .black
+				$0.backgroundColor = UIColor.black.withAlphaComponent(0.3)
                 $0    .foregroundColor = .white
                 $0    .textAlignments = .left
                 $0    .position =  .right
@@ -60,9 +69,10 @@ class ViewController: UIViewController {
         self.hints = HintPointerManager(on: self.view.window!,with: HintPointer.Options
             .default()
             .with {
+				$0.dimColor =  UIColor.black.withAlphaComponent(0.3)
                 $0.bubbleLiveDuration = .untilNext
 				$0.dimFading = false
-				$0.dimColor = .black
+				
         })
         
         hints!.add(new: HintPointer.HintItem.init(ID: "100", pointTo: self.pugImage, showView: image,bubbleOptions: pugLoveConfig))
@@ -96,7 +106,13 @@ class ViewController: UIViewController {
 
 		
 		
-        hints!.add(new: self.bigBottomButton,text:"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی ",with: transformed)
+		hints!.add(new: self.bigBottomButton,text:"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی ",with: transformed.with{
+			$0.targetViewTap = {[weak self]_ in
+				guard let degree = self?.rotationDegree else {return}
+ 				self?.rotationDegree = (degree * -1)
+			}
+			$0.dismissOnTargetViewTap = true
+		})
         
         
         hints!.bubbleTap = {_ in
@@ -122,7 +138,8 @@ class ViewController: UIViewController {
 		
 		
 		DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-			self.hints?.pointer.options.dimColor = .blue
+			// changes color in the middle of presentation
+			self.hints?.pointer.options.dimColor = UIColor.blue.withAlphaComponent(0.3)
 		}
     }
     
