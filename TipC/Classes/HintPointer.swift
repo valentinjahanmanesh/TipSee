@@ -155,7 +155,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		//				(old as! HintPointer).finish()
 		//			}
 		self.frame	 = _window.frame
-		self.tag = 989124897998
+		self.tag = 9891248
 		_window.addSubview(self)
 		_window.bringSubviewToFront(self)
 	}
@@ -930,7 +930,7 @@ extension HintPointer {
 
 extension UIViewController  {
 	var hintManager : HintPointer? {
-		return self.view.window?.viewWithTag(989124897998) as? HintPointer
+		return self.view.window?.viewWithTag(9891248) as? HintPointer
 	}
 	
 	fileprivate static func swizzleMethods(original: Selector, swizzled: Selector) {
