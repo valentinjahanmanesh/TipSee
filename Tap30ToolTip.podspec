@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.version          = '1.1.1-beta'
+  s.version          = '1.1.2-beta'
   s.name             = 'Tap30ToolTip'
   s.module_name      = 'TipC'
   s.summary          = 'shows tool tip near the views.'
