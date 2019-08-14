@@ -67,7 +67,16 @@ class HintItemTests: XCTestCase {
         // then
         XCTAssertEqual(new.bubbleOptions!.backgroundColor, sut.bubbleOptions!.backgroundColor)
     }
-	
+	func testCustomBubbeTap(){
+		// when
+		sut.bubbleOptions = HintPointer.Options.Bubble.default().with{
+			$0.backgroundColor = .blue
+			$0.onBubbleTap = {_ in }
+		}
+		
+		// then
+		XCTAssertNotNil(sut.bubbleOptions!.onBubbleTap)
+	}
 	func testCustomFont(){
 		// given
 		let new = HintPointer.createItem(for: SimpleHintTarget(on: .zero,cornerRadius: 0), text: "XYS",with: HintPointer.Options.Bubble.default().with{$0.font = .italicSystemFont(ofSize: 100)})

@@ -9,14 +9,14 @@ public class HintPointerManager {
     public var pointer : HintPointer
     public private(set) var hints : [HintPointer.HintItem]
     public var latestHint : HintPointer.HintItem?
-    public var bubbleTap: ((HintPointer.HintItem?) -> Void)? {
+    public var onBubbleTap: ((HintPointer.HintItem?) -> Void)? {
         didSet{
-            pointer.bubbleTap = self.bubbleTap
+            pointer.onBubbleTap = self.onBubbleTap
         }
     }
-    public var dimTap : ((HintPointer.HintItem?) -> Void)? {
+    public var onDimTap : ((HintPointer.HintItem?) -> Void)? {
         didSet{
-            pointer.dimTap = self.dimTap
+            pointer.onDimTap = self.onDimTap
         }
     }
     public var currentIndex : Int? {
@@ -51,16 +51,12 @@ public class HintPointerManager {
         guard let current = latestHint,let currentIndex = hints.firstIndex(of: current) else {
             if !hints.isEmpty{
                 self.currentIndex = 0
-                //latestHint = hints[0]
-                //self.pointer.show(item: latestHint!)
             }
             return
         }
         let next  = currentIndex+1
         if next < hints.count {
             self.currentIndex = next
-            //latestHint = hints[next]
-            //self.pointer.show(item: latestHint!)
         }
     }
     
@@ -71,9 +67,7 @@ public class HintPointerManager {
         }
         let previous  = currentIndex-1
         if previous >= 0 {
-            //latestHint = hints[previous]
             self.currentIndex = previous
-            //self.pointer.show(item: latestHint!)
         }
     }
     
