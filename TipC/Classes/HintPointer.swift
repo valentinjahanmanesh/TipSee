@@ -24,7 +24,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 	fileprivate var shadowLayerPath: CGPath?
 	fileprivate unowned let _window: UIWindow
 	fileprivate lazy var views : [HintItem] = {
-		setupBackgroundDim()
+		attachToWindow()
 		return [HintItem]()
 	}()
 	
@@ -47,26 +47,26 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 	}
 	
 	@discardableResult public func createItem(for view : HintTarget,text : String, with bubbleOption: Options.Bubble? = nil) -> HintItem {
-		return  HintItem.init(ID: UUID().uuidString, pointTo: view, showView: HintPointer.createLabel(for: text, with: bubbleOption,defaultOptions: self.options) as UIView, bubbleOptions: bubbleOption)
+		return  HintItem.init(ID: UUID().uuidString, pointTo: view, contentView: HintPointer.createLabel(for: text, with: bubbleOption,defaultOptions: self.options) as UIView, bubbleOptions: bubbleOption)
 	}
 	@discardableResult public static func createItem(for view : HintTarget,text : String, with bubbleOption: Options.Bubble? = nil) -> HintItem {
-		return  HintItem.init(ID: UUID().uuidString, pointTo: view, showView: HintPointer.createLabel(for: text, with: bubbleOption,defaultOptions: .default()) as UIView, bubbleOptions: bubbleOption)
+		return  HintItem.init(ID: UUID().uuidString, pointTo: view, contentView: HintPointer.createLabel(for: text, with: bubbleOption,defaultOptions: .default()) as UIView, bubbleOptions: bubbleOption)
 	}
 	
-	private func clearAllViews(){
+	private final func clearAllViews(){
 		guard  !views.isEmpty else{return}
 		views.forEach { (item) in
 			self.dismiss(item: item)
 		}
 	}
 	
-	private func store(hint : HintItem,bubble : BubbleView){
+	private final func store(hint : HintItem,bubble : BubbleView){
 		self.latestHint = hint
 		self.views.append(hint)
 		self.bubbles.append(bubble)
 	}
 	
-	private func deStore(index : Int){
+	private final func deStore(index : Int){
 		if self.bubbles.count > index {
 			self.bubbles.remove(at: index)
 		}
@@ -81,7 +81,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 	///   - bubbleOption: custom options for bubble
 	/// - Returns: generated item that can use to access to views or dismiss action
 	@discardableResult public func show(item: HintItem, with bubbleOption: Options.Bubble? = nil) -> HintItem {
-		let hint = HintItem.init(ID: item.ID.isEmpty ? UUID().uuidString : item.ID, pointTo: item.pointTo, showView: item.showView as UIView, bubbleOptions:  bubbleOption ?? item.bubbleOptions)
+		let hint = HintItem.init(ID: item.ID.isEmpty ? UUID().uuidString : item.ID, pointTo: item.pointTo, contentView: item.contentView as UIView, bubbleOptions:  bubbleOption ?? item.bubbleOptions)
 		if options.bubbleLiveDuration == .untilNext {
 			clearAllViews()
 		}
@@ -90,7 +90,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		return hint
 	}
 	
-	private func setupBackgroundDim() {
+	private final func attachToWindow() {
 		self.frame	 = _window.frame
 		self.tag = 9891248
 		_window.addSubview(self)
@@ -137,7 +137,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		return label
 	}
 	
-	private func createHoleForVisibleViews() {
+	private final func createHoleForVisibleViews() {
 		//shadowLayer?.removeFromSuperlayer()
 		guard superview != nil else { return }
 		let pathBigRect = UIBezierPath(rect: superview!.frame)
@@ -192,22 +192,6 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	/// creates a default bubble
-	///
-	/// - Parameter item: hint item
-	/// - Returns: bubble view
-	private func createDefaultBubble(for item: HintItem) -> BubbleView {
-		
-		let bubble = BubbleView(frame: .zero)
-		
-		bubble.frame.size = findBubbleProperSize(for: item.showView)
-		bubble.alpha = 0
-		bubble.backColor = item.bubbleOptions?.backgroundColor ?? self.options.bubbles.backgroundColor
-		bubble.arrow = .init(position: .init(distance: .mid(offset: 0), edge: UIRectEdge.left.toCGRectEdge()), size: .init(width: 10, height: 5))
-		
-		return bubble
-	}
-	
 	@objc
 	private func tapBubble(_ sender: UITapGestureRecognizer) {
 		guard let item = self.views.first(where:{item in item.ID == sender.identifier} )else {
@@ -221,15 +205,27 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 			
 		}
 	}
+	/// creates a default bubble
+	///
+	/// - Parameter item: hint item
+	/// - Returns: bubble view
+	final func defaultBubble(for item: HintPointer.HintItem,defaultOptions options : HintPointer.Options) -> BubbleView {
+		
+		let bubble = BubbleView.default()
+		bubble.backColor = item.bubbleOptions?.backgroundColor ?? options.bubbles.backgroundColor
+		return bubble
+	}
 	/// points to the given(target) view by constrainting/Positioning the bubbleView and furthermore adds animation to newborn bubble
 	///
 	/// - Parameter item: hint item
 	/// - Returns: baked bubble view
-	private func point(to item: HintItem) -> BubbleView {
+	private final func point(to item: HintItem) -> BubbleView {
 		self.latestHint = item
 		let view = item.pointTo
-		let label = item.showView
-		let bubble = createDefaultBubble(for: item)
+		let label = item.contentView
+		let bubble = defaultBubble(for: item, defaultOptions: options)
+			.setProperSizeWith(content: label)
+		
 		self.addSubview(bubble)
 		
 		let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapBubble(_:)))
@@ -250,17 +246,17 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		}
 		
 		// binds constraints
-		let pointTo = self.setBubbleConstraints(for: bubble, to: item)
+		let arrowInstalledPosition = self.setBubbleConstraints(for: bubble, to: item)
 		bubble.setContent(view: label, padding: 8)
 		self.layoutIfNeeded()
 		
 		// align the arrow
 		let center  =  CGPoint(x: view.hintFrame.midX, y: view.hintFrame.midY)
 		
-		if [.top, .bottom].contains(pointTo) {
-			bubble.arrow = .init(position: .init(distance: .constant(center.x - bubble.frame.origin.x), edge: pointTo.toCGRectEdge()), size: .init(width: 10, height: 5))
+		if [.top, .bottom].contains(arrowInstalledPosition) {
+			bubble.arrow = .init(position: .init(distance: .constant(center.x - bubble.frame.origin.x), edge: arrowInstalledPosition.toCGRectEdge()), size: .init(width: 10, height: 5))
 		}else {
-			bubble.arrow = .init(position: .init(distance: .mid(offset:0), edge: pointTo.toCGRectEdge()), size: .init(width: 10, height: 5))
+			bubble.arrow = .init(position: .init(distance: .mid(offset:0), edge: arrowInstalledPosition.toCGRectEdge()), size: .init(width: 10, height: 5))
 		}
 		
 		return bubble
@@ -332,12 +328,12 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		switch position {
 		case .left:
 			arrowPoint = .right
-			bubble.frame.size = findBubbleProperSize(for: item.showView, on: CGSize(width: abs(targetFrame.minX - (options.safeAreaInsets.totalX + padding.left)), height: controllerSize.height - options.safeAreaInsets.totalY))
+			bubble.frame.size = findBubbleProperSize(for: item.contentView, on: CGSize(width: abs(targetFrame.minX - (options.safeAreaInsets.totalX + padding.left)), height: controllerSize.height - options.safeAreaInsets.totalY))
 			
 			bubble.frame.origin = CGPoint(x: targetFrame.minX - (padding.right + bubble.frame.size.width), y: targetFrame.midY - bubble.frame.midY)
 		case .right:
 			arrowPoint = .left
-			bubble.frame.size = findBubbleProperSize(for: item.showView, on: CGSize(width: (controllerSize.width - (options.safeAreaInsets.totalX + padding.left + targetFrame.maxX)), height: controllerSize.height))
+			bubble.frame.size = findBubbleProperSize(for: item.contentView, on: CGSize(width: (controllerSize.width - (options.safeAreaInsets.totalX + padding.left + targetFrame.maxX)), height: controllerSize.height))
 			bubble.frame.origin = CGPoint(x: targetFrame.minX + targetFrame.size.width  + padding.left, y: targetFrame.midY - bubble.frame.midY)
 		case .bottom:
 			arrowPoint = .top
@@ -371,7 +367,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		shadowPath.fillColor = options.dimColor.cgColor
 	}
 	
-	private func cutHole(for path: CGPath, startPoint: CGPoint? = nil) {
+	private final func cutHole(for path: CGPath, startPoint: CGPoint? = nil) {
 		
 		let fillLayer = CAShapeLayer()
 		
@@ -399,7 +395,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		shadowLayerPath = path
 	}
 	
-	private func addAniamtionsForShowTime(on layer : CAShapeLayer,old : CGPath,new : CGPath,force : Bool = false){
+	private final func addAniamtionsForShowTime(on layer : CAShapeLayer,old : CGPath,new : CGPath,force : Bool = false){
 			let pathAnimation = basicAnimation(key: "path", duration: 0.2)
 			pathAnimation.fromValue = options.bubbleLiveDuration == .untilNext ? old : new
 			pathAnimation.toValue = new
@@ -413,7 +409,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 			layer.add(fillColorAnimation, forKey: nil)
 		}
 	}
-	private func basicAnimation(key: String, duration: TimeInterval) -> CABasicAnimation {
+	private final func basicAnimation(key: String, duration: TimeInterval) -> CABasicAnimation {
 		
 		let animation = CABasicAnimation(keyPath: key)
 		animation.duration = duration
@@ -578,5 +574,38 @@ extension HintPointer {
 			calculatedFrame = view.frame.insetBy(dx: -8, dy: -8).size
 		}
 		return calculatedFrame
+	}
+}
+
+extension BubbleView {
+	/// finds bubble size
+	///
+	/// - Parameters:
+	///   - availableSpace: avialable space for bubble to fit in
+	///   - view: view that live in bubble view
+	/// - Returns: updated bubble view
+	fileprivate func setProperSizeWith(content view: UIView,on availableSpace: CGSize? = nil) -> BubbleView {
+		let bubbleView = self
+		var calculatedFrame = CGSize.zero
+		let availableSpace = availableSpace ?? CGSize(width: UIScreen.main.bounds.width - (64), height: UIScreen.main.bounds.height)
+		if let label = view as? UILabel, let text = label.text {
+			calculatedFrame.height = text.height(font: label.font, widthConstraint: availableSpace.width) + 16
+			calculatedFrame.width = text.width(font: label.font, widthConstraint: availableSpace.width, heightConstraint: self.frame.size.height) + 16
+		}else {
+			calculatedFrame = view.frame.insetBy(dx: -8, dy: -8).size
+		}
+		bubbleView.frame.size = calculatedFrame
+		return bubbleView
+	}
+
+	/// creates a default bubble
+	///
+	/// - Parameter item: hint item
+	/// - Returns: bubble view
+	fileprivate static func `default`() -> BubbleView {
+		let bubble = BubbleView(frame: .zero)
+		bubble.alpha = 0
+		bubble.arrow = .init(position: .init(distance: .mid(offset: 0), edge: UIRectEdge.left.toCGRectEdge()), size: .init(width: 10, height: 5))
+		return bubble
 	}
 }
