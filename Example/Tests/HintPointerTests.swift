@@ -50,7 +50,7 @@ class HintPointerTests: XCTestCase {
         let givenItem = sut.show(item: item)
         
         // then
-        XCTAssertNotNil(givenItem.showView as? UILabel)
+        XCTAssertNotNil(givenItem.contentView as? UILabel)
     }
     
     func testShownBubbleConentText(){
@@ -64,7 +64,7 @@ class HintPointerTests: XCTestCase {
         let givenItem = sut.show(item: item)
         
         // then
-        XCTAssert((givenItem.showView as? UILabel)?.text == "hi")
+        XCTAssert((givenItem.contentView as? UILabel)?.text == "hi")
     }
     
     func testShownDissmisItem(){
