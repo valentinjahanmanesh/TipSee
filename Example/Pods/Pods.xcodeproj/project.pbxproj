@@ -14,6 +14,11 @@
 		5C70ADAA9E9C2FCB154D4DEA38423C04 /* Pods-TipC_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F54C1A19742533662A7EF86E9DA8F98 /* Pods-TipC_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		74AB45B7FB25567A9FD38453B6A929E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
 		75939A5A65E34DC2F8F22E4CFB2BE57F /* Pods-TipC_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CAFACC3977FDBEB83C038143B578CC /* Pods-TipC_Tests-dummy.m */; };
+		8778AC292304852D00D2510A /* HintTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8778AC272304852D00D2510A /* HintTarget.swift */; };
+		8778AC2C2304854500D2510A /* HintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8778AC2A2304854500D2510A /* HintItem.swift */; };
+		8778AC2F230485A300D2510A /* HintOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8778AC2D230485A300D2510A /* HintOption.swift */; };
+		8778AC322304867700D2510A /* UiView+Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8778AC302304867700D2510A /* UiView+Exts.swift */; };
+		8778AC342304876C00D2510A /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8778AC332304876C00D2510A /* BubbleView.swift */; };
 		87A8EF0622E0CA0800E5DEBE /* TipC-Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A8EF0422E0C99200E5DEBE /* TipC-Exts.swift */; };
 		B5CF56AF0C34886232C93160A4FC56D1 /* Pods-TipC_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F7E1ED1D4768E13A18803CC9069B3 /* Pods-TipC_Example-dummy.m */; };
 		E55B648023299C2CE57958AF569907EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
@@ -56,6 +61,11 @@
 		6F54C1A19742533662A7EF86E9DA8F98 /* Pods-TipC_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TipC_Example-umbrella.h"; sourceTree = "<group>"; };
 		706F7E1ED1D4768E13A18803CC9069B3 /* Pods-TipC_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TipC_Example-dummy.m"; sourceTree = "<group>"; };
 		7F5B21BAD8998302F6DDBC830A3C7BB3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		8778AC272304852D00D2510A /* HintTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HintTarget.swift; path = TipC/Classes/HintTarget.swift; sourceTree = "<group>"; };
+		8778AC2A2304854500D2510A /* HintItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HintItem.swift; path = TipC/Classes/HintItem.swift; sourceTree = "<group>"; };
+		8778AC2D230485A300D2510A /* HintOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HintOption.swift; path = TipC/Classes/HintOption.swift; sourceTree = "<group>"; };
+		8778AC302304867700D2510A /* UiView+Exts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UiView+Exts.swift"; path = "TipC/Classes/UiView+Exts.swift"; sourceTree = "<group>"; };
+		8778AC332304876C00D2510A /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BubbleView.swift; path = TipC/Classes/BubbleView.swift; sourceTree = "<group>"; };
 		87A8EF0422E0C99200E5DEBE /* TipC-Exts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TipC-Exts.swift"; path = "TipC/Classes/TipC-Exts.swift"; sourceTree = "<group>"; };
 		8C51EA2B42C4DEA2BE5193BD0EEB3D8F /* Pods-TipC_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TipC_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		8DA37491F48EECE8D8C6658201701BB1 /* TipC-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TipC-prefix.pch"; sourceTree = "<group>"; };
@@ -148,6 +158,11 @@
 				1E1946ED5F14130360B60D45A726951A /* HintPointer.swift */,
 				3653CB92F31706AF044946EF53267AFD /* Pod */,
 				DAA0746C0158CFBA001AF3BF1A4562C9 /* Support Files */,
+				8778AC272304852D00D2510A /* HintTarget.swift */,
+				8778AC2A2304854500D2510A /* HintItem.swift */,
+				8778AC2D230485A300D2510A /* HintOption.swift */,
+				8778AC302304867700D2510A /* UiView+Exts.swift */,
+				8778AC332304876C00D2510A /* BubbleView.swift */,
 			);
 			name = TipC;
 			path = ../..;
@@ -324,7 +339,7 @@
 				LastUpgradeCheck = 1100;
 				TargetAttributes = {
 					A3FC5FEE7DD018CB28F66BFF9182D313 = {
-						LastSwiftMigration = 1020;
+						LastSwiftMigration = 1100;
 					};
 				};
 			};
@@ -385,8 +400,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1644F69BB42FB527D52835E74D2987A /* HintPointer.swift in Sources */,
+				8778AC2F230485A300D2510A /* HintOption.swift in Sources */,
+				8778AC342304876C00D2510A /* BubbleView.swift in Sources */,
+				8778AC322304867700D2510A /* UiView+Exts.swift in Sources */,
+				8778AC292304852D00D2510A /* HintTarget.swift in Sources */,
 				26C85E4ABF2D40A57635D6523BE202C8 /* TipC-dummy.m in Sources */,
 				87A8EF0622E0CA0800E5DEBE /* TipC-Exts.swift in Sources */,
+				8778AC2C2304854500D2510A /* HintItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
