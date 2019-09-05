@@ -45,6 +45,7 @@
 		607FACE51AFB9204008FA782 /* TipC_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipC_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* OptionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsTests.swift; sourceTree = "<group>"; };
+		874871AF2321699300E86432 /* TipC.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = TipC.podspec; path = ../TipC.podspec; sourceTree = "<group>"; };
 		879BF27922E2381E00AF8118 /* HintItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintItemTests.swift; sourceTree = "<group>"; };
 		879BF27B22E23AD000AF8118 /* HintPointerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintPointerTests.swift; sourceTree = "<group>"; };
 		8D5D55DC860BD7F648D4073C /* Pods_TipC_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TipC_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				B09474340D6B081B18AD231C /* Tap30ToolTip.podspec */,
+				874871AF2321699300E86432 /* TipC.podspec */,
 				1C55248EBF4524A0A3EB11A1 /* README.md */,
 				F67CFF7784A18D29A21BB29A /* LICENSE */,
 			);
