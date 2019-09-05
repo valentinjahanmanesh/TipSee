@@ -95,7 +95,7 @@ class ViewController: UIViewController {
 				
         self.hints = HintPointerManager(on: self.view.window!,with: defaultHintOption)
         
-        hints!.add(new: HintPointer.HintItem.init(ID: "100", pointTo: self.pugImage, showView: image,bubbleOptions: pugLoveConfig))
+        hints!.add(new: HintPointer.HintItem.init(ID: "100", pointTo: self.pugImage, contentView: image,bubbleOptions: pugLoveConfig))
         
         hints!.add(new: self.pugImage,text:"best dog ever <3 <3 ^_^ ^_^",with: pugDescriptionConfig.with{$0.position = .right})
         
@@ -126,7 +126,7 @@ class ViewController: UIViewController {
 				self?.startDayAndNight = true
 				degree = (degree * -1)
 				self?.rotationDegree = degree
-				guard let label = item.showView as? UILabel else {
+				guard let label = item.contentView as? UILabel else {
 					return
 				}
 				label.text = "please tap on the \(degree < 0 ? "☀️" : "🌑")"
@@ -152,7 +152,7 @@ class ViewController: UIViewController {
         
         
         hints!.onBubbleTap = {[unowned self] _ in
-            self.hints!.next()
+            self.hints?.next()
         }
 		
         hints!.onDimTap = {[unowned self] _ in
