@@ -8,23 +8,21 @@
 
 Pod::Spec.new do |s|
   s.version          = '1.1.3'
-  s.name             = 'Tap30ToolTip'
+  s.name             = 'TipC'
   s.module_name      = 'TipC'
   s.summary          = 'shows tool beautiful tip or custom views on or alongside the other views.'
   s.swift_version = '5.0'
-  
+
   s.description      = <<-DESC
-  TipC is a library to make beautiful hints, it is fully customizable and predictable, you can change anything before and during presentation.
-  DESC
+TipC is a library to make beautiful hints, it is fully customizable and predictable, you can change anything before and during presentation.
+                       DESC
 
-
-  s.homepage         = 'https://git.webdooz.com/iOS/tooltip'
+  s.homepage         = 'https://github.com/farshadjahanmanesh/TipC'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'farshadjahanmanesh' => 'farshadjahanmanesh@gmail.com' }
-  s.source           = { :git => 'https://git.webdooz.com/iOS/tooltip.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<farshadjahanmanesh>'
-
+  s.source           = { :git => 'https://github.com/farshadjahanmanesh/TipC', :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/<farshadjahanmanesh>'
   s.ios.deployment_target = '9.0'
   s.source_files = 'TipC/Classes/**/*'
   s.frameworks = 'UIKit'
