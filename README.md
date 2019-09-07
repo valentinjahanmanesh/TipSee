@@ -11,6 +11,16 @@
 [![License](https://img.shields.io/cocoapods/l/TipC.svg?style=flat)](https://cocoapods.org/pods/TipC)
 [![Platform](https://img.shields.io/cocoapods/p/TipC.svg?style=flat)](https://cocoapods.org/pods/TipC)
 
+### To do:
+
+- [x] Live change
+- [x] Touchable target area
+- [x] Animating between tips
+- [x] Multipe Tip in the screen
+- [x] Dim animation
+- [x] bubble animation
+- [ ] it is good for tip to follow it's target area movements
+
 # What we can do with TipC?
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; We can show interactive hints on top of the views or where ever we want but finding the best place to put the bubble (or custom view) is based on the TipC's decision. it will find best place to show the hint by considering the available space and the content size, smartly. we can show custom views (like that heart) or simple text as you've seen in the Gif. Tips can point to all kind of views like button, images and ... or just a specific part of the view controller(like the hint that points to the center of the view in the gif) 
 
@@ -18,7 +28,6 @@
 <p align="center">
 <img src='Example/images/TipC.gif' height="600"/>
 </p>
-
 
 
 # How much TipC is customizable: 
