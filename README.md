@@ -1,3 +1,7 @@
+<p align="center">
+  <img src='Example/images/logo.jpg' height="500" style="text-alignment: center"/>
+</p>
+
 
 # TipC
 ### TipC is a lightweight and highly customizable library that helps you to show beautiful tips and hints.
@@ -6,10 +10,16 @@
 [![Version](https://img.shields.io/cocoapods/v/TipC.svg?style=flat)](https://cocoapods.org/pods/TipC)
 [![License](https://img.shields.io/cocoapods/l/TipC.svg?style=flat)](https://cocoapods.org/pods/TipC)
 [![Platform](https://img.shields.io/cocoapods/p/TipC.svg?style=flat)](https://cocoapods.org/pods/TipC)
-<img src='Example/images/TipC.gif' height="600"/>
 
 # What we can do with TipC?
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; We can show interactive hints on top of the views or where ever we want but finding the best place to put the bubble (or custom view) is based on the TipC's decision. it will find best place to show the hint by considering the available space and the content size, smartly. we can show custom views (like that heart) or simple text as you've seen in the Gif. Tips can point to all kind of views like button, images and ... or just a specific part of the view controller(like the hint that points to the center of the view in the gif) 
+
+
+<p align="center">
+<img src='Example/images/TipC.gif' height="600"/>
+</p>
+
+
 
 # How much TipC is customizable: 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; There are two types of config, one for the whole and global things (which will apply to all hints and tips) and one specific configuration for each bubble. **TipC.Options** is the one we set to have a global configuration for all bubbles and tips and **TipC.Options.Bubble** which is our configuration for each hint. it means that we can change the background color, font and ... for each tip, or we can just set a general configuration for all hints. so we start with global one:
