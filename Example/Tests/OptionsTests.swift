@@ -2,12 +2,12 @@ import XCTest
 import TipC
 
 class OptionsTests: XCTestCase {
-    var sut : HintPointer!
+    var sut : TipC!
 
     override func setUp() {
         super.setUp()
         let uiwindow = UIWindow()
-        sut = HintPointer(on: uiwindow)
+        sut = TipC(on: uiwindow)
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -19,7 +19,7 @@ class OptionsTests: XCTestCase {
     
     func testSettingOptions(){
         // given
-        sut.options = HintPointer.Options.default()
+        sut.options = TipC.Options.default()
         
         // when
         sut.options.dimColor = .red

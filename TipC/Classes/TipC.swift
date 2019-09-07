@@ -1,4 +1,4 @@
-//  HintPointer.swift
+//  TipPointer.swift
 //  Core
 //
 //  Created by Farshad Jahanmanesh on 7/2/19.
@@ -10,8 +10,8 @@ import UIKit
 
 
 
-public class HintPointer: UIView, HintPointerManagerProtocol {
-	public typealias TapGesture = ((HintItem) -> Void)
+public class TipC: UIView, TipCManagerProtocol {
+	public typealias TapGesture = ((TipItem) -> Void)
 	/// properties
 	public var options: Options = Options.default(){
 		didSet{
@@ -23,13 +23,13 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 
 	fileprivate var shadowLayerPath: CGPath?
 	fileprivate unowned let _window: UIWindow
-	fileprivate lazy var views : [HintItem] = {
+	fileprivate lazy var views : [TipItem] = {
 		attachToWindow()
-		return [HintItem]()
+		return [TipItem]()
 	}()
 	
 	fileprivate lazy var bubbles = {return [BubbleView]()}()
-	fileprivate var latestHint : HintItem?
+	fileprivate var latestTip : TipItem?
 	
 	/// in a very odd situation, hit test called twice and we want to prevent multiple calls to our functions
 	fileprivate var touched : (view:UIView?,timeStamp: Date?)
@@ -41,16 +41,16 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 	///   - item: the view that we want to point at and a text for bubble
 	///   - bubbleOption: custom options for bubble
 	/// - Returns: generated item that can use to access to views or dismiss action
-	@discardableResult public func show(for view : HintTarget,text string : String, with bubbleOption: Options.Bubble? = nil) -> HintItem {
+	@discardableResult public func show(for view : TipTarget,text string : String, with bubbleOption: Options.Bubble? = nil) -> TipItem {
 		let viewToShow = createItem(for: view,text: string, with: bubbleOption)
 		return self.show(item: viewToShow, with: bubbleOption)
 	}
 	
-	@discardableResult public func createItem(for view : HintTarget,text : String, with bubbleOption: Options.Bubble? = nil) -> HintItem {
-		return  HintItem.init(ID: UUID().uuidString, pointTo: view, contentView: HintPointer.createLabel(for: text, with: bubbleOption,defaultOptions: self.options) as UIView, bubbleOptions: bubbleOption)
+	@discardableResult public func createItem(for view : TipTarget,text : String, with bubbleOption: Options.Bubble? = nil) -> TipItem {
+		return  TipItem.init(ID: UUID().uuidString, pointTo: view, contentView: TipC.createLabel(for: text, with: bubbleOption,defaultOptions: self.options) as UIView, bubbleOptions: bubbleOption)
 	}
-	@discardableResult public static func createItem(for view : HintTarget,text : String, with bubbleOption: Options.Bubble? = nil) -> HintItem {
-		return  HintItem.init(ID: UUID().uuidString, pointTo: view, contentView: HintPointer.createLabel(for: text, with: bubbleOption,defaultOptions: .default()) as UIView, bubbleOptions: bubbleOption)
+	@discardableResult public static func createItem(for view : TipTarget,text : String, with bubbleOption: Options.Bubble? = nil) -> TipItem {
+		return  TipItem.init(ID: UUID().uuidString, pointTo: view, contentView: TipC.createLabel(for: text, with: bubbleOption,defaultOptions: .default()) as UIView, bubbleOptions: bubbleOption)
 	}
 	
 	private final func clearAllViews(){
@@ -60,9 +60,9 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		}
 	}
 	
-	private final func store(hint : HintItem,bubble : BubbleView){
-		self.latestHint = hint
-		self.views.append(hint)
+	private final func store(tip : TipItem,bubble : BubbleView){
+		self.latestTip = tip
+		self.views.append(tip)
 		self.bubbles.append(bubble)
 	}
 	
@@ -80,14 +80,14 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 	///   - item: the view that you want to point at and a view that will show inside the bubble
 	///   - bubbleOption: custom options for bubble
 	/// - Returns: generated item that can use to access to views or dismiss action
-	@discardableResult public func show(item: HintItem, with bubbleOption: Options.Bubble? = nil) -> HintItem {
-		let hint = HintItem.init(ID: item.ID.isEmpty ? UUID().uuidString : item.ID, pointTo: item.pointTo, contentView: item.contentView as UIView, bubbleOptions:  bubbleOption ?? item.bubbleOptions)
+	@discardableResult public func show(item: TipItem, with bubbleOption: Options.Bubble? = nil) -> TipItem {
+		let tip = TipItem.init(ID: item.ID.isEmpty ? UUID().uuidString : item.ID, pointTo: item.pointTo, contentView: item.contentView as UIView, bubbleOptions:  bubbleOption ?? item.bubbleOptions)
 		if options.bubbleLiveDuration == .untilNext {
 			clearAllViews()
 		}
-		store(hint: hint, bubble: self.point(to: hint))
+		store(tip: tip, bubble: self.point(to: tip))
 		createHoleForVisibleViews()
-		return hint
+		return tip
 	}
 	
 	private final func attachToWindow() {
@@ -109,10 +109,10 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		}
 	}
 	
-	/// removes the given item. it will finish hintPointer after dismissing if this is the last item in hints array, if you plan to show another item on dimissal(one by one) create an array of items and add them to the hintPointer and set the bubbleLiveDuration == .untilNext.
+	/// removes the given item. it will finish tipPointer after dismissing if this is the last item in tips array, if you plan to show another item on dimissal(one by one) create an array of items and add them to the tipPointer and set the bubbleLiveDuration == .untilNext.
 	///
 	/// - Parameter item: item to remove
-	public func dismiss(item: HintItem) {
+	public func dismiss(item: TipItem) {
 		if let index  = self.views.lastIndex(where: {$0  == item}) {
 			let bubble = self.bubbles[index]
 			bubble.removeFromSuperview()
@@ -125,7 +125,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 	///
 	/// - Parameter text: label text
 	/// - Returns: generated label view
-	private static func createLabel(for text: String, with itemOptions: Options.Bubble?, defaultOptions options : HintPointer.Options) -> UILabel {
+	private static func createLabel(for text: String, with itemOptions: Options.Bubble?, defaultOptions options : TipC.Options) -> UILabel {
 		let label = UILabel()
 		label.text = text
 		label.textAlignment = .center
@@ -150,7 +150,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		let viewsSet = Set(self.views.map({$0.pointTo}))
 		viewsSet.forEach { (targetArea) in
 			// cuts a hole inside the layer
-			let cutPosition = targetArea.hintFrame.insetBy(dx: -4, dy: -4)
+			let cutPosition = targetArea.tipFrame.insetBy(dx: -4, dy: -4)
 			if startPoint == nil {
 				startPoint = CGPoint(x: cutPosition.midX, y: cutPosition.midY)
 			}
@@ -168,7 +168,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 			pathBigRect.append(UIBezierPath(roundedRect: cutPosition.insetBy(dx: -4, dy: -4), cornerRadius: cornerRadius))
 		}
 		pathBigRect.usesEvenOddFillRule = true
-		options.dimColor = latestHint?.bubbleOptions?.changeDimColor ?? options.dimColor
+		options.dimColor = latestTip?.bubbleOptions?.changeDimColor ?? options.dimColor
 		self.cutHole(for: pathBigRect.cgPath, startPoint: startPoint)
 	}
 	
@@ -182,11 +182,11 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 	
 	@objc
 	private func tapDim(_ sender: UITapGestureRecognizer) {
-		guard let latestHint = latestHint else {
-			assertionFailure("here, POINTER have to have a hint, so check if something wrong")
+		guard let latestTip = latestTip else {
+			assertionFailure("here, POINTER have to have a tip, so check if something wrong")
 			return
 		}
-		onDimTap?(latestHint)
+		onDimTap?(latestTip)
 	}
 	public required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
@@ -195,7 +195,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 	@objc
 	private func tapBubble(_ sender: UITapGestureRecognizer) {
 		guard let item = self.views.first(where:{item in item.ID == sender.identifier} )else {
-			assertionFailure("Here we have to have that bubble(hint) but we can not find it")
+			assertionFailure("Here we have to have that bubble(tip) but we can not find it")
 			return
 		}
 		if let customGesture = item.bubbleOptions?.onBubbleTap {
@@ -207,9 +207,9 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 	}
 	/// creates a default bubble
 	///
-	/// - Parameter item: hint item
+	/// - Parameter item: tip item
 	/// - Returns: bubble view
-	final func defaultBubble(for item: HintPointer.HintItem,defaultOptions options : HintPointer.Options) -> BubbleView {
+	final func defaultBubble(for item: TipC.TipItem,defaultOptions options : TipC.Options) -> BubbleView {
 		
 		let bubble = BubbleView.default()
 		bubble.backColor = item.bubbleOptions?.backgroundColor ?? options.bubbles.backgroundColor
@@ -217,10 +217,10 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 	}
 	/// points to the given(target) view by constrainting/Positioning the bubbleView and furthermore adds animation to newborn bubble
 	///
-	/// - Parameter item: hint item
+	/// - Parameter item: tip item
 	/// - Returns: baked bubble view
-	private final func point(to item: HintItem) -> BubbleView {
-		self.latestHint = item
+	private final func point(to item: TipItem) -> BubbleView {
+		self.latestTip = item
 		let view = item.pointTo
 		let label = item.contentView
 		let bubble = defaultBubble(for: item, defaultOptions: options)
@@ -251,7 +251,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		self.layoutIfNeeded()
 		
 		// align the arrow
-		let center  =  CGPoint(x: view.hintFrame.midX, y: view.hintFrame.midY)
+		let center  =  CGPoint(x: view.tipFrame.midX, y: view.tipFrame.midY)
 		
 		if [.top, .bottom].contains(arrowInstalledPosition) {
 			bubble.arrow = .init(position: .init(distance: .constant(center.x - bubble.frame.origin.x), edge: arrowInstalledPosition.toCGRectEdge()), size: .init(width: 10, height: 5))
@@ -273,8 +273,8 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 	/// - Parameters:
 	///   - view: target view
 	/// - Returns: the better edge
-	private func findBetterSpace(view: HintTarget, preferredPosition: UIRectEdge?) -> UIRectEdge {
-		let reletivePosition = view.hintFrame
+	private func findBetterSpace(view: TipTarget, preferredPosition: UIRectEdge?) -> UIRectEdge {
+		let reletivePosition = view.tipFrame
 		
 		var edges = [(UIRectEdge, Bool)]()
 		
@@ -316,14 +316,14 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 	///   - bubble: bubble view
 	///   - padding: space between bubble view and target view
 	/// - Returns: bubble view arrow position
-	private func setBubbleConstraints(for bubble: BubbleView, to item: HintItem) -> UIRectEdge {
+	private func setBubbleConstraints(for bubble: BubbleView, to item: TipItem) -> UIRectEdge {
 		let view = item.pointTo
 		let preferredPosition = item.bubbleOptions?.position
 		let padding: UIEdgeInsets = item.bubbleOptions?.padding ?? UIEdgeInsets.all(16)
 		let position  = findBetterSpace(view: view, preferredPosition: preferredPosition)
 		var arrowPoint: UIRectEdge = .right
 		
-		let targetFrame  = view.hintFrame
+		let targetFrame  = view.tipFrame
 		let controllerSize = self._window.bounds.size
 		switch position {
 		case .left:
@@ -338,7 +338,7 @@ public class HintPointer: UIView, HintPointerManagerProtocol {
 		case .bottom:
 			arrowPoint = .top
 			bubble.frame.origin.y = targetFrame.maxY + padding.top
-			bubble.center.x =  view.hintFrame.midX
+			bubble.center.x =  view.tipFrame.midX
 			
 		case .top:
 			arrowPoint = .bottom
@@ -472,7 +472,7 @@ extension UIEdgeInsets {
 }
 
 /// Overrides HitTest and Point inside
-extension HintPointer {
+extension TipC {
 	public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
 		guard self.touched.timeStamp == nil else {
 			let touchedView = self.touched.view
@@ -490,14 +490,14 @@ extension HintPointer {
 		return hitted
 	}
 	public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-		guard shadowLayerPath != nil, let latestHint = latestHint  else {
+		guard shadowLayerPath != nil, let latestTip = latestTip  else {
 			return false
 		}
-		let targetArea = latestHint.pointTo
-		let cutted = targetArea.hintFrame.insetBy(dx: -4, dy: -4)
+		let targetArea = latestTip.pointTo
+		let cutted = targetArea.tipFrame.insetBy(dx: -4, dy: -4)
 		let isInTheActionable = cutted.contains(point)
-		if isInTheActionable,let option = latestHint.bubbleOptions {
-				option.onTargetAreaTap?(latestHint)
+		if isInTheActionable,let option = latestTip.bubbleOptions {
+				option.onTargetAreaTap?(latestTip)
 				if option.dismissOnTargetAreaTap {
 					self.finish()
 				}
@@ -507,11 +507,11 @@ extension HintPointer {
 	}
 }
 
-public protocol HintConfiguration {
+public protocol TipConfiguration {
 	func with(_ mutations: (inout Self) -> Void) -> Self
 }
 
-extension HintConfiguration {
+extension TipConfiguration {
 	public func with(_ mutations: (inout Self) -> Void) -> Self {
 		var copyOfSelf = self
 		mutations(&copyOfSelf)
@@ -531,17 +531,17 @@ private extension UITapGestureRecognizer {
 	}
 }
 
-public protocol HintPointerManagerProtocol {
+public protocol TipCManagerProtocol {
 	/// removes the given item
 	///
 	/// - Parameter item: item to remove
-	func dismiss(item: HintPointer.HintItem)
+	func dismiss(item: TipC.TipItem)
 	
 	@discardableResult
-	func show(for view : HintTarget,text string : String, with bubbleOption: HintPointer.Options.Bubble?) -> HintPointer.HintItem
+	func show(for view : TipTarget,text string : String, with bubbleOption: TipC.Options.Bubble?) -> TipC.TipItem
 	
 	@discardableResult
-	func createItem(for view : HintTarget,text string : String, with bubbleOption: HintPointer.Options.Bubble?) -> HintPointer.HintItem
+	func createItem(for view : TipTarget,text string : String, with bubbleOption: TipC.Options.Bubble?) -> TipC.TipItem
 	
 	/// shows a bubble which points to the given view
 	///
@@ -550,12 +550,12 @@ public protocol HintPointerManagerProtocol {
 	///   - bubbleOption: custom options for bubble
 	/// - Returns: generated item that can use to access to views or dismiss action
 	@discardableResult
-	func show(item: HintPointer.HintItem, with bubbleOption: HintPointer.Options.Bubble?) -> HintPointer.HintItem
+	func show(item: TipC.TipItem, with bubbleOption: TipC.Options.Bubble?) -> TipC.TipItem
 	func finish()
 }
 
-extension HintPointer {
-	public func options(_ options: HintPointer.Options) {
+extension TipC {
+	public func options(_ options: TipC.Options) {
 		self.options = options
 	}
 	/// finds bubble size
@@ -600,7 +600,7 @@ extension BubbleView {
 
 	/// creates a default bubble
 	///
-	/// - Parameter item: hint item
+	/// - Parameter item: tip item
 	/// - Returns: bubble view
 	fileprivate static func `default`() -> BubbleView {
 		let bubble = BubbleView(frame: .zero)

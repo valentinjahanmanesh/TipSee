@@ -15,13 +15,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var pugImage : UIView!
     @IBOutlet weak var pugName : UIView!
     @IBOutlet weak var pugDescrription : UIView!
-    private var hints : HintPointerManager?
+    private var tips : TipcManager?
 	private var rotationDegree : CGFloat = 45
 	private var startDayAndNight = false
 	
-	@IBAction func reShowHints(){
-		self.hints?.finish()
-		self.showHints()
+	@IBAction func reShowTips(){
+		self.tips?.finish()
+		self.showTips()
 	}
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +37,11 @@ class ViewController: UIViewController {
 						if self.rotationDegree < 0 {
 	//						day
 							self.transformedButton.image = UIImage(named: "sunny")
-							self.hints?.pointer.options.dimColor = UIColor(red:0.97, green:0.76, blue:0.29, alpha:1.0)
+							self.tips?.pointer.options.dimColor = UIColor(red:0.97, green:0.76, blue:0.29, alpha:1.0)
 						}else{
 	//						night
 							self.transformedButton.image = UIImage(named: "moon")
-							self.hints?.pointer.options.dimColor = UIColor(red:0.02, green:0.18, blue:0.23, alpha:1.0)
+							self.tips?.pointer.options.dimColor = UIColor(red:0.02, green:0.18, blue:0.23, alpha:1.0)
 						}
 					}
 					self.transformedButton.transform = self.transformedButton.transform
@@ -52,9 +52,9 @@ class ViewController: UIViewController {
 		}
     }
     
-    func showHints(){
-        // configure our hint view
-        let pugLoveConfig = HintPointer.Options.Bubble
+    func showTips(){
+        // configure our tip view
+        let pugLoveConfig = TipC.Options.Bubble
             .default()
             .with{
                 $0.backgroundColor = .clear
@@ -64,7 +64,7 @@ class ViewController: UIViewController {
                 $0.position = .top
         }
         
-        let pugDescriptionConfig = HintPointer.Options.Bubble
+        let pugDescriptionConfig = TipC.Options.Bubble
             .default()
             .with{
                 $0.backgroundColor = UIColor.purple
@@ -75,7 +75,7 @@ class ViewController: UIViewController {
         let image = UIImageView(image: #imageLiteral(resourceName: "heart-like.png"))
         image.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
         image.contentMode = .scaleAspectFit
-        let transformed = HintPointer.Options.Bubble
+        let transformed = TipC.Options.Bubble
             .default()
             .with{
 				$0.backgroundColor = UIColor.orange
@@ -85,7 +85,7 @@ class ViewController: UIViewController {
 				//$0.changeDimColor = UIColor(red:0.02, green:0.18, blue:0.23, alpha:1.0)
         }
 		
-		let defaultHintOption = HintPointer.Options
+		let defaultTipOption = TipC.Options
 			.default()
 			.with {
 				$0.dimColor =  UIColor.black.withAlphaComponent(0.3)
@@ -93,13 +93,13 @@ class ViewController: UIViewController {
 				$0.dimFading = false
 		}
 				
-        self.hints = HintPointerManager(on: self.view.window!,with: defaultHintOption)
+        self.tips = TipcManager(on: self.view.window!,with: defaultTipOption)
         
-        hints!.add(new: HintPointer.HintItem.init(ID: "100", pointTo: self.pugImage, contentView: image,bubbleOptions: pugLoveConfig))
+        tips!.add(new: TipC.TipItem.init(ID: "100", pointTo: self.pugImage, contentView: image,bubbleOptions: pugLoveConfig))
         
-        hints!.add(new: self.pugImage,text:"best dog ever <3 <3 ^_^ ^_^",with: pugDescriptionConfig.with{$0.position = .right})
+        tips!.add(new: self.pugImage,text:"best dog ever <3 <3 ^_^ ^_^",with: pugDescriptionConfig.with{$0.position = .right})
         
-        hints!.add(new: self.pugName,text:"my name is leo ^_^",with: pugDescriptionConfig.with{
+        tips!.add(new: self.pugName,text:"my name is leo ^_^",with: pugDescriptionConfig.with{
             $0.position = .top
             if #available(iOS 10.0, *) {
                 $0.backgroundColor = UIColor(displayP3Red: 0.451, green: 0.807, blue: 0.317, alpha: 1)
@@ -109,7 +109,7 @@ class ViewController: UIViewController {
 			
         })
         
-        hints!.add( new: self.pugDescrription,text:"i am single and looking for my soulmate",with: pugDescriptionConfig.with{
+        tips!.add( new: self.pugDescrription,text:"i am single and looking for my soulmate",with: pugDescriptionConfig.with{
             $0.position = .bottom
             if #available(iOS 10.0, *) {
                 $0.backgroundColor = UIColor(displayP3Red: 0.451, green: 0.807, blue: 0.317, alpha: 1)
@@ -118,7 +118,7 @@ class ViewController: UIViewController {
             }
         })
         
-        hints!.add(new: self.transformedButton,text:"please tap on the \(rotationDegree < 0 ? "☀️" : "🌑").",with: transformed.with{
+        tips!.add(new: self.transformedButton,text:"please tap on the \(rotationDegree < 0 ? "☀️" : "🌑").",with: transformed.with{
 			$0.position = .left
 			$0.changeDimColor = UIColor(red:0.02, green:0.18, blue:0.23, alpha:1.0)
 			$0.onTargetAreaTap = {[weak self] item in
@@ -133,15 +133,15 @@ class ViewController: UIViewController {
 			}
 			$0.onBubbleTap = {[unowned self]_ in
 				self.startDayAndNight = false
-				self.hints?.pointer.options = defaultHintOption
+				self.tips?.pointer.options = defaultTipOption
 			}
 		})
         
-        hints!.add(new: self.noConstraintsButton,text:"hi!",with:transformed.with{$0.backgroundColor = .red})
+        tips!.add(new: self.noConstraintsButton,text:"hi!",with:transformed.with{$0.backgroundColor = .red})
 		
-		hints!.add(new: SimpleHintTarget(on:  CGRect(x: UIScreen.main.bounds.midX - 50, y: UIScreen.main.bounds.midY - 50, width: 100, height: 100), cornerRadius: 50),text:"no view just shows a hint on this bounds",with:transformed.with{$0.backgroundColor = .red})
+		tips!.add(new: SimpleTipTarget(on:  CGRect(x: UIScreen.main.bounds.midX - 50, y: UIScreen.main.bounds.midY - 50, width: 100, height: 100), cornerRadius: 50),text:"no view just shows a tip on this bounds",with:transformed.with{$0.backgroundColor = .red})
 
-		hints!.add(new: self.bigBottomButton,text:"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی ",with: transformed.with{
+		tips!.add(new: self.bigBottomButton,text:"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی ",with: transformed.with{
 			$0.onTargetAreaTap = {[weak self]_ in
 				guard let degree = self?.rotationDegree else {return}
  				self?.rotationDegree = (degree * -1)
@@ -151,31 +151,31 @@ class ViewController: UIViewController {
 		})
         
         
-        hints!.onBubbleTap = {[unowned self] _ in
-            self.hints?.next()
+        tips!.onBubbleTap = {[unowned self] _ in
+            self.tips?.next()
         }
 		
-        hints!.onDimTap = {[unowned self] _ in
+        tips!.onDimTap = {[unowned self] _ in
 			self.startDayAndNight = false
-			guard let hints = self.hints else {return}
-			hints.pointer.options = defaultHintOption
-            if let index = hints.currentIndex,hints.hints.count == (index + 1) {
-                hints.finish()
+			guard let tips = self.tips else {return}
+			tips.pointer.options = defaultTipOption
+            if let index = tips.currentIndex,tips.tips.count == (index + 1) {
+                tips.finish()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                    self.hints = nil
+                    self.tips = nil
                 })
             }
             
-            hints.next()
+            tips.next()
         }
-        self.hints!.next()
+        self.tips!.next()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 		self.navigationController?.navigationBar.barStyle = .black
 
-		self.showHints()
+		self.showTips()
     }
     
 }

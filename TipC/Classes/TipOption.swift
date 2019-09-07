@@ -1,12 +1,12 @@
 //
-//  HintOption.swift
+//  TipOption.swift
 //  Pods
 //
 //  Created by Farshad Jahanmanesh on 8/14/19.
 //
 
 import Foundation
-extension HintPointer {
+extension TipC {
 	public  enum BubbleLiveDuration {
 		case forever
 		case untilNext
@@ -25,9 +25,9 @@ extension HintPointer {
 		/// no corner rradius
 		case none
 	}
-	public struct Options: HintConfiguration {
+	public struct Options: TipConfiguration {
 		public typealias BubblePosition = UIRectEdge
-		public struct Bubble: HintConfiguration {
+		public struct Bubble: TipConfiguration {
 			
 			/// bubble's background color
 			public  var backgroundColor: UIColor
@@ -50,18 +50,18 @@ extension HintPointer {
 			/// distance between the bubble and the target view
 			public  var padding: UIEdgeInsets = .zero
 			
-			/// whole hint(dim and bubble) should be dismiss when user is touched on the target area
+			/// whole tip(dim and bubble) should be dismiss when user is touched on the target area
 			public  var dismissOnTargetAreaTap: Bool
 			
 			/// will execute when user taps on target area
 			public var onTargetAreaTap : TapGesture?
 			
-			/// each hint could has a different dim color
+			/// each tip could has a different dim color
 			public var changeDimColor : UIColor?
 			
 			/// will execute when user taps on the bubble
 			public var onBubbleTap : TapGesture?
-			public static func `default`()->HintPointer.Options.Bubble {
+			public static func `default`()->TipC.Options.Bubble {
 				return Options.Bubble(backgroundColor: .red, position: nil, font: UIFont.boldSystemFont(ofSize: 15), foregroundColor: UIColor.white, textAlignments: .center, hasAppearAnimation: true, padding: .init(top: 16, left: 16, bottom: 16, right: 16), dismissOnTargetAreaTap: false,onTargetAreaTap: nil,changeDimColor : nil,onBubbleTap: nil)
 			}
 			
@@ -97,7 +97,7 @@ extension HintPointer {
 		/// if true, dim will fade after one second, combine this with absorbDimTouch if you want
 		public var dimFading : Bool
 		
-		public static func `default`()->HintPointer.Options {
+		public static func `default`()->TipC.Options {
 			return Options(bubbles: Options.Bubble.default(), dimColor: UIColor.black.withAlphaComponent(0.7), bubbleLiveDuration: .forever, defaultBubblePosition: .left, holeRadius: .defaultOrGreater(default: 8), safeAreaInsets: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16),absorbDimTouch: true,dimFading: true)
 		}
 	}

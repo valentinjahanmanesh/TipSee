@@ -5,16 +5,16 @@
 //  Created by Farshad Jahanmanesh on 7/18/19.
 //
 import UIKit
-public class HintPointerManager {
-    public var pointer : HintPointer
-    public private(set) var hints : [HintPointer.HintItem]
-    public var latestHint : HintPointer.HintItem?
-    public var onBubbleTap: ((HintPointer.HintItem?) -> Void)? {
+public class TipcManager {
+    public var pointer : TipC
+    public private(set) var tips : [TipC.TipItem]
+    public var latestTip : TipC.TipItem?
+    public var onBubbleTap: ((TipC.TipItem?) -> Void)? {
         didSet{
             pointer.onBubbleTap = self.onBubbleTap
         }
     }
-    public var onDimTap : ((HintPointer.HintItem?) -> Void)? {
+    public var onDimTap : ((TipC.TipItem?) -> Void)? {
         didSet{
             pointer.onDimTap = self.onDimTap
         }
@@ -25,44 +25,44 @@ public class HintPointerManager {
                 self.pointer.finish()
                 return
             }
-            latestHint = hints[index]
-            self.pointer.show(item: latestHint!)
+            latestTip = tips[index]
+            self.pointer.show(item: latestTip!)
         }
     }
     
     /// creates a slider manager.
-    /// - Warning: the HintPointer object that should be passed in in init, is accessed with strong reference so you do not need to keep it strong too
+    /// - Warning: the TipPointer object that should be passed in in init, is accessed with strong reference so you do not need to keep it strong too
     /// - Parameters:
-    ///   - pointer: hint pointer object
+    ///   - pointer: tip pointer object
     ///   - items: items
-    public init(on window : UIWindow,with options: HintPointer.Options) {
-        self.pointer = HintPointer(on: window)
+    public init(on window : UIWindow,with options: TipC.Options) {
+        self.pointer = TipC(on: window)
         self.pointer.options(options)
-        self.hints = [HintPointer.HintItem]()
+        self.tips = [TipC.TipItem]()
     }
-    public func add(new view : HintTarget,text string: String, with bubbleOption: HintPointer.Options.Bubble?){
-        self.hints.append(pointer.createItem(for: view,text: string, with: bubbleOption))
+    public func add(new view : TipTarget,text string: String, with bubbleOption: TipC.Options.Bubble?){
+        self.tips.append(pointer.createItem(for: view,text: string, with: bubbleOption))
     }
-    public func add(new item: HintPointer.HintItem){
-        self.hints.append(item)
+    public func add(new item: TipC.TipItem){
+        self.tips.append(item)
     }
-    /// shows the next hint
+    /// shows the next tip
     public func next(){
-        guard let current = latestHint,let currentIndex = hints.firstIndex(of: current) else {
-            if !hints.isEmpty{
+        guard let current = latestTip,let currentIndex = tips.firstIndex(of: current) else {
+            if !tips.isEmpty{
                 self.currentIndex = 0
             }
             return
         }
         let next  = currentIndex+1
-        if next < hints.count {
+        if next < tips.count {
             self.currentIndex = next
         }
     }
     
-    // shows the previous hint
+    // shows the previous tip
     public func previous(){
-        guard let current = latestHint,let currentIndex = hints.firstIndex(of: current) else {
+        guard let current = latestTip,let currentIndex = tips.firstIndex(of: current) else {
             return
         }
         let previous  = currentIndex-1

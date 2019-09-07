@@ -13,8 +13,8 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* OptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* OptionsTests.swift */; };
-		879BF27A22E2381E00AF8118 /* HintItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879BF27922E2381E00AF8118 /* HintItemTests.swift */; };
-		879BF27C22E23AD000AF8118 /* HintPointerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879BF27B22E23AD000AF8118 /* HintPointerTests.swift */; };
+		879BF27A22E2381E00AF8118 /* TipItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879BF27922E2381E00AF8118 /* TipItemTests.swift */; };
+		879BF27C22E23AD000AF8118 /* TipCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879BF27B22E23AD000AF8118 /* TipCTests.swift */; };
 		B476A3465B460802AA2660FB /* Pods_TipC_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5D55DC860BD7F648D4073C /* Pods_TipC_Tests.framework */; };
 		DA2BEFE1157389353687B308 /* Pods_TipC_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E81C9D1FFC7DDFC165CA728 /* Pods_TipC_Example.framework */; };
 /* End PBXBuildFile section */
@@ -46,8 +46,8 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* OptionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsTests.swift; sourceTree = "<group>"; };
 		874871AF2321699300E86432 /* TipC.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = TipC.podspec; path = ../TipC.podspec; sourceTree = "<group>"; };
-		879BF27922E2381E00AF8118 /* HintItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintItemTests.swift; sourceTree = "<group>"; };
-		879BF27B22E23AD000AF8118 /* HintPointerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintPointerTests.swift; sourceTree = "<group>"; };
+		879BF27922E2381E00AF8118 /* TipItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipItemTests.swift; sourceTree = "<group>"; };
+		879BF27B22E23AD000AF8118 /* TipCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCTests.swift; sourceTree = "<group>"; };
 		8D5D55DC860BD7F648D4073C /* Pods_TipC_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TipC_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		915D13EE12D3ED1A9CDEBE64 /* Pods-TipC_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TipC_Example.debug.xcconfig"; path = "Target Support Files/Pods-TipC_Example/Pods-TipC_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B09474340D6B081B18AD231C /* Tap30ToolTip.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Tap30ToolTip.podspec; path = ../Tap30ToolTip.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -122,8 +122,8 @@
 			children = (
 				607FACEB1AFB9204008FA782 /* OptionsTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
-				879BF27922E2381E00AF8118 /* HintItemTests.swift */,
-				879BF27B22E23AD000AF8118 /* HintPointerTests.swift */,
+				879BF27922E2381E00AF8118 /* TipItemTests.swift */,
+				879BF27B22E23AD000AF8118 /* TipCTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -351,8 +351,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACEC1AFB9204008FA782 /* OptionsTests.swift in Sources */,
-				879BF27C22E23AD000AF8118 /* HintPointerTests.swift in Sources */,
-				879BF27A22E2381E00AF8118 /* HintItemTests.swift in Sources */,
+				879BF27C22E23AD000AF8118 /* TipCTests.swift in Sources */,
+				879BF27A22E2381E00AF8118 /* TipItemTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
