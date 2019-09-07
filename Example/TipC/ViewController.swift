@@ -139,7 +139,7 @@ class ViewController: UIViewController {
         
         hints!.add(new: self.noConstraintsButton,text:"hi!",with:transformed.with{$0.backgroundColor = .red})
 		
-		hints!.add(new: SimpleHintTarget(on:  CGRect(x: UIScreen.main.bounds.midX - 50, y: UIScreen.main.bounds.midY - 50, width: 100, height: 100), cornerRadius: 50),text:"no view just show a hint on this bounds",with:transformed.with{$0.backgroundColor = .red})
+		hints!.add(new: SimpleHintTarget(on:  CGRect(x: UIScreen.main.bounds.midX - 50, y: UIScreen.main.bounds.midY - 50, width: 100, height: 100), cornerRadius: 50),text:"no view just shows a hint on this bounds",with:transformed.with{$0.backgroundColor = .red})
 
 		hints!.add(new: self.bigBottomButton,text:"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی ",with: transformed.with{
 			$0.onTargetAreaTap = {[weak self]_ in
