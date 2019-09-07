@@ -1,4 +1,6 @@
+
 # TipC
+### TipC is a lightweight and highly customizable library that helps you to show beautiful tips and hints.
 
 [![CI Status](https://img.shields.io/travis/farshadjahanmanesh/TipC.svg?style=flat)](https://travis-ci.org/farshadjahanmanesh/TipC)
 [![Version](https://img.shields.io/cocoapods/v/TipC.svg?style=flat)](https://cocoapods.org/pods/TipC)
@@ -6,11 +8,11 @@
 [![Platform](https://img.shields.io/cocoapods/p/TipC.svg?style=flat)](https://cocoapods.org/pods/TipC)
 <img src='Example/images/TipC.gif' height="600"/>
 
-What we can do with this library?
-we can show interactive hint on top of the viewes or where ever we want but finding the best place to put the hint is based on the TipC decision. it would find best place to show the hint based on the available space and the content size smartly, we can show custom views or simple text as you've seen in the Gif. 
+# What we can do with TipC?
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; We can show interactive hints on top of the views or where ever we want but finding the best place to put the bubble (or custom view) is based on the TipC's decision. it will find best place to show the hint by considering the available space and the content size, smartly. we can show custom views (like that heart) or simple text as you've seen in the Gif. Tips can point to all kind of views like button, images and ... or just a specific part of the view controller(like the hint that points to the center of the view in the gif) 
 
-configs: 
-there are two type of config, one for the whole and global thing(which will apply to all hints) and one specific configuration for each bubble. **HintPointer.Options** is the one we set to set a global configuration for all bubbles and **HintPointer.Options.Bubble** which is our configuration for each hint. it means that we can change the background color, font and ... for each color, or we can just set a general configuration for all hints. so we start with global one:
+# How much TipC is customizable: 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; There are two types of config, one for the whole and global things (which will apply to all hints and tips) and one specific configuration for each bubble. **TipC.Options** is the one we set to have a global configuration for all bubbles and tips and **TipC.Options.Bubble** which is our configuration for each hint. it means that we can change the background color, font and ... for each tip, or we can just set a general configuration for all hints. so we start with global one:
 ```swift
 public struct Options: HintConfiguration {
 
@@ -87,17 +89,19 @@ public struct Bubble {
 }
 ```
 
-**Actions**
-TipC has four actions which we can react to them
-  1. Bubble.onBubbleTap when user clicks on the bubble view, we can access to tapped bubble and item 
-  2. Bubble.onTargetAreaTap when user click on target area
-  3. HintObject.onDimTap when user clicks on dim(background), we can access to latest hint on the screen 
-  4. HintObject.onBubbleTap when user clicks on bubble, this is default action if the bubble has not specified one for itself
+## Actions
+TipC has four actions which we can react to them to handle some situations 
+  1. **Bubble.onBubbleTap** when user clicks on the bubble view, we can access to tapped bubble and item 
+  2. **Bubble.onTargetAreaTap** when user click on target area
+  3. **HintObject.onDimTap** when user clicks on dim(background), we can access to latest hint on the screen 
+  4. **HintObject.onBubbleTap** when user clicks on bubble, this is default action if the bubble has not specified one for itself
 
-
-before we start talking about config, we need to know balut every hint life cycle, **we have two type of lifecycle for all hints, forEver or until next.** 
+## Tip Lifecycle 
+based on what we set for **bubbleLiveDuration ** in options, tips have a life duration which means that tips should be on the screen until user taps on them to dismiss or should be removed  before new one is appearing 
 
 ## DEMO
+you can run the example to see what do what and how to config things
+
 | <img src='Example/images/TipC_1.jpg' height="600"/>  |  <img src='Example/images/TipC_2.jpg' height="600"/> | <img src='Example/images/TipC_3.jpg' height="600"/>  |
 |---|---|---|
 |  <img src='Example/images/TipC_4.jpg' height="600"/> | <img src='Example/images/TipC_5.jpg' height="600"/>  |  <img src='Example/images/TipC_6.jpg' height="600"/> |
