@@ -18,7 +18,7 @@ TipC is a library to make beautiful hints, it is fully customizable and predicta
                        DESC
 
   s.homepage         = 'https://github.com/farshadjahanmanesh/TipC'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.screenshots     = 'https://github.com/farshadjahanmanesh/tipC/raw/master/Example/images/TipC_1.png','https://github.com/farshadjahanmanesh/tipC/raw/master/Example/images/TipC_2.png', 'https://github.com/farshadjahanmanesh/tipC/raw/master/Example/images/TipC_3.png', 'https://github.com/farshadjahanmanesh/tipC/raw/master/Example/images/TipC_4.png', 'https://github.com/farshadjahanmanesh/tipC/raw/master/Example/images/TipC_5.png','https://github.com/farshadjahanmanesh/tipC/raw/master/Example/images/TipC_6.png','https://github.com/farshadjahanmanesh/tipC/raw/master/Example/images/TipC.gif'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'farshadjahanmanesh' => 'farshadjahanmanesh@gmail.com' }
   s.source           = { :git => 'https://github.com/farshadjahanmanesh/TipC', :tag => s.version.to_s }
