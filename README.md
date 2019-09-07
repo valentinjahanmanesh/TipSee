@@ -8,9 +8,9 @@
 ## DEMO
 <img src='Example/images/TipC.gif' height="600"/>
 
-| <img src='Example/images/TipC_1.png' height="600"/>  |  <img src='Example/images/TipC_2.png' height="600"/> | <img src='Example/images/TipC_3.png' height="600"/>  |
+| <img src='Example/images/TipC_1.jpg' height="600"/>  |  <img src='Example/images/TipC_2.jpg' height="600"/> | <img src='Example/images/TipC_3.jpg' height="600"/>  |
 |---|---|---|
-|  <img src='Example/images/TipC_4.png' height="600"/> | <img src='Example/images/TipC_5.png' height="600"/>  |  <img src='Example/images/TipC_6.png' height="600"/> |
+|  <img src='Example/images/TipC_4.jpg' height="600"/> | <img src='Example/images/TipC_5.jpg' height="600"/>  |  <img src='Example/images/TipC_6.jpg' height="600"/> |
 
 
 
