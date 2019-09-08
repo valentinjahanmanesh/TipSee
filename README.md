@@ -116,8 +116,68 @@ TipC has four actions which we can react to them to handle some situations
   4. **HintObject.onBubbleTap** when user clicks on bubble, this is default action if the bubble has not specified one for itself
 
 ## Tip Lifecycle 
-based on what we set for **bubbleLiveDuration ** in options, tips have a life duration which means that tips should be on the screen until user taps on them to dismiss or should be removed  before new one is appearing 
+based on what we set for **bubbleLiveDuration** in options, tips have a life duration which means that tips should be on the screen until user taps on them to dismiss or should be removed  before new one is appearing 
 
+## How To Use
+first thing is setuping your option (or using default option) and then creating a new instance of TipC
+```swift 
+  let defaultTipOption = TipC.Options
+			.default()
+			.with {
+				$0.dimColor =  UIColor.black.withAlphaComponent(0.3)
+				$0.bubbleLiveDuration = .untilNext
+				$0.dimFading = false
+	}
+  
+  // TipC needs a window to show it's content in it
+  let tipC = TipC(on: self.view.window!)
+  
+  // shows a simple text(tip) that is pointed to the view(pugImage), this tip has not specific configuration
+  // so it will use default one
+	tipC.show(for: self.pugImage, text: "good boy")
+  ```
+  
+  or you can create a custom tip with customized configuration 
+```swift 
+  // creates new custom item with custom configs
+  let pugLoveConfig = TipC.Options.Bubble
+        .default()
+        .with{
+            $0.backgroundColor = .clear
+            $0.foregroundColor = .black
+            $0.textAlignments = .left
+            $0.padding = UIEdgeInsets.init(top: 0, left: 16, bottom: 0, right: 16)
+            $0.position = .top
+        }
+  tipC.show(item TipC.TipItem.init(ID: "100", pointTo: self.pugImage, contentView: image,bubbleOptions: pugLoveConfig))
+  
+```
+
+in above exmaple wee need to handle tip sequence ourselves. next, previous, presenting or dismissing should be handled by using the actions like bubble tap, target area tap, dimtap and ... but there is a slideshow extension which we talk in neext section that helps us with these things.
+
+## TipCManager
+tipc manager is a helper class that gives us the ability to have a slideshow like Tips. this manager handles tips array and provides handy apis (next, previous). we can add tips as many as we want and then start the sequence by calling **.next()**
+
+```swift
+let defaultTipOption = TipC.Options
+			.default()
+			.with {
+				$0.dimColor =  UIColor.black.withAlphaComponent(0.3)
+				$0.bubbleLiveDuration = .untilNext
+				$0.dimFading = false
+		}
+				
+ let tipManager = TipcManager(on: self.view.window!,with: defaultTipOption)
+ tipManager.add(new: TipC.TipItem.init(ID: "100", pointTo: self.pugImage, contentView: image,bubbleOptions: pugLoveConfig))       
+ tipManager.add(new: self.pugImage,text:"best dog ever <3 <3 ^_^ ^_^",with: pugDescriptionConfig.with{$0.position = .right})
+ tipManager.add...
+ ...
+ ...
+ ...
+ 
+ tipManager.next()
+
+```
 ## DEMO
 you can run the example to see what do what and how to config things
 
