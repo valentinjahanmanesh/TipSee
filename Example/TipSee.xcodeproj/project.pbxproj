@@ -15,8 +15,8 @@
 		607FACEC1AFB9204008FA782 /* OptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* OptionsTests.swift */; };
 		879BF27A22E2381E00AF8118 /* TipItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879BF27922E2381E00AF8118 /* TipItemTests.swift */; };
 		879BF27C22E23AD000AF8118 /* TipCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879BF27B22E23AD000AF8118 /* TipCTests.swift */; };
-		B476A3465B460802AA2660FB /* Pods_TipC_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5D55DC860BD7F648D4073C /* Pods_TipC_Tests.framework */; };
-		DA2BEFE1157389353687B308 /* Pods_TipC_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E81C9D1FFC7DDFC165CA728 /* Pods_TipC_Example.framework */; };
+		E70D7A339999FE946FF4E9D3 /* Pods_TipSee_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70D14C4C8E21C60D647D0DED /* Pods_TipSee_Tests.framework */; };
+		F69D03CE51C87828B0F0F583 /* Pods_TipSee_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8862B468ADD3AD26699A7135 /* Pods_TipSee_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +31,6 @@
 
 /* Begin PBXFileReference section */
 		1C55248EBF4524A0A3EB11A1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		2E81C9D1FFC7DDFC165CA728 /* Pods_TipC_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TipC_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BF89FF00DE2A792C6FDC40B /* Pods-TipC_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TipC_Tests.release.xcconfig"; path = "Target Support Files/Pods-TipC_Tests/Pods-TipC_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		4FAF7A06DB66AA3CAD053303 /* Pods-TipC_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TipC_Example.release.xcconfig"; path = "Target Support Files/Pods-TipC_Example/Pods-TipC_Example.release.xcconfig"; sourceTree = "<group>"; };
 		5AFA11508D46F3025AEF513F /* Pods-TipC_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TipC_Tests.debug.xcconfig"; path = "Target Support Files/Pods-TipC_Tests/Pods-TipC_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -45,12 +44,17 @@
 		607FACE51AFB9204008FA782 /* TipSee_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipSee_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* OptionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsTests.swift; sourceTree = "<group>"; };
+		70D14C4C8E21C60D647D0DED /* Pods_TipSee_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TipSee_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		874871AF2321699300E86432 /* TipSee.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = TipSee.podspec; path = ../TipSee.podspec; sourceTree = "<group>"; };
 		879BF27922E2381E00AF8118 /* TipItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipItemTests.swift; sourceTree = "<group>"; };
 		879BF27B22E23AD000AF8118 /* TipCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCTests.swift; sourceTree = "<group>"; };
-		8D5D55DC860BD7F648D4073C /* Pods_TipC_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TipC_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8862B468ADD3AD26699A7135 /* Pods_TipSee_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TipSee_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		915D13EE12D3ED1A9CDEBE64 /* Pods-TipC_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TipC_Example.debug.xcconfig"; path = "Target Support Files/Pods-TipC_Example/Pods-TipC_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		91B3C7846A810EB3DDAACDAD /* Pods-TipSee_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TipSee_Example.release.xcconfig"; path = "Target Support Files/Pods-TipSee_Example/Pods-TipSee_Example.release.xcconfig"; sourceTree = "<group>"; };
 		B09474340D6B081B18AD231C /* Tap30ToolTip.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Tap30ToolTip.podspec; path = ../Tap30ToolTip.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C7BB43566C0DE79C10D3A345 /* Pods-TipSee_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TipSee_Tests.release.xcconfig"; path = "Target Support Files/Pods-TipSee_Tests/Pods-TipSee_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		DD7DD7E04224BC081181289D /* Pods-TipSee_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TipSee_Example.debug.xcconfig"; path = "Target Support Files/Pods-TipSee_Example/Pods-TipSee_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		F3E5ABB073F63C2C7BB8D391 /* Pods-TipSee_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TipSee_Tests.debug.xcconfig"; path = "Target Support Files/Pods-TipSee_Tests/Pods-TipSee_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		F67CFF7784A18D29A21BB29A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA2BEFE1157389353687B308 /* Pods_TipC_Example.framework in Frameworks */,
+				F69D03CE51C87828B0F0F583 /* Pods_TipSee_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B476A3465B460802AA2660FB /* Pods_TipC_Tests.framework in Frameworks */,
+				E70D7A339999FE946FF4E9D3 /* Pods_TipSee_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,8 +154,8 @@
 		B62552BC34F00AE486CEAC69 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2E81C9D1FFC7DDFC165CA728 /* Pods_TipC_Example.framework */,
-				8D5D55DC860BD7F648D4073C /* Pods_TipC_Tests.framework */,
+				8862B468ADD3AD26699A7135 /* Pods_TipSee_Example.framework */,
+				70D14C4C8E21C60D647D0DED /* Pods_TipSee_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -163,6 +167,10 @@
 				4FAF7A06DB66AA3CAD053303 /* Pods-TipC_Example.release.xcconfig */,
 				5AFA11508D46F3025AEF513F /* Pods-TipC_Tests.debug.xcconfig */,
 				3BF89FF00DE2A792C6FDC40B /* Pods-TipC_Tests.release.xcconfig */,
+				DD7DD7E04224BC081181289D /* Pods-TipSee_Example.debug.xcconfig */,
+				91B3C7846A810EB3DDAACDAD /* Pods-TipSee_Example.release.xcconfig */,
+				F3E5ABB073F63C2C7BB8D391 /* Pods-TipSee_Tests.debug.xcconfig */,
+				C7BB43566C0DE79C10D3A345 /* Pods-TipSee_Tests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -178,7 +186,6 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				0612658E2AA6F4DB187B75D4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -272,24 +279,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0612658E2AA6F4DB187B75D4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TipC_Example/Pods-TipC_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/TipC/TipC.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TipC.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TipC_Example/Pods-TipC_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6BA69595B6B47805BD2CB142 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -305,7 +294,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TipC_Tests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-TipSee_Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -327,7 +316,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TipC_Example-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-TipSee_Example-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -489,7 +478,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 915D13EE12D3ED1A9CDEBE64 /* Pods-TipC_Example.debug.xcconfig */;
+			baseConfigurationReference = DD7DD7E04224BC081181289D /* Pods-TipSee_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6Q4W97Z9XN;
@@ -505,7 +494,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4FAF7A06DB66AA3CAD053303 /* Pods-TipC_Example.release.xcconfig */;
+			baseConfigurationReference = 91B3C7846A810EB3DDAACDAD /* Pods-TipSee_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6Q4W97Z9XN;
@@ -521,7 +510,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AFA11508D46F3025AEF513F /* Pods-TipC_Tests.debug.xcconfig */;
+			baseConfigurationReference = F3E5ABB073F63C2C7BB8D391 /* Pods-TipSee_Tests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 6Q4W97Z9XN;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -544,7 +533,7 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3BF89FF00DE2A792C6FDC40B /* Pods-TipC_Tests.release.xcconfig */;
+			baseConfigurationReference = C7BB43566C0DE79C10D3A345 /* Pods-TipSee_Tests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 6Q4W97Z9XN;
 				FRAMEWORK_SEARCH_PATHS = (

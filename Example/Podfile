@@ -1,9 +1,9 @@
 use_frameworks!
 
-target 'TipC_Example' do
-  pod 'TipC', :path => '../'
+target 'TipSee_Example' do
+  pod 'TipSee', :path => '../'
 
-  target 'TipC_Tests' do
+  target 'TipSee_Tests' do
     inherit! :search_paths
 
     

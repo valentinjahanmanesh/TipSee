@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_TipC_ExampleVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_TipC_ExampleVersionString[];
+FOUNDATION_EXPORT double Pods_TipSee_ExampleVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_TipSee_ExampleVersionString[];
 

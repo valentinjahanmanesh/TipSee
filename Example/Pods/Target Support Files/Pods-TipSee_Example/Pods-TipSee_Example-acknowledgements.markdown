@@ -1,7 +1,7 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## TipC
+## TipSee
 
 Copyright (c) 2019 farshadjahanmanesh <farshadjahanmanesh@gmail.com>
 

@@ -6,327 +6,261 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		43C278BB5A94351600556A3CF760DC16 /* TipSee */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = C36B34DE3B56E3280290BE02CF9CDE60 /* Build configuration list for PBXAggregateTarget "TipSee" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = TipSee;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		26C85E4ABF2D40A57635D6523BE202C8 /* TipC-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A15750BF674A255B9006ACDFAB153D80 /* TipC-dummy.m */; };
-		350E3676D7F9C975B5075F290E9917A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		3EBA145DAA52B56435E88206DBC0245C /* Pods-TipC_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B90035A037075EC5C9AC4A5B1DE4B62 /* Pods-TipC_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5509C5B5A2139FE9EB624AAD98A580C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		5C70ADAA9E9C2FCB154D4DEA38423C04 /* Pods-TipC_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F54C1A19742533662A7EF86E9DA8F98 /* Pods-TipC_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		74AB45B7FB25567A9FD38453B6A929E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
-		75939A5A65E34DC2F8F22E4CFB2BE57F /* Pods-TipC_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CAFACC3977FDBEB83C038143B578CC /* Pods-TipC_Tests-dummy.m */; };
-		8778AC292304852D00D2510A /* TipTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8778AC272304852D00D2510A /* TipTarget.swift */; };
-		8778AC2C2304854500D2510A /* TipItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8778AC2A2304854500D2510A /* TipItem.swift */; };
-		8778AC2F230485A300D2510A /* TipOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8778AC2D230485A300D2510A /* TipOption.swift */; };
-		8778AC322304867700D2510A /* UiView+Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8778AC302304867700D2510A /* UiView+Exts.swift */; };
-		8778AC342304876C00D2510A /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8778AC332304876C00D2510A /* BubbleView.swift */; };
-		87A8EF0622E0CA0800E5DEBE /* TipSee-Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A8EF0422E0C99200E5DEBE /* TipSee-Exts.swift */; };
-		B5CF56AF0C34886232C93160A4FC56D1 /* Pods-TipC_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F7E1ED1D4768E13A18803CC9069B3 /* Pods-TipC_Example-dummy.m */; };
-		E55B648023299C2CE57958AF569907EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		F1644F69BB42FB527D52835E74D2987A /* TipSee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1946ED5F14130360B60D45A726951A /* TipSee.swift */; };
-		F477FBE187E362AB6ED1460D2A84CA36 /* TipC-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E3FE1D5E7BC02E8C51DAB6E7C28157A /* TipC-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		285B8ED437195E9D9C0B966F934098E0 /* Pods-TipSee_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DAE4378D5BFA3E90DA8D2D7B663993 /* Pods-TipSee_Tests-dummy.m */; };
+		50AB26B9BB8A5A766F037018662F6071 /* Pods-TipSee_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AE32AD092F857748B4A8D88C9250F34A /* Pods-TipSee_Example-dummy.m */; };
+		89CA7B364639908B5801FE89F65F56E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		E2971A1D3CBFC7E20E868830AFD7E5B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		E393ECC1FF14C7C1C032B7AD66E776C0 /* Pods-TipSee_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C629FC40EA8DB3BB0E1B8259FFFE2B1 /* Pods-TipSee_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E8B2288C306331E5E8EC5F17F43AA529 /* Pods-TipSee_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A9E64E11C7EF9D04E75A0CE100F06C88 /* Pods-TipSee_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2D4A71BD529A31C6E6892820A75210D3 /* PBXContainerItemProxy */ = {
+		17624977EABC3B6ED964CC77E3F2F58A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3F085C68AE7A909D9973BC139B3768ED;
-			remoteInfo = TipC;
+			remoteGlobalIDString = 43C278BB5A94351600556A3CF760DC16;
+			remoteInfo = TipSee;
 		};
-		E5343F02286BD5B7BBF3B87C1FFD4734 /* PBXContainerItemProxy */ = {
+		EBB780ED8FEA899F789887B0ADA33095 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A3FC5FEE7DD018CB28F66BFF9182D313;
-			remoteInfo = "Pods-TipC_Example";
+			remoteGlobalIDString = B908D34FF2E893C3D472ABE0F48A8FA1;
+			remoteInfo = "Pods-TipSee_Example";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0155EC2D25D361A722BDB575483C4DEE /* Pods_TipC_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TipC_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		07C050831ED5A603196DE024E2DDD457 /* Pods-TipC_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TipC_Tests-Info.plist"; sourceTree = "<group>"; };
-		1E1946ED5F14130360B60D45A726951A /* TipSee.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TipSee.swift; path = TipC/Classes/TipSee.swift; sourceTree = "<group>"; };
-		27A8E5DC09FAAFA38B55B20DB3D48E3C /* Pods_TipC_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TipC_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		30DD82C547AC2856BBD285A92A89758C /* Pods-TipC_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TipC_Example.modulemap"; sourceTree = "<group>"; };
-		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		3A50300211A9E3126F6F2093F633A0A6 /* Pods-TipC_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TipC_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		3E3FE1D5E7BC02E8C51DAB6E7C28157A /* TipC-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TipC-umbrella.h"; sourceTree = "<group>"; };
-		4153A885FA59AE1C096D58094271F49F /* Pods-TipC_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TipC_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		4661DBD6D4E56013B2B08ABE4A15A4F7 /* TipC-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TipC-Info.plist"; sourceTree = "<group>"; };
-		488DCF7CFDA2144FF5DF97A7E1B25CCC /* TipC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TipC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		579F9C99CDE20A037F99BCFF632D0BFC /* Pods-TipC_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TipC_Example.release.xcconfig"; sourceTree = "<group>"; };
-		5DB4BA17AD6D4AAD924B3142DD47FCA2 /* Pods-TipC_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TipC_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		6F54C1A19742533662A7EF86E9DA8F98 /* Pods-TipC_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TipC_Example-umbrella.h"; sourceTree = "<group>"; };
-		706F7E1ED1D4768E13A18803CC9069B3 /* Pods-TipC_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TipC_Example-dummy.m"; sourceTree = "<group>"; };
-		7F5B21BAD8998302F6DDBC830A3C7BB3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		8778AC272304852D00D2510A /* TipTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TipTarget.swift; path = TipC/Classes/TipTarget.swift; sourceTree = "<group>"; };
-		8778AC2A2304854500D2510A /* TipItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TipItem.swift; path = TipC/Classes/TipItem.swift; sourceTree = "<group>"; };
-		8778AC2D230485A300D2510A /* TipOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TipOption.swift; path = TipC/Classes/TipOption.swift; sourceTree = "<group>"; };
-		8778AC302304867700D2510A /* UiView+Exts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UiView+Exts.swift"; path = "TipC/Classes/UiView+Exts.swift"; sourceTree = "<group>"; };
-		8778AC332304876C00D2510A /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BubbleView.swift; path = TipC/Classes/BubbleView.swift; sourceTree = "<group>"; };
-		87A8EF0422E0C99200E5DEBE /* TipSee-Exts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TipSee-Exts.swift"; path = "TipC/Classes/TipSee-Exts.swift"; sourceTree = "<group>"; };
-		8C51EA2B42C4DEA2BE5193BD0EEB3D8F /* Pods-TipC_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TipC_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		8DA37491F48EECE8D8C6658201701BB1 /* TipC-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TipC-prefix.pch"; sourceTree = "<group>"; };
-		9321A30CD7B5638ADA16B0B1532806A9 /* Pods-TipC_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TipC_Tests.modulemap"; sourceTree = "<group>"; };
-		96CAFACC3977FDBEB83C038143B578CC /* Pods-TipC_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TipC_Tests-dummy.m"; sourceTree = "<group>"; };
-		99A82FA1D8E3FD6A24D9D98B1B51E80B /* Pods-TipC_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TipC_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		9B90035A037075EC5C9AC4A5B1DE4B62 /* Pods-TipC_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TipC_Tests-umbrella.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A15750BF674A255B9006ACDFAB153D80 /* TipC-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TipC-dummy.m"; sourceTree = "<group>"; };
-		ADE9B80C949B7A39D5A796C1808A4EC6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		B782587A67D7D212651D45986C5A8DCB /* Pods-TipC_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TipC_Example-Info.plist"; sourceTree = "<group>"; };
-		CB298B3058E20FDF22DF1B5ED880E912 /* Pods-TipC_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TipC_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		CB51226C015DD75AAB244D2F3EE448D8 /* Pods-TipC_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TipC_Example-frameworks.sh"; sourceTree = "<group>"; };
-		D6682679E4111FD176106D8402777D1E /* TipC.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TipC.xcconfig; sourceTree = "<group>"; };
-		F2F32EF4914A76276A4FD3A238CA6166 /* TipC.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = TipC.podspec; sourceTree = "<group>"; tabWidth = 2; };
-		F8EF666F0B4F544756F23E5E5B855843 /* Pods-TipC_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TipC_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		FD8158892CF15DC83086880FCB6936E2 /* TipC.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TipC.modulemap; sourceTree = "<group>"; };
+		02813B929D326B685C596B0BCBDE0901 /* Pods-TipSee_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TipSee_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		02DAE4378D5BFA3E90DA8D2D7B663993 /* Pods-TipSee_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TipSee_Tests-dummy.m"; sourceTree = "<group>"; };
+		0A385770ED6BE5A9E3D106616E084BED /* Pods-TipSee_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TipSee_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0D5DD90E5441F4D3AB0144A23703CDA3 /* Pods-TipSee_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TipSee_Example-Info.plist"; sourceTree = "<group>"; };
+		173AFD41CC0E09E35F6C9AC479AF6DFA /* Pods_TipSee_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TipSee_Tests.framework; path = "Pods-TipSee_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F122697589932CFCB4EF5995DBEB6E5 /* Pods-TipSee_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TipSee_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		4F69B967D3DD4E9CFBDE8AF818EB6380 /* Pods-TipSee_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TipSee_Example.release.xcconfig"; sourceTree = "<group>"; };
+		504C596F821B2572531BF83FC73475C7 /* Pods-TipSee_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TipSee_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		64D295B540DE761CE8EEF307876614C9 /* TipSee.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = TipSee.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		747982A01BE277B733690E294154A085 /* TipSee.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TipSee.xcconfig; sourceTree = "<group>"; };
+		75B5DECC707DA5F55AD975BD03BB92CC /* Pods-TipSee_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TipSee_Example.modulemap"; sourceTree = "<group>"; };
+		79B324B0F0AE94B2705CC075322B7085 /* Pods-TipSee_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TipSee_Tests.modulemap"; sourceTree = "<group>"; };
+		7C629FC40EA8DB3BB0E1B8259FFFE2B1 /* Pods-TipSee_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TipSee_Tests-umbrella.h"; sourceTree = "<group>"; };
+		7FA5422BD4D1FF60D60F3F33B5A8EED1 /* Pods-TipSee_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TipSee_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		966F51ED2C17B96CFA45D75C9887B4C3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		9755E78706BB271E2F8D260C9C1977F7 /* Pods-TipSee_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TipSee_Tests-Info.plist"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A9E64E11C7EF9D04E75A0CE100F06C88 /* Pods-TipSee_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TipSee_Example-umbrella.h"; sourceTree = "<group>"; };
+		AE32AD092F857748B4A8D88C9250F34A /* Pods-TipSee_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TipSee_Example-dummy.m"; sourceTree = "<group>"; };
+		B58903F205611D951664757685D2F565 /* Pods-TipSee_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TipSee_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		BA78E796051FBFD1E611860120974443 /* Pods_TipSee_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TipSee_Example.framework; path = "Pods-TipSee_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D669E80BE1268E0FB203192A533605CB /* Pods-TipSee_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TipSee_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5A795D04CBCA65F19980333B627437F1 /* Frameworks */ = {
+		9E17BC4992EEF8A0DB081FE3D125FCB3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				350E3676D7F9C975B5075F290E9917A4 /* Foundation.framework in Frameworks */,
-				74AB45B7FB25567A9FD38453B6A929E4 /* UIKit.framework in Frameworks */,
+				E2971A1D3CBFC7E20E868830AFD7E5B5 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EBF37420C2EB08E7EA5284A9E7F8BF57 /* Frameworks */ = {
+		ACAA674BA6A3A2F26F894580FBD79AF0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5509C5B5A2139FE9EB624AAD98A580C1 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FECF890D0BF103777F1191618A517968 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E55B648023299C2CE57958AF569907EA /* Foundation.framework in Frameworks */,
+				89CA7B364639908B5801FE89F65F56E7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
+		02344A38B25F55CDBC0E321571C227D8 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				E2983683FD097A93297E2F5D4E382B36 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1A8D799ADC848596F6D38DF84521CF9A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				27A8E5DC09FAAFA38B55B20DB3D48E3C /* Pods_TipC_Example.framework */,
-				0155EC2D25D361A722BDB575483C4DEE /* Pods_TipC_Tests.framework */,
-				488DCF7CFDA2144FF5DF97A7E1B25CCC /* TipC.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		3653CB92F31706AF044946EF53267AFD /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				7F5B21BAD8998302F6DDBC830A3C7BB3 /* LICENSE */,
-				ADE9B80C949B7A39D5A796C1808A4EC6 /* README.md */,
-				F2F32EF4914A76276A4FD3A238CA6166 /* TipC.podspec */,
+				966F51ED2C17B96CFA45D75C9887B4C3 /* LICENSE */,
+				64D295B540DE761CE8EEF307876614C9 /* TipSee.podspec */,
 			);
 			name = Pod;
 			sourceTree = "<group>";
 		};
-		3F896659104A04F5E5E0C9E1260C1249 /* Targets Support Files */ = {
+		04F5233B1C785A0F0F1E719366D4A83A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				731D282540663EEFC76797E486D8E6FA /* Pods-TipC_Example */,
-				A69F593F1E89480B28C8B1BE8EA2311C /* Pods-TipC_Tests */,
+				747982A01BE277B733690E294154A085 /* TipSee.xcconfig */,
 			);
-			name = "Targets Support Files";
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/TipSee";
 			sourceTree = "<group>";
 		};
-		60F39A4FC2BC07872E4A8B3EEB456FE9 /* TipSee */ = {
+		0B7A011C3748A17BDC7A9B0CD8B81134 /* Pods-TipSee_Example */ = {
 			isa = PBXGroup;
 			children = (
-				87A8EF0422E0C99200E5DEBE /* TipSee-Exts.swift */,
-				1E1946ED5F14130360B60D45A726951A /* TipSee.swift */,
-				3653CB92F31706AF044946EF53267AFD /* Pod */,
-				DAA0746C0158CFBA001AF3BF1A4562C9 /* Support Files */,
-				8778AC272304852D00D2510A /* TipTarget.swift */,
-				8778AC2A2304854500D2510A /* TipItem.swift */,
-				8778AC2D230485A300D2510A /* TipOption.swift */,
-				8778AC302304867700D2510A /* UiView+Exts.swift */,
-				8778AC332304876C00D2510A /* BubbleView.swift */,
+				75B5DECC707DA5F55AD975BD03BB92CC /* Pods-TipSee_Example.modulemap */,
+				0A385770ED6BE5A9E3D106616E084BED /* Pods-TipSee_Example-acknowledgements.markdown */,
+				2F122697589932CFCB4EF5995DBEB6E5 /* Pods-TipSee_Example-acknowledgements.plist */,
+				AE32AD092F857748B4A8D88C9250F34A /* Pods-TipSee_Example-dummy.m */,
+				0D5DD90E5441F4D3AB0144A23703CDA3 /* Pods-TipSee_Example-Info.plist */,
+				A9E64E11C7EF9D04E75A0CE100F06C88 /* Pods-TipSee_Example-umbrella.h */,
+				D669E80BE1268E0FB203192A533605CB /* Pods-TipSee_Example.debug.xcconfig */,
+				4F69B967D3DD4E9CFBDE8AF818EB6380 /* Pods-TipSee_Example.release.xcconfig */,
+			);
+			name = "Pods-TipSee_Example";
+			path = "Target Support Files/Pods-TipSee_Example";
+			sourceTree = "<group>";
+		};
+		49C98FACD5C7ADF80C04BFB521DC8C6E /* Pods-TipSee_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				79B324B0F0AE94B2705CC075322B7085 /* Pods-TipSee_Tests.modulemap */,
+				02813B929D326B685C596B0BCBDE0901 /* Pods-TipSee_Tests-acknowledgements.markdown */,
+				504C596F821B2572531BF83FC73475C7 /* Pods-TipSee_Tests-acknowledgements.plist */,
+				02DAE4378D5BFA3E90DA8D2D7B663993 /* Pods-TipSee_Tests-dummy.m */,
+				9755E78706BB271E2F8D260C9C1977F7 /* Pods-TipSee_Tests-Info.plist */,
+				7C629FC40EA8DB3BB0E1B8259FFFE2B1 /* Pods-TipSee_Tests-umbrella.h */,
+				7FA5422BD4D1FF60D60F3F33B5A8EED1 /* Pods-TipSee_Tests.debug.xcconfig */,
+				B58903F205611D951664757685D2F565 /* Pods-TipSee_Tests.release.xcconfig */,
+			);
+			name = "Pods-TipSee_Tests";
+			path = "Target Support Files/Pods-TipSee_Tests";
+			sourceTree = "<group>";
+		};
+		7DFC11FB315FED589469292E8C4CDCC5 /* TipSee */ = {
+			isa = PBXGroup;
+			children = (
+				02344A38B25F55CDBC0E321571C227D8 /* Pod */,
+				04F5233B1C785A0F0F1E719366D4A83A /* Support Files */,
 			);
 			name = TipSee;
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		731D282540663EEFC76797E486D8E6FA /* Pods-TipC_Example */ = {
+		B7A3CE7E6AAC5CFEE3416B28E6970F86 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				30DD82C547AC2856BBD285A92A89758C /* Pods-TipC_Example.modulemap */,
-				5DB4BA17AD6D4AAD924B3142DD47FCA2 /* Pods-TipC_Example-acknowledgements.markdown */,
-				3A50300211A9E3126F6F2093F633A0A6 /* Pods-TipC_Example-acknowledgements.plist */,
-				706F7E1ED1D4768E13A18803CC9069B3 /* Pods-TipC_Example-dummy.m */,
-				CB51226C015DD75AAB244D2F3EE448D8 /* Pods-TipC_Example-frameworks.sh */,
-				B782587A67D7D212651D45986C5A8DCB /* Pods-TipC_Example-Info.plist */,
-				6F54C1A19742533662A7EF86E9DA8F98 /* Pods-TipC_Example-umbrella.h */,
-				99A82FA1D8E3FD6A24D9D98B1B51E80B /* Pods-TipC_Example.debug.xcconfig */,
-				579F9C99CDE20A037F99BCFF632D0BFC /* Pods-TipC_Example.release.xcconfig */,
+				0B7A011C3748A17BDC7A9B0CD8B81134 /* Pods-TipSee_Example */,
+				49C98FACD5C7ADF80C04BFB521DC8C6E /* Pods-TipSee_Tests */,
 			);
-			name = "Pods-TipC_Example";
-			path = "Target Support Files/Pods-TipC_Example";
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		8A3916CED71D1ED67249A969E93B577A /* Development Pods */ = {
+		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				60F39A4FC2BC07872E4A8B3EEB456FE9 /* TipSee */,
+				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
 			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		A69F593F1E89480B28C8B1BE8EA2311C /* Pods-TipC_Tests */ = {
-			isa = PBXGroup;
-			children = (
-				9321A30CD7B5638ADA16B0B1532806A9 /* Pods-TipC_Tests.modulemap */,
-				F8EF666F0B4F544756F23E5E5B855843 /* Pods-TipC_Tests-acknowledgements.markdown */,
-				CB298B3058E20FDF22DF1B5ED880E912 /* Pods-TipC_Tests-acknowledgements.plist */,
-				96CAFACC3977FDBEB83C038143B578CC /* Pods-TipC_Tests-dummy.m */,
-				07C050831ED5A603196DE024E2DDD457 /* Pods-TipC_Tests-Info.plist */,
-				9B90035A037075EC5C9AC4A5B1DE4B62 /* Pods-TipC_Tests-umbrella.h */,
-				8C51EA2B42C4DEA2BE5193BD0EEB3D8F /* Pods-TipC_Tests.debug.xcconfig */,
-				4153A885FA59AE1C096D58094271F49F /* Pods-TipC_Tests.release.xcconfig */,
-			);
-			name = "Pods-TipC_Tests";
-			path = "Target Support Files/Pods-TipC_Tests";
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				8A3916CED71D1ED67249A969E93B577A /* Development Pods */,
-				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
-				1A8D799ADC848596F6D38DF84521CF9A /* Products */,
-				3F896659104A04F5E5E0C9E1260C1249 /* Targets Support Files */,
+				EBD6CA476765B306CACC49218E0493E6 /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				E01C7F0902CD5C1FB31F60A178EC4B17 /* Products */,
+				B7A3CE7E6AAC5CFEE3416B28E6970F86 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		DAA0746C0158CFBA001AF3BF1A4562C9 /* Support Files */ = {
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FD8158892CF15DC83086880FCB6936E2 /* TipC.modulemap */,
-				D6682679E4111FD176106D8402777D1E /* TipC.xcconfig */,
-				A15750BF674A255B9006ACDFAB153D80 /* TipC-dummy.m */,
-				4661DBD6D4E56013B2B08ABE4A15A4F7 /* TipC-Info.plist */,
-				8DA37491F48EECE8D8C6658201701BB1 /* TipC-prefix.pch */,
-				3E3FE1D5E7BC02E8C51DAB6E7C28157A /* TipC-umbrella.h */,
+				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/TipC";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E2983683FD097A93297E2F5D4E382B36 /* iOS */ = {
+		E01C7F0902CD5C1FB31F60A178EC4B17 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */,
-				312B988EF117AE4DE76A268D970131FE /* UIKit.framework */,
+				BA78E796051FBFD1E611860120974443 /* Pods_TipSee_Example.framework */,
+				173AFD41CC0E09E35F6C9AC479AF6DFA /* Pods_TipSee_Tests.framework */,
 			);
-			name = iOS;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EBD6CA476765B306CACC49218E0493E6 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7DFC11FB315FED589469292E8C4CDCC5 /* TipSee */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		47FF0E11F87B9FC96F18C1638929D512 /* Headers */ = {
+		20D4AB1E57C4D983EF1E5F6966730EB1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C70ADAA9E9C2FCB154D4DEA38423C04 /* Pods-TipC_Example-umbrella.h in Headers */,
+				E393ECC1FF14C7C1C032B7AD66E776C0 /* Pods-TipSee_Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9C5FC6A352625DC8C173236355BC57C3 /* Headers */ = {
+		69C392E496952FE74C53EF05E37CE77E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F477FBE187E362AB6ED1460D2A84CA36 /* TipC-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A2B81262D9E22288275B82919593D00C /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3EBA145DAA52B56435E88206DBC0245C /* Pods-TipC_Tests-umbrella.h in Headers */,
+				E8B2288C306331E5E8EC5F17F43AA529 /* Pods-TipSee_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2035FBFBE40A602FBCE5591814F73833 /* Pods-TipC_Tests */ = {
+		7913B1E6DE9CFF71427FC4C77A07DA9F /* Pods-TipSee_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1FA4F881302E335F021FAC7B6D1AEFAF /* Build configuration list for PBXNativeTarget "Pods-TipC_Tests" */;
+			buildConfigurationList = 0533F299EF46A6540DE8E0567DAA74CD /* Build configuration list for PBXNativeTarget "Pods-TipSee_Tests" */;
 			buildPhases = (
-				A2B81262D9E22288275B82919593D00C /* Headers */,
-				05259D0C21A4C78783BB7F99B388B4B8 /* Sources */,
-				EBF37420C2EB08E7EA5284A9E7F8BF57 /* Frameworks */,
-				56669DC36DB35088DB73204AA93CC048 /* Resources */,
+				20D4AB1E57C4D983EF1E5F6966730EB1 /* Headers */,
+				5A58F26DAE0775EA5FE73F77B98A6B58 /* Sources */,
+				ACAA674BA6A3A2F26F894580FBD79AF0 /* Frameworks */,
+				A01DF8BFA054ED62A92D9FB9D73BEBEA /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1E3267AF41F1F28378850D0E03446AF8 /* PBXTargetDependency */,
+				A5A018EBFB24C033CF3C5F32D2404856 /* PBXTargetDependency */,
 			);
-			name = "Pods-TipC_Tests";
-			productName = "Pods-TipC_Tests";
-			productReference = 0155EC2D25D361A722BDB575483C4DEE /* Pods_TipC_Tests.framework */;
+			name = "Pods-TipSee_Tests";
+			productName = "Pods-TipSee_Tests";
+			productReference = 173AFD41CC0E09E35F6C9AC479AF6DFA /* Pods_TipSee_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		3F085C68AE7A909D9973BC139B3768ED /* TipC */ = {
+		B908D34FF2E893C3D472ABE0F48A8FA1 /* Pods-TipSee_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 135F41CD2718C7BBE82EAD395E4D5757 /* Build configuration list for PBXNativeTarget "TipC" */;
+			buildConfigurationList = 4CC93608E1CD5C07DD8366B3044306F7 /* Build configuration list for PBXNativeTarget "Pods-TipSee_Example" */;
 			buildPhases = (
-				9C5FC6A352625DC8C173236355BC57C3 /* Headers */,
-				063A410A882A7DAB9BBA392D036A894D /* Sources */,
-				5A795D04CBCA65F19980333B627437F1 /* Frameworks */,
-				A389FFC29D53F8ECF2A16B682E63A555 /* Resources */,
+				69C392E496952FE74C53EF05E37CE77E /* Headers */,
+				DD02421F731D9DF14E5F8A40BE807739 /* Sources */,
+				9E17BC4992EEF8A0DB081FE3D125FCB3 /* Frameworks */,
+				B729BB04FEF7E0C7965869DB6CF78D80 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2F28183D9D341D1352547C599631B5A7 /* PBXTargetDependency */,
 			);
-			name = TipC;
-			productName = TipC;
-			productReference = 488DCF7CFDA2144FF5DF97A7E1B25CCC /* TipC.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		A3FC5FEE7DD018CB28F66BFF9182D313 /* Pods-TipC_Example */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 04DA7F84AEBC20424BF2C27875698F1E /* Build configuration list for PBXNativeTarget "Pods-TipC_Example" */;
-			buildPhases = (
-				47FF0E11F87B9FC96F18C1638929D512 /* Headers */,
-				46413834C951711FD816A1745FE6B4F9 /* Sources */,
-				FECF890D0BF103777F1191618A517968 /* Frameworks */,
-				FB9EE1B1CBE8A3385D9FE302115C9DD6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CB7E346A3DC1D6A5FEED4841EF6CCC85 /* PBXTargetDependency */,
-			);
-			name = "Pods-TipC_Example";
-			productName = "Pods-TipC_Example";
-			productReference = 27A8E5DC09FAAFA38B55B20DB3D48E3C /* Pods_TipC_Example.framework */;
+			name = "Pods-TipSee_Example";
+			productName = "Pods-TipSee_Example";
+			productReference = BA78E796051FBFD1E611860120974443 /* Pods_TipSee_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -337,11 +271,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
-				TargetAttributes = {
-					A3FC5FEE7DD018CB28F66BFF9182D313 = {
-						LastSwiftMigration = 1100;
-					};
-				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -351,33 +280,26 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 1A8D799ADC848596F6D38DF84521CF9A /* Products */;
+			productRefGroup = E01C7F0902CD5C1FB31F60A178EC4B17 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A3FC5FEE7DD018CB28F66BFF9182D313 /* Pods-TipC_Example */,
-				2035FBFBE40A602FBCE5591814F73833 /* Pods-TipC_Tests */,
-				3F085C68AE7A909D9973BC139B3768ED /* TipC */,
+				B908D34FF2E893C3D472ABE0F48A8FA1 /* Pods-TipSee_Example */,
+				7913B1E6DE9CFF71427FC4C77A07DA9F /* Pods-TipSee_Tests */,
+				43C278BB5A94351600556A3CF760DC16 /* TipSee */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		56669DC36DB35088DB73204AA93CC048 /* Resources */ = {
+		A01DF8BFA054ED62A92D9FB9D73BEBEA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A389FFC29D53F8ECF2A16B682E63A555 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FB9EE1B1CBE8A3385D9FE302115C9DD6 /* Resources */ = {
+		B729BB04FEF7E0C7965869DB6CF78D80 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -387,121 +309,43 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		05259D0C21A4C78783BB7F99B388B4B8 /* Sources */ = {
+		5A58F26DAE0775EA5FE73F77B98A6B58 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75939A5A65E34DC2F8F22E4CFB2BE57F /* Pods-TipC_Tests-dummy.m in Sources */,
+				285B8ED437195E9D9C0B966F934098E0 /* Pods-TipSee_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		063A410A882A7DAB9BBA392D036A894D /* Sources */ = {
+		DD02421F731D9DF14E5F8A40BE807739 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1644F69BB42FB527D52835E74D2987A /* TipSee.swift in Sources */,
-				8778AC2F230485A300D2510A /* TipOption.swift in Sources */,
-				8778AC342304876C00D2510A /* BubbleView.swift in Sources */,
-				8778AC322304867700D2510A /* UiView+Exts.swift in Sources */,
-				8778AC292304852D00D2510A /* TipTarget.swift in Sources */,
-				26C85E4ABF2D40A57635D6523BE202C8 /* TipC-dummy.m in Sources */,
-				87A8EF0622E0CA0800E5DEBE /* TipSee-Exts.swift in Sources */,
-				8778AC2C2304854500D2510A /* TipItem.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		46413834C951711FD816A1745FE6B4F9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B5CF56AF0C34886232C93160A4FC56D1 /* Pods-TipC_Example-dummy.m in Sources */,
+				50AB26B9BB8A5A766F037018662F6071 /* Pods-TipSee_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1E3267AF41F1F28378850D0E03446AF8 /* PBXTargetDependency */ = {
+		2F28183D9D341D1352547C599631B5A7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-TipC_Example";
-			target = A3FC5FEE7DD018CB28F66BFF9182D313 /* Pods-TipC_Example */;
-			targetProxy = E5343F02286BD5B7BBF3B87C1FFD4734 /* PBXContainerItemProxy */;
+			name = TipSee;
+			target = 43C278BB5A94351600556A3CF760DC16 /* TipSee */;
+			targetProxy = 17624977EABC3B6ED964CC77E3F2F58A /* PBXContainerItemProxy */;
 		};
-		CB7E346A3DC1D6A5FEED4841EF6CCC85 /* PBXTargetDependency */ = {
+		A5A018EBFB24C033CF3C5F32D2404856 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = TipC;
-			target = 3F085C68AE7A909D9973BC139B3768ED /* TipC */;
-			targetProxy = 2D4A71BD529A31C6E6892820A75210D3 /* PBXContainerItemProxy */;
+			name = "Pods-TipSee_Example";
+			target = B908D34FF2E893C3D472ABE0F48A8FA1 /* Pods-TipSee_Example */;
+			targetProxy = EBB780ED8FEA899F789887B0ADA33095 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		3CD58EDB617EC672FE978E68E2876C29 /* Debug */ = {
+		1723163FFDB0636DDA23BB40F99E0AD6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6682679E4111FD176106D8402777D1E /* TipC.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/TipC/TipC-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/TipC/TipC-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/TipC/TipC.modulemap";
-				PRODUCT_MODULE_NAME = TipC;
-				PRODUCT_NAME = TipC;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		4449E34DC947815A32CABD0BB918B9AE /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6682679E4111FD176106D8402777D1E /* TipC.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/TipC/TipC-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/TipC/TipC-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/TipC/TipC.modulemap";
-				PRODUCT_MODULE_NAME = TipC;
-				PRODUCT_NAME = TipC;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		52269EAEEBED3FA5C4FF2A2525C7176D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C51EA2B42C4DEA2BE5193BD0EEB3D8F /* Pods-TipC_Tests.debug.xcconfig */;
+			baseConfigurationReference = 4F69B967D3DD4E9CFBDE8AF818EB6380 /* Pods-TipSee_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -513,81 +357,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-TipC_Tests/Pods-TipC_Tests-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-TipSee_Example/Pods-TipSee_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TipC_Tests/Pods-TipC_Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		766A21779DB1EF6209FE84CD2B1E1D9B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99A82FA1D8E3FD6A24D9D98B1B51E80B /* Pods-TipC_Example.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-TipC_Example/Pods-TipC_Example-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TipC_Example/Pods-TipC_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		8466132DDA0457A7AF1999E7D580B4DA /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4153A885FA59AE1C096D58094271F49F /* Pods-TipC_Tests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-TipC_Tests/Pods-TipC_Tests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TipC_Tests/Pods-TipC_Tests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-TipSee_Example/Pods-TipSee_Example.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -602,12 +377,38 @@
 			};
 			name = Release;
 		};
-		8FF62421B063CA4C63D773FAE14D4A04 /* Release */ = {
+		18F7459F505171124742466E81726756 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 579F9C99CDE20A037F99BCFF632D0BFC /* Pods-TipC_Example.release.xcconfig */;
+			baseConfigurationReference = 747982A01BE277B733690E294154A085 /* TipSee.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2BA586FB5828B30BB038D43F454754E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 747982A01BE277B733690E294154A085 /* TipSee.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		32EFBE006822538259CF0660D45C0D3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FA5422BD4D1FF60D60F3F33B5A8EED1 /* Pods-TipSee_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -617,12 +418,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-TipC_Example/Pods-TipC_Example-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-TipSee_Tests/Pods-TipSee_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TipC_Example/Pods-TipC_Example.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-TipSee_Tests/Pods-TipSee_Tests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -630,7 +431,72 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		35E065B667D7A5CD819708C29DA4235B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D669E80BE1268E0FB203192A533605CB /* Pods-TipSee_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-TipSee_Example/Pods-TipSee_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TipSee_Example/Pods-TipSee_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7B832C8471C884D86201BD2A20D18CF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B58903F205611D951664757685D2F565 /* Pods-TipSee_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-TipSee_Tests/Pods-TipSee_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TipSee_Tests/Pods-TipSee_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -691,7 +557,8 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -764,29 +631,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		04DA7F84AEBC20424BF2C27875698F1E /* Build configuration list for PBXNativeTarget "Pods-TipC_Example" */ = {
+		0533F299EF46A6540DE8E0567DAA74CD /* Build configuration list for PBXNativeTarget "Pods-TipSee_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				766A21779DB1EF6209FE84CD2B1E1D9B /* Debug */,
-				8FF62421B063CA4C63D773FAE14D4A04 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		135F41CD2718C7BBE82EAD395E4D5757 /* Build configuration list for PBXNativeTarget "TipC" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3CD58EDB617EC672FE978E68E2876C29 /* Debug */,
-				4449E34DC947815A32CABD0BB918B9AE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1FA4F881302E335F021FAC7B6D1AEFAF /* Build configuration list for PBXNativeTarget "Pods-TipC_Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				52269EAEEBED3FA5C4FF2A2525C7176D /* Debug */,
-				8466132DDA0457A7AF1999E7D580B4DA /* Release */,
+				32EFBE006822538259CF0660D45C0D3E /* Debug */,
+				7B832C8471C884D86201BD2A20D18CF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -796,6 +645,24 @@
 			buildConfigurations = (
 				B8BCBD0110C2658BB5DAADB9B7D97B92 /* Debug */,
 				B0087CB4594321EF41619F3181FE120E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4CC93608E1CD5C07DD8366B3044306F7 /* Build configuration list for PBXNativeTarget "Pods-TipSee_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35E065B667D7A5CD819708C29DA4235B /* Debug */,
+				1723163FFDB0636DDA23BB40F99E0AD6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C36B34DE3B56E3280290BE02CF9CDE60 /* Build configuration list for PBXAggregateTarget "TipSee" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18F7459F505171124742466E81726756 /* Debug */,
+				2BA586FB5828B30BB038D43F454754E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

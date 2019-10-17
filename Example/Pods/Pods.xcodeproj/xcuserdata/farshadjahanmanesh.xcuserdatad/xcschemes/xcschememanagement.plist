@@ -4,17 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-TipC_Example.xcscheme</key>
+		<key>Pods-TipSee_Example.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-TipC_Tests.xcscheme</key>
+		<key>Pods-TipSee_Tests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>TipC.xcscheme</key>
+		<key>TipSee.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
