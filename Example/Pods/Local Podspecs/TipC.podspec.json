@@ -1,0 +1,25 @@
+{
+  "name": "TipC",
+  "version": "1.0.1",
+  "summary": "shows tool tip near the views.",
+  "swift_versions": "5.0",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://git.webdooz.com/iOS/tooltip",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "farshadjahanmanesh": "farshadjahanmanesh@gmail.com"
+  },
+  "source": {
+    "git": "https://git.webdooz.com/iOS/tooltip.git",
+    "tag": "1.0.1"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "TipC/Classes/**/*",
+  "frameworks": "UIKit",
+  "swift_version": "5.0"
+}
