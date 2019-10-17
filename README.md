@@ -19,6 +19,7 @@
 - [x] Multipe Tip in the screen
 - [x] Dim animation
 - [x] bubble animation
+- [ ] multipleTip, one Location
 - [ ] it is good for tip to follow it's target area movements
 
 # What we can do with TipSee?
