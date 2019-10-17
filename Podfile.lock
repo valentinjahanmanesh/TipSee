@@ -1,0 +1,16 @@
+PODS:
+  - TipSee (1.2.0)
+
+DEPENDENCIES:
+  - TipSee (from `../`)
+
+EXTERNAL SOURCES:
+  TipSee:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  TipSee: 58732ffc4a5ecc66a70cd8e889aadeb13a9bd3f9
+
+PODFILE CHECKSUM: 4f17cbcadcadedee4ef963f1f22243baebab47e3
+
+COCOAPODS: 1.7.5
