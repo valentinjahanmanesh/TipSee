@@ -3,8 +3,8 @@
 </p>
 
 
-# TipC
-### TipC is a lightweight and highly customizable library that helps you to show beautiful tips and hints.
+# TipSee
+### TipSee is a lightweight and highly customizable library that helps you to show beautiful tips and hints.
 
 [![CI Status](https://img.shields.io/travis/farshadjahanmanesh/TipC.svg?style=flat)](https://travis-ci.org/farshadjahanmanesh/TipC)
 [![Version](https://img.shields.io/cocoapods/v/TipC.svg?style=flat)](https://cocoapods.org/pods/TipC)
@@ -21,8 +21,8 @@
 - [x] bubble animation
 - [ ] it is good for tip to follow it's target area movements
 
-# What we can do with TipC?
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; We can show interactive hints on top of the views or where ever we want but finding the best place to put the bubble (or custom view) is based on the TipC's decision. it will find best place to show the hint by considering the available space and the content size, smartly. we can show custom views (like that heart) or simple text as you've seen in the Gif. Tips can point to all kind of views like button, images and ... or just a specific part of the view controller(like the hint that points to the center of the view in the gif) 
+# What we can do with TipSee?
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; We can show interactive hints on top of the views or where ever we want but finding the best place to put the bubble (or custom view) is based on the TipSee's decision. it will find best place to show the hint by considering the available space and the content size, smartly. we can show custom views (like that heart) or simple text as you've seen in the Gif. Tips can point to all kind of views like button, images and ... or just a specific part of the view controller(like the hint that points to the center of the view in the gif) 
 
 
 <p align="center">
@@ -30,8 +30,8 @@
 </p>
 
 
-# How much TipC is customizable: 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; There are two types of config, one for the whole and global things (which will apply to all hints and tips) and one specific configuration for each bubble. **TipC.Options** is the one we set to have a global configuration for all bubbles and tips and **TipC.Options.Bubble** which is our configuration for each hint. it means that we can change the background color, font and ... for each tip, or we can just set a general configuration for all hints. so we start with global one:
+# How much TipSee is customizable: 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; There are two types of config, one for the whole and global things (which will apply to all hints and tips) and one specific configuration for each bubble. **TipSee.Options** is the one we set to have a global configuration for all bubbles and tips and **TipSee.Options.Bubble** which is our configuration for each hint. it means that we can change the background color, font and ... for each tip, or we can just set a general configuration for all hints. so we start with global one:
 ```swift
 public struct Options: HintConfiguration {
 
@@ -109,7 +109,7 @@ public struct Bubble {
 ```
 
 ## Actions
-TipC has four actions which we can react to them to handle some situations 
+TipSee has four actions which we can react to them to handle some situations 
   1. **Bubble.onBubbleTap** when user clicks on the bubble view, we can access to tapped bubble and item 
   2. **Bubble.onTargetAreaTap** when user click on target area
   3. **HintObject.onDimTap** when user clicks on dim(background), we can access to latest hint on the screen 
@@ -119,9 +119,9 @@ TipC has four actions which we can react to them to handle some situations
 based on what we set for **bubbleLiveDuration** in options, tips have a life duration which means that tips should be on the screen until user taps on them to dismiss or should be removed  before new one is appearing 
 
 ## How To Use
-first thing is setuping your option (or using default option) and then creating a new instance of TipC
+first thing is setuping your option (or using default option) and then creating a new instance of TipSee
 ```swift 
-  let defaultTipOption = TipC.Options
+  let defaultTipOption = TipSee.Options
 			.default()
 			.with {
 				$0.dimColor =  UIColor.black.withAlphaComponent(0.3)
@@ -129,18 +129,18 @@ first thing is setuping your option (or using default option) and then creating 
 				$0.dimFading = false
 	}
   
-  // TipC needs a window to show it's content in it
-  let tipC = TipC(on: self.view.window!)
+  // TipSee needs a window to show it's content in it
+  let tipsee = TipSee(on: self.view.window!)
   
   // shows a simple text(tip) that is pointed to the view(pugImage), this tip has not specific configuration
   // so it will use default one
-	tipC.show(for: self.pugImage, text: "good boy")
+	tipSee.show(for: self.pugImage, text: "good boy")
   ```
   
   or you can create a custom tip with customized configuration 
 ```swift 
   // creates new custom item with custom configs
-  let pugLoveConfig = TipC.Options.Bubble
+  let pugLoveConfig = TipSee.Options.Bubble
         .default()
         .with{
             $0.backgroundColor = .clear
@@ -149,14 +149,14 @@ first thing is setuping your option (or using default option) and then creating 
             $0.padding = UIEdgeInsets.init(top: 0, left: 16, bottom: 0, right: 16)
             $0.position = .top
         }
-  tipC.show(item TipC.TipItem.init(ID: "100", pointTo: self.pugImage, contentView: image,bubbleOptions: pugLoveConfig))
+  tipSee.show(item TipSee.TipItem.init(ID: "100", pointTo: self.pugImage, contentView: image,bubbleOptions: pugLoveConfig))
   
 ```
 
 in above exmaple wee need to handle tip sequence ourselves. next, previous, presenting or dismissing should be handled by using the actions like bubble tap, target area tap, dimtap and ... but there is a slideshow extension which we talk in neext section that helps us with these things.
 
-## TipCManager
-tipc manager is a helper class that gives us the ability to have a slideshow like Tips. this manager handles tips array and provides handy apis (next, previous). we can add tips as many as we want and then start the sequence by calling **.next()**
+## TipSeeManager
+TipSee manager is a helper class that gives us the ability to have a slideshow like Tips. this manager handles tips array and provides handy apis (next, previous). we can add tips as many as we want and then start the sequence by calling **.next()**
 
 ```swift
 let defaultTipOption = TipC.Options
