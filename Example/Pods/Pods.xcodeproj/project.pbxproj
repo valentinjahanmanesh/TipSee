@@ -19,10 +19,10 @@
 		8778AC2F230485A300D2510A /* TipOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8778AC2D230485A300D2510A /* TipOption.swift */; };
 		8778AC322304867700D2510A /* UiView+Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8778AC302304867700D2510A /* UiView+Exts.swift */; };
 		8778AC342304876C00D2510A /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8778AC332304876C00D2510A /* BubbleView.swift */; };
-		87A8EF0622E0CA0800E5DEBE /* TipC-Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A8EF0422E0C99200E5DEBE /* TipC-Exts.swift */; };
+		87A8EF0622E0CA0800E5DEBE /* TipSee-Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A8EF0422E0C99200E5DEBE /* TipSee-Exts.swift */; };
 		B5CF56AF0C34886232C93160A4FC56D1 /* Pods-TipC_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 706F7E1ED1D4768E13A18803CC9069B3 /* Pods-TipC_Example-dummy.m */; };
 		E55B648023299C2CE57958AF569907EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		F1644F69BB42FB527D52835E74D2987A /* TipC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1946ED5F14130360B60D45A726951A /* TipC.swift */; };
+		F1644F69BB42FB527D52835E74D2987A /* TipSee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1946ED5F14130360B60D45A726951A /* TipSee.swift */; };
 		F477FBE187E362AB6ED1460D2A84CA36 /* TipC-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E3FE1D5E7BC02E8C51DAB6E7C28157A /* TipC-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -46,7 +46,7 @@
 /* Begin PBXFileReference section */
 		0155EC2D25D361A722BDB575483C4DEE /* Pods_TipC_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TipC_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07C050831ED5A603196DE024E2DDD457 /* Pods-TipC_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TipC_Tests-Info.plist"; sourceTree = "<group>"; };
-		1E1946ED5F14130360B60D45A726951A /* TipC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TipC.swift; path = TipC/Classes/TipC.swift; sourceTree = "<group>"; };
+		1E1946ED5F14130360B60D45A726951A /* TipSee.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TipSee.swift; path = TipC/Classes/TipSee.swift; sourceTree = "<group>"; };
 		27A8E5DC09FAAFA38B55B20DB3D48E3C /* Pods_TipC_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TipC_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DD82C547AC2856BBD285A92A89758C /* Pods-TipC_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TipC_Example.modulemap"; sourceTree = "<group>"; };
 		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -66,7 +66,7 @@
 		8778AC2D230485A300D2510A /* TipOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TipOption.swift; path = TipC/Classes/TipOption.swift; sourceTree = "<group>"; };
 		8778AC302304867700D2510A /* UiView+Exts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UiView+Exts.swift"; path = "TipC/Classes/UiView+Exts.swift"; sourceTree = "<group>"; };
 		8778AC332304876C00D2510A /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BubbleView.swift; path = TipC/Classes/BubbleView.swift; sourceTree = "<group>"; };
-		87A8EF0422E0C99200E5DEBE /* TipC-Exts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TipC-Exts.swift"; path = "TipC/Classes/TipC-Exts.swift"; sourceTree = "<group>"; };
+		87A8EF0422E0C99200E5DEBE /* TipSee-Exts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TipSee-Exts.swift"; path = "TipC/Classes/TipSee-Exts.swift"; sourceTree = "<group>"; };
 		8C51EA2B42C4DEA2BE5193BD0EEB3D8F /* Pods-TipC_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TipC_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		8DA37491F48EECE8D8C6658201701BB1 /* TipC-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TipC-prefix.pch"; sourceTree = "<group>"; };
 		9321A30CD7B5638ADA16B0B1532806A9 /* Pods-TipC_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TipC_Tests.modulemap"; sourceTree = "<group>"; };
@@ -151,11 +151,11 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		60F39A4FC2BC07872E4A8B3EEB456FE9 /* TipC */ = {
+		60F39A4FC2BC07872E4A8B3EEB456FE9 /* TipSee */ = {
 			isa = PBXGroup;
 			children = (
-				87A8EF0422E0C99200E5DEBE /* TipC-Exts.swift */,
-				1E1946ED5F14130360B60D45A726951A /* TipC.swift */,
+				87A8EF0422E0C99200E5DEBE /* TipSee-Exts.swift */,
+				1E1946ED5F14130360B60D45A726951A /* TipSee.swift */,
 				3653CB92F31706AF044946EF53267AFD /* Pod */,
 				DAA0746C0158CFBA001AF3BF1A4562C9 /* Support Files */,
 				8778AC272304852D00D2510A /* TipTarget.swift */,
@@ -164,7 +164,7 @@
 				8778AC302304867700D2510A /* UiView+Exts.swift */,
 				8778AC332304876C00D2510A /* BubbleView.swift */,
 			);
-			name = TipC;
+			name = TipSee;
 			path = ../..;
 			sourceTree = "<group>";
 		};
@@ -188,7 +188,7 @@
 		8A3916CED71D1ED67249A969E93B577A /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				60F39A4FC2BC07872E4A8B3EEB456FE9 /* TipC */,
+				60F39A4FC2BC07872E4A8B3EEB456FE9 /* TipSee */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -399,13 +399,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1644F69BB42FB527D52835E74D2987A /* TipC.swift in Sources */,
+				F1644F69BB42FB527D52835E74D2987A /* TipSee.swift in Sources */,
 				8778AC2F230485A300D2510A /* TipOption.swift in Sources */,
 				8778AC342304876C00D2510A /* BubbleView.swift in Sources */,
 				8778AC322304867700D2510A /* UiView+Exts.swift in Sources */,
 				8778AC292304852D00D2510A /* TipTarget.swift in Sources */,
 				26C85E4ABF2D40A57635D6523BE202C8 /* TipC-dummy.m in Sources */,
-				87A8EF0622E0CA0800E5DEBE /* TipC-Exts.swift in Sources */,
+				87A8EF0622E0CA0800E5DEBE /* TipSee-Exts.swift in Sources */,
 				8778AC2C2304854500D2510A /* TipItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:TipC.xcodeproj">
+      location = "group:/Users/farshadjahanmanesh/Documents/Development/IOS/Tests/TutorialBubble/Example/TipSee.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

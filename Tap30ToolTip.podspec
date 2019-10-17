@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint TipC.podspec' to ensure this is a
+# Be sure to run `pod lib lint TipSee.podspec' to ensure this is a
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
@@ -9,12 +9,12 @@
 Pod::Spec.new do |s|
   s.version          = '1.2.0'
   s.name             = 'Tap30ToolTip'
-  s.module_name      = 'TipC'
+  s.module_name      = 'TipSee'
   s.summary          = 'shows tool beautiful tip or custom views on or alongside the other views.'
   s.swift_version = '5.0'
   
   s.description      = <<-DESC
-  TipC is a library to make beautiful hints, it is fully customizable and predictable, you can change anything before and during presentation.
+  TipSee is a library to make beautiful hints, it is fully customizable and predictable, you can change anything before and during presentation.
   DESC
 
 
@@ -26,6 +26,6 @@ Pod::Spec.new do |s|
   # s.social_media_url = 'https://twitter.com/<farshadjahanmanesh>'
 
   s.ios.deployment_target = '9.0'
-  s.source_files = 'TipC/Classes/**/*'
+  s.source_files = 'TipSee/Classes/**/*'
   s.frameworks = 'UIKit'
 end

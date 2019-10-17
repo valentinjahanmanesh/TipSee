@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  TipC
+//  TipSee
 //
 //  Created by farshadjahanmanesh on 07/16/2019.
 //  Copyright (c) 2019 farshadjahanmanesh. All rights reserved.
@@ -44,4 +44,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-

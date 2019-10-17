@@ -1,13 +1,13 @@
 import XCTest
-import TipC
+import TipSee
 
 class OptionsTests: XCTestCase {
-    var sut : TipC!
+    var sut : TipSee!
 
     override func setUp() {
         super.setUp()
         let uiwindow = UIWindow()
-        sut = TipC(on: uiwindow)
+        sut = TipSee(on: uiwindow)
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -19,7 +19,7 @@ class OptionsTests: XCTestCase {
     
     func testSettingOptions(){
         // given
-        sut.options = TipC.Options.default()
+        sut.options = TipSee.Options.default()
         
         // when
         sut.options.dimColor = .red

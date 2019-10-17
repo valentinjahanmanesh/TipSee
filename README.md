@@ -6,10 +6,10 @@
 # TipSee
 ### TipSee is a lightweight and highly customizable library that helps you to show beautiful tips and hints.
 
-[![CI Status](https://img.shields.io/travis/farshadjahanmanesh/TipC.svg?style=flat)](https://travis-ci.org/farshadjahanmanesh/TipC)
-[![Version](https://img.shields.io/cocoapods/v/TipC.svg?style=flat)](https://cocoapods.org/pods/TipC)
-[![License](https://img.shields.io/cocoapods/l/TipC.svg?style=flat)](https://cocoapods.org/pods/TipC)
-[![Platform](https://img.shields.io/cocoapods/p/TipC.svg?style=flat)](https://cocoapods.org/pods/TipC)
+[![CI Status](https://img.shields.io/travis/farshadjahanmanesh/TipC.svg?style=flat)](https://travis-ci.org/farshadjahanmanesh/TipSee)
+[![Version](https://img.shields.io/cocoapods/v/TipC.svg?style=flat)](https://cocoapods.org/pods/TipSee)
+[![License](https://img.shields.io/cocoapods/l/TipC.svg?style=flat)](https://cocoapods.org/pods/TipSee)
+[![Platform](https://img.shields.io/cocoapods/p/TipC.svg?style=flat)](https://cocoapods.org/pods/TipSee)
 
 ### To do:
 
@@ -75,7 +75,7 @@ public struct Bubble {
     /// bubble's background color
     public  var backgroundColor: UIColor
     
-    /// preferred position for the bubble, this is preferred because sometimes there is not enough space there, TipC needs to choose a better place to put the bubble
+    /// preferred position for the bubble, this is preferred because sometimes there is not enough space there, TipSee needs to choose a better place to put the bubble
     public  var position: BubblePosition?
     
     /// text font
@@ -159,7 +159,7 @@ in above exmaple wee need to handle tip sequence ourselves. next, previous, pres
 TipSee manager is a helper class that gives us the ability to have a slideshow like Tips. this manager handles tips array and provides handy apis (next, previous). we can add tips as many as we want and then start the sequence by calling **.next()**
 
 ```swift
-let defaultTipOption = TipC.Options
+let defaultTipOption = TipSee.Options
 			.default()
 			.with {
 				$0.dimColor =  UIColor.black.withAlphaComponent(0.3)
@@ -167,8 +167,8 @@ let defaultTipOption = TipC.Options
 				$0.dimFading = false
 		}
 				
- let tipManager = TipcManager(on: self.view.window!,with: defaultTipOption)
- tipManager.add(new: TipC.TipItem.init(ID: "100", pointTo: self.pugImage, contentView: image,bubbleOptions: pugLoveConfig))       
+ let tipManager = TipSeeManager(on: self.view.window!,with: defaultTipOption)
+ tipManager.add(new: TipSee.TipItem.init(ID: "100", pointTo: self.pugImage, contentView: image,bubbleOptions: pugLoveConfig))       
  tipManager.add(new: self.pugImage,text:"best dog ever <3 <3 ^_^ ^_^",with: pugDescriptionConfig.with{$0.position = .right})
  tipManager.add...
  ...
@@ -199,11 +199,11 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 this library doe's not need any requirement and has written in Swift5.
 ## Installation
 
-TipC is available through [CocoaPods](https://cocoapods.org). To install
+TipSee is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'TipC'
+pod 'TipSee'
 ```
 
 ## Author
@@ -212,4 +212,4 @@ farshadjahanmanesh, farshadjahanmanesh@gmail.com
 
 ## License
 
-TipC is available under the MIT license. See the LICENSE file for more info.
+TipSee is available under the MIT license. See the LICENSE file for more info.

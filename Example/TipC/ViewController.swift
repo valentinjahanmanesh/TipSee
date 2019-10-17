@@ -1,13 +1,13 @@
 //
 //  ViewController.swift
-//  TipC
+//  TipSee
 //
 //  Created by farshadjahanmanesh on 07/16/2019.
 //  Copyright (c) 2019 farshadjahanmanesh. All rights reserved.
 //
 
 import UIKit
-import TipC
+import TipSee
 class ViewController: UIViewController {
     @IBOutlet weak var bigBottomButton : UIButton!
     @IBOutlet weak var noConstraintsButton : UIButton!
@@ -54,7 +54,7 @@ class ViewController: UIViewController {
     
     func showTips(){
         // configure our tip view
-        let pugLoveConfig = TipC.Options.Bubble
+        let pugLoveConfig = TipSee.Options.Bubble
             .default()
             .with{
                 $0.backgroundColor = .clear
@@ -64,7 +64,7 @@ class ViewController: UIViewController {
                 $0.position = .top
         }
         
-        let pugDescriptionConfig = TipC.Options.Bubble
+        let pugDescriptionConfig = TipSee.Options.Bubble
             .default()
             .with{
                 $0.backgroundColor = UIColor.purple
@@ -75,7 +75,7 @@ class ViewController: UIViewController {
         let image = UIImageView(image: #imageLiteral(resourceName: "heart-like.png"))
         image.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
         image.contentMode = .scaleAspectFit
-        let transformed = TipC.Options.Bubble
+        let transformed = TipSee.Options.Bubble
             .default()
             .with{
 				$0.backgroundColor = UIColor.orange
@@ -85,7 +85,7 @@ class ViewController: UIViewController {
 				//$0.changeDimColor = UIColor(red:0.02, green:0.18, blue:0.23, alpha:1.0)
         }
 		
-		let defaultTipOption = TipC.Options
+		let defaultTipOption = TipSee.Options
 			.default()
 			.with {
 				$0.dimColor =  UIColor.black.withAlphaComponent(0.3)
@@ -95,7 +95,7 @@ class ViewController: UIViewController {
 				
         self.tips = TipcManager(on: self.view.window!,with: defaultTipOption)
         
-        tips!.add(new: TipC.TipItem.init(ID: "100", pointTo: self.pugImage, contentView: image,bubbleOptions: pugLoveConfig))
+        tips!.add(new: TipSee.TipItem.init(ID: "100", pointTo: self.pugImage, contentView: image,bubbleOptions: pugLoveConfig))
         
         tips!.add(new: self.pugImage,text:"best dog ever <3 <3 ^_^ ^_^",with: pugDescriptionConfig.with{$0.position = .right})
         

@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 extension UIViewController  {
-	var tipManager : TipC? {
-		return self.view.window?.viewWithTag(9891248) as? TipC
+	var tipManager : TipSee? {
+		return self.view.window?.viewWithTag(9891248) as? TipSee
 	}
 	
 	fileprivate static func swizzleMethods(original: Selector, swizzled: Selector) {
@@ -24,7 +24,7 @@ extension UIViewController  {
 		self.tipManager?.finish()
 	}
 	
-	fileprivate static let TipCViewDidAppearSwizzler: Void = {
+	fileprivate static let TipSeeViewDidAppearSwizzler: Void = {
 		swizzleMethods(original: #selector(viewDidDisappear(_:)),
 					   swizzled: #selector(swizzled_keyboardListener_viewDidDisappear))
 	}()

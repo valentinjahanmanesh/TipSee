@@ -1,20 +1,20 @@
 //
-//  TipC-Exts.swift
-//  Pods-TipC_Example
+//  TipSee-Exts.swift
+//  Pods-TipSee_Example
 //
 //  Created by Farshad Jahanmanesh on 7/18/19.
 //
 import UIKit
 public class TipcManager {
-    public var pointer : TipC
-    public private(set) var tips : [TipC.TipItem]
-    public var latestTip : TipC.TipItem?
-    public var onBubbleTap: ((TipC.TipItem?) -> Void)? {
+    public var pointer : TipSee
+    public private(set) var tips : [TipSee.TipItem]
+    public var latestTip : TipSee.TipItem?
+    public var onBubbleTap: ((TipSee.TipItem?) -> Void)? {
         didSet{
             pointer.onBubbleTap = self.onBubbleTap
         }
     }
-    public var onDimTap : ((TipC.TipItem?) -> Void)? {
+    public var onDimTap : ((TipSee.TipItem?) -> Void)? {
         didSet{
             pointer.onDimTap = self.onDimTap
         }
@@ -35,15 +35,15 @@ public class TipcManager {
     /// - Parameters:
     ///   - pointer: tip pointer object
     ///   - items: items
-    public init(on window : UIWindow,with options: TipC.Options) {
-        self.pointer = TipC(on: window)
+    public init(on window : UIWindow,with options: TipSee.Options) {
+        self.pointer = TipSee(on: window)
         self.pointer.options(options)
-        self.tips = [TipC.TipItem]()
+        self.tips = [TipSee.TipItem]()
     }
-    public func add(new view : TipTarget,text string: String, with bubbleOption: TipC.Options.Bubble?){
+    public func add(new view : TipTarget,text string: String, with bubbleOption: TipSee.Options.Bubble?){
         self.tips.append(pointer.createItem(for: view,text: string, with: bubbleOption))
     }
-    public func add(new item: TipC.TipItem){
+    public func add(new item: TipSee.TipItem){
         self.tips.append(item)
     }
     /// shows the next tip

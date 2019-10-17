@@ -6,7 +6,7 @@
 //
 
 import Foundation
-extension TipC {
+extension TipSee {
 	public  enum BubbleLiveDuration {
 		case forever
 		case untilNext
@@ -25,9 +25,9 @@ extension TipC {
 		/// no corner rradius
 		case none
 	}
-	public struct Options: TipConfiguration {
+	public struct Options: TipSeeConfiguration {
 		public typealias BubblePosition = UIRectEdge
-		public struct Bubble: TipConfiguration {
+		public struct Bubble: TipSeeConfiguration {
 			
 			/// bubble's background color
 			public  var backgroundColor: UIColor
@@ -61,7 +61,7 @@ extension TipC {
 			
 			/// will execute when user taps on the bubble
 			public var onBubbleTap : TapGesture?
-			public static func `default`()->TipC.Options.Bubble {
+			public static func `default`()->TipSee.Options.Bubble {
 				return Options.Bubble(backgroundColor: .red, position: nil, font: UIFont.boldSystemFont(ofSize: 15), foregroundColor: UIColor.white, textAlignments: .center, hasAppearAnimation: true, padding: .init(top: 16, left: 16, bottom: 16, right: 16), dismissOnTargetAreaTap: false,onTargetAreaTap: nil,changeDimColor : nil,onBubbleTap: nil)
 			}
 			
@@ -97,7 +97,7 @@ extension TipC {
 		/// if true, dim will fade after one second, combine this with absorbDimTouch if you want
 		public var dimFading : Bool
 		
-		public static func `default`()->TipC.Options {
+		public static func `default`()->TipSee.Options {
 			return Options(bubbles: Options.Bubble.default(), dimColor: UIColor.black.withAlphaComponent(0.7), bubbleLiveDuration: .forever, defaultBubblePosition: .left, holeRadius: .defaultOrGreater(default: 8), safeAreaInsets: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16),absorbDimTouch: true,dimFading: true)
 		}
 	}

@@ -35,17 +35,17 @@
 		3BF89FF00DE2A792C6FDC40B /* Pods-TipC_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TipC_Tests.release.xcconfig"; path = "Target Support Files/Pods-TipC_Tests/Pods-TipC_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		4FAF7A06DB66AA3CAD053303 /* Pods-TipC_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TipC_Example.release.xcconfig"; path = "Target Support Files/Pods-TipC_Example/Pods-TipC_Example.release.xcconfig"; sourceTree = "<group>"; };
 		5AFA11508D46F3025AEF513F /* Pods-TipC_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TipC_Tests.debug.xcconfig"; path = "Target Support Files/Pods-TipC_Tests/Pods-TipC_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		607FACD01AFB9204008FA782 /* TipC_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipC_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACD01AFB9204008FA782 /* TipSee_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipSee_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		607FACE51AFB9204008FA782 /* TipC_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipC_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACE51AFB9204008FA782 /* TipSee_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipSee_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* OptionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsTests.swift; sourceTree = "<group>"; };
-		874871AF2321699300E86432 /* TipC.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = TipC.podspec; path = ../TipC.podspec; sourceTree = "<group>"; };
+		874871AF2321699300E86432 /* TipSee.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = TipSee.podspec; path = ../TipSee.podspec; sourceTree = "<group>"; };
 		879BF27922E2381E00AF8118 /* TipItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipItemTests.swift; sourceTree = "<group>"; };
 		879BF27B22E23AD000AF8118 /* TipCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCTests.swift; sourceTree = "<group>"; };
 		8D5D55DC860BD7F648D4073C /* Pods_TipC_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TipC_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,7 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
-				607FACD21AFB9204008FA782 /* Example for TipC */,
+				607FACD21AFB9204008FA782 /* Example for TipSee */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				EDA791E9AD5676C12BC88FC6 /* Pods */,
@@ -89,13 +89,13 @@
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD01AFB9204008FA782 /* TipC_Example.app */,
-				607FACE51AFB9204008FA782 /* TipC_Tests.xctest */,
+				607FACD01AFB9204008FA782 /* TipSee_Example.app */,
+				607FACE51AFB9204008FA782 /* TipSee_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		607FACD21AFB9204008FA782 /* Example for TipC */ = {
+		607FACD21AFB9204008FA782 /* Example for TipSee */ = {
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
@@ -105,7 +105,7 @@
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
-			name = "Example for TipC";
+			name = "Example for TipSee";
 			path = TipC;
 			sourceTree = "<group>";
 		};
@@ -140,7 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				B09474340D6B081B18AD231C /* Tap30ToolTip.podspec */,
-				874871AF2321699300E86432 /* TipC.podspec */,
+				874871AF2321699300E86432 /* TipSee.podspec */,
 				1C55248EBF4524A0A3EB11A1 /* README.md */,
 				F67CFF7784A18D29A21BB29A /* LICENSE */,
 			);
@@ -170,9 +170,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		607FACCF1AFB9204008FA782 /* TipC_Example */ = {
+		607FACCF1AFB9204008FA782 /* TipSee_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "TipC_Example" */;
+			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "TipSee_Example" */;
 			buildPhases = (
 				B02240390F37A10DB8D729CA /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
@@ -184,14 +184,14 @@
 			);
 			dependencies = (
 			);
-			name = TipC_Example;
+			name = TipSee_Example;
 			productName = TipC;
-			productReference = 607FACD01AFB9204008FA782 /* TipC_Example.app */;
+			productReference = 607FACD01AFB9204008FA782 /* TipSee_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		607FACE41AFB9204008FA782 /* TipC_Tests */ = {
+		607FACE41AFB9204008FA782 /* TipSee_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "TipC_Tests" */;
+			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "TipSee_Tests" */;
 			buildPhases = (
 				6BA69595B6B47805BD2CB142 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
@@ -203,9 +203,9 @@
 			dependencies = (
 				607FACE71AFB9204008FA782 /* PBXTargetDependency */,
 			);
-			name = TipC_Tests;
+			name = TipSee_Tests;
 			productName = Tests;
-			productReference = 607FACE51AFB9204008FA782 /* TipC_Tests.xctest */;
+			productReference = 607FACE51AFB9204008FA782 /* TipSee_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -231,7 +231,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "TipC" */;
+			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "TipSee" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -245,8 +245,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				607FACCF1AFB9204008FA782 /* TipC_Example */,
-				607FACE41AFB9204008FA782 /* TipC_Tests */,
+				607FACCF1AFB9204008FA782 /* TipSee_Example */,
+				607FACE41AFB9204008FA782 /* TipSee_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -361,7 +361,7 @@
 /* Begin PBXTargetDependency section */
 		607FACE71AFB9204008FA782 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 607FACCF1AFB9204008FA782 /* TipC_Example */;
+			target = 607FACCF1AFB9204008FA782 /* TipSee_Example */;
 			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -538,7 +538,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TipC_Example.app/TipC_Example";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TipSee_Example.app/TipSee_Example";
 			};
 			name = Debug;
 		};
@@ -557,14 +557,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TipC_Example.app/TipC_Example";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TipSee_Example.app/TipSee_Example";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "TipC" */ = {
+		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "TipSee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACED1AFB9204008FA782 /* Debug */,
@@ -573,7 +573,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "TipC_Example" */ = {
+		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "TipSee_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACF01AFB9204008FA782 /* Debug */,
@@ -582,7 +582,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "TipC_Tests" */ = {
+		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "TipSee_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACF31AFB9204008FA782 /* Debug */,

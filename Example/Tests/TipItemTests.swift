@@ -1,23 +1,23 @@
 //
 //  TipItemTests.swift
-//  TipC_Tests
+//  TipSee_Tests
 //
 //  Created by Farshad Jahanmanesh on 7/19/19.
 //  Copyright © 2019 CocoaPods. All rights reserved.
 //
 
 import XCTest
-import TipC
+import TipSee
 class TipItemTests: XCTestCase {
     let id = "55"
-    var sut : TipC.TipItem!
+    var sut : TipSee.TipItem!
     var targetView : UIView!
     var bubbleContetView : UIView!
     override func setUp() {
         super.setUp()
         targetView = UIView()
         bubbleContetView = UIView()
-        sut = TipC.TipItem(ID: id, pointTo: targetView, contentView: bubbleContetView)
+        sut = TipSee.TipItem(ID: id, pointTo: targetView, contentView: bubbleContetView)
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
@@ -35,7 +35,7 @@ class TipItemTests: XCTestCase {
     
     func testCustomConfig(){
         // when
-        sut.bubbleOptions = TipC.Options.Bubble.default().with{
+        sut.bubbleOptions = TipSee.Options.Bubble.default().with{
             $0.backgroundColor = .blue
         }
         
@@ -46,7 +46,7 @@ class TipItemTests: XCTestCase {
     
     func testEquality(){
         // given
-        var new = TipC.TipItem(ID: "2", pointTo: UIView(), contentView: UIView())
+        var new = TipSee.TipItem(ID: "2", pointTo: UIView(), contentView: UIView())
         
         // when
         new.ID = id
@@ -57,10 +57,10 @@ class TipItemTests: XCTestCase {
     
     func testCustomConfigInInit(){
         // given
-        let new = TipC.TipItem(ID: "2", pointTo: UIView(), contentView: UIView(),bubbleOptions: TipC.Options.Bubble.default().with{$0.backgroundColor = .blue})
+        let new = TipSee.TipItem(ID: "2", pointTo: UIView(), contentView: UIView(),bubbleOptions: TipSee.Options.Bubble.default().with{$0.backgroundColor = .blue})
         
         // when
-        sut.bubbleOptions = TipC.Options.Bubble.default().with{
+        sut.bubbleOptions = TipSee.Options.Bubble.default().with{
             $0.backgroundColor = .blue
         }
         
@@ -69,7 +69,7 @@ class TipItemTests: XCTestCase {
     }
 	func testCustomBubbeTap(){
 		// when
-		sut.bubbleOptions = TipC.Options.Bubble.default().with{
+		sut.bubbleOptions = TipSee.Options.Bubble.default().with{
 			$0.backgroundColor = .blue
 			$0.onBubbleTap = {_ in }
 		}
@@ -79,7 +79,7 @@ class TipItemTests: XCTestCase {
 	}
 	func testCustomFont(){
 		// given
-		let new = TipC.createItem(for: SimpleTipTarget(on: .zero,cornerRadius: 0), text: "XYS",with: TipC.Options.Bubble.default().with{$0.font = .italicSystemFont(ofSize: 100)})
+		let new = TipSee.createItem(for: SimpleTipTarget(on: .zero,cornerRadius: 0), text: "XYS",with: TipSee.Options.Bubble.default().with{$0.font = .italicSystemFont(ofSize: 100)})
 		
 		// then
 		 XCTAssertEqual((new.contentView as! UILabel).font, UIFont.italicSystemFont(ofSize: 100))
@@ -91,11 +91,11 @@ class TipItemTests: XCTestCase {
 		var xView : UIView? = UIView()
 		let count = CFGetRetainCount(xView!)
 		print(count)
-		let _ = TipC.TipItem(ID: "2", pointTo: xView!, contentView: UIView(),bubbleOptions: TipC.Options.Bubble.default().with{$0.backgroundColor = .blue})
+		let _ = TipSee.TipItem(ID: "2", pointTo: xView!, contentView: UIView(),bubbleOptions: TipSee.Options.Bubble.default().with{$0.backgroundColor = .blue})
 		
-		let _ = TipC.TipItem(ID: "2", pointTo: xView!, contentView: UIView(),bubbleOptions: TipC.Options.Bubble.default().with{$0.backgroundColor = .blue})
+		let _ = TipSee.TipItem(ID: "2", pointTo: xView!, contentView: UIView(),bubbleOptions: TipSee.Options.Bubble.default().with{$0.backgroundColor = .blue})
 		
-		let _ = TipC.TipItem(ID: "2", pointTo: xView!, contentView: UIView(),bubbleOptions: TipC.Options.Bubble.default().with{$0.backgroundColor = .blue})
+		let _ = TipSee.TipItem(ID: "2", pointTo: xView!, contentView: UIView(),bubbleOptions: TipSee.Options.Bubble.default().with{$0.backgroundColor = .blue})
 		
 		let count2 = CFGetRetainCount(xView!)
 		xView = nil

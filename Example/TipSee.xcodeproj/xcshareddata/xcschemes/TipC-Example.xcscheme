@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "TipC_Example.app"
-               BlueprintName = "TipC_Example"
-               ReferencedContainer = "container:TipC.xcodeproj">
+               BuildableName = "TipSee_Example.app"
+               BlueprintName = "TipSee_Example"
+               ReferencedContainer = "container:TipSee.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "TipC_Tests.xctest"
-               BlueprintName = "TipC_Tests"
-               ReferencedContainer = "container:TipC.xcodeproj">
+               BuildableName = "TipSee_Tests.xctest"
+               BlueprintName = "TipSee_Tests"
+               ReferencedContainer = "container:TipSee.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -41,29 +41,27 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
+            BuildableName = "TipSee_Example.app"
+            BlueprintName = "TipSee_Example"
+            ReferencedContainer = "container:TipSee.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "TipC_Tests.xctest"
-               BlueprintName = "TipC_Tests"
-               ReferencedContainer = "container:TipC.xcodeproj">
+               BuildableName = "TipSee_Tests.xctest"
+               BlueprintName = "TipSee_Tests"
+               ReferencedContainer = "container:TipSee.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "TipC_Example.app"
-            BlueprintName = "TipC_Example"
-            ReferencedContainer = "container:TipC.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -80,13 +78,11 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "TipC_Example.app"
-            BlueprintName = "TipC_Example"
-            ReferencedContainer = "container:TipC.xcodeproj">
+            BuildableName = "TipSee_Example.app"
+            BlueprintName = "TipSee_Example"
+            ReferencedContainer = "container:TipSee.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -99,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "TipC_Example.app"
-            BlueprintName = "TipC_Example"
-            ReferencedContainer = "container:TipC.xcodeproj">
+            BuildableName = "TipSee_Example.app"
+            BlueprintName = "TipSee_Example"
+            ReferencedContainer = "container:TipSee.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

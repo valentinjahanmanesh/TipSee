@@ -10,7 +10,7 @@ import UIKit
 
 
 
-public class TipC: UIView, TipCManagerProtocol {
+public class TipSee: UIView, TipSeeManagerProtocol {
 	public typealias TapGesture = ((TipItem) -> Void)
 	/// properties
 	public var options: Options = Options.default(){
@@ -47,10 +47,10 @@ public class TipC: UIView, TipCManagerProtocol {
 	}
 	
 	@discardableResult public func createItem(for view : TipTarget,text : String, with bubbleOption: Options.Bubble? = nil) -> TipItem {
-		return  TipItem.init(ID: UUID().uuidString, pointTo: view, contentView: TipC.createLabel(for: text, with: bubbleOption,defaultOptions: self.options) as UIView, bubbleOptions: bubbleOption)
+		return  TipItem.init(ID: UUID().uuidString, pointTo: view, contentView: TipSee.createLabel(for: text, with: bubbleOption,defaultOptions: self.options) as UIView, bubbleOptions: bubbleOption)
 	}
 	@discardableResult public static func createItem(for view : TipTarget,text : String, with bubbleOption: Options.Bubble? = nil) -> TipItem {
-		return  TipItem.init(ID: UUID().uuidString, pointTo: view, contentView: TipC.createLabel(for: text, with: bubbleOption,defaultOptions: .default()) as UIView, bubbleOptions: bubbleOption)
+		return  TipItem.init(ID: UUID().uuidString, pointTo: view, contentView: TipSee.createLabel(for: text, with: bubbleOption,defaultOptions: .default()) as UIView, bubbleOptions: bubbleOption)
 	}
 	
 	private final func clearAllViews(){
@@ -125,7 +125,7 @@ public class TipC: UIView, TipCManagerProtocol {
 	///
 	/// - Parameter text: label text
 	/// - Returns: generated label view
-	private static func createLabel(for text: String, with itemOptions: Options.Bubble?, defaultOptions options : TipC.Options) -> UILabel {
+	private static func createLabel(for text: String, with itemOptions: Options.Bubble?, defaultOptions options : TipSee.Options) -> UILabel {
 		let label = UILabel()
 		label.text = text
 		label.textAlignment = .center
@@ -209,7 +209,7 @@ public class TipC: UIView, TipCManagerProtocol {
 	///
 	/// - Parameter item: tip item
 	/// - Returns: bubble view
-	final func defaultBubble(for item: TipC.TipItem,defaultOptions options : TipC.Options) -> BubbleView {
+	final func defaultBubble(for item: TipSee.TipItem,defaultOptions options : TipSee.Options) -> BubbleView {
 		
 		let bubble = BubbleView.default()
 		bubble.backColor = item.bubbleOptions?.backgroundColor ?? options.bubbles.backgroundColor
@@ -472,7 +472,7 @@ extension UIEdgeInsets {
 }
 
 /// Overrides HitTest and Point inside
-extension TipC {
+extension TipSee {
 	public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
 		guard self.touched.timeStamp == nil else {
 			let touchedView = self.touched.view
@@ -507,11 +507,11 @@ extension TipC {
 	}
 }
 
-public protocol TipConfiguration {
+public protocol TipSeeConfiguration {
 	func with(_ mutations: (inout Self) -> Void) -> Self
 }
 
-extension TipConfiguration {
+extension TipSeeConfiguration {
 	public func with(_ mutations: (inout Self) -> Void) -> Self {
 		var copyOfSelf = self
 		mutations(&copyOfSelf)
@@ -531,17 +531,17 @@ private extension UITapGestureRecognizer {
 	}
 }
 
-public protocol TipCManagerProtocol {
+public protocol TipSeeManagerProtocol {
 	/// removes the given item
 	///
 	/// - Parameter item: item to remove
-	func dismiss(item: TipC.TipItem)
+	func dismiss(item: TipSee.TipItem)
 	
 	@discardableResult
-	func show(for view : TipTarget,text string : String, with bubbleOption: TipC.Options.Bubble?) -> TipC.TipItem
+	func show(for view : TipTarget,text string : String, with bubbleOption: TipSee.Options.Bubble?) -> TipSee.TipItem
 	
 	@discardableResult
-	func createItem(for view : TipTarget,text string : String, with bubbleOption: TipC.Options.Bubble?) -> TipC.TipItem
+	func createItem(for view : TipTarget,text string : String, with bubbleOption: TipSee.Options.Bubble?) -> TipSee.TipItem
 	
 	/// shows a bubble which points to the given view
 	///
@@ -550,12 +550,12 @@ public protocol TipCManagerProtocol {
 	///   - bubbleOption: custom options for bubble
 	/// - Returns: generated item that can use to access to views or dismiss action
 	@discardableResult
-	func show(item: TipC.TipItem, with bubbleOption: TipC.Options.Bubble?) -> TipC.TipItem
+	func show(item: TipSee.TipItem, with bubbleOption: TipSee.Options.Bubble?) -> TipSee.TipItem
 	func finish()
 }
 
-extension TipC {
-	public func options(_ options: TipC.Options) {
+extension TipSee {
+	public func options(_ options: TipSee.Options) {
 		self.options = options
 	}
 	/// finds bubble size

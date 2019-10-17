@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// TipC needs would interact with this type only
+/// TipSee needs would interact with this type only
 public protocol TipTarget  {
 	var tipFrame : CGRect {get}
 	var cornersRadius : CGFloat {get}
