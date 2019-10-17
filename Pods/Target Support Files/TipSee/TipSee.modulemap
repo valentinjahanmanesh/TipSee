@@ -1,6 +1,0 @@
-framework module TipSee {
-  umbrella header "TipSee-umbrella.h"
-
-  export *
-  module * { export * }
-}

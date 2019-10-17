@@ -1,5 +1,5 @@
 PODS:
-  - TipSee (1.2.0)
+  - TipSee (0.1.0)
 
 DEPENDENCIES:
   - TipSee (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  TipSee: 58732ffc4a5ecc66a70cd8e889aadeb13a9bd3f9
+  TipSee: f8f2279b1bbedb632afd4de1707798427e6bfc15
 
 PODFILE CHECKSUM: 4f17cbcadcadedee4ef963f1f22243baebab47e3
 

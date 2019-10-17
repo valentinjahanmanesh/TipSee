@@ -61,6 +61,16 @@
                ReferencedContainer = "container:TipSee.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "87BCBA602358E508000BCF46"
+               BuildableName = "TipSee_ExampleTests.xctest"
+               BlueprintName = "TipSee_ExampleTests"
+               ReferencedContainer = "container:TipSee.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
