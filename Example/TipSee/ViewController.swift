@@ -57,9 +57,10 @@ class ViewController: UIViewController {
         let pugLoveConfig = TipSee.Options.Bubble
             .default()
             .with{
-                $0.foregroundColor = .black
-                $0.textAlignments = .left
+                $0.foregroundColor = .white
+                $0.textAlignments = .justified
                 $0.position = .top
+				
         }
 		
 		
@@ -95,8 +96,19 @@ class ViewController: UIViewController {
 				
         self.tips = TipSeeManager(on: self.view.window!,with: defaultTipOption)
        
-		tips!.add(new: self.pugImage, texts: ["برای سلامتی","لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی ", "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی "], with: pugLoveConfig)
+		tips!.add(new: self.pugImage, texts: ["We can show interactive hints on top of the views or where ever we want but finding the best place to put the bubble (or custom view) is based on the TipSee's decision. it will find best place to show the hint by considering the available space and the content size, smartly",
+		"We can show interactive hints on top of the 's decision. it will find best place to show the hint by considering the available space and the content size, smartly"
+			,"We can show interactive hints on top of the views or "], with: pugLoveConfig) { previousButton, nextButton in
+				nextButton.imageView?.contentMode = .scaleAspectFit
+				previousButton.imageView?.contentMode = .scaleAspectFit
+				nextButton.setImage(#imageLiteral(resourceName: "right-arrow.pdf"), for: .normal)
+				previousButton.setImage(#imageLiteral(resourceName: "left-arrow.pdf"), for: .normal)
+				previousButton.tintColor = .white
+				nextButton.tintColor = .white
+		}
         
+		
+		
         tips!.add(new: self.pugImage,text:"best dog ever <3 <3 ^_^ ^_^",with: pugDescriptionConfig.with{$0.position = .right})
         
         tips!.add(new: self.pugName,text:"my name is leo ^_^",with: pugDescriptionConfig.with{
@@ -141,7 +153,7 @@ class ViewController: UIViewController {
 		
 		tips!.add(new: SimpleTipTarget(on:  CGRect(x: UIScreen.main.bounds.midX - 50, y: UIScreen.main.bounds.midY - 50, width: 100, height: 100), cornerRadius: 50),text:"no view just shows a tip on this bounds",with:transformed.with{$0.backgroundColor = .red})
 
-		tips!.add(new: self.bigBottomButton,text:"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی ",with: transformed.with{
+		tips!.add(new: self.bigBottomButton,text:"We can show interactive hints on top of the views or where ever we want but finding the best place to put the bubble (or custom view) is based on the TipSee's decision. it will find best place to show the hint by considering the available space and the content size, smartly",with: transformed.with{
 			$0.onTargetAreaTap = {[weak self]_ in
 				guard let degree = self?.rotationDegree else {return}
  				self?.rotationDegree = (degree * -1)

@@ -79,10 +79,19 @@ public class TipSeeManager {
 
 
 extension TipSeeManager{
-	public func add(new view: TipTarget,texts strings: [String], with bubbleOption: TipSee.Options.Bubble?){
+	
+	public func add(new view: TipTarget,texts strings: [String], with bubbleOption: TipSee.Options.Bubble?, buttonsConfigs: ((_ previousButton :UIButton, _ nextButton: UIButton)->Void)) {
 		let buttonsHeight : CGFloat = 30
-		let height = strings.map({$0.height(font: bubbleOption?.font ?? pointer.options.bubbles.font,widthConstraint: 300)}).max()
-		let container = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: (height ?? 160) + 40 ))
+		let font = bubbleOption?.font ?? pointer.options.bubbles.font
+		var containerHeight  : CGFloat = 40
+		var containerWidth : CGFloat = strings.max()?.width(font: font, widthConstraint: UIScreen.main.bounds.width - 48, heightConstraint: 40) ?? 100
+	
+		if  containerWidth > UIScreen.main.bounds.width {
+			containerWidth = UIScreen.main.bounds.width - 48
+		}
+		containerHeight = strings.max()?.height(font: font, widthConstraint: containerWidth) ?? 100
+
+		let container = UIView(frame: CGRect(x: 0, y: 0, width: containerWidth, height: containerHeight + 40 ))
 		
 
 		let customScrollView = UIScrollView(frame: .zero)
@@ -90,6 +99,7 @@ extension TipSeeManager{
 		customScrollView.showsHorizontalScrollIndicator = false
 		customScrollView.showsVerticalScrollIndicator = false
 		container.addSubview(customScrollView)
+		customScrollView.isScrollEnabled = false
 		customScrollView.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 0.0).isActive = true
 		customScrollView.topAnchor.constraint(equalTo: container.topAnchor, constant: 0.0).isActive = true
 		customScrollView.rightAnchor.constraint(equalTo: container.rightAnchor, constant: 0.0).isActive = true
@@ -112,25 +122,51 @@ extension TipSeeManager{
 		strings.forEach { (str) in
 			let label = UILabel()
 			label.text = str
-			label.textColor = .black
+			label.font = font
 			label.lineBreakMode = .byWordWrapping
 			label.numberOfLines = 0
+			label.textColor = bubbleOption?.foregroundColor ?? pointer.options.bubbles.foregroundColor
 			stackView.addArrangedSubview(label)
 			label.widthAnchor.constraint(equalToConstant: container.frame.width).isActive = true
 		}
 
-		let stackViewButtons = UIStackView(frame: CGRect(x: 0, y: container.frame.height - buttonsHeight, width: container.frame.width, height: buttonsHeight))
-		container.addSubview(stackViewButtons)
-		stackViewButtons.heightAnchor.constraint(equalToConstant: buttonsHeight).isActive = true
-		stackViewButtons.alignment = .fill
-		stackViewButtons.distribution = .equalCentering
-		stackViewButtons.axis = .horizontal
-		["left","right"].forEach { (str) in
-			let label = UIButton()
-			label.setTitle(str, for: .normal)
-			label.setTitleColor(.black, for: .normal)
-			stackViewButtons.addArrangedSubview(label)
-		}
-		self.tips.append(.init(ID: UUID().uuidString, pointTo: view, contentView: container, bubbleOptions: bubbleOption))
+		let leftButton = UIButton(frame: CGRect.init(origin: CGPoint(x: 0, y: container.frame.height - 25), size: CGSize(width: 25, height: 25)))
+		leftButton.setTitleColor(.black, for: .normal)
+		leftButton.accessibilityHint = "previous"
+		leftButton.tag = 0
+		leftButton.addTarget(self, action: #selector(scrollMultiLine(_:)), for: .touchUpInside)
+		container.addSubview(leftButton)
+		
+		let rightButton = UIButton(frame: CGRect.init(origin: .zero, size: CGSize(width: 25, height: 25)))
+		rightButton.setTitleColor(.black, for: .normal)
+		rightButton.accessibilityHint = "next"
+		rightButton.tag = 0
+		rightButton.addTarget(self, action: #selector(scrollMultiLine(_:)), for: .touchUpInside)
+		rightButton.frame.origin = CGPoint(x: container.frame.width - rightButton.frame.width, y: container.frame.height - 25)
+		container.addSubview(rightButton)
+		
+		self.tips.append(.init(pointTo: view, contentView: container, bubbleOptions: bubbleOption))
+		buttonsConfigs(leftButton, rightButton)
     }
+	@objc
+	private func scrollMultiLine(_ sender: UIButton) {
+		guard let action = sender.accessibilityHint, let scrollView = sender.superview?.subviews.first(where: {$0 is UIScrollView }) as? UIScrollView else {
+			return
+		}
+		var frame: CGRect = scrollView.frame
+
+		var page = scrollView.tag
+			page +=  action == "next" ? 1 : -1
+		if page < 0 {
+			return
+		} else if (frame.size.width * CGFloat(page)) >= scrollView.contentSize.width {
+			return
+		}
+		scrollView.tag = page
+		print(page)
+		frame.origin.x = frame.size.width * CGFloat(page)
+		frame.origin.y = 0
+		scrollView.scrollRectToVisible(frame, animated: true)
+		
+	}
 }
