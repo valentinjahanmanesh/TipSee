@@ -273,26 +273,26 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 	/// - Parameters:
 	///   - view: target view
 	/// - Returns: the better edge
-	private func findBetterSpace(view: TipTarget, preferredPosition: UIRectEdge?) -> UIRectEdge {
+	private func findBetterSpace(view: TipTarget, preferredPosition: UIRectEdge?, bubblePrefereddSize: CGRect?) -> UIRectEdge {
 		let reletivePosition = view.tipFrame
 		
 		var edges = [(UIRectEdge, Bool)]()
 		
-		var left = options.safeAreaInsets.left + options.bubbles.padding.right + 16
+		var left = options.safeAreaInsets.left + options.bubbles.padding.right + 16 + (bubblePrefereddSize?.width ?? 0)
 		
-		var right = _window.bounds.width - (options.safeAreaInsets.right + options.bubbles.padding.left + 16)
+		var right = _window.bounds.width - (options.safeAreaInsets.right + options.bubbles.padding.left + 16) - (bubblePrefereddSize?.width ?? 0)
 		
-		var top = options.safeAreaInsets.top + options.bubbles.padding.bottom + 16
+		var top = options.safeAreaInsets.top + options.bubbles.padding.bottom + 16 + (bubblePrefereddSize?.height ?? 0) + (bubblePrefereddSize?.height ?? 0)
 		
-		var bottom = _window.bounds.height - ( options.safeAreaInsets.bottom + options.bubbles.padding.top + 16)
+		var bottom = _window.bounds.height - ( options.safeAreaInsets.bottom + options.bubbles.padding.top + 16) + (bubblePrefereddSize?.height ?? 0)
 		if #available(iOS 11.0, *) {
-			bottom = _window.bounds.height - (_window.safeAreaInsets.bottom + options.safeAreaInsets.bottom + options.bubbles.padding.top + 16)
+			bottom = _window.bounds.height - (_window.safeAreaInsets.bottom + options.safeAreaInsets.bottom + options.bubbles.padding.top + 16) + (bubblePrefereddSize?.height ?? 0)
 			
-			top = options.safeAreaInsets.top + options.bubbles.padding.bottom + 16 + _window.safeAreaInsets.top
+			top = options.safeAreaInsets.top + options.bubbles.padding.bottom + 16 + _window.safeAreaInsets.top + (bubblePrefereddSize?.height ?? 0) + (bubblePrefereddSize?.height ?? 0)
 			
-			right = _window.bounds.width - (_window.safeAreaInsets.right + options.safeAreaInsets.right + options.bubbles.padding.left + 16)
+			right = _window.bounds.width - (_window.safeAreaInsets.right + options.safeAreaInsets.right + options.bubbles.padding.left + 16) - (bubblePrefereddSize?.width ?? 0)
 			
-			left = options.safeAreaInsets.left + options.bubbles.padding.right + 16 + _window.safeAreaInsets.left
+			left = options.safeAreaInsets.left + options.bubbles.padding.right + 16 + _window.safeAreaInsets.left + (bubblePrefereddSize?.width ?? 0)
 		}
 		
 		edges.append((.left, reletivePosition.minX > left))
@@ -320,7 +320,7 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 		let view = item.pointTo
 		let preferredPosition = item.bubbleOptions?.position
 		let padding: UIEdgeInsets = item.bubbleOptions?.padding ?? UIEdgeInsets.all(16)
-		let position  = findBetterSpace(view: view, preferredPosition: preferredPosition)
+		let position  = findBetterSpace(view: view, preferredPosition: preferredPosition, bubblePrefereddSize: bubble.frame)
 		var arrowPoint: UIRectEdge = .right
 		
 		let targetFrame  = view.tipFrame
@@ -449,7 +449,7 @@ extension UIEdgeInsets {
 }
 
  extension String {
-	fileprivate  func height(font: UIFont, widthConstraint: CGFloat) -> CGFloat {
+	func height(font: UIFont, widthConstraint: CGFloat) -> CGFloat {
 		let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: widthConstraint, height: CGFloat.greatestFiniteMagnitude))
 		label.numberOfLines = 0
 		label.lineBreakMode = NSLineBreakMode.byWordWrapping
@@ -459,7 +459,7 @@ extension UIEdgeInsets {
 		label.sizeToFit()
 		return label.frame.height
 	}
-	fileprivate func width(font: UIFont, widthConstraint: CGFloat, heightConstraint: CGFloat) -> CGFloat {
+	func width(font: UIFont, widthConstraint: CGFloat, heightConstraint: CGFloat) -> CGFloat {
 		let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: widthConstraint, height: heightConstraint))
 		label.numberOfLines = 0
 		label.lineBreakMode = NSLineBreakMode.byWordWrapping

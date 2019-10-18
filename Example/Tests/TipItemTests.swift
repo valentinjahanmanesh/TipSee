@@ -90,7 +90,6 @@ class TipItemTests: XCTestCase {
 		// given
 		var xView : UIView? = UIView()
 		let count = CFGetRetainCount(xView!)
-		print(count)
 		let _ = TipSee.TipItem(ID: "2", pointTo: xView!, contentView: UIView(),bubbleOptions: TipSee.Options.Bubble.default().with{$0.backgroundColor = .blue})
 		
 		let _ = TipSee.TipItem(ID: "2", pointTo: xView!, contentView: UIView(),bubbleOptions: TipSee.Options.Bubble.default().with{$0.backgroundColor = .blue})
@@ -99,7 +98,6 @@ class TipItemTests: XCTestCase {
 		
 		let count2 = CFGetRetainCount(xView!)
 		xView = nil
-		print(count2)
 		// then
 		XCTAssertEqual(count2, count)
 		XCTAssertNil(xView)

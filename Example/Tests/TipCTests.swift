@@ -117,5 +117,43 @@ class TipSeeTests: XCTestCase {
 		XCTAssertNil(item2)
 	}
 	
-    
+	func testPostion(){
+	}
+	
+	public var options: TipSee.Options = TipSee.Options.default()
+	private func findBetterSpace(view: TipTarget, preferredPosition: UIRectEdge?) -> UIRectEdge {
+		let reletivePosition = view.tipFrame
+		
+		var edges = [(UIRectEdge, Bool)]()
+		
+		var left = options.safeAreaInsets.left + options.bubbles.padding.right + 16
+		
+		var right = UIScreen.main.bounds.width - (options.safeAreaInsets.right + options.bubbles.padding.left + 16)
+		
+		var top = options.safeAreaInsets.top + options.bubbles.padding.bottom + 16
+		
+		var bottom = UIScreen.main.bounds.height - (options.safeAreaInsets.bottom + options.bubbles.padding.top + 16)
+		if #available(iOS 11.0, *) {
+			bottom = UIScreen.main.bounds.height - (options.safeAreaInsets.bottom + options.bubbles.padding.top + 16)
+			
+			top = options.safeAreaInsets.top + options.bubbles.padding.bottom + 16
+			
+			right = UIScreen.main.bounds.width - (options.safeAreaInsets.right + options.bubbles.padding.left + 16)
+			
+			left = options.safeAreaInsets.left + options.bubbles.padding.right + 16
+		}
+		
+		edges.append((.left, reletivePosition.minX > left))
+		
+		edges.append((.top, reletivePosition.minY > top))
+		
+		edges.append((.right, reletivePosition.maxX < right))
+		
+		edges.append((.bottom, reletivePosition.maxY < bottom))
+		
+		guard let doIHaveEnoughSpace = edges.first(where: {$0.0 == preferredPosition ?? options.defaultBubblePosition}), doIHaveEnoughSpace.1 else {
+			return edges.first(where: {$0.0 != preferredPosition ?? options.defaultBubblePosition && $0.1})?.0 ?? options.defaultBubblePosition
+		}
+		return preferredPosition ?? options.defaultBubblePosition
+	}
 }

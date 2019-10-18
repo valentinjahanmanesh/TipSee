@@ -57,13 +57,13 @@ class ViewController: UIViewController {
         let pugLoveConfig = TipSee.Options.Bubble
             .default()
             .with{
-                $0.backgroundColor = .clear
                 $0.foregroundColor = .black
                 $0.textAlignments = .left
-                $0.padding = UIEdgeInsets.init(top: 0, left: 16, bottom: 0, right: 16)
                 $0.position = .top
         }
-        
+		
+		
+		
         let pugDescriptionConfig = TipSee.Options.Bubble
             .default()
             .with{
@@ -94,8 +94,8 @@ class ViewController: UIViewController {
 		}
 				
         self.tips = TipSeeManager(on: self.view.window!,with: defaultTipOption)
-        
-        tips!.add(new: TipSee.TipItem.init(ID: "100", pointTo: self.pugImage, contentView: image,bubbleOptions: pugLoveConfig))
+       
+		tips!.add(new: self.pugImage, texts: ["برای سلامتی","لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی ", "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی "], with: pugLoveConfig)
         
         tips!.add(new: self.pugImage,text:"best dog ever <3 <3 ^_^ ^_^",with: pugDescriptionConfig.with{$0.position = .right})
         
@@ -151,8 +151,8 @@ class ViewController: UIViewController {
 		})
         
         
-        tips!.onBubbleTap = {[unowned self] _ in
-            self.tips?.next()
+        tips!.onBubbleTap = {[unowned tips] _ in
+			tips?.next()
         }
 		
         tips!.onDimTap = {[unowned self] _ in
@@ -179,5 +179,6 @@ class ViewController: UIViewController {
     }
     
 }
+
 
 

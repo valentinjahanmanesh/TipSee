@@ -21,13 +21,13 @@ public struct TipItem: Equatable {
 	public var pointTo: AnyTipTraget
 	public var contentView: UIView
 	public var bubbleOptions: TipSee.Options.Bubble?
-	public init(ID: String, pointTo: TipTarget, contentView: UIView) {
+	public init(ID: String = UUID().uuidString, pointTo: TipTarget, contentView: UIView) {
 		self.ID  = ID
 		self.pointTo = AnyTipTraget.init(tipTarget: pointTo)
 		self.contentView = contentView
 	}
 	
-	public init(ID: String, pointTo: TipTarget, contentView: UIView, bubbleOptions: TipSee.Options.Bubble?) {
+	public init(ID: String = UUID().uuidString, pointTo: TipTarget, contentView: UIView, bubbleOptions: TipSee.Options.Bubble?) {
 		self.ID  = ID
 		self.pointTo = AnyTipTraget.init(tipTarget: pointTo)
 		self.contentView = contentView
