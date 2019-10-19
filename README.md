@@ -1,5 +1,5 @@
 <p align="center">
-  <img src='Example/images/logo.jpg' height="500" style="text-alignment: center"/>
+  <img src='Example/TipSee/images/logo.jpg' height="500" style="text-alignment: center"/>
 </p>
 
 
@@ -19,7 +19,7 @@
 - [x] Multipe Tip in the screen
 - [x] Dim animation
 - [x] bubble animation
-- [ ] multipleTip, one Location
+- [x] multipleTip, one Location
 - [ ] it is good for tip to follow it's target area movements
 
 # What we can do with TipSee?
