@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		5AC6E7D42FDCDF1B8F12B48B /* Pods_TipSee_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E79AABA03E0B1320CB887CE /* Pods_TipSee_Tests.framework */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		87BCBA3D2358E166000BCF46 /* TipC.gif in Resources */ = {isa = PBXBuildFile; fileRef = 87BCBA352358E166000BCF46 /* TipC.gif */; };
-		87BCBA3E2358E166000BCF46 /* TipC_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87BCBA362358E166000BCF46 /* TipC_6.jpg */; };
-		87BCBA3F2358E166000BCF46 /* TipC_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87BCBA372358E166000BCF46 /* TipC_4.jpg */; };
-		87BCBA402358E166000BCF46 /* TipC_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87BCBA382358E166000BCF46 /* TipC_5.jpg */; };
-		87BCBA412358E166000BCF46 /* TipC_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87BCBA392358E166000BCF46 /* TipC_1.jpg */; };
-		87BCBA422358E166000BCF46 /* TipC_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87BCBA3A2358E166000BCF46 /* TipC_2.jpg */; };
-		87BCBA432358E166000BCF46 /* TipC_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87BCBA3B2358E166000BCF46 /* TipC_3.jpg */; };
+		87BCBA3D2358E166000BCF46 /* TipSee.gif in Resources */ = {isa = PBXBuildFile; fileRef = 87BCBA352358E166000BCF46 /* TipSee.gif */; };
+		87BCBA3E2358E166000BCF46 /* TipSee_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87BCBA362358E166000BCF46 /* TipSee_6.jpg */; };
+		87BCBA3F2358E166000BCF46 /* TipSee_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87BCBA372358E166000BCF46 /* TipSee_4.jpg */; };
+		87BCBA402358E166000BCF46 /* TipSee_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87BCBA382358E166000BCF46 /* TipSee_5.jpg */; };
+		87BCBA412358E166000BCF46 /* TipSee_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87BCBA392358E166000BCF46 /* TipSee_1.jpg */; };
+		87BCBA422358E166000BCF46 /* TipSee_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87BCBA3A2358E166000BCF46 /* TipSee_2.jpg */; };
+		87BCBA432358E166000BCF46 /* TipSee_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87BCBA3B2358E166000BCF46 /* TipSee_3.jpg */; };
 		87BCBA442358E166000BCF46 /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87BCBA3C2358E166000BCF46 /* logo.jpg */; };
 		87BCBA462358E202000BCF46 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87BCBA452358E202000BCF46 /* Images.xcassets */; };
 		87BCBA492358E212000BCF46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCBA482358E211000BCF46 /* AppDelegate.swift */; };
@@ -53,13 +53,13 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		6E4A28C99435F4EA34213DE2 /* Pods-TipSee_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TipSee_Tests.release.xcconfig"; path = "Target Support Files/Pods-TipSee_Tests/Pods-TipSee_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		87BCBA352358E166000BCF46 /* TipC.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = TipC.gif; sourceTree = "<group>"; };
-		87BCBA362358E166000BCF46 /* TipC_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TipC_6.jpg; sourceTree = "<group>"; };
-		87BCBA372358E166000BCF46 /* TipC_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TipC_4.jpg; sourceTree = "<group>"; };
-		87BCBA382358E166000BCF46 /* TipC_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TipC_5.jpg; sourceTree = "<group>"; };
-		87BCBA392358E166000BCF46 /* TipC_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TipC_1.jpg; sourceTree = "<group>"; };
-		87BCBA3A2358E166000BCF46 /* TipC_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TipC_2.jpg; sourceTree = "<group>"; };
-		87BCBA3B2358E166000BCF46 /* TipC_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TipC_3.jpg; sourceTree = "<group>"; };
+		87BCBA352358E166000BCF46 /* TipSee.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = TipSee.gif; sourceTree = "<group>"; };
+		87BCBA362358E166000BCF46 /* TipSee_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TipSee_6.jpg; sourceTree = "<group>"; };
+		87BCBA372358E166000BCF46 /* TipSee_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TipSee_4.jpg; sourceTree = "<group>"; };
+		87BCBA382358E166000BCF46 /* TipSee_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TipSee_5.jpg; sourceTree = "<group>"; };
+		87BCBA392358E166000BCF46 /* TipSee_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TipSee_1.jpg; sourceTree = "<group>"; };
+		87BCBA3A2358E166000BCF46 /* TipSee_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TipSee_2.jpg; sourceTree = "<group>"; };
+		87BCBA3B2358E166000BCF46 /* TipSee_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TipSee_3.jpg; sourceTree = "<group>"; };
 		87BCBA3C2358E166000BCF46 /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
 		87BCBA452358E202000BCF46 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		87BCBA472358E211000BCF46 /* TipSee_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TipSee_Example-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -178,13 +178,13 @@
 		87BCBA342358E166000BCF46 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				87BCBA352358E166000BCF46 /* TipC.gif */,
-				87BCBA362358E166000BCF46 /* TipC_6.jpg */,
-				87BCBA372358E166000BCF46 /* TipC_4.jpg */,
-				87BCBA382358E166000BCF46 /* TipC_5.jpg */,
-				87BCBA392358E166000BCF46 /* TipC_1.jpg */,
-				87BCBA3A2358E166000BCF46 /* TipC_2.jpg */,
-				87BCBA3B2358E166000BCF46 /* TipC_3.jpg */,
+				87BCBA352358E166000BCF46 /* TipSee.gif */,
+				87BCBA362358E166000BCF46 /* TipSee_6.jpg */,
+				87BCBA372358E166000BCF46 /* TipSee_4.jpg */,
+				87BCBA382358E166000BCF46 /* TipSee_5.jpg */,
+				87BCBA392358E166000BCF46 /* TipSee_1.jpg */,
+				87BCBA3A2358E166000BCF46 /* TipSee_2.jpg */,
+				87BCBA3B2358E166000BCF46 /* TipSee_3.jpg */,
 				87BCBA3C2358E166000BCF46 /* logo.jpg */,
 			);
 			path = images;
@@ -308,19 +308,19 @@
 				87BCBA512358E21D000BCF46 /* LaunchScreen.xib in Resources */,
 				87BCBA462358E202000BCF46 /* Images.xcassets in Resources */,
 				87BCBA592358E3FB000BCF46 /* LICENSE in Resources */,
-				87BCBA3F2358E166000BCF46 /* TipC_4.jpg in Resources */,
-				87BCBA432358E166000BCF46 /* TipC_3.jpg in Resources */,
+				87BCBA3F2358E166000BCF46 /* TipSee_4.jpg in Resources */,
+				87BCBA432358E166000BCF46 /* TipSee_3.jpg in Resources */,
 				87BCBA5A2358E3FB000BCF46 /* CHANGELOG.md in Resources */,
 				87BCBA5C2358E3FB000BCF46 /* README.md in Resources */,
 				87BCBA442358E166000BCF46 /* logo.jpg in Resources */,
 				87BCBA522358E21D000BCF46 /* Main.storyboard in Resources */,
-				87BCBA412358E166000BCF46 /* TipC_1.jpg in Resources */,
-				87BCBA3D2358E166000BCF46 /* TipC.gif in Resources */,
+				87BCBA412358E166000BCF46 /* TipSee_1.jpg in Resources */,
+				87BCBA3D2358E166000BCF46 /* TipSee.gif in Resources */,
 				87BCBA582358E3FB000BCF46 /* TipSee.podspec in Resources */,
-				87BCBA3E2358E166000BCF46 /* TipC_6.jpg in Resources */,
-				87BCBA402358E166000BCF46 /* TipC_5.jpg in Resources */,
+				87BCBA3E2358E166000BCF46 /* TipSee_6.jpg in Resources */,
+				87BCBA402358E166000BCF46 /* TipSee_5.jpg in Resources */,
 				87BCBA5B2358E3FB000BCF46 /* Tap30ToolTip.podspec in Resources */,
-				87BCBA422358E166000BCF46 /* TipC_2.jpg in Resources */,
+				87BCBA422358E166000BCF46 /* TipSee_2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
