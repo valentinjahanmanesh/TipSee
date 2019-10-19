@@ -7,9 +7,9 @@
 ### TipSee is a lightweight and highly customizable library that helps you to show beautiful tips and hints.
 
 [![CI Status](https://img.shields.io/travis/farshadjahanmanesh/TipSee.svg?style=flat)](https://travis-ci.org/farshadjahanmanesh/TipSee)
-[![Version](https://img.shields.io/cocoapods/v/TipSee.svg?style=flat)](https://cocoapods.org/pods/TipSee)
-[![License](https://img.shields.io/cocoapods/l/TipSee.svg?style=flat)](https://cocoapods.org/pods/TipSee)
-[![Platform](https://img.shields.io/cocoapods/p/TipSee.svg?style=flat)](https://cocoapods.org/pods/TipSee)
+[![Version](https://img.shields.io/cocoapods/v/TipC.svg?style=flat)](https://cocoapods.org/pods/TipSee)
+[![License](https://img.shields.io/cocoapods/l/TipC.svg?style=flat)](https://cocoapods.org/pods/TipSee)
+[![Platform](https://img.shields.io/cocoapods/p/TipC.svg?style=flat)](https://cocoapods.org/pods/TipSee)
 
 ### To do:
 
@@ -27,7 +27,7 @@
 
 
 <p align="center">
-<img src='Example/images/TipSee.gif' height="600"/>
+<img src='Example/TipSee/images/TipSee.gif' height="600"/>
 </p>
 
 
@@ -179,17 +179,6 @@ let defaultTipOption = TipSee.Options
  tipManager.next()
 
 ```
-## DEMO
-you can run the example to see what do what and how to config things
-
-| <img src='Example/images/TipSee_1.jpg' height="600"/>  |  <img src='Example/images/TipSee_2.jpg' height="600"/> | <img src='Example/images/TipSee_3.jpg' height="600"/>  |
-|---|---|---|
-|  <img src='Example/images/TipSee_4.jpg' height="600"/> | <img src='Example/images/TipSee_5.jpg' height="600"/>  |  <img src='Example/images/TipSee_6.jpg' height="600"/> |
-
-
-
-
-
 
 
 ## Example
