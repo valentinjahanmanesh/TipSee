@@ -23,6 +23,8 @@
 		E2971A1D3CBFC7E20E868830AFD7E5B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; platformFilter = ios; };
 		E393ECC1FF14C7C1C032B7AD66E776C0 /* Pods-TipSee_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DBD25504554BF66CCAC2F595DACAC6D7 /* Pods-TipSee_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E8B2288C306331E5E8EC5F17F43AA529 /* Pods-TipSee_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F9BA814C61E91C4CA3226978A33901C9 /* Pods-TipSee_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F82900BC2369792B00FA2182 /* TipSeeWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82900B9236978C000FA2182 /* TipSeeWith.swift */; };
+		F82900BF236979FD00FA2182 /* TipSeeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82900BE236979FD00FA2182 /* TipSeeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		DBD25504554BF66CCAC2F595DACAC6D7 /* Pods-TipSee_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TipSee_Tests-umbrella.h"; sourceTree = "<group>"; };
 		E38C0AAE960D13C00671CEE4F1641C0D /* Pods-TipSee_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TipSee_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		F234E6D0525BE390545C842F6677A84E /* TipSee.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TipSee.xcconfig; sourceTree = "<group>"; };
+		F82900B9236978C000FA2182 /* TipSeeWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TipSeeWith.swift; path = TipSee/Classes/TipSeeWith.swift; sourceTree = "<group>"; };
+		F82900BE236979FD00FA2182 /* TipSeeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TipSeeManager.swift; path = TipSee/Classes/TipSeeManager.swift; sourceTree = "<group>"; };
 		F9BA814C61E91C4CA3226978A33901C9 /* Pods-TipSee_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TipSee_Example-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,10 +197,12 @@
 				87BCBA2C2358E134000BCF46 /* TipOption.swift */,
 				87BCBA2B2358E134000BCF46 /* TipSee-Exts.swift */,
 				87BCBA292358E134000BCF46 /* TipSee.swift */,
+				F82900B9236978C000FA2182 /* TipSeeWith.swift */,
 				87BCBA282358E134000BCF46 /* TipTarget.swift */,
 				87BCBA272358E134000BCF46 /* UiView+Exts.swift */,
 				DE9B9EE3A26E5CF452E8BCC787393BE0 /* Pod */,
 				31E761DF52B64BBBE3B912ABCA7DB647 /* Support Files */,
+				F82900BE236979FD00FA2182 /* TipSeeManager.swift */,
 			);
 			name = TipSee;
 			path = ../..;
@@ -333,6 +339,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
+				TargetAttributes = {
+					B908D34FF2E893C3D472ABE0F48A8FA1 = {
+						LastSwiftMigration = 1110;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -387,6 +398,8 @@
 				87BCBA332358E135000BCF46 /* TipOption.swift in Sources */,
 				87BCBA302358E135000BCF46 /* TipSee.swift in Sources */,
 				87BCBA312358E135000BCF46 /* BubbleView.swift in Sources */,
+				F82900BC2369792B00FA2182 /* TipSeeWith.swift in Sources */,
+				F82900BF236979FD00FA2182 /* TipSeeManager.swift in Sources */,
 				87BCBA2D2358E135000BCF46 /* TipItem.swift in Sources */,
 				87BCBA2F2358E135000BCF46 /* TipTarget.swift in Sources */,
 				AD8BDECC2E0C0E3F2158D45C215704B6 /* TipSee-dummy.m in Sources */,
@@ -469,6 +482,7 @@
 			baseConfigurationReference = 19314A5A4FDCE8C62A83CE3C69FA35F8 /* Pods-TipSee_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -496,6 +510,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -546,6 +561,7 @@
 			baseConfigurationReference = 0132041BA214CEC8DEE338EC63F04D0D /* Pods-TipSee_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -573,6 +589,8 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

@@ -5,10 +5,10 @@
 //  Created by Farshad Jahanmanesh on 7/18/19.
 //
 import UIKit
-public class TipSeeManager {
-    public var pointer : TipSee
+public final class TipSeeManager {
+    public private(set) var pointer : TipSee
     public private(set) var tips : [TipSee.TipItem]
-    public var latestTip : TipSee.TipItem?
+    public private(set) var latestTip : TipSee.TipItem?
     public var onBubbleTap: ((TipSee.TipItem?) -> Void)? {
         didSet{
             pointer.onBubbleTap = self.onBubbleTap
@@ -19,7 +19,7 @@ public class TipSeeManager {
             pointer.onDimTap = self.onDimTap
         }
     }
-    public var currentIndex : Int? {
+    public private(set) var currentIndex : Int? {
         didSet {
             guard let index = currentIndex else {
                 self.pointer.finish()
@@ -93,7 +93,7 @@ extension TipSeeManager{
 
 		let container = UIView(frame: CGRect(x: 0, y: 0, width: containerWidth, height: containerHeight + 40 ))
 		
-
+		// creates a scroll view and appends it to bubble view
 		let customScrollView = UIScrollView(frame: .zero)
 		customScrollView.translatesAutoresizingMaskIntoConstraints = false
 		customScrollView.showsHorizontalScrollIndicator = false
@@ -106,7 +106,8 @@ extension TipSeeManager{
 		customScrollView.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: buttonsHeight).isActive = true
 		customScrollView.heightAnchor.constraint(equalToConstant: container.bounds.height - buttonsHeight).isActive = true
 		customScrollView.widthAnchor.constraint(equalToConstant: container.bounds.width).isActive = true
-
+		
+		// creates a stack view and apeends it to scroll view
 		let stackView = UIStackView(frame: CGRect(x: 0, y: 0, width: container.frame.width, height: 200))
 		customScrollView.addSubview(stackView)
 		customScrollView.isPagingEnabled = true
@@ -119,6 +120,8 @@ extension TipSeeManager{
 		stackView.alignment = .fill
 		stackView.distribution = .fillEqually
 		stackView.axis = .horizontal
+		
+		// appends all texts as label inside stack view
 		strings.forEach { (str) in
 			let label = UILabel()
 			label.text = str
@@ -130,6 +133,7 @@ extension TipSeeManager{
 			label.widthAnchor.constraint(equalToConstant: container.frame.width).isActive = true
 		}
 
+		// creates next and previous button
 		let leftButton = UIButton(frame: CGRect.init(origin: CGPoint(x: 0, y: container.frame.height - 25), size: CGSize(width: 25, height: 25)))
 		leftButton.setTitleColor(.black, for: .normal)
 		leftButton.accessibilityHint = "previous"
@@ -145,9 +149,13 @@ extension TipSeeManager{
 		rightButton.frame.origin = CGPoint(x: container.frame.width - rightButton.frame.width, y: container.frame.height - 25)
 		container.addSubview(rightButton)
 		
+		// creates a new item with new created conent view
 		self.tips.append(.init(pointTo: view, contentView: container, bubbleOptions: bubbleOption))
+		
+		// return those two button so users can change the configurstions
 		buttonsConfigs(leftButton, rightButton)
     }
+	
 	@objc
 	private func scrollMultiLine(_ sender: UIButton) {
 		guard let action = sender.accessibilityHint, let scrollView = sender.superview?.subviews.first(where: {$0 is UIScrollView }) as? UIScrollView else {

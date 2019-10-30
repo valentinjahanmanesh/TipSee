@@ -20,7 +20,7 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 			}
 		}
 	}
-
+	
 	fileprivate var shadowLayerPath: CGPath?
 	fileprivate unowned let _window: UIWindow
 	fileprivate lazy var views : [TipItem] = {
@@ -74,6 +74,7 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 			self.views.remove(at: index)
 		}
 	}
+	
 	/// shows a bubble which points to the given view
 	///
 	/// - Parameters:
@@ -119,22 +120,6 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 			deStore(index: index)
 			createHoleForVisibleViews()
 		}
-	}
-	
-	/// creates a labelView for useing inside a bubble
-	///
-	/// - Parameter text: label text
-	/// - Returns: generated label view
-	private static func createLabel(for text: String, with itemOptions: Options.Bubble?, defaultOptions options : TipSee.Options) -> UILabel {
-		let label = UILabel()
-		label.text = text
-		label.textAlignment = .center
-		label.lineBreakMode = .byWordWrapping
-		label.numberOfLines = 0
-		label.sizeToFit()
-		label.font = itemOptions?.font ?? options.bubbles.font
-		label.textColor = itemOptions?.foregroundColor ?? options.bubbles.foregroundColor
-		return label
 	}
 	
 	private final func createHoleForVisibleViews() {
@@ -205,16 +190,7 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 			
 		}
 	}
-	/// creates a default bubble
-	///
-	/// - Parameter item: tip item
-	/// - Returns: bubble view
-	final func defaultBubble(for item: TipSee.TipItem,defaultOptions options : TipSee.Options) -> BubbleView {
-		
-		let bubble = BubbleView.default()
-		bubble.backColor = item.bubbleOptions?.backgroundColor ?? options.bubbles.backgroundColor
-		return bubble
-	}
+	
 	/// points to the given(target) view by constrainting/Positioning the bubbleView and furthermore adds animation to newborn bubble
 	///
 	/// - Parameter item: tip item
@@ -396,10 +372,10 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 	}
 	
 	private final func addAniamtionsForShowTime(on layer : CAShapeLayer,old : CGPath,new : CGPath,force : Bool = false){
-			let pathAnimation = basicAnimation(key: "path", duration: 0.2)
-			pathAnimation.fromValue = options.bubbleLiveDuration == .untilNext ? old : new
-			pathAnimation.toValue = new
-			layer.add(pathAnimation, forKey: nil)
+		let pathAnimation = basicAnimation(key: "path", duration: 0.2)
+		pathAnimation.fromValue = options.bubbleLiveDuration == .untilNext ? old : new
+		pathAnimation.toValue = new
+		layer.add(pathAnimation, forKey: nil)
 		
 		
 		if  options.dimFading {
@@ -419,8 +395,8 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 	}
 }
 
-extension UIRectEdge {
-	fileprivate   func toCGRectEdge() -> CGRectEdge {
+fileprivate extension UIRectEdge {
+	func toCGRectEdge() -> CGRectEdge {
 		switch self {
 		case .top:
 			return .minYEdge
@@ -434,21 +410,21 @@ extension UIRectEdge {
 	}
 }
 
-extension UIEdgeInsets {
-	fileprivate static func all(_ value: CGFloat) -> UIEdgeInsets {
+fileprivate extension UIEdgeInsets {
+	static func all(_ value: CGFloat) -> UIEdgeInsets {
 		return UIEdgeInsets.init(top: value, left: value, bottom: value, right: value)
 	}
 	
-	fileprivate var totalX: CGFloat {
+	var totalX: CGFloat {
 		return self.left + self.right
 	}
 	
-	fileprivate var totalY: CGFloat {
+	var totalY: CGFloat {
 		return self.top + self.bottom
 	}
 }
 
- extension String {
+extension String {
 	func height(font: UIFont, widthConstraint: CGFloat) -> CGFloat {
 		let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: widthConstraint, height: CGFloat.greatestFiniteMagnitude))
 		label.numberOfLines = 0
@@ -497,25 +473,13 @@ extension TipSee {
 		let cutted = targetArea.tipFrame.insetBy(dx: -4, dy: -4)
 		let isInTheActionable = cutted.contains(point)
 		if isInTheActionable,let option = latestTip.bubbleOptions {
-				option.onTargetAreaTap?(latestTip)
-				if option.dismissOnTargetAreaTap {
-					self.finish()
-				}
+			option.onTargetAreaTap?(latestTip)
+			if option.dismissOnTargetAreaTap {
+				self.finish()
+			}
 		}
 		
 		return !isInTheActionable
-	}
-}
-
-public protocol TipSeeonfiguration {
-	func with(_ mutations: (inout Self) -> Void) -> Self
-}
-
-extension TipSeeonfiguration {
-	public func with(_ mutations: (inout Self) -> Void) -> Self {
-		var copyOfSelf = self
-		mutations(&copyOfSelf)
-		return copyOfSelf
 	}
 }
 
@@ -531,30 +495,36 @@ private extension UITapGestureRecognizer {
 	}
 }
 
-public protocol TipSeeManagerProtocol {
-	/// removes the given item
-	///
-	/// - Parameter item: item to remove
-	func dismiss(item: TipSee.TipItem)
-	
-	@discardableResult
-	func show(for view : TipTarget,text string : String, with bubbleOption: TipSee.Options.Bubble?) -> TipSee.TipItem
-	
-	@discardableResult
-	func createItem(for view : TipTarget,text string : String, with bubbleOption: TipSee.Options.Bubble?) -> TipSee.TipItem
-	
-	/// shows a bubble which points to the given view
-	///
-	/// - Parameters:
-	///   - item: the view that you want to point at and a view that will show inside the bubble
-	///   - bubbleOption: custom options for bubble
-	/// - Returns: generated item that can use to access to views or dismiss action
-	@discardableResult
-	func show(item: TipSee.TipItem, with bubbleOption: TipSee.Options.Bubble?) -> TipSee.TipItem
-	func finish()
-}
-
 extension TipSee {
+	
+	/// creates a default bubble
+	///
+	/// - Parameter item: tip item
+	/// - Returns: bubble view
+	final func defaultBubble(for item: TipSee.TipItem,defaultOptions options : TipSee.Options) -> BubbleView {
+		
+		let bubble = BubbleView.default()
+		bubble.backColor = item.bubbleOptions?.backgroundColor ?? options.bubbles.backgroundColor
+		return bubble
+	}
+	
+	/// creates a labelView for useing inside a bubble
+	///
+	/// - Parameter text: label text
+	/// - Returns: generated label view
+	private static func createLabel(for text: String, with itemOptions: Options.Bubble?, defaultOptions options : TipSee.Options) -> UILabel {
+		let label = UILabel()
+		label.text = text
+		label.textAlignment = .center
+		label.lineBreakMode = .byWordWrapping
+		label.numberOfLines = 0
+		label.sizeToFit()
+		label.font = itemOptions?.font ?? options.bubbles.font
+		label.textColor = itemOptions?.foregroundColor ?? options.bubbles.foregroundColor
+		return label
+	}
+	
+	
 	public func options(_ options: TipSee.Options) {
 		self.options = options
 	}
@@ -597,7 +567,7 @@ extension BubbleView {
 		bubbleView.frame.size = calculatedFrame
 		return bubbleView
 	}
-
+	
 	/// creates a default bubble
 	///
 	/// - Parameter item: tip item

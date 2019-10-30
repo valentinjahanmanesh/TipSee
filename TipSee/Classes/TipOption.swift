@@ -7,11 +7,13 @@
 
 import Foundation
 extension TipSee {
+	
 	public  enum BubbleLiveDuration {
 		case forever
 		case untilNext
 		//        case until(second:TimeInterval)
 	}
+	
 	public enum HoleRadius {
 		/// uses target view layer corner radius
 		case keepTargetAreaCornerRadius
@@ -25,9 +27,10 @@ extension TipSee {
 		/// no corner rradius
 		case none
 	}
-	public struct Options: TipSeeonfiguration {
+	
+	public struct Options: TipSeeConfiguration {
 		public typealias BubblePosition = UIRectEdge
-		public struct Bubble: TipSeeonfiguration {
+		public struct Bubble: TipSeeConfiguration {
 			
 			/// bubble's background color
 			public  var backgroundColor: UIColor

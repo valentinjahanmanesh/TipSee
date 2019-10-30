@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 public class BubbleView: UIView {
-	public var insideView: UIView?
+	public private(set) var insideView: UIView?
 	private let cornerRadius: CGFloat = 4
 	private lazy var shape: CAShapeLayer = {
 		let shape = CAShapeLayer()
