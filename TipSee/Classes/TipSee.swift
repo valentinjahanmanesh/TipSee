@@ -47,10 +47,10 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 	}
 	
 	@discardableResult public func createItem(for view : TipTarget,text : String, with bubbleOption: Options.Bubble? = nil) -> TipItem {
-		return  TipItem.init(ID: UUID().uuidString, pointTo: view, contentView: TipSee.createLabel(for: text, with: bubbleOption,defaultOptions: self.options) as UIView, bubbleOptions: bubbleOption)
+		return  TipItem.init(ID: UUID().uuidString, pointTo: view, contentView: TipSee.createLabel(for: text, with: bubbleOption, defaultOptions: self.options) as UIView, bubbleOptions: bubbleOption)
 	}
 	@discardableResult public static func createItem(for view : TipTarget,text : String, with bubbleOption: Options.Bubble? = nil) -> TipItem {
-		return  TipItem.init(ID: UUID().uuidString, pointTo: view, contentView: TipSee.createLabel(for: text, with: bubbleOption,defaultOptions: .default()) as UIView, bubbleOptions: bubbleOption)
+		return  TipItem.init(ID: UUID().uuidString, pointTo: view, contentView: TipSee.createLabel(for: text, with: bubbleOption, defaultOptions: .default()) as UIView, bubbleOptions: bubbleOption)
 	}
 	
 	private final func clearAllViews(){
@@ -258,13 +258,13 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 		
 		var right = _window.bounds.width - (options.safeAreaInsets.right + options.bubbles.padding.left + 16) - (bubblePrefereddSize?.width ?? 0)
 		
-		var top = options.safeAreaInsets.top + options.bubbles.padding.bottom + 16 + (bubblePrefereddSize?.height ?? 0) + (bubblePrefereddSize?.height ?? 0)
+		var top = options.safeAreaInsets.top + options.bubbles.padding.bottom + 16 + (bubblePrefereddSize?.height ?? 0)
 		
 		var bottom = _window.bounds.height - ( options.safeAreaInsets.bottom + options.bubbles.padding.top + 16) + (bubblePrefereddSize?.height ?? 0)
 		if #available(iOS 11.0, *) {
 			bottom = _window.bounds.height - (_window.safeAreaInsets.bottom + options.safeAreaInsets.bottom + options.bubbles.padding.top + 16) + (bubblePrefereddSize?.height ?? 0)
 			
-			top = options.safeAreaInsets.top + options.bubbles.padding.bottom + 16 + _window.safeAreaInsets.top + (bubblePrefereddSize?.height ?? 0) + (bubblePrefereddSize?.height ?? 0)
+			top = options.safeAreaInsets.top + options.bubbles.padding.bottom + 16 + _window.safeAreaInsets.top + (bubblePrefereddSize?.height ?? 0)
 			
 			right = _window.bounds.width - (_window.safeAreaInsets.right + options.safeAreaInsets.right + options.bubbles.padding.left + 16) - (bubblePrefereddSize?.width ?? 0)
 			
@@ -372,7 +372,7 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 	}
 	
 	private final func addAniamtionsForShowTime(on layer : CAShapeLayer,old : CGPath,new : CGPath,force : Bool = false){
-		let pathAnimation = basicAnimation(key: "path", duration: 0.2)
+		let pathAnimation = basicAnimation(key: "path", duration: self.options.holePositionChangeDuration)
 		pathAnimation.fromValue = options.bubbleLiveDuration == .untilNext ? old : new
 		pathAnimation.toValue = new
 		layer.add(pathAnimation, forKey: nil)

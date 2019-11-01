@@ -100,8 +100,9 @@ extension TipSee {
 		/// if true, dim will fade after one second, combine this with absorbDimTouch if you want
 		public var dimFading : Bool
 		
+		public var holePositionChangeDuration: TimeInterval
 		public static func `default`()->TipSee.Options {
-			return Options(bubbles: Options.Bubble.default(), dimColor: UIColor.black.withAlphaComponent(0.7), bubbleLiveDuration: .forever, defaultBubblePosition: .left, holeRadius: .defaultOrGreater(default: 8), safeAreaInsets: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16),absorbDimTouch: true,dimFading: true)
+			return Options(bubbles: Options.Bubble.default(), dimColor: UIColor.black.withAlphaComponent(0.7), bubbleLiveDuration: .forever, defaultBubblePosition: .left, holeRadius: .defaultOrGreater(default: 8), safeAreaInsets: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16),absorbDimTouch: true,dimFading: true, holePositionChangeDuration: 0.5)
 		}
 	}
 }
