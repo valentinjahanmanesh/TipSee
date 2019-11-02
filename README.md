@@ -1,5 +1,5 @@
 <p align="center">
-  <img src='Example/TipSee/images/logo.jpg' height="500" style="text-alignment: center"/>
+<img src='Example/TipSee/images/TipSee.gif' height="600"/>
 </p>
 
 
@@ -24,11 +24,6 @@
 
 # What we can do with TipSee?
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; We can show interactive hints on top of the views or where ever we want but finding the best place to put the bubble (or custom view) is based on the TipSee's decision. it will find best place to show the hint by considering the available space and the content size, smartly. we can show custom views (like that heart) or simple text as you've seen in the Gif. Tips can point to all kind of views like button, images and ... or just a specific part of the view controller(like the hint that points to the center of the view in the gif) 
-
-
-<p align="center">
-<img src='Example/TipSee/images/TipSee.gif' height="600"/>
-</p>
 
 
 # How much TipSee is customizable: 
