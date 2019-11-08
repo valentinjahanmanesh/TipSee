@@ -197,4 +197,4 @@ farshadjahanmanesh, farshadjahanmanesh@gmail.com
 
 ## License
 
-TipSee is available under the MIT license. See the LICENSE file for more info.
+TipSee is available under the MIT license. See the LICENSE file for more info. the demo's design is something that i've took from dribbble and is blong to https://dribbble.com/harshgopal
