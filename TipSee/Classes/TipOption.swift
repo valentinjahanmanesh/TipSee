@@ -56,6 +56,9 @@ extension TipSee {
 			/// whole tip(dim and bubble) should be dismiss when user is touched on the target area
 			public  var dismissOnTargetAreaTap: Bool
 			
+			/// default is false, it true, touches on target area will be passed throught
+			public var isTargetAreaUserinteractionEnabled: Bool
+			
 			/// will execute when user taps on target area
 			public var onTargetAreaTap : TapGesture?
 			
@@ -65,7 +68,7 @@ extension TipSee {
 			/// will execute when user taps on the bubble
 			public var onBubbleTap : TapGesture?
 			public static func `default`()->TipSee.Options.Bubble {
-				return Options.Bubble(backgroundColor: .red, position: nil, font: UIFont.boldSystemFont(ofSize: 15), foregroundColor: UIColor.white, textAlignments: .center, hasAppearAnimation: true, padding: .init(top: 16, left: 16, bottom: 16, right: 16), dismissOnTargetAreaTap: false,onTargetAreaTap: nil,changeDimColor : nil,onBubbleTap: nil)
+				return Options.Bubble(backgroundColor: .red, position: nil, font: UIFont.boldSystemFont(ofSize: 15), foregroundColor: UIColor.white, textAlignments: .center, hasAppearAnimation: true, padding: .init(top: 16, left: 16, bottom: 16, right: 16), dismissOnTargetAreaTap: false, isTargetAreaUserinteractionEnabled: false,onTargetAreaTap: nil,changeDimColor : nil,onBubbleTap: nil)
 			}
 			
 		}

@@ -472,7 +472,11 @@ extension TipSee {
 		let targetArea = latestTip.pointTo
 		let cutted = targetArea.tipFrame.insetBy(dx: -4, dy: -4)
 		let isInTheActionable = cutted.contains(point)
-		if isInTheActionable,let option = latestTip.bubbleOptions {
+		let option = latestTip.bubbleOptions ?? self.options.bubbles
+		if !option.isTargetAreaUserinteractionEnabled {
+			return true
+		}
+		if isInTheActionable {
 			option.onTargetAreaTap?(latestTip)
 			if option.dismissOnTargetAreaTap {
 				self.finish()
