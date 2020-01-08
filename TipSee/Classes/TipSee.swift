@@ -567,6 +567,7 @@ extension BubbleView {
 			calculatedFrame.width = text.width(font: label.font, widthConstraint: availableSpace.width, heightConstraint: self.frame.size.height) + 16
 		}else {
 			calculatedFrame = view.frame.insetBy(dx: -8, dy: -8).size
+			bubbleView.translatesAutoresizingMaskIntoConstraints = false
 		}
 		bubbleView.frame.size = calculatedFrame
 		return bubbleView

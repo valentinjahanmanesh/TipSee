@@ -27,6 +27,7 @@ extension TipSee {
 			self.contentView = contentView
 		}
 		
+		
 		public init(ID: ID = UUID().uuidString, pointTo: TipTarget, contentView: UIView, bubbleOptions: TipSee.Options.Bubble?) {
 			self.ID  = ID
 			self.pointTo = AnyTipTraget.init(tipTarget: pointTo)

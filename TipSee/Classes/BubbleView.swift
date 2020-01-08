@@ -72,6 +72,7 @@ public class BubbleView: UIView {
 			view.frame.size = self.frame.insetBy(dx: padding, dy: padding).size
 			view.removeConstraints(view.constraints)
 		}else {
+			self.translatesAutoresizingMaskIntoConstraints = true
 			view.translatesAutoresizingMaskIntoConstraints = false
 			if #available(iOS 11.0, *) {
 				view.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor, constant: -padding).isActive = true
