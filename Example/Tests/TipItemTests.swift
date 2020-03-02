@@ -1,6 +1,6 @@
 //
 //  TipItemTests.swift
-//  TipSee_Tests
+//  TipSee_Example
 //
 //  Created by Farshad Jahanmanesh on 7/19/19.
 //  Copyright © 2019 CocoaPods. All rights reserved.
@@ -8,11 +8,13 @@
 
 import XCTest
 import TipSee
+
 class TipItemTests: XCTestCase {
     let id = "55"
     var sut : TipSee.TipItem!
     var targetView : UIView!
     var bubbleContetView : UIView!
+
     override func setUp() {
         super.setUp()
         targetView = UIView()
@@ -77,14 +79,15 @@ class TipItemTests: XCTestCase {
 		// then
 		XCTAssertNotNil(sut.bubbleOptions!.onBubbleTap)
 	}
+
 	func testCustomFont(){
 		// given
 		let new = TipSee.createItem(for: SimpleTipTarget(on: .zero,cornerRadius: 0), text: "XYS",with: TipSee.Options.Bubble.default().with{$0.font = .italicSystemFont(ofSize: 100)})
 		
 		// then
-		 XCTAssertEqual((new.contentView as! UILabel).font, UIFont.italicSystemFont(ofSize: 100))
+		XCTAssertEqual((new.contentView as! UILabel).font, UIFont.italicSystemFont(ofSize: 100))
 	}
-	
+
 	func testMEMORYLEAK(){
 		
 		// given

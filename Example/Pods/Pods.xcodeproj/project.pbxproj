@@ -10,12 +10,15 @@
 		285B8ED437195E9D9C0B966F934098E0 /* Pods-TipSee_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 730ACFD2C6715FD3F414215C72929B5F /* Pods-TipSee_Tests-dummy.m */; };
 		48079BA504D63CCA5EDEA28AE24B183C /* TipSee-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 190B1FD472F39D6681F963042AB502B6 /* TipSee-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50AB26B9BB8A5A766F037018662F6071 /* Pods-TipSee_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 626E30C2E78E6D73BC3500BE14D8B7ED /* Pods-TipSee_Example-dummy.m */; };
+		5366524E240C331300CC1370 /* TipSeeManager+AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5366524D240C331200CC1370 /* TipSeeManager+AttributedText.swift */; };
+		53665256240CF01D00CC1370 /* NSAttributedString+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53665255240CF01D00CC1370 /* NSAttributedString+Size.swift */; };
+		5366525A240CFB1B00CC1370 /* TipSee+AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53665259240CFB1B00CC1370 /* TipSee+AttributedText.swift */; };
 		87BCBA2D2358E135000BCF46 /* TipItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCBA262358E134000BCF46 /* TipItem.swift */; };
-		87BCBA2E2358E135000BCF46 /* UiView+Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCBA272358E134000BCF46 /* UiView+Exts.swift */; };
+		87BCBA2E2358E135000BCF46 /* UIViewController+Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCBA272358E134000BCF46 /* UIViewController+Exts.swift */; };
 		87BCBA2F2358E135000BCF46 /* TipTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCBA282358E134000BCF46 /* TipTarget.swift */; };
 		87BCBA302358E135000BCF46 /* TipSee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCBA292358E134000BCF46 /* TipSee.swift */; };
 		87BCBA312358E135000BCF46 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCBA2A2358E134000BCF46 /* BubbleView.swift */; };
-		87BCBA322358E135000BCF46 /* TipSee-Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCBA2B2358E134000BCF46 /* TipSee-Exts.swift */; };
+		87BCBA322358E135000BCF46 /* TipSeeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCBA2B2358E134000BCF46 /* TipSeeManager.swift */; };
 		87BCBA332358E135000BCF46 /* TipOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCBA2C2358E134000BCF46 /* TipOption.swift */; };
 		89CA7B364639908B5801FE89F65F56E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; platformFilter = ios; };
 		A93C2F45B504FE192CED0C5B091D343B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; platformFilter = ios; };
@@ -23,8 +26,8 @@
 		E2971A1D3CBFC7E20E868830AFD7E5B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; platformFilter = ios; };
 		E393ECC1FF14C7C1C032B7AD66E776C0 /* Pods-TipSee_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DBD25504554BF66CCAC2F595DACAC6D7 /* Pods-TipSee_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E8B2288C306331E5E8EC5F17F43AA529 /* Pods-TipSee_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F9BA814C61E91C4CA3226978A33901C9 /* Pods-TipSee_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F82900BC2369792B00FA2182 /* TipSeeWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82900B9236978C000FA2182 /* TipSeeWith.swift */; };
-		F82900BF236979FD00FA2182 /* TipSeeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82900BE236979FD00FA2182 /* TipSeeManager.swift */; };
+		F82900BC2369792B00FA2182 /* TipSeeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82900B9236978C000FA2182 /* TipSeeConfiguration.swift */; };
+		F82900BF236979FD00FA2182 /* TipSeeManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82900BE236979FD00FA2182 /* TipSeeManagerProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,9 @@
 		48D83B29FE53722A324DF93F8718463E /* Pods-TipSee_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TipSee_Example-Info.plist"; sourceTree = "<group>"; };
 		4FEBDA5BE2516FEA069B949E06CAF672 /* TipSee.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TipSee.modulemap; sourceTree = "<group>"; };
 		529FA6CF58D776D7EBB25B7510135F37 /* TipSee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TipSee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5366524D240C331200CC1370 /* TipSeeManager+AttributedText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TipSeeManager+AttributedText.swift"; path = "TipSee/Classes/TipSeeManager+AttributedText.swift"; sourceTree = "<group>"; };
+		53665255240CF01D00CC1370 /* NSAttributedString+Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+Size.swift"; path = "TipSee/Classes/NSAttributedString+Size.swift"; sourceTree = "<group>"; };
+		53665259240CFB1B00CC1370 /* TipSee+AttributedText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TipSee+AttributedText.swift"; path = "TipSee/Classes/TipSee+AttributedText.swift"; sourceTree = "<group>"; };
 		5A94111A9E6B1DB69A2D185626F66830 /* Pods-TipSee_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TipSee_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		626E30C2E78E6D73BC3500BE14D8B7ED /* Pods-TipSee_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TipSee_Example-dummy.m"; sourceTree = "<group>"; };
 		65B72A37A9440325C2E6B3FD25C4CEBA /* Pods-TipSee_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TipSee_Tests-Info.plist"; sourceTree = "<group>"; };
@@ -64,11 +70,11 @@
 		7FEA2897CE8514F82F86F09129D3E2A4 /* TipSee.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = TipSee.podspec; sourceTree = "<group>"; tabWidth = 2; };
 		824695F5B234BB6895B604D17A54E05B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		87BCBA262358E134000BCF46 /* TipItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipItem.swift; path = TipSee/Classes/TipItem.swift; sourceTree = "<group>"; };
-		87BCBA272358E134000BCF46 /* UiView+Exts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UiView+Exts.swift"; path = "TipSee/Classes/UiView+Exts.swift"; sourceTree = "<group>"; };
+		87BCBA272358E134000BCF46 /* UIViewController+Exts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Exts.swift"; path = "TipSee/Classes/UIViewController+Exts.swift"; sourceTree = "<group>"; };
 		87BCBA282358E134000BCF46 /* TipTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipTarget.swift; path = TipSee/Classes/TipTarget.swift; sourceTree = "<group>"; };
 		87BCBA292358E134000BCF46 /* TipSee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipSee.swift; path = TipSee/Classes/TipSee.swift; sourceTree = "<group>"; };
 		87BCBA2A2358E134000BCF46 /* BubbleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BubbleView.swift; path = TipSee/Classes/BubbleView.swift; sourceTree = "<group>"; };
-		87BCBA2B2358E134000BCF46 /* TipSee-Exts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TipSee-Exts.swift"; path = "TipSee/Classes/TipSee-Exts.swift"; sourceTree = "<group>"; };
+		87BCBA2B2358E134000BCF46 /* TipSeeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipSeeManager.swift; path = TipSee/Classes/TipSeeManager.swift; sourceTree = "<group>"; };
 		87BCBA2C2358E134000BCF46 /* TipOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipOption.swift; path = TipSee/Classes/TipOption.swift; sourceTree = "<group>"; };
 		8C5F090058F39AF409B1B7271DE16DA6 /* Pods-TipSee_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TipSee_Tests.modulemap"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -82,8 +88,8 @@
 		DBD25504554BF66CCAC2F595DACAC6D7 /* Pods-TipSee_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TipSee_Tests-umbrella.h"; sourceTree = "<group>"; };
 		E38C0AAE960D13C00671CEE4F1641C0D /* Pods-TipSee_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TipSee_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		F234E6D0525BE390545C842F6677A84E /* TipSee.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TipSee.xcconfig; sourceTree = "<group>"; };
-		F82900B9236978C000FA2182 /* TipSeeWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TipSeeWith.swift; path = TipSee/Classes/TipSeeWith.swift; sourceTree = "<group>"; };
-		F82900BE236979FD00FA2182 /* TipSeeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TipSeeManager.swift; path = TipSee/Classes/TipSeeManager.swift; sourceTree = "<group>"; };
+		F82900B9236978C000FA2182 /* TipSeeConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TipSeeConfiguration.swift; path = TipSee/Classes/TipSeeConfiguration.swift; sourceTree = "<group>"; };
+		F82900BE236979FD00FA2182 /* TipSeeManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TipSeeManagerProtocol.swift; path = TipSee/Classes/TipSeeManagerProtocol.swift; sourceTree = "<group>"; };
 		F9BA814C61E91C4CA3226978A33901C9 /* Pods-TipSee_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TipSee_Example-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,16 +199,19 @@
 			isa = PBXGroup;
 			children = (
 				87BCBA2A2358E134000BCF46 /* BubbleView.swift */,
+				53665255240CF01D00CC1370 /* NSAttributedString+Size.swift */,
 				87BCBA262358E134000BCF46 /* TipItem.swift */,
 				87BCBA2C2358E134000BCF46 /* TipOption.swift */,
-				87BCBA2B2358E134000BCF46 /* TipSee-Exts.swift */,
+				87BCBA2B2358E134000BCF46 /* TipSeeManager.swift */,
+				5366524D240C331200CC1370 /* TipSeeManager+AttributedText.swift */,
+				F82900BE236979FD00FA2182 /* TipSeeManagerProtocol.swift */,
 				87BCBA292358E134000BCF46 /* TipSee.swift */,
-				F82900B9236978C000FA2182 /* TipSeeWith.swift */,
+				53665259240CFB1B00CC1370 /* TipSee+AttributedText.swift */,
+				F82900B9236978C000FA2182 /* TipSeeConfiguration.swift */,
 				87BCBA282358E134000BCF46 /* TipTarget.swift */,
-				87BCBA272358E134000BCF46 /* UiView+Exts.swift */,
+				87BCBA272358E134000BCF46 /* UIViewController+Exts.swift */,
 				DE9B9EE3A26E5CF452E8BCC787393BE0 /* Pod */,
 				31E761DF52B64BBBE3B912ABCA7DB647 /* Support Files */,
-				F82900BE236979FD00FA2182 /* TipSeeManager.swift */,
 			);
 			name = TipSee;
 			path = ../..;
@@ -394,16 +403,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87BCBA2E2358E135000BCF46 /* UiView+Exts.swift in Sources */,
+				5366525A240CFB1B00CC1370 /* TipSee+AttributedText.swift in Sources */,
+				5366524E240C331300CC1370 /* TipSeeManager+AttributedText.swift in Sources */,
+				53665256240CF01D00CC1370 /* NSAttributedString+Size.swift in Sources */,
+				87BCBA2E2358E135000BCF46 /* UIViewController+Exts.swift in Sources */,
 				87BCBA332358E135000BCF46 /* TipOption.swift in Sources */,
 				87BCBA302358E135000BCF46 /* TipSee.swift in Sources */,
 				87BCBA312358E135000BCF46 /* BubbleView.swift in Sources */,
-				F82900BC2369792B00FA2182 /* TipSeeWith.swift in Sources */,
-				F82900BF236979FD00FA2182 /* TipSeeManager.swift in Sources */,
+				F82900BC2369792B00FA2182 /* TipSeeConfiguration.swift in Sources */,
+				F82900BF236979FD00FA2182 /* TipSeeManagerProtocol.swift in Sources */,
 				87BCBA2D2358E135000BCF46 /* TipItem.swift in Sources */,
 				87BCBA2F2358E135000BCF46 /* TipTarget.swift in Sources */,
 				AD8BDECC2E0C0E3F2158D45C215704B6 /* TipSee-dummy.m in Sources */,
-				87BCBA322358E135000BCF46 /* TipSee-Exts.swift in Sources */,
+				87BCBA322358E135000BCF46 /* TipSeeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

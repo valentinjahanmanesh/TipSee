@@ -1,11 +1,10 @@
 //
 //  TipOption.swift
-//  Pods
+//  TipSee
 //
 //  Created by Farshad Jahanmanesh on 8/14/19.
 //
 
-import Foundation
 extension TipSee {
 	
 	public  enum BubbleLiveDuration {

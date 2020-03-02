@@ -1,12 +1,9 @@
 //
-//  HintItem.swift
-//  Pods
+//  TipItem.swift
+//  TipSee
 //
 //  Created by Farshad Jahanmanesh on 8/14/19.
 //
-
-import Foundation
-/// Hint Items
 
 extension TipSee.TipItem {
 	public static func == (lhs: TipSee.TipItem, rhs: TipSee.TipItem) -> Bool {
