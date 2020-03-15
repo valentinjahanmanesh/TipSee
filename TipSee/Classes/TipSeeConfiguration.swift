@@ -1,11 +1,9 @@
 //
-//  TipSeeWith.swift
-//  Pods-TipSee_Example
+//  TipSeeConfiguration.swift
+//  TipSee
 //
 //  Created by Farshad on 10/30/19.
 //
-
-import Foundation
 
 public protocol TipSeeConfiguration {
 	func with(_ mutations: (inout Self) -> Void) -> Self

@@ -5,8 +5,6 @@
 //  Created by Farshad Jahanmanesh on 8/14/19.
 //
 
-import Foundation
-import UIKit
 public class BubbleView: UIView {
 	public private(set) var insideView: UIView?
 	private let cornerRadius: CGFloat = 4
@@ -145,6 +143,5 @@ public class BubbleView: UIView {
 		path.append(roundedRectPath)
 		shape.fillColor = backColor?.cgColor
 		shape.path = path.cgPath
-		
 	}
 }

@@ -1,3 +1,11 @@
+//
+//  OptionsTests.swift
+//  TipSee_Example
+//
+//  Created by Farshad Jahanmanesh on 7/19/19.
+//  Copyright © 2019 CocoaPods. All rights reserved.
+//
+
 import XCTest
 import TipSee
 

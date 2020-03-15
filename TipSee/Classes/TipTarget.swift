@@ -1,11 +1,9 @@
 //
 //  TipTarget.swift
-//  Pods
+//  TipSee
 //
 //  Created by Farshad Jahanmanesh on 8/14/19.
 //
-
-import Foundation
 
 /// TipSee needs would interact with this type only
 public protocol TipTarget  {

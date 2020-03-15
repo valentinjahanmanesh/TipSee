@@ -1,6 +1,6 @@
 //
-//  TipPointerTests.swift
-//  TipSee_Tests
+//  TipSeeTests.swift
+//  TipSee_Example
 //
 //  Created by Farshad Jahanmanesh on 7/19/19.
 //  Copyright © 2019 CocoaPods. All rights reserved.
@@ -8,6 +8,7 @@
 
 import XCTest
 import TipSee
+
 class TipSeeTests: XCTestCase {
     var sut : TipSee!
     var window : UIWindow!
@@ -39,7 +40,7 @@ class TipSeeTests: XCTestCase {
         XCTAssertEqual(givenItem.bubbleOptions!.backgroundColor , .green)
     }
     
-    func testShownBubbleConent(){
+    func testShownBubbleContent(){
         let container = UIView()
         let targetView = UIView()
         container.addSubview(targetView)
@@ -53,7 +54,7 @@ class TipSeeTests: XCTestCase {
         XCTAssertNotNil(givenItem.contentView as? UILabel)
     }
     
-    func testShownBubbleConentText(){
+    func testShownBubbleContentText(){
         let container = UIView()
         let targetView = UIView()
         container.addSubview(targetView)
@@ -67,7 +68,7 @@ class TipSeeTests: XCTestCase {
         XCTAssert((givenItem.contentView as? UILabel)?.text == "hi")
     }
     
-    func testShownDissmisItem(){
+    func testShownDismissItem(){
         let container = UIView()
         let targetView = UIView()
         container.addSubview(targetView)
@@ -82,7 +83,7 @@ class TipSeeTests: XCTestCase {
         XCTAssert(sut.subviews.count == 0)
     }
     
-    func testNoOrderDissmiss(){
+    func testNoOrderDismiss() {
         let container = UIView()
         let targetView = UIView()
         container.addSubview(targetView)
@@ -115,9 +116,6 @@ class TipSeeTests: XCTestCase {
 		
 		item2 = nil
 		XCTAssertNil(item2)
-	}
-	
-	func testPostion(){
 	}
 	
 	public var options: TipSee.Options = TipSee.Options.default()

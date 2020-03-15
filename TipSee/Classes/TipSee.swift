@@ -1,14 +1,9 @@
-//  TipPointer.swift
-//  Core
+//  TipSee.swift
+//  TipSee
 //
 //  Created by Farshad Jahanmanesh on 7/2/19.
 //  Copyright © 2019 Tap30. All rights reserved.
 //
-
-import Foundation
-import UIKit
-
-
 
 public class TipSee: UIView, TipSeeManagerProtocol {
 	public typealias TapGesture = ((TipItem) -> Void)
@@ -46,11 +41,11 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 		return self.show(item: viewToShow, with: bubbleOption)
 	}
 	
-	@discardableResult public func createItem(for view : TipTarget,text : String, with bubbleOption: Options.Bubble? = nil) -> TipItem {
-		return  TipItem.init(ID: UUID().uuidString, pointTo: view, contentView: TipSee.createLabel(for: text, with: bubbleOption, defaultOptions: self.options) as UIView, bubbleOptions: bubbleOption)
+	@discardableResult public func createItem(for target: TipTarget, text: String, with bubbleOption: Options.Bubble? = nil) -> TipItem {
+		return TipItem(ID: UUID().uuidString, pointTo: target, contentView: TipSee.createLabel(for: text, with: bubbleOption, defaultOptions: self.options) as UIView, bubbleOptions: bubbleOption)
 	}
-	@discardableResult public static func createItem(for view : TipTarget,text : String, with bubbleOption: Options.Bubble? = nil) -> TipItem {
-		return  TipItem.init(ID: UUID().uuidString, pointTo: view, contentView: TipSee.createLabel(for: text, with: bubbleOption, defaultOptions: .default()) as UIView, bubbleOptions: bubbleOption)
+	@discardableResult public static func createItem(for target: TipTarget, text: String, with bubbleOption: Options.Bubble? = nil) -> TipItem {
+		return TipItem(ID: UUID().uuidString, pointTo: target, contentView: TipSee.createLabel(for: text, with: bubbleOption, defaultOptions: .default()) as UIView, bubbleOptions: bubbleOption)
 	}
 	
 	private final func clearAllViews(){
@@ -82,7 +77,7 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 	///   - bubbleOption: custom options for bubble
 	/// - Returns: generated item that can use to access to views or dismiss action
 	@discardableResult public func show(item: TipItem, with bubbleOption: Options.Bubble? = nil) -> TipItem {
-		let tip = TipItem.init(ID: item.ID.isEmpty ? UUID().uuidString : item.ID, pointTo: item.pointTo, contentView: item.contentView as UIView, bubbleOptions:  bubbleOption ?? item.bubbleOptions)
+		let tip = TipItem(ID: item.ID.isEmpty ? UUID().uuidString : item.ID, pointTo: item.pointTo, contentView: item.contentView as UIView, bubbleOptions:  bubbleOption ?? item.bubbleOptions)
 		if options.bubbleLiveDuration == .untilNext {
 			clearAllViews()
 		}
@@ -295,8 +290,8 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 	private func setBubbleConstraints(for bubble: BubbleView, to item: TipItem) -> UIRectEdge {
 		let view = item.pointTo
 		let preferredPosition = item.bubbleOptions?.position
-		let padding: UIEdgeInsets = item.bubbleOptions?.padding ?? UIEdgeInsets.all(16)
-		let position  = findBetterSpace(view: view, preferredPosition: preferredPosition, bubblePrefereddSize: bubble.frame)
+		let padding = item.bubbleOptions?.padding ?? UIEdgeInsets.all(16)
+		let position = findBetterSpace(view: view, preferredPosition: preferredPosition, bubblePrefereddSize: bubble.frame)
 		var arrowPoint: UIRectEdge = .right
 		
 		let targetFrame  = view.tipFrame
@@ -412,7 +407,7 @@ fileprivate extension UIRectEdge {
 
 fileprivate extension UIEdgeInsets {
 	static func all(_ value: CGFloat) -> UIEdgeInsets {
-		return UIEdgeInsets.init(top: value, left: value, bottom: value, right: value)
+		return UIEdgeInsets(top: value, left: value, bottom: value, right: value)
 	}
 	
 	var totalX: CGFloat {
@@ -426,22 +421,22 @@ fileprivate extension UIEdgeInsets {
 
 extension String {
 	func height(font: UIFont, widthConstraint: CGFloat) -> CGFloat {
-		let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: widthConstraint, height: CGFloat.greatestFiniteMagnitude))
+		let label = UILabel(frame: CGRect(x: 0, y: 0, width: widthConstraint, height: CGFloat.greatestFiniteMagnitude))
 		label.numberOfLines = 0
 		label.lineBreakMode = NSLineBreakMode.byWordWrapping
 		label.font = font
 		label.text = self + "  "
-		
+
 		label.sizeToFit()
 		return label.frame.height
 	}
 	func width(font: UIFont, widthConstraint: CGFloat, heightConstraint: CGFloat) -> CGFloat {
-		let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: widthConstraint, height: heightConstraint))
+		let label = UILabel(frame: CGRect(x: 0, y: 0, width: widthConstraint, height: heightConstraint))
 		label.numberOfLines = 0
 		label.lineBreakMode = NSLineBreakMode.byWordWrapping
 		label.font = font
 		label.text = self + "  "
-		
+
 		label.sizeToFit()
 		return label.frame.width
 	}
@@ -482,7 +477,7 @@ extension TipSee {
 				self.finish()
 			}
 		}
-		
+
 		return !isInTheActionable
 	}
 }
@@ -541,9 +536,9 @@ extension TipSee {
 	private func findBubbleProperSize(for view: UIView,on availableSpace: CGSize? = nil) -> CGSize {
 		var calculatedFrame = CGSize.zero
 		let availableSpace = availableSpace ?? CGSize(width: UIScreen.main.bounds.width - (64), height: UIScreen.main.bounds.height)
-		if let label = view as? UILabel, let text = label.text {
-			calculatedFrame.height = text.height(font: label.font, widthConstraint: availableSpace.width) + 16
-			calculatedFrame.width = text.width(font: label.font, widthConstraint: availableSpace.width, heightConstraint: self.frame.size.height) + 16
+		if let label = view as? UILabel, let text = label.attributedText {
+			calculatedFrame.height = text.height(widthConstraint: availableSpace.width) + 16
+			calculatedFrame.width = text.width(widthConstraint: availableSpace.width, heightConstraint: self.frame.size.height) + 16
 		}else {
 			calculatedFrame = view.frame.insetBy(dx: -8, dy: -8).size
 		}
@@ -562,9 +557,9 @@ extension BubbleView {
 		let bubbleView = self
 		var calculatedFrame = CGSize.zero
 		let availableSpace = availableSpace ?? CGSize(width: UIScreen.main.bounds.width - (64), height: UIScreen.main.bounds.height)
-		if let label = view as? UILabel, let text = label.text {
-			calculatedFrame.height = text.height(font: label.font, widthConstraint: availableSpace.width) + 16
-			calculatedFrame.width = text.width(font: label.font, widthConstraint: availableSpace.width, heightConstraint: self.frame.size.height) + 16
+		if let label = view as? UILabel, let text = label.attributedText {
+			calculatedFrame.height = text.height(widthConstraint: availableSpace.width) + 16
+			calculatedFrame.width = text.width(widthConstraint: availableSpace.width, heightConstraint: self.frame.size.height) + 16
 		}else {
 			calculatedFrame = view.frame.insetBy(dx: -8, dy: -8).size
 			bubbleView.translatesAutoresizingMaskIntoConstraints = false
