@@ -99,15 +99,23 @@ class ViewController: UIViewController {
 				
         self.tips = TipSeeManager(on: self.view.window!,with: defaultTipOption)
        
-		tips!.add(new: self.pugImage, texts: ["We can show interactive hints on top of the views or where ever we want but finding the best place to put the bubble (or custom view) is based on the TipSee's decision. it will find best place to show the hint by considering the available space and the content size, smartly",
-		"We can show interactive hints on top of the 's decision. it will find best place to show the hint by considering the available space and the content size, smartly"
-			,"We can show interactive hints on top of the views or "], with: pugLoveConfig) { previousButton, nextButton in
-				nextButton.imageView?.contentMode = .scaleAspectFit
-				previousButton.imageView?.contentMode = .scaleAspectFit
-				nextButton.setImage(#imageLiteral(resourceName: "right-arrow.pdf"), for: .normal)
-				previousButton.setImage(#imageLiteral(resourceName: "left-arrow.pdf"), for: .normal)
-				previousButton.tintColor = .white
-				nextButton.tintColor = .white
+		tips!.add(
+			new: self.pugImage,
+			texts: [
+				"We can show interactive tips on top of views or anything else conforming to `TipTarget`.",
+				"The positioning of the tip bubble (or custom view) is automatically calculated by TipSee for you.",
+				"This decision is based on the size of the tip and the available space around it.",
+				"Alternatively, the tip position can be explicity set for precise control."
+			],
+			with: pugLoveConfig)
+		{
+			previousButton, nextButton in
+			nextButton.imageView?.contentMode = .scaleAspectFit
+			previousButton.imageView?.contentMode = .scaleAspectFit
+			nextButton.setImage(#imageLiteral(resourceName: "right-arrow.pdf"), for: .normal)
+			previousButton.setImage(#imageLiteral(resourceName: "left-arrow.pdf"), for: .normal)
+			previousButton.tintColor = .white
+			nextButton.tintColor = .white
 		}
 		
         tips!.add(new: self.pugImage, text: "Best dog ever <3 <3 ^_^ ^_^", with: pugDescriptionConfig.with{$0.position = .right})
@@ -151,18 +159,24 @@ class ViewController: UIViewController {
 			}
 		})
         
-        tips!.add(new: self.noConstraintsButton,text: "Hi!",with:transformed.with{$0.backgroundColor = .red})
+        tips!.add(new: self.noConstraintsButton,text: "Hi!", with:transformed.with{ $0.backgroundColor = .red })
 		
-		tips!.add(new: SimpleTipTarget(on:  CGRect(x: UIScreen.main.bounds.midX - 50, y: UIScreen.main.bounds.midY - 50, width: 100, height: 100), cornerRadius: 50),text:"no view just shows a tip on this bounds",with:transformed.with{$0.backgroundColor = .red})
+		tips!.add(
+			new: SimpleTipTarget(on:  CGRect(x: UIScreen.main.bounds.midX - 50, y: UIScreen.main.bounds.midY - 50, width: 100, height: 100),cornerRadius: 50),
+			text: "Tip with no target view, just an arbitrary fixed position", with: transformed.with{$0.backgroundColor = .red})
 
-		tips!.add(new: self.bigBottomButton,text: "We can show interactive hints on top of the views or where ever we want but finding the best place to put the bubble (or custom view) is based on the TipSee's decision. it will find best place to show the hint by considering the available space and the content size, smartly",with: transformed.with{
-			$0.onTargetAreaTap = {[weak self]_ in
-				guard let degree = self?.rotationDegree else {return}
- 				self?.rotationDegree = (degree * -1)
+		tips!.add(
+			new: self.bigBottomButton,
+			text: "A long piece of tip text which needs to span over multiple lines. This tip text will only fit if placed above the target area. This placement is provided for us by TipSee.",
+			with: transformed.with {
+				$0.onTargetAreaTap = { [weak self]_ in
+					guard let degree = self?.rotationDegree else {return}
+					self?.rotationDegree = (degree * -1)
+				}
+				$0.backgroundColor = UIColor.black
+				$0.finishOnTargetAreaTap = true
 			}
-			$0.backgroundColor = UIColor.black
-			$0.dismissOnTargetAreaTap = true
-		})
+		)
 
         tips!.onBubbleTap = {[unowned tips] _ in
 			tips?.next()

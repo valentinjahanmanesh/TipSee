@@ -18,10 +18,10 @@ extension TipSee {
 		case keepTargetAreaCornerRadius
 		
 		/// sets constant radius for all
-		case constantRadius(radius : CGFloat)
+		case constantRadius(radius: CGFloat)
 		
 		/// sets a constant default value or uses the target view layer corner radius if it is greater that the default value
-		case defaultOrGreater(default : CGFloat)
+		case defaultOrGreater(default: CGFloat)
 		
 		/// no corner rradius
 		case none
@@ -32,44 +32,60 @@ extension TipSee {
 		public struct Bubble: TipSeeConfiguration {
 			
 			/// bubble's background color
-			public  var backgroundColor: UIColor
+			public var backgroundColor: UIColor
 			
 			/// preferred position for the bubble
-			public  var position: BubblePosition?
+			public var position: BubblePosition?
 			
 			/// text's font
-			public  var font: UIFont
+			public var font: UIFont
 			
 			/// text's color
-			public  var foregroundColor: UIColor
+			public var foregroundColor: UIColor
 			
 			/// text's alignment
-			public  var textAlignments: NSTextAlignment
+			public var textAlignments: NSTextAlignment
 			
 			/// bubble's appearance animation (bounce + fade-in)
-			public  var hasAppearAnimation: Bool
+			public var hasAppearAnimation: Bool
 			
 			/// distance between the bubble and the target view
-			public  var padding: UIEdgeInsets = .zero
+			public var padding: UIEdgeInsets = .zero
 			
-			/// whole tip(dim and bubble) should be dismiss when user is touched on the target area
-			public  var dismissOnTargetAreaTap: Bool
+			/// Whole tip (dimming and bubble) should be dismissed when user taps on the target area.
+			public var finishOnTargetAreaTap: Bool
 			
-			/// default is false, it true, touches on target area will be passed throught
-			public var isTargetAreaUserinteractionEnabled: Bool
+			/// default is false. It true, touches on target area will be passed through
+			public var shouldPassTouchesThroughTargetArea: Bool
 			
 			/// will execute when user taps on target area
-			public var onTargetAreaTap : TapGesture?
+			public var onTargetAreaTap: TapGesture?
 			
 			/// each tip could has a different dim color
-			public var changeDimColor : UIColor?
-			
+			public var changeDimColor: UIColor?
+
+			/// Whole tip (dimming and bubble) should be dismissed when user taps on the bubble.
+			public var finishOnBubbleTap: Bool
+
 			/// will execute when user taps on the bubble
-			public var onBubbleTap : TapGesture?
+			public var onBubbleTap: TapGesture?
+
 			public static func `default`()->TipSee.Options.Bubble {
-				return Options.Bubble(backgroundColor: .red, position: nil, font: UIFont.boldSystemFont(ofSize: 15), foregroundColor: UIColor.white, textAlignments: .center, hasAppearAnimation: true, padding: .init(top: 16, left: 16, bottom: 16, right: 16), dismissOnTargetAreaTap: false, isTargetAreaUserinteractionEnabled: false,onTargetAreaTap: nil,changeDimColor : nil,onBubbleTap: nil)
+				return Options.Bubble(
+					backgroundColor: .red,
+					position: nil,
+					font: UIFont.boldSystemFont(ofSize: 15),
+					foregroundColor: UIColor.white,
+					textAlignments: .center,
+					hasAppearAnimation: true,
+					padding: .init(top: 16, left: 16, bottom: 16, right: 16),
+					finishOnTargetAreaTap: false,
+					shouldPassTouchesThroughTargetArea: false,
+					onTargetAreaTap: nil,
+					changeDimColor: nil,
+					finishOnBubbleTap: false,
+					onBubbleTap: nil)
 			}
-			
 		}
 		
 		/// buble's options, bubbles will get the default if nothings set
@@ -96,16 +112,24 @@ extension TipSee {
 		/// indicates bubble's margin
 		public var safeAreaInsets: UIEdgeInsets
 		
-		/// if false, the dimTap Callback will not call. some times we need to let users to interact with the views behinde the dim
-		public var absorbDimTouch : Bool
-		
-		/// if true, dim will fade after one second, combine this with absorbDimTouch if you want
-		public var dimFading : Bool
-		
-		/// how long should be taken for the hole to move to the next taeget, default is 0.2s
+		/// if true, dim will fade after one second
+		public var dimFading: Bool
+
+		/// default is false. It true, touches on the dimmed area will be passed through
+		public var shouldPassTouchesThroughDimmingArea: Bool
+
 		public var holePositionChangeDuration: TimeInterval
 		public static func `default`()->TipSee.Options {
-			return Options(bubbles: Options.Bubble.default(), dimColor: UIColor.black.withAlphaComponent(0.7), bubbleLiveDuration: .forever, defaultBubblePosition: .left, holeRadius: .defaultOrGreater(default: 8), safeAreaInsets: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16),absorbDimTouch: true,dimFading: true, holePositionChangeDuration: 0.2)
+			return Options(
+				bubbles: Options.Bubble.default(),
+				dimColor: UIColor.black.withAlphaComponent(0.7),
+				bubbleLiveDuration: .forever,
+				defaultBubblePosition: .left,
+				holeRadius: .defaultOrGreater(default: 8),
+				safeAreaInsets: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16),
+				dimFading: true,
+				shouldPassTouchesThroughDimmingArea: false,
+				holePositionChangeDuration: 0.5)
 		}
 	}
 }

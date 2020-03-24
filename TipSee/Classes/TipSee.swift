@@ -28,8 +28,11 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 	
 	/// in a very odd situation, hit test called twice and we want to prevent multiple calls to our functions
 	fileprivate var touched : (view:UIView?,timeStamp: Date?)
+
 	public var onBubbleTap: TapGesture?
 	public var onDimTap : TapGesture?
+	public var onFinished: (() -> Void)?
+
 	/// shows a bubble which points to the given view
 	///
 	/// - Parameters:
@@ -87,21 +90,21 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 	}
 	
 	private final func attachToWindow() {
-		self.frame	 = _window.frame
+		self.frame	= _window.frame
 		self.tag = 9891248
 		_window.addSubview(self)
 		_window.bringSubviewToFront(self)
 	}
-	
-	
+
 	/// has animation
 	public func finish() {
 		UIView.animateKeyframes(withDuration: 0.2, delay: 0, options: [], animations: {
 			self.alpha = 0
-		}) { (done) in
+		}) { done in
 			if done {
 				self.removeFromSuperview()
 			}
+			self.onFinished?()
 		}
 	}
 	
@@ -151,8 +154,7 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 		options.dimColor = latestTip?.bubbleOptions?.changeDimColor ?? options.dimColor
 		self.cutHole(for: pathBigRect.cgPath, startPoint: startPoint)
 	}
-	
-	//    private var mainWindow: UIWindow!
+
 	public init(on window: UIWindow) {
 		self._window = window
 		super.init(frame: .zero)
@@ -168,6 +170,7 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 		}
 		onDimTap?(latestTip)
 	}
+
 	public required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
@@ -180,9 +183,13 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 		}
 		if let customGesture = item.bubbleOptions?.onBubbleTap {
 			customGesture(item)
-		}else{
+		}
+		else {
 			onBubbleTap?(item)
-			
+		}
+		let option = item.bubbleOptions ?? self.options.bubbles
+		if option.finishOnBubbleTap {
+			self.finish()
 		}
 	}
 	
@@ -450,35 +457,50 @@ extension TipSee {
 			self.touched = (nil,nil)
 			return touchedView
 		}
-		let hitted  = super.hitTest(point, with: event)
-		self.touched = (hitted,Date())
-		if hitted == self, !options.absorbDimTouch {
-			return nil
-		}
-		else if hitted == self, options.absorbDimTouch{
-			return hitted
-		}
-		return hitted
+		let hitView = super.hitTest(point, with: event)
+		self.touched = (hitView, Date())
+
+		return hitView
 	}
+
 	public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
 		guard shadowLayerPath != nil, let latestTip = latestTip  else {
 			return false
 		}
 		let targetArea = latestTip.pointTo
-		let cutted = targetArea.tipFrame.insetBy(dx: -4, dy: -4)
-		let isInTheActionable = cutted.contains(point)
+		let insetTargetArea = targetArea.tipFrame.insetBy(dx: -4, dy: -4)
+
+		let isInTargetArea = insetTargetArea.contains(point)
 		let option = latestTip.bubbleOptions ?? self.options.bubbles
-		if !option.isTargetAreaUserinteractionEnabled {
-			return true
-		}
-		if isInTheActionable {
+
+		if isInTargetArea {
 			option.onTargetAreaTap?(latestTip)
-			if option.dismissOnTargetAreaTap {
+			if option.finishOnTargetAreaTap {
 				self.finish()
 			}
+
+			if option.shouldPassTouchesThroughTargetArea == false {
+				// Consume the touch
+				return true
+			}
+			return false
 		}
 
-		return !isInTheActionable
+		let isInBubbleArea = bubbles.last?.frame.contains(point) ?? false
+		if isInBubbleArea {
+			// Consume the touch
+			return true
+		}
+
+		let isInDimmingArea = frame.contains(point)
+		if isInDimmingArea {
+			if options.shouldPassTouchesThroughDimmingArea == false {
+				// Consume the touch
+				return true
+			}
+			return false
+		}
+		return false
 	}
 }
 

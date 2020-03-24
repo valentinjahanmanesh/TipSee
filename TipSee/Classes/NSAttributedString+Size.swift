@@ -16,6 +16,6 @@ extension NSAttributedString {
 		let rect = self.boundingRect(with: CGSize(width: widthConstraint, height: heightConstraint),
 									 options: [.usesLineFragmentOrigin, .usesFontLeading],
 									 context: nil)
-        return ceil(rect.size.width + 10)
+        return ceil(rect.size.width)
 	}
 }
