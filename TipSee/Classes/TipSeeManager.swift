@@ -6,20 +6,25 @@
 //
 
 public final class TipSeeManager {
-    public private(set) var pointer : TipSee
-    public internal(set) var tips : [TipSee.TipItem]
-    public private(set) var latestTip : TipSee.TipItem?
+    public private(set) var pointer: TipSee
+    public internal(set) var tips: [TipSee.TipItem]
+    public private(set) var latestTip: TipSee.TipItem?
     public var onBubbleTap: ((TipSee.TipItem?) -> Void)? {
-        didSet{
+        didSet {
             pointer.onBubbleTap = self.onBubbleTap
         }
     }
-    public var onDimTap : ((TipSee.TipItem?) -> Void)? {
-        didSet{
+    public var onDimTap: ((TipSee.TipItem?) -> Void)? {
+        didSet {
             pointer.onDimTap = self.onDimTap
         }
     }
-    public private(set) var currentIndex : Int? {
+	public var onFinished: (() -> Void)? {
+		didSet {
+			pointer.onFinished = self.onFinished
+		}
+	}
+    public private(set) var currentIndex: Int? {
         didSet {
             guard let index = currentIndex else {
                 self.pointer.finish()
@@ -67,7 +72,9 @@ public final class TipSeeManager {
         let next = currentIndex+1
         if next < tips.count {
             self.currentIndex = next
-        }
+		} else {
+			finish()
+		}
     }
     
     // shows the previous tip
@@ -88,7 +95,12 @@ public final class TipSeeManager {
 
 extension TipSeeManager {
 	
-	public func add(new view: TipTarget, texts strings: [String], with bubbleOption: TipSee.Options.Bubble?, buttonsConfigs: ((_ previousButton :UIButton, _ nextButton: UIButton)->Void)) {
+	public func add(
+		new view: TipTarget,
+		texts strings: [String],
+		with bubbleOption: TipSee.Options.Bubble?,
+		buttonsConfigs: ((_ previousButton: UIButton, _ nextButton: UIButton) -> Void))
+	{
 		let buttonsHeight : CGFloat = 30
 		let font = bubbleOption?.font ?? pointer.options.bubbles.font
 		var containerHeight  : CGFloat = 40
@@ -183,6 +195,5 @@ extension TipSeeManager {
 		frame.origin.x = frame.size.width * CGFloat(page)
 		frame.origin.y = 0
 		scrollView.scrollRectToVisible(frame, animated: true)
-		
 	}
 }

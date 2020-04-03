@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.version          = '1.4.1'
+  s.version          = '1.5.0'
   s.name             = 'TipSee'
   s.module_name      = 'TipSee'
   s.summary          = 'shows tool beautiful tip or custom views on or alongside the other views.'

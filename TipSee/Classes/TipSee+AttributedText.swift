@@ -35,11 +35,11 @@ extension TipSee {
 	) -> UILabel
 	{
 		let label = UILabel()
+		label.attributedText = text
 		label.textAlignment = .center
 		label.lineBreakMode = .byWordWrapping
 		label.numberOfLines = 0
 		label.font = itemOptions?.font ?? options.bubbles.font
-		label.attributedText = text
 		label.sizeToFit()
 		label.textColor = itemOptions?.foregroundColor ?? options.bubbles.foregroundColor
 		return label
