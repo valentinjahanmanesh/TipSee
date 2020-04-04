@@ -5,6 +5,8 @@
 //  Created by Adam Law on 01/03/2020.
 //
 
+import UIKit
+
 extension NSAttributedString {
 	func height(widthConstraint: CGFloat) -> CGFloat {
         let rect = self.boundingRect(with: CGSize(width: widthConstraint, height: CGFloat.greatestFiniteMagnitude),

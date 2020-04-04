@@ -5,6 +5,8 @@
 //  Created by Farshad Jahanmanesh on 7/18/19.
 //
 
+import UIKit
+
 public final class TipSeeManager {
     public private(set) var pointer: TipSee
     public internal(set) var tips: [TipSee.TipItem]

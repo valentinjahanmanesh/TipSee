@@ -7,14 +7,14 @@
 #
 
 Pod::Spec.new do |s|
-  s.version          = '1.5.0'
+  s.version          = '1.6.0'
   s.name             = 'TipSee'
   s.module_name      = 'TipSee'
-  s.summary          = 'shows tool beautiful tip or custom views on or alongside the other views.'
+  s.summary          = 'A lightweight, highly customizable tip / hint library for Swift'
   s.swift_version = '5.0'
 
   s.description      = <<-DESC
-TipSee is a library to make beautiful hints, it is fully customizable and predictable, you can change anything before and during presentation.
+  TipSee is a lightweight and highly customizable library that helps you to show beautiful tips and hints.
                        DESC
 
   s.homepage         = 'https://github.com/farshadjahanmanesh/TipSee'
@@ -24,6 +24,6 @@ TipSee is a library to make beautiful hints, it is fully customizable and predic
   s.source           = { :git => 'https://github.com/farshadjahanmanesh/TipSee', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/<farshadjahanmanesh>'
   s.ios.deployment_target = '9.0'
-  s.source_files = 'TipSee/Classes/**/*'
+  s.source_files = 'Sources/**/*.swift'
   s.frameworks = 'UIKit'
 end

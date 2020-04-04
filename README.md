@@ -23,13 +23,22 @@
 - [ ] it is good for tip to follow it's target area movements
 
 # What we can do with TipSee?
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; We can show interactive hints on top of the views or where ever we want but finding the best place to put the bubble (or custom view) is based on the TipSee's decision. it will find best place to show the hint by considering the available space and the content size, smartly. we can show custom views (like that heart) or simple text as you've seen in the Gif. Tips can point to all kind of views like button, images and ... or just a specific part of the view controller(like the hint that points to the center of the view in the gif) 
+We can show interactive hints on top of the views or where ever we want but finding the best place to put the bubble (or custom view) is based on the TipSee's decision. it will find best place to show the hint by considering the available space and the content size, smartly. we can show custom views (like that heart) or simple text as you've seen in the Gif. Tips can point to all kind of views like button, images and ... or just a specific part of the view controller(like the hint that points to the center of the view in the gif) 
 
 
-# How much TipSee is customizable: 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; There are two types of config, one for the whole and global things (which will apply to all hints and tips) and one specific configuration for each bubble. **TipSee.Options** is the one we set to have a global configuration for all bubbles and tips and **TipSee.Options.Bubble** which is our configuration for each hint. it means that we can change the background color, font and ... for each tip, or we can just set a general configuration for all hints. so we start with global one:
+# Customization options: 
+There are two types of configuration;
+* Global, base configuration of all tips within a given instance of TipSee - **TipSee.Options**
+* Individual tip configuration - **TipSee.Options.Bubble**
+
+If a both a base and per tip configuration is set, then the per tip configuration will take precendence.
+
+**Global Options**
 ```swift
-public struct Options: HintConfiguration {
+public struct Options: TipSeeConfiguration {
+
+    /// buble's options, bubbles will get the default if nothings set
+    public var bubbles: Bubble
 
     /// default dim's color, each bubble could changes this color(optionaly) by setting the bubble.dimBackgroundColor
     public var dimColor: UIColor
@@ -49,58 +58,60 @@ public struct Options: HintConfiguration {
     /// none : no corner rradius
     public var holeRadius: HoleRadius
 
-    /// indicates bubble's margin with the target area
+    /// indicates bubble's margin
     public var safeAreaInsets: UIEdgeInsets
 
-    /// if false, the dimTap Callback will not call. some times we need to let users to interact with the views behinde the dim
-    public var absorbDimTouch : Bool
+    /// if true, dim will fade after one second
+    public var dimFading: Bool
 
-    /// if true, dim will fade after one second, combine this with absorbDimTouch if you want to have an interactive area while your hint is showing, by default, a dim will cover all the screen and user can not touch the things behind that dim
-    public var dimFading : Bool
+    /// default is false. It true, touches on the dimmed area will be passed through
+    public var shouldPassTouchesThroughDimmingArea: Bool
 
-
-    /// bublbe's options. all bubbles will setup by this one if they will have not specified one for themself until presentaion. every bubble can has their own configuration and if we set specific configuration for a hint, that one will apply and this one is ignored
-    public var bubbles: Bubble
-    
+    public var holePositionChangeDuration: TimeInterval
 }
 ```
 **Bubble Options**
 ```swift 
-public struct Bubble {
-    
+public struct Bubble: TipSeeConfiguration {
+  
     /// bubble's background color
-    public  var backgroundColor: UIColor
-    
-    /// preferred position for the bubble, this is preferred because sometimes there is not enough space there, TipSee needs to choose a better place to put the bubble
-    public  var position: BubblePosition?
-    
-    /// text font
-    public  var font: UIFont
-    
-    /// text color
-    public  var foregroundColor: UIColor
-    
-    /// text alignment
-    public  var textAlignments: NSTextAlignment
-    
-    /// bubble's presentaion animation which is (bounce + fade-in), do you want your bubbles have?
-    public  var hasAppearAnimation: Bool
-    
+    public var backgroundColor: UIColor
+
+    /// preferred position for the bubble
+    public var position: BubblePosition?
+
+    /// text's font
+    public var font: UIFont
+
+    /// text's color
+    public var foregroundColor: UIColor
+
+    /// text's alignment
+    public var textAlignments: NSTextAlignment
+
+    /// bubble's appearance animation (bounce + fade-in)
+    public var hasAppearAnimation: Bool
+
     /// distance between the bubble and the target view
-    public  var padding: UIEdgeInsets = .zero
-    
-    /// whole hint(dim and bubble) should be dismiss when user is touched on the target area
-    public  var dismissOnTargetAreaTap: Bool
-    
+    public var padding: UIEdgeInsets = .zero
+
+    /// Whole tip (dimming and bubble) should be dismissed when user taps on the target area.
+    public var finishOnTargetAreaTap: Bool
+
+    /// default is false. It true, touches on target area will be passed through
+    public var shouldPassTouchesThroughTargetArea: Bool
+
     /// will execute when user taps on target area
-    public var onTargetAreaTap : TapGesture?
-    
-    /// each hint could has a different dim color which is viewable in the animation(sun and moon)
-    public var changeDimColor : UIColor?
-    
+    public var onTargetAreaTap: TapGesture?
+
+    /// each tip could has a different dim color
+    public var changeDimColor: UIColor?
+
+    /// Whole tip (dimming and bubble) should be dismissed when user taps on the bubble.
+    public var finishOnBubbleTap: Bool
+
     /// will execute when user taps on the bubble
-    public var onBubbleTap : TapGesture?
-    
+    public var onBubbleTap: TapGesture?
 }
 ```
 
@@ -184,11 +195,22 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 this library doe's not need any requirement and has written in Swift5.
 ## Installation
 
-TipSee is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+#### Using [CocoaPods](https://cocoapods.org)
+
+Edit your `Podfile` and specify the dependency:
 
 ```ruby
 pod 'TipSee'
+```
+
+#### Using [Swift Package Manager](https://github.com/apple/swift-package-manager)
+
+Once you have your Swift package set up, adding `TipSee` as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
+
+```swift
+  dependencies: [
+    .package(url: "https://github.com/farshadjahanmanesh/TipSee.git", from: "1.6.0")
+  ]
 ```
 
 ## Author
