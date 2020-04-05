@@ -2,10 +2,9 @@ use_frameworks!
 
 target 'TipSee_Example' do
   pod 'TipSee', :path => '../'
+  platform :ios, '9.0'
 
   target 'TipSee_Tests' do
     inherit! :search_paths
-
-    
   end
 end

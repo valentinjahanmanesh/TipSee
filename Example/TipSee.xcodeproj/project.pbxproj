@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		53665253240C4DD400CC1370 /* TipSeeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53665251240C4D9F00CC1370 /* TipSeeManagerTests.swift */; };
+		53AF54132438B78E00B26705 /* OptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AF54092438B78000B26705 /* OptionsTests.swift */; };
+		53AF54142438B78E00B26705 /* TipSeeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AF540A2438B78000B26705 /* TipSeeTests.swift */; };
+		53AF54152438B78E00B26705 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AF540B2438B78000B26705 /* XCTestManifests.swift */; };
+		53AF54162438B78E00B26705 /* TipItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AF540C2438B78000B26705 /* TipItemTests.swift */; };
+		53AF54172438B78E00B26705 /* TipSeeManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AF540D2438B78000B26705 /* TipSeeManagerTests.swift */; };
 		5AC6E7D42FDCDF1B8F12B48B /* Pods_TipSee_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E79AABA03E0B1320CB887CE /* Pods_TipSee_Tests.framework */; };
 		87BCBA3D2358E166000BCF46 /* TipSee.gif in Resources */ = {isa = PBXBuildFile; fileRef = 87BCBA352358E166000BCF46 /* TipSee.gif */; };
 		87BCBA442358E166000BCF46 /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87BCBA3C2358E166000BCF46 /* logo.jpg */; };
@@ -20,9 +24,6 @@
 		87BCBA592358E3FB000BCF46 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 87BCBA542358E3FB000BCF46 /* LICENSE */; };
 		87BCBA5A2358E3FB000BCF46 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 87BCBA552358E3FB000BCF46 /* CHANGELOG.md */; };
 		87BCBA5C2358E3FB000BCF46 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 87BCBA572358E3FB000BCF46 /* README.md */; };
-		87BCBA6E2358E524000BCF46 /* TipSeeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCBA6B2358E524000BCF46 /* TipSeeTests.swift */; };
-		87BCBA6F2358E524000BCF46 /* TipItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCBA6C2358E524000BCF46 /* TipItemTests.swift */; };
-		87BCBA702358E524000BCF46 /* OptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCBA6D2358E524000BCF46 /* OptionsTests.swift */; };
 		A5DA80CC545C67E4D77AE5EF /* Pods_TipSee_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBADEF3899A7E55B834BF071 /* Pods_TipSee_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +41,11 @@
 		0E79AABA03E0B1320CB887CE /* Pods_TipSee_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TipSee_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		185AE1F4B18EDFA276B12D07 /* Pods-TipSee_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TipSee_Example.debug.xcconfig"; path = "Target Support Files/Pods-TipSee_Example/Pods-TipSee_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		1E84A910905483281EED216C /* Pods-TipSee_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TipSee_Tests.debug.xcconfig"; path = "Target Support Files/Pods-TipSee_Tests/Pods-TipSee_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		53665251240C4D9F00CC1370 /* TipSeeManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipSeeManagerTests.swift; sourceTree = "<group>"; };
+		53AF54092438B78000B26705 /* OptionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsTests.swift; sourceTree = "<group>"; };
+		53AF540A2438B78000B26705 /* TipSeeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipSeeTests.swift; sourceTree = "<group>"; };
+		53AF540B2438B78000B26705 /* XCTestManifests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
+		53AF540C2438B78000B26705 /* TipItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipItemTests.swift; sourceTree = "<group>"; };
+		53AF540D2438B78000B26705 /* TipSeeManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipSeeManagerTests.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* TipSee_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipSee_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* TipSee_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipSee_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,9 +63,6 @@
 		87BCBA542358E3FB000BCF46 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		87BCBA552358E3FB000BCF46 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		87BCBA572358E3FB000BCF46 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		87BCBA6B2358E524000BCF46 /* TipSeeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipSeeTests.swift; sourceTree = "<group>"; };
-		87BCBA6C2358E524000BCF46 /* TipItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipItemTests.swift; sourceTree = "<group>"; };
-		87BCBA6D2358E524000BCF46 /* OptionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsTests.swift; sourceTree = "<group>"; };
 		A41F56FC353C7EC3C9F6E995 /* Pods-TipSee_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TipSee_Example.release.xcconfig"; path = "Target Support Files/Pods-TipSee_Example/Pods-TipSee_Example.release.xcconfig"; sourceTree = "<group>"; };
 		BBADEF3899A7E55B834BF071 /* Pods_TipSee_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TipSee_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -85,6 +87,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53AF54082438B78000B26705 /* TipSeeTests */ = {
+			isa = PBXGroup;
+			children = (
+				53AF54092438B78000B26705 /* OptionsTests.swift */,
+				53AF540A2438B78000B26705 /* TipSeeTests.swift */,
+				53AF540B2438B78000B26705 /* XCTestManifests.swift */,
+				53AF540C2438B78000B26705 /* TipItemTests.swift */,
+				53AF540D2438B78000B26705 /* TipSeeManagerTests.swift */,
+			);
+			name = TipSeeTests;
+			path = ../../Tests/TipSeeTests;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -132,10 +147,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				87BCBA6D2358E524000BCF46 /* OptionsTests.swift */,
-				53665251240C4D9F00CC1370 /* TipSeeManagerTests.swift */,
-				87BCBA6C2358E524000BCF46 /* TipItemTests.swift */,
-				87BCBA6B2358E524000BCF46 /* TipSeeTests.swift */,
+				53AF54082438B78000B26705 /* TipSeeTests */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -384,10 +396,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87BCBA702358E524000BCF46 /* OptionsTests.swift in Sources */,
-				87BCBA6E2358E524000BCF46 /* TipSeeTests.swift in Sources */,
-				87BCBA6F2358E524000BCF46 /* TipItemTests.swift in Sources */,
-				53665253240C4DD400CC1370 /* TipSeeManagerTests.swift in Sources */,
+				53AF54152438B78E00B26705 /* XCTestManifests.swift in Sources */,
+				53AF54142438B78E00B26705 /* TipSeeTests.swift in Sources */,
+				53AF54172438B78E00B26705 /* TipSeeManagerTests.swift in Sources */,
+				53AF54162438B78E00B26705 /* TipItemTests.swift in Sources */,
+				53AF54132438B78E00B26705 /* OptionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

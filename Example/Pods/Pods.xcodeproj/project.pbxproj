@@ -3,31 +3,32 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0234E209F280B66B77C985757C70BD3B /* TipTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09354549D03D2D0F3DA9FD74B80F5AC3 /* TipTarget.swift */; };
+		1077C3D6CAD24AF1A7F49B805071DF20 /* TipSeeManager+AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF877C3A77D1CCB90E7ADF9A73BC39 /* TipSeeManager+AttributedText.swift */; };
+		2576C6661EE0ADDE66DB6D4D168F4D5D /* TipSee.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF187EA30B14AE3B364279C0490CA61F /* TipSee.swift */; };
+		25ECBD50A835821CF6A922F7E7D723C9 /* TipSeeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671479C2B73A9A1593BAFA8498FB1110 /* TipSeeManager.swift */; };
 		285B8ED437195E9D9C0B966F934098E0 /* Pods-TipSee_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 730ACFD2C6715FD3F414215C72929B5F /* Pods-TipSee_Tests-dummy.m */; };
-		48079BA504D63CCA5EDEA28AE24B183C /* TipSee-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 190B1FD472F39D6681F963042AB502B6 /* TipSee-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50AB26B9BB8A5A766F037018662F6071 /* Pods-TipSee_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 626E30C2E78E6D73BC3500BE14D8B7ED /* Pods-TipSee_Example-dummy.m */; };
-		53213060242A8AB500649999 /* TipSeeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5321305E242A8AAA00649999 /* TipSeeManager.swift */; };
-		5366524E240C331300CC1370 /* TipSeeManager+AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5366524D240C331200CC1370 /* TipSeeManager+AttributedText.swift */; };
-		53665256240CF01D00CC1370 /* NSAttributedString+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53665255240CF01D00CC1370 /* NSAttributedString+Size.swift */; };
-		5366525A240CFB1B00CC1370 /* TipSee+AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53665259240CFB1B00CC1370 /* TipSee+AttributedText.swift */; };
-		87BCBA2D2358E135000BCF46 /* TipItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCBA262358E134000BCF46 /* TipItem.swift */; };
-		87BCBA2E2358E135000BCF46 /* UIViewController+Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCBA272358E134000BCF46 /* UIViewController+Exts.swift */; };
-		87BCBA2F2358E135000BCF46 /* TipTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCBA282358E134000BCF46 /* TipTarget.swift */; };
-		87BCBA302358E135000BCF46 /* TipSee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCBA292358E134000BCF46 /* TipSee.swift */; };
-		87BCBA312358E135000BCF46 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCBA2A2358E134000BCF46 /* BubbleView.swift */; };
-		87BCBA332358E135000BCF46 /* TipOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCBA2C2358E134000BCF46 /* TipOption.swift */; };
-		89CA7B364639908B5801FE89F65F56E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; platformFilter = ios; };
-		A93C2F45B504FE192CED0C5B091D343B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; platformFilter = ios; };
-		AD8BDECC2E0C0E3F2158D45C215704B6 /* TipSee-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BA11425D3AB1264CAF1F4A61320AC7FC /* TipSee-dummy.m */; };
-		E2971A1D3CBFC7E20E868830AFD7E5B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; platformFilter = ios; };
+		581A983CB0A52D7BBBFEDF0D39E29E32 /* UIViewController+Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C92827A2E0AB7181660A4AB182A6CF /* UIViewController+Exts.swift */; };
+		62985D2FA471F9B844E877E4FF548A8E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
+		715823152803B22A4B43DBB0DEA5B615 /* TipSee-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D2E0F12F0D6E0406C5316FA91C56E4 /* TipSee-dummy.m */; };
+		826C7064012EE097D781D30239E18521 /* TipSeeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E3049174CBFAF54DB8E40DEF957F83 /* TipSeeConfiguration.swift */; };
+		89CA7B364639908B5801FE89F65F56E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		94E46A579B9C3EA95502BD7244E92A83 /* TipOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15979130488D0CFCC5580B6AF8149F97 /* TipOption.swift */; };
+		ABAA9B08F99ACB182DA09609BE1612EA /* TipItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0901229C76D52E9214016B2486C5E2D9 /* TipItem.swift */; };
+		BA31C55146DB64D0DEA67FFEAD47E0B5 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A62821BD20C09BDE98F3AFDF4BDA0FC /* BubbleView.swift */; };
+		BBBCB944E6F4E8333FCCEDDDADC15B02 /* TipSeeManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8B44678DA288994920FACFE1440D6D /* TipSeeManagerProtocol.swift */; };
+		CA52BE5EB652C3AEF7A97F09C9ACA3FE /* TipSee+AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673367AD5712F8AC59DA0C2BA10CF48 /* TipSee+AttributedText.swift */; };
+		D1A92EC66211B84216E07ED480BB194C /* NSAttributedString+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FE3C91666B58BA738CE37F27B3EF6F /* NSAttributedString+Size.swift */; };
+		D2502BA9510A3D68D3AEDB2C528FC692 /* TipSee-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2033A9255A37A95FAFAD8ED7657C54B9 /* TipSee-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCCB03EED8110949A504716C1608AE66 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		E2971A1D3CBFC7E20E868830AFD7E5B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		E393ECC1FF14C7C1C032B7AD66E776C0 /* Pods-TipSee_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DBD25504554BF66CCAC2F595DACAC6D7 /* Pods-TipSee_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E8B2288C306331E5E8EC5F17F43AA529 /* Pods-TipSee_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F9BA814C61E91C4CA3226978A33901C9 /* Pods-TipSee_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F82900BC2369792B00FA2182 /* TipSeeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82900B9236978C000FA2182 /* TipSeeConfiguration.swift */; };
-		F82900BF236979FD00FA2182 /* TipSeeManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82900BE236979FD00FA2182 /* TipSeeManagerProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,45 +52,47 @@
 		0132041BA214CEC8DEE338EC63F04D0D /* Pods-TipSee_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TipSee_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		01E9EB9EBD140FC532C3BF80898CD25E /* Pods-TipSee_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TipSee_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		06826D4895B9EAE593AFB75CB2C65C6C /* Pods-TipSee_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TipSee_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		173AFD41CC0E09E35F6C9AC479AF6DFA /* Pods_TipSee_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TipSee_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		190B1FD472F39D6681F963042AB502B6 /* TipSee-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TipSee-umbrella.h"; sourceTree = "<group>"; };
+		0901229C76D52E9214016B2486C5E2D9 /* TipItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TipItem.swift; path = Sources/TipSee/TipItem.swift; sourceTree = "<group>"; };
+		09354549D03D2D0F3DA9FD74B80F5AC3 /* TipTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TipTarget.swift; path = Sources/TipSee/TipTarget.swift; sourceTree = "<group>"; };
+		0F8B44678DA288994920FACFE1440D6D /* TipSeeManagerProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TipSeeManagerProtocol.swift; path = Sources/TipSee/TipSeeManagerProtocol.swift; sourceTree = "<group>"; };
+		15979130488D0CFCC5580B6AF8149F97 /* TipOption.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TipOption.swift; path = Sources/TipSee/TipOption.swift; sourceTree = "<group>"; };
+		173AFD41CC0E09E35F6C9AC479AF6DFA /* Pods_TipSee_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TipSee_Tests.framework; path = "Pods-TipSee_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		17F318223960DC33CE414B3F3B22E96F /* TipSee.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TipSee.modulemap; sourceTree = "<group>"; };
 		19314A5A4FDCE8C62A83CE3C69FA35F8 /* Pods-TipSee_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TipSee_Example.release.xcconfig"; sourceTree = "<group>"; };
-		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		468E75C563334C2A3DFF29FB8D149EB7 /* TipSee-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TipSee-Info.plist"; sourceTree = "<group>"; };
+		1C3A72142BA7A9E38BA003E6FFF96147 /* TipSee.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = TipSee.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		2033A9255A37A95FAFAD8ED7657C54B9 /* TipSee-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TipSee-umbrella.h"; sourceTree = "<group>"; };
+		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		3A62821BD20C09BDE98F3AFDF4BDA0FC /* BubbleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BubbleView.swift; path = Sources/TipSee/BubbleView.swift; sourceTree = "<group>"; };
+		3FFEAF7241ED605F53BBCF3487A42BBF /* TipSee-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TipSee-Info.plist"; sourceTree = "<group>"; };
+		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		46FE3C91666B58BA738CE37F27B3EF6F /* NSAttributedString+Size.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+Size.swift"; path = "Sources/TipSee/NSAttributedString+Size.swift"; sourceTree = "<group>"; };
 		48D83B29FE53722A324DF93F8718463E /* Pods-TipSee_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TipSee_Example-Info.plist"; sourceTree = "<group>"; };
-		4FEBDA5BE2516FEA069B949E06CAF672 /* TipSee.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TipSee.modulemap; sourceTree = "<group>"; };
-		529FA6CF58D776D7EBB25B7510135F37 /* TipSee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TipSee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5321305E242A8AAA00649999 /* TipSeeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipSeeManager.swift; path = TipSee/Classes/TipSeeManager.swift; sourceTree = "<group>"; };
-		5366524D240C331200CC1370 /* TipSeeManager+AttributedText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TipSeeManager+AttributedText.swift"; path = "TipSee/Classes/TipSeeManager+AttributedText.swift"; sourceTree = "<group>"; };
-		53665255240CF01D00CC1370 /* NSAttributedString+Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+Size.swift"; path = "TipSee/Classes/NSAttributedString+Size.swift"; sourceTree = "<group>"; };
-		53665259240CFB1B00CC1370 /* TipSee+AttributedText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TipSee+AttributedText.swift"; path = "TipSee/Classes/TipSee+AttributedText.swift"; sourceTree = "<group>"; };
+		529FA6CF58D776D7EBB25B7510135F37 /* TipSee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TipSee.framework; path = TipSee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5673367AD5712F8AC59DA0C2BA10CF48 /* TipSee+AttributedText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "TipSee+AttributedText.swift"; path = "Sources/TipSee/TipSee+AttributedText.swift"; sourceTree = "<group>"; };
 		5A94111A9E6B1DB69A2D185626F66830 /* Pods-TipSee_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TipSee_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		5EE23CFDDAAA2CD7377C436667C93E7C /* TipSee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TipSee.release.xcconfig; sourceTree = "<group>"; };
 		626E30C2E78E6D73BC3500BE14D8B7ED /* Pods-TipSee_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TipSee_Example-dummy.m"; sourceTree = "<group>"; };
 		65B72A37A9440325C2E6B3FD25C4CEBA /* Pods-TipSee_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TipSee_Tests-Info.plist"; sourceTree = "<group>"; };
+		671479C2B73A9A1593BAFA8498FB1110 /* TipSeeManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TipSeeManager.swift; path = Sources/TipSee/TipSeeManager.swift; sourceTree = "<group>"; };
+		6AC140D9FE5964E4E546364B0EFF5A14 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		6FBBC960723076B4018860E14F26E557 /* Pods-TipSee_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TipSee_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		730ACFD2C6715FD3F414215C72929B5F /* Pods-TipSee_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TipSee_Tests-dummy.m"; sourceTree = "<group>"; };
-		7FEA2897CE8514F82F86F09129D3E2A4 /* TipSee.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = TipSee.podspec; sourceTree = "<group>"; tabWidth = 2; };
-		824695F5B234BB6895B604D17A54E05B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		87BCBA262358E134000BCF46 /* TipItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipItem.swift; path = TipSee/Classes/TipItem.swift; sourceTree = "<group>"; };
-		87BCBA272358E134000BCF46 /* UIViewController+Exts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Exts.swift"; path = "TipSee/Classes/UIViewController+Exts.swift"; sourceTree = "<group>"; };
-		87BCBA282358E134000BCF46 /* TipTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipTarget.swift; path = TipSee/Classes/TipTarget.swift; sourceTree = "<group>"; };
-		87BCBA292358E134000BCF46 /* TipSee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipSee.swift; path = TipSee/Classes/TipSee.swift; sourceTree = "<group>"; };
-		87BCBA2A2358E134000BCF46 /* BubbleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BubbleView.swift; path = TipSee/Classes/BubbleView.swift; sourceTree = "<group>"; };
-		87BCBA2C2358E134000BCF46 /* TipOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipOption.swift; path = TipSee/Classes/TipOption.swift; sourceTree = "<group>"; };
+		80C94932D03CA6217271086075A77484 /* TipSee-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TipSee-prefix.pch"; sourceTree = "<group>"; };
 		8C5F090058F39AF409B1B7271DE16DA6 /* Pods-TipSee_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TipSee_Tests.modulemap"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9EBC9032EA65168D14AD4F1854AF1E7B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		B74F37EB37FCF8678909507C0D90215E /* TipSee-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TipSee-prefix.pch"; sourceTree = "<group>"; };
-		BA11425D3AB1264CAF1F4A61320AC7FC /* TipSee-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TipSee-dummy.m"; sourceTree = "<group>"; };
-		BA78E796051FBFD1E611860120974443 /* Pods_TipSee_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TipSee_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		954436DC4103C6F6F95447698B80B049 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		99D2E0F12F0D6E0406C5316FA91C56E4 /* TipSee-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TipSee-dummy.m"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A2C92827A2E0AB7181660A4AB182A6CF /* UIViewController+Exts.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Exts.swift"; path = "Sources/TipSee/UIViewController+Exts.swift"; sourceTree = "<group>"; };
+		A3DF877C3A77D1CCB90E7ADF9A73BC39 /* TipSeeManager+AttributedText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "TipSeeManager+AttributedText.swift"; path = "Sources/TipSee/TipSeeManager+AttributedText.swift"; sourceTree = "<group>"; };
+		AF187EA30B14AE3B364279C0490CA61F /* TipSee.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TipSee.swift; path = Sources/TipSee/TipSee.swift; sourceTree = "<group>"; };
+		B1E3049174CBFAF54DB8E40DEF957F83 /* TipSeeConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TipSeeConfiguration.swift; path = Sources/TipSee/TipSeeConfiguration.swift; sourceTree = "<group>"; };
+		BA78E796051FBFD1E611860120974443 /* Pods_TipSee_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TipSee_Example.framework; path = "Pods-TipSee_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF6910CA6AA7CF3C57FEEE27DD7A9836 /* Pods-TipSee_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TipSee_Example-frameworks.sh"; sourceTree = "<group>"; };
 		CC25301929E1FC476073E56551658B62 /* Pods-TipSee_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TipSee_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		CDD70639225DEC1E4A178EDF2CBC823D /* Pods-TipSee_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TipSee_Example.modulemap"; sourceTree = "<group>"; };
+		D179906FC94180891226D1ECFD209A5D /* TipSee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TipSee.debug.xcconfig; sourceTree = "<group>"; };
 		DBD25504554BF66CCAC2F595DACAC6D7 /* Pods-TipSee_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TipSee_Tests-umbrella.h"; sourceTree = "<group>"; };
 		E38C0AAE960D13C00671CEE4F1641C0D /* Pods-TipSee_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TipSee_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F234E6D0525BE390545C842F6677A84E /* TipSee.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TipSee.xcconfig; sourceTree = "<group>"; };
-		F82900B9236978C000FA2182 /* TipSeeConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TipSeeConfiguration.swift; path = TipSee/Classes/TipSeeConfiguration.swift; sourceTree = "<group>"; };
-		F82900BE236979FD00FA2182 /* TipSeeManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TipSeeManagerProtocol.swift; path = TipSee/Classes/TipSeeManagerProtocol.swift; sourceTree = "<group>"; };
 		F9BA814C61E91C4CA3226978A33901C9 /* Pods-TipSee_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TipSee_Example-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,11 +113,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F965D0E01060A001C576612AD48639AA /* Frameworks */ = {
+		FE37EC08DE4FC3DC12923487CF50D167 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A93C2F45B504FE192CED0C5B091D343B /* Foundation.framework in Frameworks */,
+				DCCB03EED8110949A504716C1608AE66 /* Foundation.framework in Frameworks */,
+				62985D2FA471F9B844E877E4FF548A8E /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,15 +134,24 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		31E761DF52B64BBBE3B912ABCA7DB647 /* Support Files */ = {
+		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4FEBDA5BE2516FEA069B949E06CAF672 /* TipSee.modulemap */,
-				F234E6D0525BE390545C842F6677A84E /* TipSee.xcconfig */,
-				BA11425D3AB1264CAF1F4A61320AC7FC /* TipSee-dummy.m */,
-				468E75C563334C2A3DFF29FB8D149EB7 /* TipSee-Info.plist */,
-				B74F37EB37FCF8678909507C0D90215E /* TipSee-prefix.pch */,
-				190B1FD472F39D6681F963042AB502B6 /* TipSee-umbrella.h */,
+				E2983683FD097A93297E2F5D4E382B36 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		69048D00DB26C78D62482AC084FDC39A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				17F318223960DC33CE414B3F3B22E96F /* TipSee.modulemap */,
+				99D2E0F12F0D6E0406C5316FA91C56E4 /* TipSee-dummy.m */,
+				3FFEAF7241ED605F53BBCF3487A42BBF /* TipSee-Info.plist */,
+				80C94932D03CA6217271086075A77484 /* TipSee-prefix.pch */,
+				2033A9255A37A95FAFAD8ED7657C54B9 /* TipSee-umbrella.h */,
+				D179906FC94180891226D1ECFD209A5D /* TipSee.debug.xcconfig */,
+				5EE23CFDDAAA2CD7377C436667C93E7C /* TipSee.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/TipSee";
@@ -159,6 +172,28 @@
 			);
 			name = "Pods-TipSee_Example";
 			path = "Target Support Files/Pods-TipSee_Example";
+			sourceTree = "<group>";
+		};
+		A5B4925B8E449F0E167B51DDEE54CBB3 /* TipSee */ = {
+			isa = PBXGroup;
+			children = (
+				3A62821BD20C09BDE98F3AFDF4BDA0FC /* BubbleView.swift */,
+				46FE3C91666B58BA738CE37F27B3EF6F /* NSAttributedString+Size.swift */,
+				0901229C76D52E9214016B2486C5E2D9 /* TipItem.swift */,
+				15979130488D0CFCC5580B6AF8149F97 /* TipOption.swift */,
+				AF187EA30B14AE3B364279C0490CA61F /* TipSee.swift */,
+				5673367AD5712F8AC59DA0C2BA10CF48 /* TipSee+AttributedText.swift */,
+				B1E3049174CBFAF54DB8E40DEF957F83 /* TipSeeConfiguration.swift */,
+				671479C2B73A9A1593BAFA8498FB1110 /* TipSeeManager.swift */,
+				A3DF877C3A77D1CCB90E7ADF9A73BC39 /* TipSeeManager+AttributedText.swift */,
+				0F8B44678DA288994920FACFE1440D6D /* TipSeeManagerProtocol.swift */,
+				09354549D03D2D0F3DA9FD74B80F5AC3 /* TipTarget.swift */,
+				A2C92827A2E0AB7181660A4AB182A6CF /* UIViewController+Exts.swift */,
+				F9D0009CC6A07DB201D965E792A6071B /* Pod */,
+				69048D00DB26C78D62482AC084FDC39A /* Support Files */,
+			);
+			name = TipSee;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		ABABD3E1FC157F67DD9C146CDF0471FF /* Products */ = {
@@ -187,71 +222,42 @@
 			path = "Target Support Files/Pods-TipSee_Tests";
 			sourceTree = "<group>";
 		};
-		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		C90AC0A7B4863EB372EE1149AD3F279D /* TipSee */ = {
-			isa = PBXGroup;
-			children = (
-				87BCBA2A2358E134000BCF46 /* BubbleView.swift */,
-				53665255240CF01D00CC1370 /* NSAttributedString+Size.swift */,
-				87BCBA262358E134000BCF46 /* TipItem.swift */,
-				87BCBA2C2358E134000BCF46 /* TipOption.swift */,
-				5321305E242A8AAA00649999 /* TipSeeManager.swift */,
-				5366524D240C331200CC1370 /* TipSeeManager+AttributedText.swift */,
-				F82900BE236979FD00FA2182 /* TipSeeManagerProtocol.swift */,
-				87BCBA292358E134000BCF46 /* TipSee.swift */,
-				53665259240CFB1B00CC1370 /* TipSee+AttributedText.swift */,
-				F82900B9236978C000FA2182 /* TipSeeConfiguration.swift */,
-				87BCBA282358E134000BCF46 /* TipTarget.swift */,
-				87BCBA272358E134000BCF46 /* UIViewController+Exts.swift */,
-				DE9B9EE3A26E5CF452E8BCC787393BE0 /* Pod */,
-				31E761DF52B64BBBE3B912ABCA7DB647 /* Support Files */,
-			);
-			name = TipSee;
-			path = ../..;
-			sourceTree = "<group>";
-		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				E3F6F2F3133988070C18130BAA1BEB06 /* Development Pods */,
-				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				D27E3C2E2448AE8D3711369D4AFFE4D2 /* Development Pods */,
+				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
 				ABABD3E1FC157F67DD9C146CDF0471FF /* Products */,
 				14670659CEAFDD1ED3E4AA5C21078592 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+		D27E3C2E2448AE8D3711369D4AFFE4D2 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		DE9B9EE3A26E5CF452E8BCC787393BE0 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				824695F5B234BB6895B604D17A54E05B /* LICENSE */,
-				9EBC9032EA65168D14AD4F1854AF1E7B /* README.md */,
-				7FEA2897CE8514F82F86F09129D3E2A4 /* TipSee.podspec */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		E3F6F2F3133988070C18130BAA1BEB06 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C90AC0A7B4863EB372EE1149AD3F279D /* TipSee */,
+				A5B4925B8E449F0E167B51DDEE54CBB3 /* TipSee */,
 			);
 			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		E2983683FD097A93297E2F5D4E382B36 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */,
+				312B988EF117AE4DE76A268D970131FE /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		F9D0009CC6A07DB201D965E792A6071B /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				6AC140D9FE5964E4E546364B0EFF5A14 /* LICENSE */,
+				954436DC4103C6F6F95447698B80B049 /* README.md */,
+				1C3A72142BA7A9E38BA003E6FFF96147 /* TipSee.podspec */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,14 +271,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4003B2ECC24EB08B92A636ACC24AB0A7 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				48079BA504D63CCA5EDEA28AE24B183C /* TipSee-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		69C392E496952FE74C53EF05E37CE77E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -281,17 +279,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8F5F27E00DB702C70B19EA4905E56E9C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2502BA9510A3D68D3AEDB2C528FC692 /* TipSee-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		43C278BB5A94351600556A3CF760DC16 /* TipSee */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 28E3898A01EEEFA01223B13835337355 /* Build configuration list for PBXNativeTarget "TipSee" */;
+			buildConfigurationList = 6A7E019E8AA0773A3E0AEC629F123E8F /* Build configuration list for PBXNativeTarget "TipSee" */;
 			buildPhases = (
-				4003B2ECC24EB08B92A636ACC24AB0A7 /* Headers */,
-				2BC467E481A247A9926C365B19CC75AA /* Sources */,
-				F965D0E01060A001C576612AD48639AA /* Frameworks */,
-				E9378ADEE9E6D1A5B4290F47B07F20CC /* Resources */,
+				8F5F27E00DB702C70B19EA4905E56E9C /* Headers */,
+				38861D7B5CE6CCE9F25FA8BC5508C736 /* Sources */,
+				FE37EC08DE4FC3DC12923487CF50D167 /* Frameworks */,
+				4C0B1ACBB37AF3104FDC89045A703FD6 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -348,11 +354,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
-				TargetAttributes = {
-					B908D34FF2E893C3D472ABE0F48A8FA1 = {
-						LastSwiftMigration = 1130;
-					};
-				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -375,6 +376,13 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4C0B1ACBB37AF3104FDC89045A703FD6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A01DF8BFA054ED62A92D9FB9D73BEBEA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -389,33 +397,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E9378ADEE9E6D1A5B4290F47B07F20CC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2BC467E481A247A9926C365B19CC75AA /* Sources */ = {
+		38861D7B5CE6CCE9F25FA8BC5508C736 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5366525A240CFB1B00CC1370 /* TipSee+AttributedText.swift in Sources */,
-				5366524E240C331300CC1370 /* TipSeeManager+AttributedText.swift in Sources */,
-				53665256240CF01D00CC1370 /* NSAttributedString+Size.swift in Sources */,
-				87BCBA2E2358E135000BCF46 /* UIViewController+Exts.swift in Sources */,
-				87BCBA332358E135000BCF46 /* TipOption.swift in Sources */,
-				87BCBA302358E135000BCF46 /* TipSee.swift in Sources */,
-				87BCBA312358E135000BCF46 /* BubbleView.swift in Sources */,
-				F82900BC2369792B00FA2182 /* TipSeeConfiguration.swift in Sources */,
-				F82900BF236979FD00FA2182 /* TipSeeManagerProtocol.swift in Sources */,
-				53213060242A8AB500649999 /* TipSeeManager.swift in Sources */,
-				87BCBA2D2358E135000BCF46 /* TipItem.swift in Sources */,
-				87BCBA2F2358E135000BCF46 /* TipTarget.swift in Sources */,
-				AD8BDECC2E0C0E3F2158D45C215704B6 /* TipSee-dummy.m in Sources */,
+				BA31C55146DB64D0DEA67FFEAD47E0B5 /* BubbleView.swift in Sources */,
+				D1A92EC66211B84216E07ED480BB194C /* NSAttributedString+Size.swift in Sources */,
+				ABAA9B08F99ACB182DA09609BE1612EA /* TipItem.swift in Sources */,
+				94E46A579B9C3EA95502BD7244E92A83 /* TipOption.swift in Sources */,
+				CA52BE5EB652C3AEF7A97F09C9ACA3FE /* TipSee+AttributedText.swift in Sources */,
+				715823152803B22A4B43DBB0DEA5B615 /* TipSee-dummy.m in Sources */,
+				2576C6661EE0ADDE66DB6D4D168F4D5D /* TipSee.swift in Sources */,
+				826C7064012EE097D781D30239E18521 /* TipSeeConfiguration.swift in Sources */,
+				1077C3D6CAD24AF1A7F49B805071DF20 /* TipSeeManager+AttributedText.swift in Sources */,
+				25ECBD50A835821CF6A922F7E7D723C9 /* TipSeeManager.swift in Sources */,
+				BBBCB944E6F4E8333FCCEDDDADC15B02 /* TipSeeManagerProtocol.swift in Sources */,
+				0234E209F280B66B77C985757C70BD3B /* TipTarget.swift in Sources */,
+				581A983CB0A52D7BBBFEDF0D39E29E32 /* UIViewController+Exts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,48 +454,11 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		068C4ED7AE0E889CDE1E6FC8BA755474 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F234E6D0525BE390545C842F6677A84E /* TipSee.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/TipSee/TipSee-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/TipSee/TipSee-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/TipSee/TipSee.modulemap";
-				PRODUCT_MODULE_NAME = TipSee;
-				PRODUCT_NAME = TipSee;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		1723163FFDB0636DDA23BB40F99E0AD6 /* Release */ = {
+		172310F3C83744F83B835605A37B92B6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 19314A5A4FDCE8C62A83CE3C69FA35F8 /* Pods-TipSee_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -506,12 +470,8 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-TipSee_Example/Pods-TipSee_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-TipSee_Example/Pods-TipSee_Example.modulemap";
 				OTHER_LDFLAGS = "";
@@ -521,95 +481,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		32EFBE006822538259CF0660D45C0D3E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 06826D4895B9EAE593AFB75CB2C65C6C /* Pods-TipSee_Tests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-TipSee_Tests/Pods-TipSee_Tests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TipSee_Tests/Pods-TipSee_Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = NO;
-				TARGETED_DEVICE_FAMILY = 1;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		35E065B667D7A5CD819708C29DA4235B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0132041BA214CEC8DEE338EC63F04D0D /* Pods-TipSee_Example.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-TipSee_Example/Pods-TipSee_Example-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TipSee_Example/Pods-TipSee_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		7B832C8471C884D86201BD2A20D18CF2 /* Release */ = {
+		2283791741BADEA1AB351022BA9BF59C /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01E9EB9EBD140FC532C3BF80898CD25E /* Pods-TipSee_Tests.release.xcconfig */;
 			buildSettings = {
@@ -625,12 +504,8 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-TipSee_Tests/Pods-TipSee_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-TipSee_Tests/Pods-TipSee_Tests.modulemap";
 				OTHER_LDFLAGS = "";
@@ -640,15 +515,80 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = NO;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		B0087CB4594321EF41619F3181FE120E /* Release */ = {
+		4A6F8F626DC900F04DF220132BFC29AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0132041BA214CEC8DEE338EC63F04D0D /* Pods-TipSee_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-TipSee_Example/Pods-TipSee_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TipSee_Example/Pods-TipSee_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7A96522B1530B5EAD233E1C502E60F72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06826D4895B9EAE593AFB75CB2C65C6C /* Pods-TipSee_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-TipSee_Tests/Pods-TipSee_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TipSee_Tests/Pods-TipSee_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8F17DC3A99F99FBAD606CE6963886315 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -696,7 +636,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -708,7 +648,7 @@
 			};
 			name = Release;
 		};
-		B8BCBD0110C2658BB5DAADB9B7D97B92 /* Debug */ = {
+		916E0404255105F480DC4950B7625F7A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -759,7 +699,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -772,9 +712,9 @@
 			};
 			name = Debug;
 		};
-		E3697087FAE9085FF0BA4CACED98BA75 /* Release */ = {
+		9CCC6CFA522767BC5D41C119738D3555 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F234E6D0525BE390545C842F6677A84E /* TipSee.xcconfig */;
+			baseConfigurationReference = D179906FC94180891226D1ECFD209A5D /* TipSee.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -788,21 +728,47 @@
 				GCC_PREFIX_HEADER = "Target Support Files/TipSee/TipSee-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/TipSee/TipSee-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/TipSee/TipSee.modulemap";
 				PRODUCT_MODULE_NAME = TipSee;
 				PRODUCT_NAME = TipSee;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D55EFDFCAAE4E08F9063D29542DB1B38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EE23CFDDAAA2CD7377C436667C93E7C /* TipSee.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/TipSee/TipSee-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/TipSee/TipSee-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/TipSee/TipSee.modulemap";
+				PRODUCT_MODULE_NAME = TipSee;
+				PRODUCT_NAME = TipSee;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -815,17 +781,8 @@
 		0533F299EF46A6540DE8E0567DAA74CD /* Build configuration list for PBXNativeTarget "Pods-TipSee_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				32EFBE006822538259CF0660D45C0D3E /* Debug */,
-				7B832C8471C884D86201BD2A20D18CF2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		28E3898A01EEEFA01223B13835337355 /* Build configuration list for PBXNativeTarget "TipSee" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				068C4ED7AE0E889CDE1E6FC8BA755474 /* Debug */,
-				E3697087FAE9085FF0BA4CACED98BA75 /* Release */,
+				7A96522B1530B5EAD233E1C502E60F72 /* Debug */,
+				2283791741BADEA1AB351022BA9BF59C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -833,8 +790,8 @@
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B8BCBD0110C2658BB5DAADB9B7D97B92 /* Debug */,
-				B0087CB4594321EF41619F3181FE120E /* Release */,
+				916E0404255105F480DC4950B7625F7A /* Debug */,
+				8F17DC3A99F99FBAD606CE6963886315 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -842,8 +799,17 @@
 		4CC93608E1CD5C07DD8366B3044306F7 /* Build configuration list for PBXNativeTarget "Pods-TipSee_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				35E065B667D7A5CD819708C29DA4235B /* Debug */,
-				1723163FFDB0636DDA23BB40F99E0AD6 /* Release */,
+				4A6F8F626DC900F04DF220132BFC29AA /* Debug */,
+				172310F3C83744F83B835605A37B92B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A7E019E8AA0773A3E0AEC629F123E8F /* Build configuration list for PBXNativeTarget "TipSee" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CCC6CFA522767BC5D41C119738D3555 /* Debug */,
+				D55EFDFCAAE4E08F9063D29542DB1B38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

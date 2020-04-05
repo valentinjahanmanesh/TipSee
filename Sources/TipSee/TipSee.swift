@@ -5,6 +5,8 @@
 //  Copyright © 2019 Tap30. All rights reserved.
 //
 
+import UIKit
+
 public class TipSee: UIView, TipSeeManagerProtocol {
 	public typealias TapGesture = ((TipItem) -> Void)
 	/// properties

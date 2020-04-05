@@ -5,6 +5,8 @@
 //  Created by Farshad Jahanmanesh on 8/14/19.
 //
 
+import UIKit
+
 /// TipSee needs would interact with this type only
 public protocol TipTarget  {
 	var tipFrame : CGRect {get}

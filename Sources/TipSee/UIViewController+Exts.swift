@@ -5,6 +5,8 @@
 //  Created by Farshad Jahanmanesh on 8/14/19.
 //
 
+import UIKit
+
 extension UIViewController  {
 	var tipManager : TipSee? {
 		return self.view.window?.viewWithTag(9891248) as? TipSee

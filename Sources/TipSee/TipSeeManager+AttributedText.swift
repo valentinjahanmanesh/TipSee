@@ -5,6 +5,8 @@
 //  Created by Adam Law on 03/01/2020.
 //
 
+import UIKit
+
 extension TipSeeManager {
 
 	/// Adds a tip which targets a given object conforming to `TipTarget`

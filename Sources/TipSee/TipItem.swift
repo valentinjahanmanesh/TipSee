@@ -5,6 +5,8 @@
 //  Created by Farshad Jahanmanesh on 8/14/19.
 //
 
+import UIKit
+
 extension TipSee.TipItem {
 	public static func == (lhs: TipSee.TipItem, rhs: TipSee.TipItem) -> Bool {
 		return lhs.ID == rhs.ID
