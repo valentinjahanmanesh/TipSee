@@ -214,8 +214,10 @@ Once you have your Swift package set up, adding `TipSee` as a dependency is as e
 ```
 
 ## Author
-
 farshadjahanmanesh, farshadjahanmanesh@gmail.com
+
+## Contributors 
+ [lawmaestro](https://github.com/lawmaestro)
 
 ## License
 
