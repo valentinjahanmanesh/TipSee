@@ -179,7 +179,7 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 	
 	@objc
 	private func tapBubble(_ sender: UITapGestureRecognizer) {
-		guard let item = self.views.first(where:{item in item.ID == sender.identifier} )else {
+		guard let item = self.views.first(where: { item in item.ID == sender.identifier }) else {
 			assertionFailure("Here we have to have that bubble(tip) but we can not find it")
 			return
 		}
@@ -506,14 +506,22 @@ extension TipSee {
 	}
 }
 
-private var ExteraIDForTapGesture: String = ""
 private extension UITapGestureRecognizer {
+
+	private struct AssociatedKeys {
+		static var identifier = "identifier"
+	}
+
 	var identifier: String {
-		set {
-			ExteraIDForTapGesture = newValue
-		}
 		get {
-			return ExteraIDForTapGesture
+			return (objc_getAssociatedObject(self, &AssociatedKeys.identifier) as? String) ?? ""
+		} set {
+			objc_setAssociatedObject(
+				self,
+				&AssociatedKeys.identifier,
+				newValue,
+				.OBJC_ASSOCIATION_RETAIN_NONATOMIC
+			)
 		}
 	}
 }
