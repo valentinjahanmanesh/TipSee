@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.version          = '1.6.1'
+  s.version          = '1.6.2'
   s.name             = 'TipSee'
   s.module_name      = 'TipSee'
   s.summary          = 'A lightweight, highly customizable tip / hint library for Swift'
