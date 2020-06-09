@@ -53,20 +53,21 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 		return TipItem(ID: UUID().uuidString, pointTo: target, contentView: TipSee.createLabel(for: text, with: bubbleOption, defaultOptions: .default()) as UIView, bubbleOptions: bubbleOption)
 	}
 	
-	private final func clearAllViews(){
+	private final func clearAllViews() {
 		guard  !views.isEmpty else{return}
 		views.forEach { (item) in
 			self.dismiss(item: item)
 		}
 	}
 	
-	private final func store(tip : TipItem,bubble : BubbleView){
+	private final func store(tip : TipItem,bubble : BubbleView) {
 		self.latestTip = tip
 		self.views.append(tip)
 		self.bubbles.append(bubble)
 	}
 	
-	private final func deStore(index : Int){
+	private final func deStore(index : Int) {
+		self.latestTip = nil
 		if self.bubbles.count > index {
 			self.bubbles.remove(at: index)
 		}
