@@ -10,7 +10,7 @@ import UIKit
 public class TipSee: UIView, TipSeeManagerProtocol {
 	public typealias TapGesture = ((TipItem) -> Void)
 	/// properties
-	public var options: Options = Options.default(){
+	public var options: Options = Options.default() {
 		didSet{
 			if options.dimColor != oldValue.dimColor {
 				observeForDimColorChange()
@@ -20,19 +20,26 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 	
 	fileprivate var shadowLayerPath: CGPath?
 	fileprivate unowned let _window: UIWindow
-	fileprivate lazy var views : [TipItem] = {
+	fileprivate lazy var views: [TipItem] = {
 		attachToWindow()
 		return [TipItem]()
 	}()
 	
-	fileprivate lazy var bubbles = {return [BubbleView]()}()
-	fileprivate var latestTip : TipItem?
+	fileprivate lazy var bubbles = { return [BubbleView]() } ()
+	private var isBubbleAnimationInProgress = false
+	private var isHoleAnimationInProgress = false
+	private var isAnimationInProgress: Bool {
+		return isHoleAnimationInProgress || isBubbleAnimationInProgress
+	}
+
+	fileprivate var latestTip: TipItem?
 	
 	/// in a very odd situation, hit test called twice and we want to prevent multiple calls to our functions
-	fileprivate var touched : (view:UIView?,timeStamp: Date?)
+	fileprivate var touched: (view:UIView?, timeStamp: Date?)
+	
 
 	public var onBubbleTap: TapGesture?
-	public var onDimTap : TapGesture?
+	public var onDimTap: TapGesture?
 	public var onFinished: (() -> Void)?
 
 	/// shows a bubble which points to the given view
@@ -41,8 +48,8 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 	///   - item: the view that we want to point at and a text for bubble
 	///   - bubbleOption: custom options for bubble
 	/// - Returns: generated item that can use to access to views or dismiss action
-	@discardableResult public func show(for view : TipTarget,text string : String, with bubbleOption: Options.Bubble? = nil) -> TipItem {
-		let viewToShow = createItem(for: view,text: string, with: bubbleOption)
+	@discardableResult public func show(for view: TipTarget,text string: String, with bubbleOption: Options.Bubble? = nil) -> TipItem {
+		let viewToShow = createItem(for: view, text: string, with: bubbleOption)
 		return self.show(item: viewToShow, with: bubbleOption)
 	}
 	
@@ -60,13 +67,13 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 		}
 	}
 	
-	private final func store(tip : TipItem,bubble : BubbleView) {
+	private final func store(tip: TipItem, bubble: BubbleView) {
 		self.latestTip = tip
 		self.views.append(tip)
 		self.bubbles.append(bubble)
 	}
 	
-	private final func deStore(index : Int) {
+	private final func deStore(index: Int) {
 		self.latestTip = nil
 		if self.bubbles.count > index {
 			self.bubbles.remove(at: index)
@@ -83,7 +90,7 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 	///   - bubbleOption: custom options for bubble
 	/// - Returns: generated item that can use to access to views or dismiss action
 	@discardableResult public func show(item: TipItem, with bubbleOption: Options.Bubble? = nil) -> TipItem {
-		let tip = TipItem(ID: item.ID.isEmpty ? UUID().uuidString : item.ID, pointTo: item.pointTo, contentView: item.contentView as UIView, bubbleOptions:  bubbleOption ?? item.bubbleOptions)
+		let tip = TipItem(ID: item.ID.isEmpty ? UUID().uuidString: item.ID, pointTo: item.pointTo, contentView: item.contentView as UIView, bubbleOptions:  bubbleOption ?? item.bubbleOptions)
 		if options.bubbleLiveDuration == .untilNext {
 			clearAllViews()
 		}
@@ -186,8 +193,7 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 		}
 		if let customGesture = item.bubbleOptions?.onBubbleTap {
 			customGesture(item)
-		}
-		else {
+		} else {
 			onBubbleTap?(item)
 		}
 		let option = item.bubbleOptions ?? self.options.bubbles
@@ -220,7 +226,7 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 				bubble.transform = .identity
 				bubble.alpha = 1
 			}
-		}else {
+		} else {
 			self.animateBubble {
 				bubble.alpha = 1
 			}
@@ -236,17 +242,20 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 		
 		if [.top, .bottom].contains(arrowInstalledPosition) {
 			bubble.arrow = .init(position: .init(distance: .constant(center.x - bubble.frame.origin.x), edge: arrowInstalledPosition.toCGRectEdge()), size: .init(width: 10, height: 5))
-		}else {
+		} else {
 			bubble.arrow = .init(position: .init(distance: .mid(offset:0), edge: arrowInstalledPosition.toCGRectEdge()), size: .init(width: 10, height: 5))
 		}
 		
 		return bubble
 	}
 	
-	private func animateBubble(with:@escaping () -> Void) {
+	private func animateBubble(with: @escaping () -> Void) {
+		isBubbleAnimationInProgress = true
 		UIView.animate(withDuration: 0.5, delay: 0.2, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: .curveLinear, animations: {
 			with()
-		}, completion: nil)
+		}, completion: { [weak self] _ in
+			self?.isBubbleAnimationInProgress = false
+		})
 	}
 	
 	/// you can choose your prefered position for bubble to be shown, but sometimes there are no enough space there for showing that bubble, this will find a better place for bubbleView
@@ -365,37 +374,47 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 			
 			base.append( UIBezierPath(roundedRect: circleRect, cornerRadius: height / 2))
 			base.usesEvenOddFillRule = true
-			addAniamtionsForShowTime(on: fillLayer, old: base.cgPath, new: path,force: true)
+			addHoleAnimations(on: fillLayer, old: base.cgPath, new: path,force: true)
 			fillLayer.path = path
 			shadowLayerPath = path
 			return
 		}
 		
 		shadowPath.path = path
-		addAniamtionsForShowTime(on: shadowPath, old: shadowLayerPath!, new: path)
+		addHoleAnimations(on: shadowPath, old: shadowLayerPath!, new: path)
 		shadowLayerPath = path
 	}
 	
-	private final func addAniamtionsForShowTime(on layer : CAShapeLayer,old : CGPath,new : CGPath,force : Bool = false){
-		let pathAnimation = basicAnimation(key: "path", duration: self.options.holePositionChangeDuration)
+	private final func addHoleAnimations(on layer: CAShapeLayer, old: CGPath, new: CGPath, force: Bool = false) {
+		let pathAnimation = basicAnimation(
+			key: "path",
+			duration: self.options.holePositionChangeDuration,
+			completion: { [weak self] in
+				self?.isHoleAnimationInProgress = false
+			}
+		)
 		pathAnimation.fromValue = options.bubbleLiveDuration == .untilNext ? old : new
 		pathAnimation.toValue = new
 		layer.add(pathAnimation, forKey: nil)
+		isHoleAnimationInProgress = true
 		
-		
-		if  options.dimFading {
+		if options.dimFading {
 			let fillColorAnimation = basicAnimation(key: "fillColor", duration: 1)
 			fillColorAnimation.toValue = UIColor.clear.cgColor
-			fillColorAnimation.beginTime = CACurrentMediaTime()+2;
+			fillColorAnimation.beginTime = CACurrentMediaTime() + 2
 			layer.add(fillColorAnimation, forKey: nil)
 		}
 	}
-	private final func basicAnimation(key: String, duration: TimeInterval) -> CABasicAnimation {
+	private final func basicAnimation(key: String, duration: TimeInterval, completion: (() -> Void)? = nil ) -> CABasicAnimation {
 		
 		let animation = CABasicAnimation(keyPath: key)
 		animation.duration = duration
 		animation.isRemovedOnCompletion = false
 		animation.fillMode = CAMediaTimingFillMode.forwards
+
+	    CATransaction.setCompletionBlock { 
+    	    completion?()
+	    }
 		return animation
 	}
 }
@@ -470,6 +489,12 @@ extension TipSee {
 		guard shadowLayerPath != nil, let latestTip = latestTip  else {
 			return false
 		}
+		if isAnimationInProgress {
+			// Consume the touch and stop it going any further.
+			// This ensures tips can't be cycled through / dismissed mid animation which
+			// can otherwise lead to tips overlaying a mismatched target screen / layout.
+			return true
+		}
 		let targetArea = latestTip.pointTo
 		let insetTargetArea = targetArea.tipFrame.insetBy(dx: -4, dy: -4)
 
@@ -533,7 +558,7 @@ extension TipSee {
 	///
 	/// - Parameter item: tip item
 	/// - Returns: bubble view
-	final func defaultBubble(for item: TipSee.TipItem,defaultOptions options : TipSee.Options) -> BubbleView {
+	final func defaultBubble(for item: TipSee.TipItem, defaultOptions options: TipSee.Options) -> BubbleView {
 		
 		let bubble = BubbleView.default()
 		bubble.backColor = item.bubbleOptions?.backgroundColor ?? options.bubbles.backgroundColor
@@ -544,7 +569,7 @@ extension TipSee {
 	///
 	/// - Parameter text: label text
 	/// - Returns: generated label view
-	private static func createLabel(for text: String, with itemOptions: Options.Bubble?, defaultOptions options : TipSee.Options) -> UILabel {
+	private static func createLabel(for text: String, with itemOptions: Options.Bubble?, defaultOptions options: TipSee.Options) -> UILabel {
 		let label = UILabel()
 		label.text = text
 		label.textAlignment = .center
