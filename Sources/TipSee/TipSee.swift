@@ -197,7 +197,7 @@ public class TipSee: UIView, TipSeeManagerProtocol {
 			onBubbleTap?(item)
 		}
 		let option = item.bubbleOptions ?? self.options.bubbles
-		if option.finishOnBubbleTap {
+		if option.shouldFinishOnBubbleTap {
 			self.finish()
 		}
 	}
@@ -503,10 +503,9 @@ extension TipSee {
 
 		if isInTargetArea {
 			option.onTargetAreaTap?(latestTip)
-			if option.finishOnTargetAreaTap {
+			if option.shouldFinishOnTargetAreaTap {
 				self.finish()
 			}
-
 			if option.shouldPassTouchesThroughTargetArea == false {
 				// Consume the touch
 				return true
@@ -522,6 +521,9 @@ extension TipSee {
 
 		let isInDimmingArea = frame.contains(point)
 		if isInDimmingArea {
+			if option.shouldFinishOnDimmedAreaTap {
+				self.finish()
+			}
 			if options.shouldPassTouchesThroughDimmingArea == false {
 				// Consume the touch
 				return true

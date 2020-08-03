@@ -37,81 +37,84 @@ If a both a base and per tip configuration is set, then the per tip configuratio
 ```swift
 public struct Options: TipSeeConfiguration {
 
-    /// buble's options, bubbles will get the default if nothings set
-    public var bubbles: Bubble
+  /// buble's options, bubbles will get the default if nothings set
+  public var bubbles: Bubble
 
-    /// default dim's color, each bubble could changes this color(optionaly) by setting the bubble.dimBackgroundColor
-    public var dimColor: UIColor
+  /// default dim's color, each bubble could changes this color(optionaly) by setting the bubble.dimBackgroundColor
+  public var dimColor: UIColor
 
-    /// bubble's life cycle.
-    /// forEver : bubbles will be visible and needs to be remove manualy by caliing dismiss(item), you can show multiple bubbles same time
-    /// untilNext: everytime show() function is called, previous bubble(if exists) will remove and new one will present
-    public var bubbleLiveDuration: BubbleLiveDuration
+  /// bubble's life cycle.
+  /// forEver : bubbles will be visible and needs to be remove manualy by caliing dismiss(item), you can show multiple bubbles same time
+  /// untilNext: everytime show() function is called, previous bubble(if exists) will remove and new one will present
+  public var bubbleLiveDuration: BubbleLiveDuration
 
-    /// indicates the default bubble's position, each bubble can has specific position by setting bubble.position
-    public var defaultBubblePosition: BubblePosition
+  /// indicates the default bubble's position, each bubble can has specific position by setting bubble.position
+  public var defaultBubblePosition: BubblePosition
 
-    /// specifies the hole's(Target Area) radius
-    /// keepTargetAreaCornerRadius : uses target view layer corner radius
-    /// constantRadius(radius) : sets constant radius for all
-    /// defaultOrGreater(default) : sets a constant default value or uses the target view layer corner radius if it is greater that the default value
-    /// none : no corner rradius
-    public var holeRadius: HoleRadius
+  /// specifies the hole's(Target Area) radius
+  /// keepTargetAreaCornerRadius : uses target view layer corner radius
+  /// constantRadius(radius) : sets constant radius for all
+  /// defaultOrGreater(default) : sets a constant default value or uses the target view layer corner radius if it is greater that the default value
+  /// none : no corner rradius
+  public var holeRadius: HoleRadius
 
-    /// indicates bubble's margin
-    public var safeAreaInsets: UIEdgeInsets
+  /// indicates bubble's margin
+  public var safeAreaInsets: UIEdgeInsets
 
-    /// if true, dim will fade after one second
-    public var dimFading: Bool
+  /// if true, dim will fade after one second
+  public var dimFading: Bool
 
-    /// default is false. It true, touches on the dimmed area will be passed through
-    public var shouldPassTouchesThroughDimmingArea: Bool
+  /// default is false. It true, touches on the dimmed area will be passed through
+  public var shouldPassTouchesThroughDimmingArea: Bool
 
-    public var holePositionChangeDuration: TimeInterval
+  public var holePositionChangeDuration: TimeInterval
 }
 ```
 **Bubble Options**
 ```swift 
 public struct Bubble: TipSeeConfiguration {
   
-    /// bubble's background color
-    public var backgroundColor: UIColor
+  /// bubble's background color
+  public var backgroundColor: UIColor
 
-    /// preferred position for the bubble
-    public var position: BubblePosition?
+  /// preferred position for the bubble
+  public var position: BubblePosition?
 
-    /// text's font
-    public var font: UIFont
+  /// text's font
+  public var font: UIFont
 
-    /// text's color
-    public var foregroundColor: UIColor
+  /// text's color
+  public var foregroundColor: UIColor
 
-    /// text's alignment
-    public var textAlignments: NSTextAlignment
+  /// text's alignment
+  public var textAlignments: NSTextAlignment
 
-    /// bubble's appearance animation (bounce + fade-in)
-    public var hasAppearAnimation: Bool
+  /// bubble's appearance animation (bounce + fade-in)
+  public var hasAppearAnimation: Bool
 
-    /// distance between the bubble and the target view
-    public var padding: UIEdgeInsets = .zero
+  /// distance between the bubble and the target view
+  public var padding: UIEdgeInsets = .zero
 
-    /// Whole tip (dimming and bubble) should be dismissed when user taps on the target area.
-    public var finishOnTargetAreaTap: Bool
+  /// default is false. It true, touches on target area will be passed through
+  public var shouldPassTouchesThroughTargetArea: Bool
 
-    /// default is false. It true, touches on target area will be passed through
-    public var shouldPassTouchesThroughTargetArea: Bool
+  /// will execute when user taps on target area
+  public var onTargetAreaTap: TapGesture?
 
-    /// will execute when user taps on target area
-    public var onTargetAreaTap: TapGesture?
+  /// each tip could has a different dim color
+  public var changeDimColor: UIColor?
 
-    /// each tip could has a different dim color
-    public var changeDimColor: UIColor?
+  /// Whole tip (dimming and bubble) should be dismissed when user taps on the target area.
+  public var shouldFinishOnTargetAreaTap: Bool
 
-    /// Whole tip (dimming and bubble) should be dismissed when user taps on the bubble.
-    public var finishOnBubbleTap: Bool
+  /// Whole tip (dimming and bubble) should be dismissed when user taps on the surronding dimmed area.
+  public var shouldFinishOnDimmedAreaTap: Bool
 
-    /// will execute when user taps on the bubble
-    public var onBubbleTap: TapGesture?
+  /// Whole tip (dimming and bubble) should be dismissed when user taps on the bubble.
+  public var shouldFinishOnBubbleTap: Bool
+
+  /// will execute when user taps on the bubble
+  public var onBubbleTap: TapGesture?
 }
 ```
 
