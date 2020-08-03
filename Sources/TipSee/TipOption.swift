@@ -53,10 +53,7 @@ extension TipSee {
 			
 			/// distance between the bubble and the target view
 			public var padding: UIEdgeInsets = .zero
-			
-			/// Whole tip (dimming and bubble) should be dismissed when user taps on the target area.
-			public var finishOnTargetAreaTap: Bool
-			
+
 			/// default is false. It true, touches on target area will be passed through
 			public var shouldPassTouchesThroughTargetArea: Bool
 			
@@ -66,8 +63,14 @@ extension TipSee {
 			/// each tip could has a different dim color
 			public var changeDimColor: UIColor?
 
+			/// Whole tip (dimming and bubble) should be dismissed when user taps on the target area.
+			public var shouldFinishOnTargetAreaTap: Bool
+
+			/// Whole tip (dimming and bubble) should be dismissed when user taps on the surronding dimmed area.
+			public var shouldFinishOnDimmedAreaTap: Bool
+
 			/// Whole tip (dimming and bubble) should be dismissed when user taps on the bubble.
-			public var finishOnBubbleTap: Bool
+			public var shouldFinishOnBubbleTap: Bool
 
 			/// will execute when user taps on the bubble
 			public var onBubbleTap: TapGesture?
@@ -81,11 +84,12 @@ extension TipSee {
 					textAlignments: .center,
 					hasAppearAnimation: true,
 					padding: .init(top: 16, left: 16, bottom: 16, right: 16),
-					finishOnTargetAreaTap: false,
 					shouldPassTouchesThroughTargetArea: false,
 					onTargetAreaTap: nil,
 					changeDimColor: nil,
-					finishOnBubbleTap: false,
+					shouldFinishOnTargetAreaTap: false,
+					shouldFinishOnDimmedAreaTap: false,
+					shouldFinishOnBubbleTap: false,
 					onBubbleTap: nil)
 			}
 		}

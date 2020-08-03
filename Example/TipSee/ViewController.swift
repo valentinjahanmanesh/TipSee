@@ -174,7 +174,7 @@ class ViewController: UIViewController {
 					self?.rotationDegree = (degree * -1)
 				}
 				$0.backgroundColor = UIColor.black
-				$0.finishOnTargetAreaTap = true
+				$0.shouldFinishOnTargetAreaTap = true
 			}
 		)
 
